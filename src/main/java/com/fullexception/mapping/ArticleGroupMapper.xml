@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.ArticleGroupMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.ArticleGroup" >
+    <id column="article_group_id" property="articleGroupId" jdbcType="INTEGER" />
+    <result column="article_group_name" property="articleGroupName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    article_group_id, article_group_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from article_group
+    where article_group_id = #{articleGroupId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from article_group
+    where article_group_id = #{articleGroupId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.ArticleGroup" >
+    insert into article_group (article_group_id, article_group_name)
+    values (#{articleGroupId,jdbcType=INTEGER}, #{articleGroupName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.ArticleGroup" >
+    insert into article_group
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="articleGroupId != null" >
+        article_group_id,
+      </if>
+      <if test="articleGroupName != null" >
+        article_group_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="articleGroupId != null" >
+        #{articleGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="articleGroupName != null" >
+        #{articleGroupName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.ArticleGroup" >
+    update article_group
+    <set >
+      <if test="articleGroupName != null" >
+        article_group_name = #{articleGroupName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where article_group_id = #{articleGroupId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.ArticleGroup" >
+    update article_group
+    set article_group_name = #{articleGroupName,jdbcType=VARCHAR}
+    where article_group_id = #{articleGroupId,jdbcType=INTEGER}
+  </update>
+</mapper>

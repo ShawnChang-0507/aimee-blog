@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.BabyInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.BabyInfo" >
+    <id column="baby_info_id" property="babyInfoId" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="star_id" property="starId" jdbcType="INTEGER" />
+    <result column="baby_nick_name" property="babyNickName" jdbcType="VARCHAR" />
+    <result column="baby_sex" property="babySex" jdbcType="INTEGER" />
+    <result column="baby_birthday" property="babyBirthday" jdbcType="DATE" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.fullexception.entity.BabyInfo" extends="BaseResultMap" >
+    <result column="baby_introduction" property="babyIntroduction" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    baby_info_id, parent_id, star_id, baby_nick_name, baby_sex, baby_birthday
+  </sql>
+  <sql id="Blob_Column_List" >
+    baby_introduction
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from baby_info
+    where baby_info_id = #{babyInfoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from baby_info
+    where baby_info_id = #{babyInfoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.BabyInfo" >
+    insert into baby_info (baby_info_id, parent_id, star_id, 
+      baby_nick_name, baby_sex, baby_birthday, 
+      baby_introduction)
+    values (#{babyInfoId,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{starId,jdbcType=INTEGER}, 
+      #{babyNickName,jdbcType=VARCHAR}, #{babySex,jdbcType=INTEGER}, #{babyBirthday,jdbcType=DATE}, 
+      #{babyIntroduction,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.BabyInfo" >
+    insert into baby_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="babyInfoId != null" >
+        baby_info_id,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="starId != null" >
+        star_id,
+      </if>
+      <if test="babyNickName != null" >
+        baby_nick_name,
+      </if>
+      <if test="babySex != null" >
+        baby_sex,
+      </if>
+      <if test="babyBirthday != null" >
+        baby_birthday,
+      </if>
+      <if test="babyIntroduction != null" >
+        baby_introduction,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="babyInfoId != null" >
+        #{babyInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="starId != null" >
+        #{starId,jdbcType=INTEGER},
+      </if>
+      <if test="babyNickName != null" >
+        #{babyNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="babySex != null" >
+        #{babySex,jdbcType=INTEGER},
+      </if>
+      <if test="babyBirthday != null" >
+        #{babyBirthday,jdbcType=DATE},
+      </if>
+      <if test="babyIntroduction != null" >
+        #{babyIntroduction,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.BabyInfo" >
+    update baby_info
+    <set >
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="starId != null" >
+        star_id = #{starId,jdbcType=INTEGER},
+      </if>
+      <if test="babyNickName != null" >
+        baby_nick_name = #{babyNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="babySex != null" >
+        baby_sex = #{babySex,jdbcType=INTEGER},
+      </if>
+      <if test="babyBirthday != null" >
+        baby_birthday = #{babyBirthday,jdbcType=DATE},
+      </if>
+      <if test="babyIntroduction != null" >
+        baby_introduction = #{babyIntroduction,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where baby_info_id = #{babyInfoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.fullexception.entity.BabyInfo" >
+    update baby_info
+    set parent_id = #{parentId,jdbcType=INTEGER},
+      star_id = #{starId,jdbcType=INTEGER},
+      baby_nick_name = #{babyNickName,jdbcType=VARCHAR},
+      baby_sex = #{babySex,jdbcType=INTEGER},
+      baby_birthday = #{babyBirthday,jdbcType=DATE},
+      baby_introduction = #{babyIntroduction,jdbcType=LONGVARCHAR}
+    where baby_info_id = #{babyInfoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.BabyInfo" >
+    update baby_info
+    set parent_id = #{parentId,jdbcType=INTEGER},
+      star_id = #{starId,jdbcType=INTEGER},
+      baby_nick_name = #{babyNickName,jdbcType=VARCHAR},
+      baby_sex = #{babySex,jdbcType=INTEGER},
+      baby_birthday = #{babyBirthday,jdbcType=DATE}
+    where baby_info_id = #{babyInfoId,jdbcType=INTEGER}
+  </update>
+</mapper>
