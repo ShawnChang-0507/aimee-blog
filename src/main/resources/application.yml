@@ -2,7 +2,7 @@ server:
   servlet:
     session:
       timeout: 1800
-  port: 80        
+#  port: 8082       
 
 spring:
   datasource:
@@ -10,24 +10,21 @@ spring:
     password: pythoner
     url: jdbc:mysql://127.0.0.1:3306/alicia?useUnicode=true&characterEncoding=utf8
     driver-class-name: com.mysql.jdbc.Driver
-  cache:
-    type: ehcache
   thymeleaf:
-    mode: LEGACYHTML5
     cache: false
-  jackson:
-    time-zone: GMT+8
-    date-format: yyyy-MM-dd HH:mm:ss
-  profiles:
-    active: dev
-  servlet:
-    multipart:
-      max-file-size: 30Mb
-      max-request-size: 30Mb
+#    mode: LEGACYHTML5
+#  jackson:
+#    time-zone: GMT+8
+#    date-format: yyyy-MM-dd HH:mm:ss
+#  profiles:
+#    active: dev
+#  servlet:
+#    multipart:
+#      max-file-size: 30Mb
+#      max-request-size: 30Mb
     
-mybatis:
-  configuration:
-    map-underscore-to-camel-case: true
-  mapper-locations: com/fullexception/mapping/*Mapper.xml
-  typeAliasesPackage: com.fullexception.entity
-
+#mybatis:
+#  configuration:
+#    map-underscore-to-camel-case: true
+#  mapper-locations: classpath:com/**/*Mapper.xml
+#  typeAliasesPackage: com.fullexception.entity
