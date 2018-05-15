@@ -1,20 +1,17 @@
 package com.fullexception.mapper;
 
 import com.fullexception.entity.Star;
-import com.fullexception.entity.StarWithBLOBs;
 
 public interface StarMapper {
     int deleteByPrimaryKey(Integer starId);
 
-    int insert(StarWithBLOBs record);
+    int insert(Star record);
 
-    int insertSelective(StarWithBLOBs record);
+    int insertSelective(Star record);
 
-    StarWithBLOBs selectByPrimaryKey(Integer starId);
+    Star selectByPrimaryKey(Integer starId);
 
-    int updateByPrimaryKeySelective(StarWithBLOBs record);
-
-    int updateByPrimaryKeyWithBLOBs(StarWithBLOBs record);
+    int updateByPrimaryKeySelective(Star record);
 
     int updateByPrimaryKey(Star record);
 }

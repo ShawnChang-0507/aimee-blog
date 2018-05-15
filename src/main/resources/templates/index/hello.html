@@ -3,8 +3,32 @@
 		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <meta charset="UTF-8">
 <title>测试页面</title>
+<script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery-3.3.1.js}"></script>
+<script type="text/javascript" th:src="@{/js/star/star.js}"></script>
 </head>
 <body>
-	<h1>hello world</h1>
+	<table>
+		<tr>
+			<td>名称：</td>
+			<td><input id="starName"/></td>
+		</tr>
+		<tr>
+			<td>起始日期：</td>
+			<td><input id="starStartTime"/></td>
+		</tr>
+		<tr>
+			<td>结束日期：</td>
+			<td><input id="starEndTime"/></td>
+		</tr>
+		<tr>
+			<td>性格：</td>
+			<td><input id="starCharacter"/></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><button type="button" id="submitStar">提交</button></td>
+		</tr>
+	</table>
 </body>
 </html>

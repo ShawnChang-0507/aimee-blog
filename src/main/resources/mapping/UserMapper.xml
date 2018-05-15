@@ -13,11 +13,6 @@
   <sql id="Base_Column_List" >
     user_id, star_id, login_name, login_password, create_time, nick_name, user_state
   </sql>
-  <select id="getAllUser" resultMapp="BaseResultMap">
-  	select 
-    <include refid="Base_Column_List" />
-    from user
-  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

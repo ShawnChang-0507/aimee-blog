@@ -6,22 +6,15 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="start_time" property="startTime" jdbcType="VARCHAR" />
     <result column="end_time" property="endTime" jdbcType="VARCHAR" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.fullexception.entity.StarWithBLOBs" extends="BaseResultMap" >
-    <result column="star_fortune" property="starFortune" jdbcType="LONGVARCHAR" />
-    <result column="star_character" property="starCharacter" jdbcType="LONGVARCHAR" />
+    <result column="star_fortune" property="starFortune" jdbcType="VARCHAR" />
+    <result column="star_character" property="starCharacter" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    star_id, name, start_time, end_time
+    star_id, name, start_time, end_time, star_fortune, star_character
   </sql>
-  <sql id="Blob_Column_List" >
-    star_fortune, star_character
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from star
     where star_id = #{starId,jdbcType=INTEGER}
   </select>
@@ -29,15 +22,15 @@
     delete from star
     where star_id = #{starId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.fullexception.entity.StarWithBLOBs" >
+  <insert id="insert" parameterType="com.fullexception.entity.Star" >
     insert into star (star_id, name, start_time, 
       end_time, star_fortune, star_character
       )
     values (#{starId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{startTime,jdbcType=VARCHAR}, 
-      #{endTime,jdbcType=VARCHAR}, #{starFortune,jdbcType=LONGVARCHAR}, #{starCharacter,jdbcType=LONGVARCHAR}
+      #{endTime,jdbcType=VARCHAR}, #{starFortune,jdbcType=VARCHAR}, #{starCharacter,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.fullexception.entity.StarWithBLOBs" >
+  <insert id="insertSelective" parameterType="com.fullexception.entity.Star" >
     insert into star
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="starId != null" >
@@ -73,14 +66,14 @@
         #{endTime,jdbcType=VARCHAR},
       </if>
       <if test="starFortune != null" >
-        #{starFortune,jdbcType=LONGVARCHAR},
+        #{starFortune,jdbcType=VARCHAR},
       </if>
       <if test="starCharacter != null" >
-        #{starCharacter,jdbcType=LONGVARCHAR},
+        #{starCharacter,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.StarWithBLOBs" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Star" >
     update star
     <set >
       <if test="name != null" >
@@ -93,28 +86,21 @@
         end_time = #{endTime,jdbcType=VARCHAR},
       </if>
       <if test="starFortune != null" >
-        star_fortune = #{starFortune,jdbcType=LONGVARCHAR},
+        star_fortune = #{starFortune,jdbcType=VARCHAR},
       </if>
       <if test="starCharacter != null" >
-        star_character = #{starCharacter,jdbcType=LONGVARCHAR},
+        star_character = #{starCharacter,jdbcType=VARCHAR},
       </if>
     </set>
-    where star_id = #{starId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.fullexception.entity.StarWithBLOBs" >
-    update star
-    set name = #{name,jdbcType=VARCHAR},
-      start_time = #{startTime,jdbcType=VARCHAR},
-      end_time = #{endTime,jdbcType=VARCHAR},
-      star_fortune = #{starFortune,jdbcType=LONGVARCHAR},
-      star_character = #{starCharacter,jdbcType=LONGVARCHAR}
     where star_id = #{starId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Star" >
     update star
     set name = #{name,jdbcType=VARCHAR},
       start_time = #{startTime,jdbcType=VARCHAR},
-      end_time = #{endTime,jdbcType=VARCHAR}
+      end_time = #{endTime,jdbcType=VARCHAR},
+      star_fortune = #{starFortune,jdbcType=VARCHAR},
+      star_character = #{starCharacter,jdbcType=VARCHAR}
     where star_id = #{starId,jdbcType=INTEGER}
   </update>
 </mapper>
