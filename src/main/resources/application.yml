@@ -28,3 +28,6 @@ spring:
 #    map-underscore-to-camel-case: true
 #  mapper-locations: classpath:com/**/*Mapper.xml
 #  typeAliasesPackage: com.fullexception.entity
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.fullexception.entity
