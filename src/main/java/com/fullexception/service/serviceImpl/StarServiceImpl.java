@@ -15,8 +15,12 @@ public class StarServiceImpl implements StarService {
 	
 	@Override
 	public void insertStar(Star star) {
-		// TODO Auto-generated method stub
 		starMapper.insert(star);
+	}
+
+	@Override
+	public Star getStarById(int starId) {
+		return starMapper.selectByPrimaryKey(starId);
 	}
 
 }

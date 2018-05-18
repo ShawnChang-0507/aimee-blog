@@ -17,10 +17,16 @@ public class StarController {
 	private StarService starService;
 	
 	@PostMapping("/insert")
-	@ResponseBody
+	@ResponseBody	//ajax调用的方法需要配置此注解
 	public Star getStar(Star star){
 		starService.insertStar(star);
 		return star;
 	}
 	
+	@PostMapping("/star")
+	@ResponseBody
+	public Star getStarById(int starId){
+		Star star = starService.getStarById(starId);
+		return star;
+	}
 }
