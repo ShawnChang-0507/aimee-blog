@@ -12,6 +12,8 @@ drop table if exists baby_img;
 
 drop table if exists baby_info;
 
+drop table if exists chatting_record;
+
 drop table if exists friend;
 
 drop table if exists friend_group;
@@ -133,6 +135,20 @@ create table baby_info
    baby_birthday        date,
    baby_introduction    text,
    primary key (baby_info_id)
+);
+
+/*==============================================================*/
+/* Table: chatting_record                                       */
+/*==============================================================*/
+create table chatting_record
+(
+   chatting_record_id   int not null auto_increment,
+   send_user_id         int,
+   receive_user_id      int,
+   chatting_record_content varchar(200),
+   send_time            datetime,
+   read_flag            bit,
+   primary key (chatting_record_id)
 );
 
 /*==============================================================*/
@@ -376,6 +392,12 @@ alter table baby_info add constraint FK_Reference_18 foreign key (parent_id)
 
 alter table baby_info add constraint FK_Reference_20 foreign key (star_id)
       references star (star_id) on delete restrict on update restrict;
+
+alter table chatting_record add constraint FK_Reference_35 foreign key (send_user_id)
+      references user (user_id) on delete restrict on update restrict;
+
+alter table chatting_record add constraint FK_Reference_36 foreign key (receive_user_id)
+      references user (user_id) on delete restrict on update restrict;
 
 alter table friend add constraint FK_Reference_32 foreign key (friend_group_id)
       references friend_group (friend_group_id) on delete restrict on update restrict;
