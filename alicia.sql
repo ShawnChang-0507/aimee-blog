@@ -1,5 +1,7 @@
 drop table if exists article;
 
+drop table if exists article_assist;
+
 drop table if exists article_comment;
 
 drop table if exists article_group;
@@ -32,6 +34,8 @@ drop table if exists photo_album_group;
 
 drop table if exists say;
 
+drop table if exists say_assist;
+
 drop table if exists say_comment;
 
 drop table if exists say_img;
@@ -61,7 +65,20 @@ create table article
    create_date          date,
    weather              varchar(20),
    article_state        int,
+   public_or_private    int,
    primary key (article_id)
+);
+
+/*==============================================================*/
+/* Table: article_assist                                        */
+/*==============================================================*/
+create table article_assist
+(
+   article_assist       int not null auto_increment,
+   article_id           int,
+   user_id              int,
+   create_date          datetime,
+   primary key (article_assist)
 );
 
 /*==============================================================*/
@@ -268,6 +285,18 @@ create table say
 );
 
 /*==============================================================*/
+/* Table: say_assist                                            */
+/*==============================================================*/
+create table say_assist
+(
+   say_assist_id        int not null auto_increment,
+   say_id               int,
+   user_id              int,
+   create_date          datetime,
+   primary key (say_assist_id)
+);
+
+/*==============================================================*/
 /* Table: say_comment                                           */
 /*==============================================================*/
 create table say_comment
@@ -327,6 +356,7 @@ create table user
    create_time          date,
    nick_name            varchar(20),
    user_state           int,
+   public_or_private    int,
    primary key (user_id)
 );
 
@@ -365,6 +395,12 @@ alter table article add constraint FK_Reference_26 foreign key (source_id)
 
 alter table article add constraint FK_Reference_33 foreign key (article_group_id)
       references article_group (article_group_id) on delete restrict on update restrict;
+
+alter table article_assist add constraint FK_Reference_37 foreign key (article_id)
+      references article (article_id) on delete restrict on update restrict;
+
+alter table article_assist add constraint FK_Reference_38 foreign key (user_id)
+      references user (user_id) on delete restrict on update restrict;
 
 alter table article_comment add constraint FK_Reference_23 foreign key (article_id)
       references article (article_id) on delete restrict on update restrict;
@@ -427,6 +463,12 @@ alter table say add constraint FK_Reference_25 foreign key (source_id)
       references source (source_id) on delete restrict on update restrict;
 
 alter table say add constraint FK_Reference_7 foreign key (user_id)
+      references user (user_id) on delete restrict on update restrict;
+
+alter table say_assist add constraint FK_Reference_39 foreign key (say_id)
+      references say (say_id) on delete restrict on update restrict;
+
+alter table say_assist add constraint FK_Reference_40 foreign key (user_id)
       references user (user_id) on delete restrict on update restrict;
 
 alter table say_comment add constraint FK_Reference_21 foreign key (say_id)
