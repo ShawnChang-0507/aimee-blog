@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.ChattingRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.ChattingRecord" >
+    <id column="chatting_record_id" property="chattingRecordId" jdbcType="INTEGER" />
+    <result column="send_user_id" property="sendUserId" jdbcType="INTEGER" />
+    <result column="receive_user_id" property="receiveUserId" jdbcType="INTEGER" />
+    <result column="chatting_record_content" property="chattingRecordContent" jdbcType="VARCHAR" />
+    <result column="send_time" property="sendTime" jdbcType="TIMESTAMP" />
+    <result column="read_flag" property="readFlag" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    chatting_record_id, send_user_id, receive_user_id, chatting_record_content, send_time, 
+    read_flag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from chatting_record
+    where chatting_record_id = #{chattingRecordId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from chatting_record
+    where chatting_record_id = #{chattingRecordId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.ChattingRecord" >
+    insert into chatting_record (chatting_record_id, send_user_id, receive_user_id, 
+      chatting_record_content, send_time, read_flag
+      )
+    values (#{chattingRecordId,jdbcType=INTEGER}, #{sendUserId,jdbcType=INTEGER}, #{receiveUserId,jdbcType=INTEGER}, 
+      #{chattingRecordContent,jdbcType=VARCHAR}, #{sendTime,jdbcType=TIMESTAMP}, #{readFlag,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.ChattingRecord" >
+    insert into chatting_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="chattingRecordId != null" >
+        chatting_record_id,
+      </if>
+      <if test="sendUserId != null" >
+        send_user_id,
+      </if>
+      <if test="receiveUserId != null" >
+        receive_user_id,
+      </if>
+      <if test="chattingRecordContent != null" >
+        chatting_record_content,
+      </if>
+      <if test="sendTime != null" >
+        send_time,
+      </if>
+      <if test="readFlag != null" >
+        read_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="chattingRecordId != null" >
+        #{chattingRecordId,jdbcType=INTEGER},
+      </if>
+      <if test="sendUserId != null" >
+        #{sendUserId,jdbcType=INTEGER},
+      </if>
+      <if test="receiveUserId != null" >
+        #{receiveUserId,jdbcType=INTEGER},
+      </if>
+      <if test="chattingRecordContent != null" >
+        #{chattingRecordContent,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null" >
+        #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="readFlag != null" >
+        #{readFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.ChattingRecord" >
+    update chatting_record
+    <set >
+      <if test="sendUserId != null" >
+        send_user_id = #{sendUserId,jdbcType=INTEGER},
+      </if>
+      <if test="receiveUserId != null" >
+        receive_user_id = #{receiveUserId,jdbcType=INTEGER},
+      </if>
+      <if test="chattingRecordContent != null" >
+        chatting_record_content = #{chattingRecordContent,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null" >
+        send_time = #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="readFlag != null" >
+        read_flag = #{readFlag,jdbcType=BIT},
+      </if>
+    </set>
+    where chatting_record_id = #{chattingRecordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.ChattingRecord" >
+    update chatting_record
+    set send_user_id = #{sendUserId,jdbcType=INTEGER},
+      receive_user_id = #{receiveUserId,jdbcType=INTEGER},
+      chatting_record_content = #{chattingRecordContent,jdbcType=VARCHAR},
+      send_time = #{sendTime,jdbcType=TIMESTAMP},
+      read_flag = #{readFlag,jdbcType=BIT}
+    where chatting_record_id = #{chattingRecordId,jdbcType=INTEGER}
+  </update>
+</mapper>

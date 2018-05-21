@@ -11,13 +11,14 @@
     <result column="create_date" property="createDate" jdbcType="DATE" />
     <result column="weather" property="weather" jdbcType="VARCHAR" />
     <result column="article_state" property="articleState" jdbcType="INTEGER" />
+    <result column="public_or_private" property="publicOrPrivate" jdbcType="INTEGER" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.fullexception.entity.Article" extends="BaseResultMap" >
     <result column="article_content" property="articleContent" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     article_id, host_id, source_id, article_group_id, parent_article_id, article_title, 
-    create_date, weather, article_state
+    create_date, weather, article_state, public_or_private
   </sql>
   <sql id="Blob_Column_List" >
     article_content
@@ -38,11 +39,11 @@
     insert into article (article_id, host_id, source_id, 
       article_group_id, parent_article_id, article_title, 
       create_date, weather, article_state, 
-      article_content)
+      public_or_private, article_content)
     values (#{articleId,jdbcType=INTEGER}, #{hostId,jdbcType=INTEGER}, #{sourceId,jdbcType=INTEGER}, 
       #{articleGroupId,jdbcType=INTEGER}, #{parentArticleId,jdbcType=INTEGER}, #{articleTitle,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=DATE}, #{weather,jdbcType=VARCHAR}, #{articleState,jdbcType=INTEGER}, 
-      #{articleContent,jdbcType=LONGVARCHAR})
+      #{publicOrPrivate,jdbcType=INTEGER}, #{articleContent,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.fullexception.entity.Article" >
     insert into article
@@ -73,6 +74,9 @@
       </if>
       <if test="articleState != null" >
         article_state,
+      </if>
+      <if test="publicOrPrivate != null" >
+        public_or_private,
       </if>
       <if test="articleContent != null" >
         article_content,
@@ -106,6 +110,9 @@
       <if test="articleState != null" >
         #{articleState,jdbcType=INTEGER},
       </if>
+      <if test="publicOrPrivate != null" >
+        #{publicOrPrivate,jdbcType=INTEGER},
+      </if>
       <if test="articleContent != null" >
         #{articleContent,jdbcType=LONGVARCHAR},
       </if>
@@ -138,6 +145,9 @@
       <if test="articleState != null" >
         article_state = #{articleState,jdbcType=INTEGER},
       </if>
+      <if test="publicOrPrivate != null" >
+        public_or_private = #{publicOrPrivate,jdbcType=INTEGER},
+      </if>
       <if test="articleContent != null" >
         article_content = #{articleContent,jdbcType=LONGVARCHAR},
       </if>
@@ -154,6 +164,7 @@
       create_date = #{createDate,jdbcType=DATE},
       weather = #{weather,jdbcType=VARCHAR},
       article_state = #{articleState,jdbcType=INTEGER},
+      public_or_private = #{publicOrPrivate,jdbcType=INTEGER},
       article_content = #{articleContent,jdbcType=LONGVARCHAR}
     where article_id = #{articleId,jdbcType=INTEGER}
   </update>
@@ -166,7 +177,8 @@
       article_title = #{articleTitle,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=DATE},
       weather = #{weather,jdbcType=VARCHAR},
-      article_state = #{articleState,jdbcType=INTEGER}
+      article_state = #{articleState,jdbcType=INTEGER},
+      public_or_private = #{publicOrPrivate,jdbcType=INTEGER}
     where article_id = #{articleId,jdbcType=INTEGER}
   </update>
 </mapper>

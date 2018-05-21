@@ -17,6 +17,8 @@ public class User {
 
     private Integer userState;
 
+    private Integer publicOrPrivate;
+
     public Integer getUserId() {
         return userId;
     }
@@ -71,5 +73,13 @@ public class User {
 
     public void setUserState(Integer userState) {
         this.userState = userState;
+    }
+
+    public Integer getPublicOrPrivate() {
+        return publicOrPrivate;
+    }
+
+    public void setPublicOrPrivate(Integer publicOrPrivate) {
+        this.publicOrPrivate = publicOrPrivate;
     }
 }

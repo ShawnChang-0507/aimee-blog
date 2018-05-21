@@ -21,6 +21,8 @@ public class Article {
 
     private Integer articleState;
 
+    private Integer publicOrPrivate;
+
     private String articleContent;
 
     public Integer getArticleId() {
@@ -93,6 +95,14 @@ public class Article {
 
     public void setArticleState(Integer articleState) {
         this.articleState = articleState;
+    }
+
+    public Integer getPublicOrPrivate() {
+        return publicOrPrivate;
+    }
+
+    public void setPublicOrPrivate(Integer publicOrPrivate) {
+        this.publicOrPrivate = publicOrPrivate;
     }
 
     public String getArticleContent() {
