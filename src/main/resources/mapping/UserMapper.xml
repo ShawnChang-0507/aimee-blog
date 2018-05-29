@@ -12,16 +12,28 @@
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="second_title" property="secondTitle" jdbcType="VARCHAR" />
     <result column="public_or_private" property="publicOrPrivate" jdbcType="INTEGER" />
+    <collection property="infos" ofType="com.fullexception.entity.Info">
+    	<id column="info_id" property="infoId" javaType="java.lang.Integer"/>
+    	<result column="user_id" property="userId" javaType="java.lang.Integer"/>
+    	<result column="real_name" property="realName" javaType="java.lang.String"/>
+    	<result column="sex" property="sex" javaType="java.lang.Integer"/>
+    	<result column="birthday" property="birthday" javaType="java.util.Date"/>
+    	<result column="address" property="address" javaType="java.lang.String"/>
+    	<result column="mail" property="mail" javaType="java.lang.String"/>
+    	<result column="qq" property="qq" javaType="java.lang.String"/>
+    	<result column="wechat_url" property="wechatUrl" javaType="java.lang.String"/>
+    	<result column="introduce" property="introduce" javaType="java.lang.String"/>
+    	<result column="telphone" property="telphone" javaType="java.lang.String"/>
+    </collection>
   </resultMap>
   <sql id="Base_Column_List" >
     user_id, star_id, login_name, login_password, create_time, nick_name, user_state, 
     title, second_title, public_or_private
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from user
-    where user_id = #{userId,jdbcType=INTEGER}
+    select * from user
+    left join info on info.user_id=user.user_id
+    where user.user_id = #{userId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from user
