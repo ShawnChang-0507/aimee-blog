@@ -15,6 +15,8 @@ public class Article {
 
     private String articleTitle;
 
+    private String articleContent;
+
     private Date createDate;
 
     private String weather;
@@ -22,8 +24,6 @@ public class Article {
     private Integer articleState;
 
     private Integer publicOrPrivate;
-
-    private String articleContent;
 
     public Integer getArticleId() {
         return articleId;
@@ -73,6 +73,14 @@ public class Article {
         this.articleTitle = articleTitle == null ? null : articleTitle.trim();
     }
 
+    public String getArticleContent() {
+        return articleContent;
+    }
+
+    public void setArticleContent(String articleContent) {
+        this.articleContent = articleContent == null ? null : articleContent.trim();
+    }
+
     public Date getCreateDate() {
         return createDate;
     }
@@ -103,13 +111,5 @@ public class Article {
 
     public void setPublicOrPrivate(Integer publicOrPrivate) {
         this.publicOrPrivate = publicOrPrivate;
-    }
-
-    public String getArticleContent() {
-        return articleContent;
-    }
-
-    public void setArticleContent(String articleContent) {
-        this.articleContent = articleContent == null ? null : articleContent.trim();
     }
 }

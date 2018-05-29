@@ -13,7 +13,5 @@ public interface InfoMapper {
 
     int updateByPrimaryKeySelective(Info record);
 
-    int updateByPrimaryKeyWithBLOBs(Info record);
-
     int updateByPrimaryKey(Info record);
 }

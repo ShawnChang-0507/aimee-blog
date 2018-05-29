@@ -13,7 +13,5 @@ public interface SayMapper {
 
     int updateByPrimaryKeySelective(Say record);
 
-    int updateByPrimaryKeyWithBLOBs(Say record);
-
     int updateByPrimaryKey(Say record);
 }

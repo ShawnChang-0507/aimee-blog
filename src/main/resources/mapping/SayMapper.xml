@@ -7,26 +7,19 @@
     <result column="source_id" property="sourceId" jdbcType="INTEGER" />
     <result column="parent_id" property="parentId" jdbcType="INTEGER" />
     <result column="say_name" property="sayName" jdbcType="VARCHAR" />
+    <result column="say_content" property="sayContent" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="DATE" />
     <result column="say_position" property="sayPosition" jdbcType="VARCHAR" />
     <result column="say_weather" property="sayWeather" jdbcType="VARCHAR" />
     <result column="say_state" property="sayState" jdbcType="INTEGER" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.fullexception.entity.Say" extends="BaseResultMap" >
-    <result column="say_content" property="sayContent" jdbcType="LONGVARCHAR" />
-  </resultMap>
   <sql id="Base_Column_List" >
-    say_id, user_id, source_id, parent_id, say_name, create_date, say_position, say_weather, 
-    say_state
+    say_id, user_id, source_id, parent_id, say_name, say_content, create_date, say_position, 
+    say_weather, say_state
   </sql>
-  <sql id="Blob_Column_List" >
-    say_content
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from say
     where say_id = #{sayId,jdbcType=INTEGER}
   </select>
@@ -36,13 +29,13 @@
   </delete>
   <insert id="insert" parameterType="com.fullexception.entity.Say" >
     insert into say (say_id, user_id, source_id, 
-      parent_id, say_name, create_date, 
-      say_position, say_weather, say_state, 
-      say_content)
+      parent_id, say_name, say_content, 
+      create_date, say_position, say_weather, 
+      say_state)
     values (#{sayId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{sourceId,jdbcType=INTEGER}, 
-      #{parentId,jdbcType=INTEGER}, #{sayName,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
-      #{sayPosition,jdbcType=VARCHAR}, #{sayWeather,jdbcType=VARCHAR}, #{sayState,jdbcType=INTEGER}, 
-      #{sayContent,jdbcType=LONGVARCHAR})
+      #{parentId,jdbcType=INTEGER}, #{sayName,jdbcType=VARCHAR}, #{sayContent,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=DATE}, #{sayPosition,jdbcType=VARCHAR}, #{sayWeather,jdbcType=VARCHAR}, 
+      #{sayState,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.fullexception.entity.Say" >
     insert into say
@@ -62,6 +55,9 @@
       <if test="sayName != null" >
         say_name,
       </if>
+      <if test="sayContent != null" >
+        say_content,
+      </if>
       <if test="createDate != null" >
         create_date,
       </if>
@@ -73,9 +69,6 @@
       </if>
       <if test="sayState != null" >
         say_state,
-      </if>
-      <if test="sayContent != null" >
-        say_content,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -94,6 +87,9 @@
       <if test="sayName != null" >
         #{sayName,jdbcType=VARCHAR},
       </if>
+      <if test="sayContent != null" >
+        #{sayContent,jdbcType=VARCHAR},
+      </if>
       <if test="createDate != null" >
         #{createDate,jdbcType=DATE},
       </if>
@@ -105,9 +101,6 @@
       </if>
       <if test="sayState != null" >
         #{sayState,jdbcType=INTEGER},
-      </if>
-      <if test="sayContent != null" >
-        #{sayContent,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -126,6 +119,9 @@
       <if test="sayName != null" >
         say_name = #{sayName,jdbcType=VARCHAR},
       </if>
+      <if test="sayContent != null" >
+        say_content = #{sayContent,jdbcType=VARCHAR},
+      </if>
       <if test="createDate != null" >
         create_date = #{createDate,jdbcType=DATE},
       </if>
@@ -138,23 +134,7 @@
       <if test="sayState != null" >
         say_state = #{sayState,jdbcType=INTEGER},
       </if>
-      <if test="sayContent != null" >
-        say_content = #{sayContent,jdbcType=LONGVARCHAR},
-      </if>
     </set>
-    where say_id = #{sayId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.fullexception.entity.Say" >
-    update say
-    set user_id = #{userId,jdbcType=INTEGER},
-      source_id = #{sourceId,jdbcType=INTEGER},
-      parent_id = #{parentId,jdbcType=INTEGER},
-      say_name = #{sayName,jdbcType=VARCHAR},
-      create_date = #{createDate,jdbcType=DATE},
-      say_position = #{sayPosition,jdbcType=VARCHAR},
-      say_weather = #{sayWeather,jdbcType=VARCHAR},
-      say_state = #{sayState,jdbcType=INTEGER},
-      say_content = #{sayContent,jdbcType=LONGVARCHAR}
     where say_id = #{sayId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Say" >
@@ -163,6 +143,7 @@
       source_id = #{sourceId,jdbcType=INTEGER},
       parent_id = #{parentId,jdbcType=INTEGER},
       say_name = #{sayName,jdbcType=VARCHAR},
+      say_content = #{sayContent,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=DATE},
       say_position = #{sayPosition,jdbcType=VARCHAR},
       say_weather = #{sayWeather,jdbcType=VARCHAR},

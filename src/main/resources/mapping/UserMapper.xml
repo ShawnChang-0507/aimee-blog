@@ -9,11 +9,13 @@
     <result column="create_time" property="createTime" jdbcType="DATE" />
     <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
     <result column="user_state" property="userState" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="second_title" property="secondTitle" jdbcType="VARCHAR" />
     <result column="public_or_private" property="publicOrPrivate" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     user_id, star_id, login_name, login_password, create_time, nick_name, user_state, 
-    public_or_private
+    title, second_title, public_or_private
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -28,10 +30,12 @@
   <insert id="insert" parameterType="com.fullexception.entity.User" >
     insert into user (user_id, star_id, login_name, 
       login_password, create_time, nick_name, 
-      user_state, public_or_private)
+      user_state, title, second_title, 
+      public_or_private)
     values (#{userId,jdbcType=INTEGER}, #{starId,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR}, 
       #{loginPassword,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{nickName,jdbcType=VARCHAR}, 
-      #{userState,jdbcType=INTEGER}, #{publicOrPrivate,jdbcType=INTEGER})
+      #{userState,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{secondTitle,jdbcType=VARCHAR}, 
+      #{publicOrPrivate,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.fullexception.entity.User" >
     insert into user
@@ -56,6 +60,12 @@
       </if>
       <if test="userState != null" >
         user_state,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="secondTitle != null" >
+        second_title,
       </if>
       <if test="publicOrPrivate != null" >
         public_or_private,
@@ -83,6 +93,12 @@
       <if test="userState != null" >
         #{userState,jdbcType=INTEGER},
       </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="secondTitle != null" >
+        #{secondTitle,jdbcType=VARCHAR},
+      </if>
       <if test="publicOrPrivate != null" >
         #{publicOrPrivate,jdbcType=INTEGER},
       </if>
@@ -109,6 +125,12 @@
       <if test="userState != null" >
         user_state = #{userState,jdbcType=INTEGER},
       </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="secondTitle != null" >
+        second_title = #{secondTitle,jdbcType=VARCHAR},
+      </if>
       <if test="publicOrPrivate != null" >
         public_or_private = #{publicOrPrivate,jdbcType=INTEGER},
       </if>
@@ -123,6 +145,8 @@
       create_time = #{createTime,jdbcType=DATE},
       nick_name = #{nickName,jdbcType=VARCHAR},
       user_state = #{userState,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      second_title = #{secondTitle,jdbcType=VARCHAR},
       public_or_private = #{publicOrPrivate,jdbcType=INTEGER}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>冉萌</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <style>
+        .fade {
+            opacity: 0;
+            transition: all 1s;
+            transform: translateY(200px)
+        }
+
+        .fade.in {
+            opacity: 1;
+            transform: none
+        }
+    </style>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/loading.css">
+    <link rel="stylesheet" href="../css/site.css">
+    <link rel="prefetch" href="blog/">
+    <link rel="dns-prefetch" href="//cdn.bootcss.com">
+    <link rel="next" href="blog/">
+    <link rel="preconnect" href="blog/">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="冉萌">
+    <meta name="MobileOptimized" content="480">
+    <!--[if lt IE 9]><style> .alert { padding: 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 4px } .alert-danger { background-color: #f2dede; border-color: #ebccd1; color: #a94442; border-bottom: 1px solid #ebccd1 } .alert-link { color: #843534; font-weight: bold } .topframe { margin: 0; padding-left: 15px; padding-right: 15px; text-align: center; border-radius: 0; position: fixed; left: 0; right: 0; top: 0; z-index: 1000 } </style><div class="alert alert-danger topframe"> 你的浏览器实在<strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说 <a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div><script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script><script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+
+<body>
+    <main>
+        <div class="content content--intro">
+            <div class="content__inner">
+                <div class="wrap fade">
+                    <h2 class="content__title title">Aimee Chang</h2>
+                    <p></p>
+                    <h3 class="content__subtitle">&nbsp;</h3>
+                    <p></p>
+                    <a href="javascript:enter();" class="enter">Click Me</a>
+                    <div class="arrow arrow-1"></div>
+                    <div class="arrow arrow-2"></div>
+                </div>
+            </div>
+            <div class="shape-wrap">
+                <svg class="shape" width="100%" height="100vh" preserveAspectRatio="none" viewBox="0 0 1440 800" xmlns:pathdata="http://www.codrops.com/">
+                    <path d="M-44-50C-52.71 28.52 15.86 8.186 184 14.69 383.3 22.39 462.5 12.58 638 14 835.5 15.6 987 6.4 1194 13.86 1661 30.68 1652-36.74 1582-140.1 1512-243.5 15.88-589.5-44-50Z"
+                        pathdata:id="M -44,-50 C -137.1,117.4 67.86,445.5 236,452 435.3,459.7 500.5,242.6 676,244 873.5,245.6 957,522.4 1154,594 1593,753.7 1793,226.3 1582,-126 1371,-478.3 219.8,-524.2 -44,-50 Z"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="content content--fixed">
+            <div id="page">
+                <div id="card">
+                    <div class="card-wrap fade">
+                        <header>
+                            <img src="../images/avatar.jpg" width="80" height="80">
+                            <h1 data-translate="name" class="title">Aimee Chang</h1>
+                            <h2 data-translate="title" id="typetitle"></h2>
+                        </header>
+                        <ul>
+                            <li id="link-blog">
+                                <a href="blog">
+                                    <i class="fa fa-rss"></i>
+                                    <span data-translate="blog">博客</span>
+                                </a>
+                            </li>
+                            <li id="link-about">
+                                <a href="about/">
+                                    <i class="fa fa-smile-o"></i>
+                                    <span data-translate="about">关于</span>
+                                </a>
+                            </li>
+                            <li id="link-mail" class="half">
+                                <a href="mailto:sanbowla@163.com" class="mail">
+                                    <i class="fa fa-envelope"></i>
+                                    <span data-translate="email">联系我</span>
+                                </a>
+                            </li>
+                            <li id="link-wechat" class="quarter">
+                                <a title="WeChat">
+                                    <i class="fa fa-weixin"></i>
+                                    <img class="wechat-img" src="../images/wechat.png" height="95"
+                                        width="95" alt="wechat">
+                                </a>
+                            </li>
+                            <!-- <li id="link-github" class="quarter">
+                                <a href="https://github.com/tomotoes" target="_blank">
+                                    <i class="fa fa-github"></i>
+                                    <span data-translate="Github">GitHub</span>
+                                </a>
+                            </li>
+                            <li id="link-stack-overflow" class="quarter">
+                                <a href="https://juejin.im/user/599b6d255188252447222dfd" target="_blank">
+                                    <i class="fa fa-stack-overflow"></i>
+                                    <span data-translate="stack-overflow">掘金</span>
+                                </a>
+                            </li>
+                            <li id="link-more" class="quarter">
+                                <a href="javascript:;">
+                                    <i class="fa fa-ellipsis-h"></i>
+                                </a>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="coding">
+                <a id="target" href="https://pages.coding.me" target="_blank" rel="external nofollow">Hosted by Coding Pages</a>
+            </p>
+        </div>
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
+        <script src="https://cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+        <script src="../js/loading.js"></script>
+        <script src="../js/site.js"></script>
+        <script src="https://hm.baidu.com/hm.js?ac588a7c3137281d3c4f1032a9e4e46e"></script>
+    </main>
+</body>
+
+</html>

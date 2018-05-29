@@ -13,7 +13,5 @@ public interface BabyInfoMapper {
 
     int updateByPrimaryKeySelective(BabyInfo record);
 
-    int updateByPrimaryKeyWithBLOBs(BabyInfo record);
-
     int updateByPrimaryKey(BabyInfo record);
 }

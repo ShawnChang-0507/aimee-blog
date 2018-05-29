@@ -8,21 +8,14 @@
     <result column="baby_nick_name" property="babyNickName" jdbcType="VARCHAR" />
     <result column="baby_sex" property="babySex" jdbcType="INTEGER" />
     <result column="baby_birthday" property="babyBirthday" jdbcType="DATE" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.fullexception.entity.BabyInfo" extends="BaseResultMap" >
-    <result column="baby_introduction" property="babyIntroduction" jdbcType="LONGVARCHAR" />
+    <result column="baby_introduction" property="babyIntroduction" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    baby_info_id, parent_id, star_id, baby_nick_name, baby_sex, baby_birthday
+    baby_info_id, parent_id, star_id, baby_nick_name, baby_sex, baby_birthday, baby_introduction
   </sql>
-  <sql id="Blob_Column_List" >
-    baby_introduction
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from baby_info
     where baby_info_id = #{babyInfoId,jdbcType=INTEGER}
   </select>
@@ -36,7 +29,7 @@
       baby_introduction)
     values (#{babyInfoId,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{starId,jdbcType=INTEGER}, 
       #{babyNickName,jdbcType=VARCHAR}, #{babySex,jdbcType=INTEGER}, #{babyBirthday,jdbcType=DATE}, 
-      #{babyIntroduction,jdbcType=LONGVARCHAR})
+      #{babyIntroduction,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.fullexception.entity.BabyInfo" >
     insert into baby_info
@@ -83,7 +76,7 @@
         #{babyBirthday,jdbcType=DATE},
       </if>
       <if test="babyIntroduction != null" >
-        #{babyIntroduction,jdbcType=LONGVARCHAR},
+        #{babyIntroduction,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -106,19 +99,9 @@
         baby_birthday = #{babyBirthday,jdbcType=DATE},
       </if>
       <if test="babyIntroduction != null" >
-        baby_introduction = #{babyIntroduction,jdbcType=LONGVARCHAR},
+        baby_introduction = #{babyIntroduction,jdbcType=VARCHAR},
       </if>
     </set>
-    where baby_info_id = #{babyInfoId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.fullexception.entity.BabyInfo" >
-    update baby_info
-    set parent_id = #{parentId,jdbcType=INTEGER},
-      star_id = #{starId,jdbcType=INTEGER},
-      baby_nick_name = #{babyNickName,jdbcType=VARCHAR},
-      baby_sex = #{babySex,jdbcType=INTEGER},
-      baby_birthday = #{babyBirthday,jdbcType=DATE},
-      baby_introduction = #{babyIntroduction,jdbcType=LONGVARCHAR}
     where baby_info_id = #{babyInfoId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.BabyInfo" >
@@ -127,7 +110,8 @@
       star_id = #{starId,jdbcType=INTEGER},
       baby_nick_name = #{babyNickName,jdbcType=VARCHAR},
       baby_sex = #{babySex,jdbcType=INTEGER},
-      baby_birthday = #{babyBirthday,jdbcType=DATE}
+      baby_birthday = #{babyBirthday,jdbcType=DATE},
+      baby_introduction = #{babyIntroduction,jdbcType=VARCHAR}
     where baby_info_id = #{babyInfoId,jdbcType=INTEGER}
   </update>
 </mapper>

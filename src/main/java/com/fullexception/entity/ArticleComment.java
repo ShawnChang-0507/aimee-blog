@@ -9,9 +9,9 @@ public class ArticleComment {
 
     private Integer userId;
 
-    private Date createTime;
-
     private String articleCommentContent;
+
+    private Date createTime;
 
     public Integer getArticleCommentId() {
         return articleCommentId;
@@ -37,19 +37,19 @@ public class ArticleComment {
         this.userId = userId;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
     public String getArticleCommentContent() {
         return articleCommentContent;
     }
 
     public void setArticleCommentContent(String articleCommentContent) {
         this.articleCommentContent = articleCommentContent == null ? null : articleCommentContent.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

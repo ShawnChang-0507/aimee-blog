@@ -13,6 +13,8 @@ public class Say {
 
     private String sayName;
 
+    private String sayContent;
+
     private Date createDate;
 
     private String sayPosition;
@@ -20,8 +22,6 @@ public class Say {
     private String sayWeather;
 
     private Integer sayState;
-
-    private String sayContent;
 
     public Integer getSayId() {
         return sayId;
@@ -63,6 +63,14 @@ public class Say {
         this.sayName = sayName == null ? null : sayName.trim();
     }
 
+    public String getSayContent() {
+        return sayContent;
+    }
+
+    public void setSayContent(String sayContent) {
+        this.sayContent = sayContent == null ? null : sayContent.trim();
+    }
+
     public Date getCreateDate() {
         return createDate;
     }
@@ -93,13 +101,5 @@ public class Say {
 
     public void setSayState(Integer sayState) {
         this.sayState = sayState;
-    }
-
-    public String getSayContent() {
-        return sayContent;
-    }
-
-    public void setSayContent(String sayContent) {
-        this.sayContent = sayContent == null ? null : sayContent.trim();
     }
 }

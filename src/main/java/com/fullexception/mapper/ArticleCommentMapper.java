@@ -13,7 +13,5 @@ public interface ArticleCommentMapper {
 
     int updateByPrimaryKeySelective(ArticleComment record);
 
-    int updateByPrimaryKeyWithBLOBs(ArticleComment record);
-
     int updateByPrimaryKey(ArticleComment record);
 }

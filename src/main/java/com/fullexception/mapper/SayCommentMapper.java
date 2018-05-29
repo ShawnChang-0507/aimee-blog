@@ -13,7 +13,5 @@ public interface SayCommentMapper {
 
     int updateByPrimaryKeySelective(SayComment record);
 
-    int updateByPrimaryKeyWithBLOBs(SayComment record);
-
     int updateByPrimaryKey(SayComment record);
 }

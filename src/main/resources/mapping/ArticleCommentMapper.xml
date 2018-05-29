@@ -5,22 +5,15 @@
     <id column="article_comment_id" property="articleCommentId" jdbcType="INTEGER" />
     <result column="article_id" property="articleId" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
-    <result column="create_time" property="createTime" jdbcType="DATE" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.fullexception.entity.ArticleComment" extends="BaseResultMap" >
-    <result column="article_comment_content" property="articleCommentContent" jdbcType="LONGVARCHAR" />
+    <result column="article_comment_content" property="articleCommentContent" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    article_comment_id, article_id, user_id, create_time
+    article_comment_id, article_id, user_id, article_comment_content, create_time
   </sql>
-  <sql id="Blob_Column_List" >
-    article_comment_content
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from article_comment
     where article_comment_id = #{articleCommentId,jdbcType=INTEGER}
   </select>
@@ -30,9 +23,9 @@
   </delete>
   <insert id="insert" parameterType="com.fullexception.entity.ArticleComment" >
     insert into article_comment (article_comment_id, article_id, user_id, 
-      create_time, article_comment_content)
+      article_comment_content, create_time)
     values (#{articleCommentId,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=DATE}, #{articleCommentContent,jdbcType=LONGVARCHAR})
+      #{articleCommentContent,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.fullexception.entity.ArticleComment" >
     insert into article_comment
@@ -46,11 +39,11 @@
       <if test="userId != null" >
         user_id,
       </if>
-      <if test="createTime != null" >
-        create_time,
-      </if>
       <if test="articleCommentContent != null" >
         article_comment_content,
+      </if>
+      <if test="createTime != null" >
+        create_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -63,11 +56,11 @@
       <if test="userId != null" >
         #{userId,jdbcType=INTEGER},
       </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=DATE},
-      </if>
       <if test="articleCommentContent != null" >
-        #{articleCommentContent,jdbcType=LONGVARCHAR},
+        #{articleCommentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -80,28 +73,21 @@
       <if test="userId != null" >
         user_id = #{userId,jdbcType=INTEGER},
       </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=DATE},
-      </if>
       <if test="articleCommentContent != null" >
-        article_comment_content = #{articleCommentContent,jdbcType=LONGVARCHAR},
+        article_comment_content = #{articleCommentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where article_comment_id = #{articleCommentId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.fullexception.entity.ArticleComment" >
-    update article_comment
-    set article_id = #{articleId,jdbcType=INTEGER},
-      user_id = #{userId,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=DATE},
-      article_comment_content = #{articleCommentContent,jdbcType=LONGVARCHAR}
     where article_comment_id = #{articleCommentId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.ArticleComment" >
     update article_comment
     set article_id = #{articleId,jdbcType=INTEGER},
       user_id = #{userId,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=DATE}
+      article_comment_content = #{articleCommentContent,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
     where article_comment_id = #{articleCommentId,jdbcType=INTEGER}
   </update>
 </mapper>

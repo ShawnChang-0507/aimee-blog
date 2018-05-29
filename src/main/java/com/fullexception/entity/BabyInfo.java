@@ -1,6 +1,7 @@
 package com.fullexception.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class BabyInfo {
     private Integer babyInfoId;
@@ -16,8 +17,18 @@ public class BabyInfo {
     private Date babyBirthday;
 
     private String babyIntroduction;
+    
+    private List<BabyImg> babyImgs;
 
-    public Integer getBabyInfoId() {
+    public List<BabyImg> getBabyImgs() {
+		return babyImgs;
+	}
+
+	public void setBabyImgs(List<BabyImg> babyImgs) {
+		this.babyImgs = babyImgs;
+	}
+
+	public Integer getBabyInfoId() {
         return babyInfoId;
     }
 

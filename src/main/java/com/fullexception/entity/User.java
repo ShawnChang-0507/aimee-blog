@@ -1,6 +1,7 @@
 package com.fullexception.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
     private Integer userId;
@@ -17,8 +18,16 @@ public class User {
 
     private Integer userState;
 
-    private Integer publicOrPrivate;
+    private String title;
 
+    private String secondTitle;
+
+    private Integer publicOrPrivate;
+    
+    private List<Info> infos;
+    
+    private List<BabyInfo> babyInfos;
+    
     public Integer getUserId() {
         return userId;
     }
@@ -75,6 +84,22 @@ public class User {
         this.userState = userState;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
+    }
+
+    public String getSecondTitle() {
+        return secondTitle;
+    }
+
+    public void setSecondTitle(String secondTitle) {
+        this.secondTitle = secondTitle == null ? null : secondTitle.trim();
+    }
+
     public Integer getPublicOrPrivate() {
         return publicOrPrivate;
     }
@@ -82,4 +107,20 @@ public class User {
     public void setPublicOrPrivate(Integer publicOrPrivate) {
         this.publicOrPrivate = publicOrPrivate;
     }
+
+	public List<Info> getInfos() {
+		return infos;
+	}
+
+	public void setInfos(List<Info> infos) {
+		this.infos = infos;
+	}
+
+	public List<BabyInfo> getBabyInfos() {
+		return babyInfos;
+	}
+
+	public void setBabyInfos(List<BabyInfo> babyInfos) {
+		this.babyInfos = babyInfos;
+	}
 }

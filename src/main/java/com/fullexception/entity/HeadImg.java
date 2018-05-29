@@ -11,6 +11,8 @@ public class HeadImg {
 
     private Date createDate;
 
+    private Integer state;
+
     public Integer getHeadImgId() {
         return headImgId;
     }
@@ -41,5 +43,13 @@ public class HeadImg {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 }

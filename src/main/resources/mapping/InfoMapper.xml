@@ -10,22 +10,17 @@
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="mail" property="mail" jdbcType="VARCHAR" />
     <result column="QQ" property="qq" jdbcType="VARCHAR" />
+    <result column="wechat_url" property="wechatUrl" jdbcType="VARCHAR" />
+    <result column="introduce" property="introduce" jdbcType="VARCHAR" />
     <result column="telphone" property="telphone" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.fullexception.entity.Info" extends="BaseResultMap" >
-    <result column="introduce" property="introduce" jdbcType="LONGVARCHAR" />
-  </resultMap>
   <sql id="Base_Column_List" >
-    info_id, user_id, real_name, sex, birthday, address, mail, QQ, telphone
+    info_id, user_id, real_name, sex, birthday, address, mail, QQ, wechat_url, introduce, 
+    telphone
   </sql>
-  <sql id="Blob_Column_List" >
-    introduce
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from info
     where info_id = #{infoId,jdbcType=INTEGER}
   </select>
@@ -36,12 +31,12 @@
   <insert id="insert" parameterType="com.fullexception.entity.Info" >
     insert into info (info_id, user_id, real_name, 
       sex, birthday, address, 
-      mail, QQ, telphone, 
-      introduce)
+      mail, QQ, wechat_url, 
+      introduce, telphone)
     values (#{infoId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{realName,jdbcType=VARCHAR}, 
       #{sex,jdbcType=INTEGER}, #{birthday,jdbcType=DATE}, #{address,jdbcType=VARCHAR}, 
-      #{mail,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}, 
-      #{introduce,jdbcType=LONGVARCHAR})
+      #{mail,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wechatUrl,jdbcType=VARCHAR}, 
+      #{introduce,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.fullexception.entity.Info" >
     insert into info
@@ -70,11 +65,14 @@
       <if test="qq != null" >
         QQ,
       </if>
-      <if test="telphone != null" >
-        telphone,
+      <if test="wechatUrl != null" >
+        wechat_url,
       </if>
       <if test="introduce != null" >
         introduce,
+      </if>
+      <if test="telphone != null" >
+        telphone,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -102,11 +100,14 @@
       <if test="qq != null" >
         #{qq,jdbcType=VARCHAR},
       </if>
-      <if test="telphone != null" >
-        #{telphone,jdbcType=VARCHAR},
+      <if test="wechatUrl != null" >
+        #{wechatUrl,jdbcType=VARCHAR},
       </if>
       <if test="introduce != null" >
-        #{introduce,jdbcType=LONGVARCHAR},
+        #{introduce,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null" >
+        #{telphone,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -134,26 +135,16 @@
       <if test="qq != null" >
         QQ = #{qq,jdbcType=VARCHAR},
       </if>
+      <if test="wechatUrl != null" >
+        wechat_url = #{wechatUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="introduce != null" >
+        introduce = #{introduce,jdbcType=VARCHAR},
+      </if>
       <if test="telphone != null" >
         telphone = #{telphone,jdbcType=VARCHAR},
       </if>
-      <if test="introduce != null" >
-        introduce = #{introduce,jdbcType=LONGVARCHAR},
-      </if>
     </set>
-    where info_id = #{infoId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.fullexception.entity.Info" >
-    update info
-    set user_id = #{userId,jdbcType=INTEGER},
-      real_name = #{realName,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=INTEGER},
-      birthday = #{birthday,jdbcType=DATE},
-      address = #{address,jdbcType=VARCHAR},
-      mail = #{mail,jdbcType=VARCHAR},
-      QQ = #{qq,jdbcType=VARCHAR},
-      telphone = #{telphone,jdbcType=VARCHAR},
-      introduce = #{introduce,jdbcType=LONGVARCHAR}
     where info_id = #{infoId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Info" >
@@ -165,6 +156,8 @@
       address = #{address,jdbcType=VARCHAR},
       mail = #{mail,jdbcType=VARCHAR},
       QQ = #{qq,jdbcType=VARCHAR},
+      wechat_url = #{wechatUrl,jdbcType=VARCHAR},
+      introduce = #{introduce,jdbcType=VARCHAR},
       telphone = #{telphone,jdbcType=VARCHAR}
     where info_id = #{infoId,jdbcType=INTEGER}
   </update>

@@ -61,7 +61,7 @@ create table article
    article_group_id     int,
    parent_article_id    int,
    article_title        varchar(30),
-   article_content      text,
+   article_content      varchar(3000),
    create_date          date,
    weather              varchar(20),
    article_state        int,
@@ -89,8 +89,8 @@ create table article_comment
    article_comment_id   int not null auto_increment,
    article_id           int,
    user_id              int,
-   article_comment_content text,
-   create_time          date,
+   article_comment_content varchar(300),
+   create_time          datetime,
    primary key (article_comment_id)
 );
 
@@ -150,7 +150,7 @@ create table baby_info
    baby_nick_name       varchar(20),
    baby_sex             int,
    baby_birthday        date,
-   baby_introduction    text,
+   baby_introduction    varchar(300),
    primary key (baby_info_id)
 );
 
@@ -162,7 +162,7 @@ create table chatting_record
    chatting_record_id   int not null auto_increment,
    send_user_id         int,
    receive_user_id      int,
-   chatting_record_content varchar(200),
+   chatting_record_content varchar(300),
    send_time            datetime,
    read_flag            bit,
    primary key (chatting_record_id)
@@ -200,6 +200,7 @@ create table head_img
    user_id              int,
    head_img             varchar(300),
    create_date          date,
+   state                int,
    primary key (head_img_id)
 );
 
@@ -216,7 +217,8 @@ create table info
    address              varchar(50),
    mail                 varchar(40),
    QQ                   varchar(20),
-   introduce            text,
+   wechat_url           varchar(300),
+   introduce            varchar(300),
    telphone             varchar(20),
    primary key (info_id)
 );
@@ -276,7 +278,7 @@ create table say
    source_id            int,
    parent_id            int,
    say_name             varchar(30),
-   say_content          text,
+   say_content          varchar(500),
    create_date          date,
    say_position         varchar(30),
    say_weather          varchar(30),
@@ -304,7 +306,7 @@ create table say_comment
    say_comment_id       int not null auto_increment,
    say_id               int,
    user_id              int,
-   say_comment_content  text,
+   say_comment_content  varchar(300),
    create_time          date,
    primary key (say_comment_id)
 );
@@ -339,8 +341,8 @@ create table star
    name                 varchar(20),
    start_time           varchar(20),
    end_time             varchar(20),
-   star_fortune         text,
-   star_character       text,
+   star_fortune         varchar(300),
+   star_character       varchar(300),
    primary key (star_id)
 );
 
@@ -356,6 +358,8 @@ create table user
    create_time          date,
    nick_name            varchar(20),
    user_state           int,
+   title                varchar(300),
+   second_title         varchar(300),
    public_or_private    int,
    primary key (user_id)
 );

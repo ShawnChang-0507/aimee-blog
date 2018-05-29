@@ -19,9 +19,11 @@ public class Info {
 
     private String qq;
 
-    private String telphone;
+    private String wechatUrl;
 
     private String introduce;
+
+    private String telphone;
 
     public Integer getInfoId() {
         return infoId;
@@ -87,12 +89,12 @@ public class Info {
         this.qq = qq == null ? null : qq.trim();
     }
 
-    public String getTelphone() {
-        return telphone;
+    public String getWechatUrl() {
+        return wechatUrl;
     }
 
-    public void setTelphone(String telphone) {
-        this.telphone = telphone == null ? null : telphone.trim();
+    public void setWechatUrl(String wechatUrl) {
+        this.wechatUrl = wechatUrl == null ? null : wechatUrl.trim();
     }
 
     public String getIntroduce() {
@@ -101,5 +103,13 @@ public class Info {
 
     public void setIntroduce(String introduce) {
         this.introduce = introduce == null ? null : introduce.trim();
+    }
+
+    public String getTelphone() {
+        return telphone;
+    }
+
+    public void setTelphone(String telphone) {
+        this.telphone = telphone == null ? null : telphone.trim();
     }
 }
