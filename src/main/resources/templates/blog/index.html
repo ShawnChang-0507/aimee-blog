@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Language" content="zh-cn">
     <meta charset="utf-8">
@@ -50,7 +50,7 @@
 <meta name="twitter:title" content="Aimee Chang">
 <meta name="twitter:description" content="I will greet this day with love in my heart!">
     
-        <link rel="alternate" type="application/atom+xml" title="Aimee Chang" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="Aimee Chang" href="xml/atom.xml">
     
     <link rel="shortcut icon" href="images/favicon.ico">
     <link id="style" rel="stylesheet" href="css/style.css?v=3.0">
@@ -74,9 +74,10 @@
           <img src="images/avatar.jpg" alt="avatar">
         </a>
         <hgroup class="introduce">
-          <h5 class="nickname" id="name">Aimee Chang</h5>
+          <h5 class="nickname" id="name" th:text="${session.user.nickName}">Aimee Chang</h5>
           
-            <div id="yiyanaimee" class="aimee">&nbsp;</div>
+            <!-- <div id="yiyanaimee" class="aimee">&nbsp;</div> -->
+            <div id="yiyanaimee" class="aimee" th:each="info : ${session.user.infos}" th:text="${info.introduce}">&nbsp;</div>
           
         </hgroup>
       </div>

@@ -13,7 +13,7 @@ function setLightColor() {
 }
 function preLoad() {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "iframe",
-        t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "//tomotoes.com/blog",
+        t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "//zhangxiaoran.cn/blog",
         n = document.createElement(e);
     return n.style.display = "none", n.src = t, document.body.appendChild(n), preLoad
 }

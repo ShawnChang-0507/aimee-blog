@@ -26,9 +26,19 @@ public class User {
     
     private List<Info> infos;
     
+    private List<HeadImg> headImgs;
+    
     private List<BabyInfo> babyInfos;
     
-    public Integer getUserId() {
+    public List<HeadImg> getHeadImgs() {
+		return headImgs;
+	}
+
+	public void setHeadImgs(List<HeadImg> headImgs) {
+		this.headImgs = headImgs;
+	}
+
+	public Integer getUserId() {
         return userId;
     }
 

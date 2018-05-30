@@ -68,8 +68,8 @@
                 <div id="card">
                     <div class="card-wrap fade">
                         <header>
-                            <img src="../images/avatar.jpg" width="80" height="80">
-                            <h1 data-translate="name" class="title">Aimee Chang</h1>
+                            <img th:each="headImg : ${session.user.headImgs}" th:src="${headImg.headImg}" width="80" height="80">
+                            <h1 data-translate="name" class="title" th:text="${session.user.nickName}">Aimee Chang</h1>
                             <h2 data-translate="title" id="typetitle"></h2>
                         </header>
                         <ul>
@@ -85,13 +85,13 @@
                                     <span data-translate="about">关于</span>
                                 </a>
                             </li>
-                            <li id="link-mail" class="half">
+                            <li id="link-mail">
                                 <a href="mailto:sanbowla@163.com" class="mail">
                                     <i class="fa fa-envelope"></i>
                                     <span data-translate="email">联系我</span>
                                 </a>
                             </li>
-                            <li id="link-wechat" class="quarter">
+                            <li id="link-wechat">
                                 <a title="WeChat">
                                     <i class="fa fa-weixin"></i>
                                     <img class="wechat-img" src="../images/wechat.png" height="95"
