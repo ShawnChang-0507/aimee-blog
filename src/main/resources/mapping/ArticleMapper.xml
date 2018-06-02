@@ -8,6 +8,7 @@
     <result column="article_group_id" property="articleGroupId" jdbcType="INTEGER" />
     <result column="parent_article_id" property="parentArticleId" jdbcType="INTEGER" />
     <result column="article_title" property="articleTitle" jdbcType="VARCHAR" />
+    <result column="article_introduce" property="articleIntroduce" jdbcType="VARCHAR" />
     <result column="article_content" property="articleContent" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="DATE" />
     <result column="weather" property="weather" jdbcType="VARCHAR" />
@@ -15,7 +16,7 @@
     <result column="public_or_private" property="publicOrPrivate" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    article_id, host_id, source_id, article_group_id, parent_article_id, article_title, 
+    article_id, host_id, source_id, article_group_id, parent_article_id, article_title, article_introduce,
     article_content, create_date, weather, article_state, public_or_private
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >

@@ -6,7 +6,7 @@
     <result column="article_group_name" property="articleGroupName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    article_group_id, article_group_name
+    article_group_id, article_group_name, create_date
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -30,6 +30,9 @@
       </if>
       <if test="articleGroupName != null" >
         article_group_name,
+      </if>
+      <if test="createDate != null" >
+        create_date,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >

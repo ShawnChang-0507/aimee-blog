@@ -101,6 +101,7 @@ create table article_group
 (
    article_group_id     int not null auto_increment,
    article_group_name   varchar(30),
+   create_date          datetime,
    primary key (article_group_id)
 );
 

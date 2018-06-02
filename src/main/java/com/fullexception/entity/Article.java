@@ -14,6 +14,8 @@ public class Article {
     private Integer parentArticleId;
 
     private String articleTitle;
+    
+    private String articleIntroduce;
 
     private String articleContent;
 
@@ -25,7 +27,15 @@ public class Article {
 
     private Integer publicOrPrivate;
 
-    public Integer getArticleId() {
+    public String getArticleIntroduce() {
+		return articleIntroduce;
+	}
+
+	public void setArticleIntroduce(String articleIntroduce) {
+		this.articleIntroduce = articleIntroduce;
+	}
+
+	public Integer getArticleId() {
         return articleId;
     }
 

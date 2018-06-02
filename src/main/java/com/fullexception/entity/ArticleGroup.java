@@ -1,9 +1,13 @@
 package com.fullexception.entity;
 
+import java.util.Date;
+
 public class ArticleGroup {
     private Integer articleGroupId;
 
     private String articleGroupName;
+    
+    private Date createDate;
 
     public Integer getArticleGroupId() {
         return articleGroupId;
@@ -20,4 +24,12 @@ public class ArticleGroup {
     public void setArticleGroupName(String articleGroupName) {
         this.articleGroupName = articleGroupName == null ? null : articleGroupName.trim();
     }
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 }
