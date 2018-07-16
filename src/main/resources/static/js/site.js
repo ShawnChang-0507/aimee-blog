@@ -5,7 +5,7 @@ function getDayLight() {
         t = e.getHours() - 12,
         n = t ? Math.abs(t) / t : 1,
         a = ((t += (60 * e.getMinutes() + e.getSeconds()) / 3600) / 4 - n) * n;
-    return a = Math.max(a, 0), a = Math.min(1, a)
+    return a = Math.max(a, 0), a = Math.min(0.8, a)
 }
 function setLightColor() {
     $("#page").css("background-color", "rgba(85,85,85," + getDayLight() + ")"),
@@ -13,7 +13,7 @@ function setLightColor() {
 }
 function preLoad() {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "iframe",
-        t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "//zhangxiaoran.cn/blog",
+        t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "//tomotoes.com/blog",
         n = document.createElement(e);
     return n.style.display = "none", n.src = t, document.body.appendChild(n), preLoad
 }

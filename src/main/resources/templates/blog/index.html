@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta http-equiv="Content-Language" content="zh-cn">
     <meta charset="utf-8">
     
     
     
-    <title>Aimee Chang | Welcome</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Aimee | Welcome</title>
+    <meta name="viewport" content="widthbusuanzi
+    =device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
     
@@ -39,21 +40,23 @@
  -->
 
     
-    <meta name="description" content="I will greet this day with love in my heart!">
+    <meta name="description" content="Aimee">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Aimee Chang">
+<meta property="og:title" content="Aimee">
 <meta property="og:url" content="http://zhangxiaoran.cn/index.html">
-<meta property="og:site_name" content="Aimee Chang">
-<meta property="og:description" content="I will greet this day with love in my heart!">
+<meta property="og:site_name" content="Aimee">
+<meta property="og:description" content="Aimee">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aimee Chang">
-<meta name="twitter:description" content="I will greet this day with love in my heart!">
+<meta name="twitter:title" content="Aimee">
+<meta name="twitter:description" content="Aimee">
     
-        <link rel="alternate" type="application/atom+xml" title="Aimee Chang" href="xml/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="Aimee" href="/atom.xml">
     
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link id="style" rel="stylesheet" href="css/style.css?v=3.0">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link id="style" rel="stylesheet" href="../../css/style.css?v=3.0">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css?v=3.0">
+    <link rel="stylesheet" type="text/css" href="../../css/wangEditor.min.css?v=3.0">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -71,13 +74,12 @@
     <div class="brand-wrap" >
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="images/avatar.jpg" alt="avatar">
+          <img src="../../images/avatar.jpg" alt="avatar">
         </a>
         <hgroup class="introduce">
-          <h5 class="nickname" id="name" th:text="${session.user.nickName}">Aimee Chang</h5>
+          <h5 class="nickname" id="name">Aimee</h5>
           
-            <!-- <div id="yiyanaimee" class="aimee">&nbsp;</div> -->
-            <div id="yiyanaimee" class="aimee" th:each="info : ${session.user.infos}" th:text="${info.introduce}">&nbsp;</div>
+            <div id="yiyanaimee" class="aimee">&nbsp;</div>
           
         </hgroup>
       </div>
@@ -153,52 +155,123 @@
 
 
     <main id="main">
-        <header class="top-header" id="header">
+        <!-- 登录 -->
+<div class="modal fade" id="loginId" tabindex="-1" role="dialog" aria-labelledby="loginTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="loginTitleId">登录账户</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="">账号：</label>
+                    <input type="text" class="form-control" name="" id="loginLoginName" aria-describedby="helpId" placeholder="">
+                    <small id="loginLoginNameHelp" class="form-text text-muted text-hide text-danger">Help text</small>
+                    <label for="">密码：</label>
+                    <input type="password" class="form-control" name="" id="loginLoginPassword" aria-describedby="helpId" placeholder="">
+                    <small id="loginLoginPasswordHelp" class="form-text text-muted text-hide text-danger">
+                        <span class="badge badge-danger passwordInfo">简单</span>
+                    </small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary login" data-dismiss="modal">登录</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- register -->
+<div class="modal fade" id="registerId" tabindex="-1" role="dialog" aria-labelledby="registerTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="registerTitleId">注册账户</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="">登录账号：</label>
+                    <input type="text" class="form-control" name="" id="registerLoginName" aria-describedby="helpId" placeholder="">
+                    <small id="registerLoginNameHelp" class="form-text text-muted text-danger text-hide">请填写登录账号！</small>
+                    <label for="">昵称：</label>
+                    <input type="text" class="form-control" name="" id="registerNickName" aria-describedby="helpId" placeholder="">
+                    <small id="registerNickNameHelp" class="form-text text-muted text-danger text-hide">请输入昵称</small>
+                    <label for="">登录密码：</label>
+                    <input type="password" class="form-control" name="" id="registerLoginPassword" aria-describedby="helpId" placeholder="">
+                    <small id="registerLoginPasswordHelp" class="form-text text-muted text-danger text-hide">
+                        <span class="badge badge-danger passwordInfo">请输入登录密码！</span>
+                    </small>
+                    <label for="">重复密码：</label>
+                    <input type="password" class="form-control" name="" id="registerLoginRePassword" aria-describedby="helpId" placeholder="">
+                    <small id="registerLoginRePasswordHelp" class="form-text text-muted text-danger text-hide">重复登录密码！</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary register" data-dismiss="modal">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<header class="top-header" id="header">
     <div class="flex-row">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
+            <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Aimee Chang</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
+        <div class="flex-col header-title ellipsis">
+            Aimee
         </div>
         
-        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
-            <i class="icon icon-lg icon-rss"></i>
-        </a>
+            <div class="search-wrap" id="search-wrap">
+                <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                    <i class="icon icon-lg icon-chevron-left"></i>
+                </a>
+                <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+                <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                    <i class="icon icon-lg icon-search"></i>
+                </a>
+            </div>
+            
+            <a href="../../blog/editBlog" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+                <i class="icon icon-lg icon-book"></i>
+            </a>
+            <a href="#" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss1" data-toggle="modal" data-target="#loginId">
+                <i class="icon icon-lg icon-user"></i>
+            </a>
+            <a href="#" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss2" data-toggle="modal" data-target="#registerId">
+                <i class="icon icon-lg icon-user-plus"></i>
+            </a>
     </div>
 </header>
 <header class="content-header index-header">
-    
-    
-    <div class="container fade-scale">
+
+
+    <div class="aimee_container fade-scale">
         <div id="myheader">
             <h1 class="title">
-                 
-                    Aimee Chang
                 
+                    Aimee
+                        
             </h1>
             <h5 class="subtitle">
                 
-                    记录冉萌生活中的点点滴滴
-                
+                        记录冉萌生活中的点点滴滴
+                            
             </h5>
         </div>
     </div>
 
 </header>
-
-<div class="container body-wrap">
+<div class="aimee_container body-wrap">
     <ul class="post-list">
     
-        <li class="post-list-item fade">
+        <li class="post-list-item aimee-fade">
             <article id="post-hello-world"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -209,6 +282,9 @@
     <h3 class="post-title" itemprop="name">
       <a href="/posts/16107/">Hello World</a>
     </h3>
+    <h5 class="post-title" itemprop="name">
+      <a href="/posts/16107/">My first application</a>
+    </h5>
   
 
 
@@ -222,16 +298,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you...
     
         <div>
             <a href="/posts/16107/" class="post-more waves-button">
@@ -244,7 +311,7 @@
 
         </li>
     
-        <li class="post-list-item fade">
+        <li class="post-list-item aimee-fade">
             <article id="post-alicia-1"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -255,6 +322,9 @@
     <h3 class="post-title" itemprop="name">
       <a href="/posts/17050/">alicia</a>
     </h3>
+    <h5 class="post-title" itemprop="name">
+      <a href="/posts/17050/">aimee</a>
+    </h5>
   
 
 
@@ -268,7 +338,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
+        击壤歌日出而作，日入而息。凿井而饮，耕田而食。帝力于我何有哉！
     
         <div>
             <a href="/posts/17050/" class="post-more waves-button">
@@ -281,7 +351,7 @@
 
         </li>
     
-        <li class="post-list-item fade">
+        <li class="post-list-item aimee-fade">
             <article id="post-alicia"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -290,8 +360,11 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a href="/posts/17051/">alicia</a>
+      <a href="/posts/17051/">第一篇博客</a>
     </h3>
+    <h5 class="post-title" itemprop="name">
+      <a href="/posts/17051/">看看效果吧先</a>
+    </h5>
   
 
 
@@ -305,7 +378,12 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
+        Quick StartCreate a new post1$ hexo new "My New Post"
+More info: Writing
+Run server1$ hexo server
+More info: Server
+Generate static files1$ hexo generate
+More info: Generat...
     
         <div>
             <a href="/posts/17051/" class="post-more waves-button">
@@ -335,7 +413,6 @@
             Power by
             <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
             Theme
-            <!-- <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a> -->
         </span>
 
         <br/>
@@ -379,7 +456,20 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </script>
 
 <!-- jquery -->
-<script src="/js/jquery.min.js?v=3.0"></script>
+<!-- <script src="../js/jquery.min.js?v=3.0"></script> -->
+
+<script src="../js/jquery.min.js?v=3.0" type="text/JavaScript"></script>
+<script src="../js/popper.min.js?v=3.0" type="text/JavaScript"></script>
+<script src="../js/bootstrap.min.js?v=3.0" type="text/JavaScript"></script>
+
+<script>
+    $(function () {
+        $(".dropdown-item").click(function () {
+            $(".article-group").text(this.text);
+            $(".article-group").val(this.text);
+        })
+    })
+</script>
 
 <!-- 搜索 -->
 
@@ -394,10 +484,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 <!-- main博客脚本 -->
-<script src="js/main.min.js?v=3.0" ></script>
+<script src="../js/main.min.js?v=3.0" ></script>
 
 <!-- 动画&配置 -->
-<script src="js/script.min.js?v=3.0" ></script>
+<script src="../js/script.min.js?v=3.0" ></script>
 
 <!-- 脚本管理 -->
 <script>
@@ -469,7 +559,7 @@ postshow();
 
 
 /* 粘贴提示 */
-G($(".post-content"), location.href, "Aimee Chang");
+G($(".post-content"), location.href, "Aimee");
 
 
 /* 控制台 */

@@ -1,760 +1,610 @@
+/* @font-face {
+    font-family: "FZSEJW";
+    src: url('fonts/fz/fzsejw.ttf') format("truetype")
+} */
 @font-face {
-	font-family: "FZSEJW";
-	/* src: url('fonts/fz/fzsejw.ttf') format("truetype") */
-	src: url('fonts/fz/Twinkle.ttf') format("truetype")
+    font-family: "Twinkle";
+    src: url('fonts/fz/Twinkle.ttf') format("truetype")
+}
+#page,
+#page a {
+    color: #eee
 }
 
-#page, #page a {
-	color: #eee
+body,
+html,
+ul {
+    margin: 0;
+    padding: 0
 }
 
-body, html, ul {
-	margin: 0;
-	padding: 0
+#card,
+#card header,
+#card ul {
+    position: relative
 }
 
-#card, #card header, #card ul {
-	position: relative
+#card a,
+#card li {
+    overflow: hidden
 }
 
-#card a, #card li {
-	overflow: hidden
+#card a:hover,
+#page a {
+    text-decoration: none
 }
 
-#card a:hover, #page a {
-	text-decoration: none
+#card a,
+#card li i {
+    display: inline-block
 }
 
-#card a, #card li i {
-	display: inline-block
-}
-
-#card ul:after, #target:after {
-	content: ""
+#card ul:after,
+#target:after {
+    content: ""
 }
 
 * {
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-text-size-adjust: none
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: none
 }
 
-body, html {
-	height: 100%;
-	border: 0
+body,
+html {
+    height: 100%;
+    border: 0
 }
 
 body {
-	font-family: "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	min-height: 100vh;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	cursor: url(../images/default.cur), auto !important
+    font-family: "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: url(../images/default.cur), auto !important
 }
 
-a, img {
-	cursor: url(../images/pointer.cur), auto !important
+a,
+img {
+    cursor: url(../images/pointer.cur), auto !important
 }
 
 img {
-	border: 0;
-	vertical-align: middle
+    border: 0;
+    vertical-align: middle
 }
 
 #page {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	background-color: rgba(85, 85, 85, 0.4);
-	min-height: 100%;
-	-webkit-transition: background-color ease 5s;
-	transition: background-color ease 5s
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: rgba(85, 85, 85, 0.4);
+    min-height: 100%;
+    -webkit-transition: background-color ease 5s;
+    transition: background-color ease 5s
 }
 
 #page a:hover {
-	color: #fff;
-	text-decoration: underline
+    color: #fff;
+    text-decoration: underline
 }
 
 #card {
-	margin: auto;
-	-webkit-transition: width ease .5s, height ease .5s;
-	transition: width ease .5s, height ease .5s
+    margin: auto;
+    -webkit-transition: width ease .5s, height ease .5s;
+    transition: width ease .5s, height ease .5s
 }
 
 #card header {
-	height: 105px;
-	padding: 10px 0 0 100px;
-	color: #ececec
+    height: 105px;
+    padding: 10px 0 0 100px;
+    color: #ececec
 }
 
 #card header img {
-	position: absolute;
-	left: 0;
-	top: 0;
-	padding: 2px;
-	-webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .3);
-	box-shadow: 0 0 2px rgba(0, 0, 0, .3);
-	background: rgba(255, 255, 255, .6)
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 2px;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+    background: rgba(255, 255, 255, .6)
 }
 
-#card h1, #card h2 {
-	margin: 0;
-	font-weight: 400;
-	-webkit-transform: translateY(-10px);
-	transform: translateY(-10px)
+#card h1,
+#card h2 {
+    margin: 0;
+    font-weight: 400;
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px)
 }
 
 #card h2 {
-	margin-top: .1em;
-	font-size: 1.1em;
-	text-shadow: #eaf8f8 0 0 1px;
-	letter-spacing: 2px
+    margin-top: .1em;
+    font-size: 1.1em;
+    text-shadow: #eaf8f8 0 0 1px;
+    letter-spacing: 2px
 }
 
 #card ul {
-	padding: 0;
-	-webkit-transition: width ease .5s, height ease .5s;
-	transition: width ease .5s, height ease .5s
+    padding: 0;
+    -webkit-transition: width ease .5s, height ease .5s;
+    transition: width ease .5s, height ease .5s
 }
 
 #card li {
-	position: absolute;
-	list-style: none;
-	width: 200px;
-	height: 200px;
-	line-height: 200px;
-	background-color: #888;
-	text-align: center;
-	font-size: 4rem;
-	-webkit-transition: background-color ease .3s, top ease .5s, left ease
-		.5s, width ease .5s, height ease .5s;
-	transition: background-color ease .3s, top ease .5s, left ease .5s,
-		width ease .5s, height ease .5s
+    position: absolute;
+    list-style: none;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    background-color: #888;
+    text-align: center;
+    font-size: 4rem;
+    -webkit-transition: background-color ease .3s, top ease .5s, left ease .5s, width ease .5s, height ease .5s;
+    transition: background-color ease .3s, top ease .5s, left ease .5s, width ease .5s, height ease .5s
 }
 
-#card li.half, #card li.quarter {
-	height: 95px;
-	line-height: 95px;
-	font-size: 2rem
+#card li.half,
+#card li.quarter {
+    height: 95px;
+    line-height: 95px;
+    font-size: 2rem
 }
 
 #card li.quarter {
-	width: 95px
+    width: 95px
 }
 
-#card a, #card li i {
-	width: 100%;
-	height: 100%
+#card a,
+#card li i {
+    width: 100%;
+    height: 100%
 }
 
-#card li span, #link-wechat img {
-	position: absolute;
-	top: 100%;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	font-size: 62.5%;
-	-webkit-transition: top ease .3s, opacity ease .3s;
-	transition: top ease .3s, opacity ease .3s
+#card li span,
+#link-wechat img {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    font-size: 62.5%;
+    -webkit-transition: top ease .3s, opacity ease .3s;
+    transition: top ease .3s, opacity ease .3s
 }
 
 #card li i {
-	-webkit-transition: opacity ease .3s, font-size ease .3s, color ease .3s;
-	transition: opacity ease .3s, font-size ease .3s, color ease .3s
+    -webkit-transition: opacity ease .3s, font-size ease .3s, color ease .3s;
+    transition: opacity ease .3s, font-size ease .3s, color ease .3s
 }
 
 #card li:hover i {
-	opacity: 0;
-	font-size: 10%
+    opacity: 0;
+    font-size: 10%
 }
 
-#card li:hover span, #link-wechat:hover img {
-	display: block;
-	top: 0;
-	opacity: 1
+#card li:hover span,
+#link-wechat:hover img {
+    display: block;
+    top: 0;
+    opacity: 1
 }
 
 #link-blog {
-	left: 0;
-	top: 0
+    left: 0;
+    top: 0
 }
 
 #link-blog:hover {
-	background-color: #39c
+    background-color: #39c
 }
 
 #link-about:hover {
-	background-color: #d81
+    background-color: #d81
 }
 
 #link-github:hover {
-	background-color: #333
+    background-color: #333
 }
 
 #link-mail:hover {
-	background-color: #595
+    background-color: #595
 }
 
 #link-stack-overflow:hover {
-	background-color: #dd4b39
+    background-color: #dd4b39
 }
 
 #link-more:hover {
-	background-color: #fff
+    background-color: #fff
 }
 
 li#link-more:hover i {
-	opacity: 1;
-	font-size: inherit;
-	color: #888
+    opacity: 1;
+    font-size: inherit;
+    color: #888
 }
 
 li#link-wechat span {
-	top: 0
+    top: 0
 }
 
 #card ul:after {
-	clear: both;
-	display: block
+    clear: both;
+    display: block
 }
 
-@media ( min-width :801px) {
-	#card, #card ul {
-		width: 725px
-	}
-	#card ul {
-		height: 200px;
-		-webkit-transition: width ease .5s;
-		transition: width ease .5s
-	}
-	#card header {
-		position: absolute;
-		top: -105px
-	}
-	#link-about {
-		left: 210px;
-		top: 0
-	}
-	#link-mail {
-		left: 420px;
-		top: 0
-	}
-	#link-wechat {
-		left: 630px;
-		top: 0
-	}
-	#link-github {
-		left: 420px;
-		top: 105px
-	}
-	#link-stack-overflow {
-		left: 525px;
-		top: 105px
-	}
-	#link-more {
-		left: 630px;
-		top: 105px
-	}
+@media (min-width:801px) {
+    #card,
+    #card ul {
+        width: 725px
+    }
+    #card ul {
+        height: 200px;
+        -webkit-transition: width ease .5s;
+        transition: width ease .5s
+    }
+    #card header {
+        position: absolute;
+        top: -105px
+    }
+    #link-about {
+        left: 210px;
+        top: 0
+    }
+    #link-mail {
+        left: 420px;
+        top: 0
+    }
+    #link-wechat {
+        left: 630px;
+        top: 0
+    }
+    #link-github {
+        left: 420px;
+        top: 105px
+    }
+    #link-stack-overflow {
+        left: 525px;
+        top: 105px
+    }
+    #link-more {
+        left: 630px;
+        top: 105px
+    }
 }
 
-@media ( max-width :550px) {
-	body.device-mobile #page {
-		display: block;
-		padding: 20px 0
-	}
+@media (max-width:550px) {
+    body.device-mobile #page {
+        display: block;
+        padding: 20px 0
+    }
 }
 
-@media ( min-width :641px) and (max-width:800px) {
-	#card, #card ul {
-		-webkit-transition: width ease .5s;
-		transition: width ease .5s
-	}
+@media (min-width:641px) and (max-width:800px) {
+    #card,
+    #card ul {
+        -webkit-transition: width ease .5s;
+        transition: width ease .5s
+    }
 }
 
-@media ( min-width :551px) and (max-width:800px) {
-	#card, #card ul {
-		width: 515px
-	}
-	#card ul {
-		height: 305px
-	}
-	#link-about {
-		left: 210px;
-		top: 0
-	}
-	li#link-mail.half {
-		left: 0;
-		top: 210px;
-		width: 305px
-	}
-	#link-wechat {
-		left: 315px;
-		top: 210px
-	}
-	#link-github {
-		left: 420px;
-		top: 0
-	}
-	#link-stack-overflow {
-		left: 420px;
-		top: 105px
-	}
-	#link-more {
-		left: 420px;
-		top: 210px
-	}
+@media (min-width:551px) and (max-width:800px) {
+    #card,
+    #card ul {
+        width: 515px
+    }
+    #card ul {
+        height: 305px
+    }
+    #link-about {
+        left: 210px;
+        top: 0
+    }
+    li#link-mail.half {
+        left: 0;
+        top: 210px;
+        width: 305px
+    }
+    #link-wechat {
+        left: 315px;
+        top: 210px
+    }
+    #link-github {
+        left: 420px;
+        top: 0
+    }
+    #link-stack-overflow {
+        left: 420px;
+        top: 105px
+    }
+    #link-more {
+        left: 420px;
+        top: 210px
+    }
 }
 
-@media ( min-width :451px) and (max-width:550px) {
-	#card, #card ul {
-		width: 410px
-	}
-	#card ul {
-		height: 410px
-	}
-	#link-about {
-		left: 210px;
-		top: 0
-	}
-	li#link-mail.half {
-		left: 0;
-		top: 210px;
-		width: 410px
-	}
-	#link-wechat {
-		left: 210px;
-		top: 315px
-	}
-	#link-github {
-		left: 0;
-		top: 315px
-	}
-	#link-stack-overflow {
-		left: 105px;
-		top: 315px
-	}
-	#link-more {
-		left: 315px;
-		top: 315px
-	}
+@media (min-width:451px) and (max-width:550px) {
+    #card,
+    #card ul {
+        width: 410px
+    }
+    #card ul {
+        height: 410px
+    }
+    #link-about {
+        left: 210px;
+        top: 0
+    }
+    li#link-mail.half {
+        left: 0;
+        top: 210px;
+        width: 410px
+    }
+    #link-wechat {
+        left: 210px;
+        top: 315px
+    }
+    #link-github {
+        left: 0;
+        top: 315px
+    }
+    #link-stack-overflow {
+        left: 105px;
+        top: 315px
+    }
+    #link-more {
+        left: 315px;
+        top: 315px
+    }
 }
 
-@media ( max-width :480px) {
-	#card, #card ul {
-		-webkit-transition: none;
-		transition: none
-	}
+@media (max-width:480px) {
+    #card,
+    #card ul {
+        -webkit-transition: none;
+        transition: none
+    }
 }
 
-@media ( max-width :450px) {
-	#card {
-		width: 100%;
-		height: 100%;
-		padding: 10px
-	}
-	#card ul {
-		width: 0;
-		height: 0;
-		padding: 50%
-	}
-	#card li {
-		width: 49%;
-		height: 49%
-	}
-	#card li.half {
-		width: 100%;
-		height: 23.5%
-	}
-	#card li.quarter {
-		width: 23.5%;
-		height: 23.5%
-	}
-	#card li a {
-		position: absolute;
-		left: 0;
-		top: 0
-	}
-	#link-about {
-		left: 51%;
-		top: 0
-	}
-	li#link-mail.half {
-		left: 0;
-		top: 51%
-	}
-	#link-wechat {
-		left: 51%;
-		top: 76.5%
-	}
-	#link-github {
-		left: 0;
-		top: 76.5%
-	}
-	#link-stack-overflow {
-		left: 25.5%;
-		top: 76.5%
-	}
-	#link-more {
-		left: 76.5%;
-		top: 76.5%
-	}
+@media (max-width:450px) {
+    #card {
+        width: 100%;
+        height: 100%;
+        padding: 10px
+    }
+    #card ul {
+        width: 0;
+        height: 0;
+        padding: 50%
+    }
+    #card li {
+        width: 49%;
+        height: 49%
+    }
+    #card li.half {
+        width: 100%;
+        height: 23.5%
+    }
+    #card li.quarter {
+        width: 23.5%;
+        height: 23.5%
+    }
+    #card li a {
+        position: absolute;
+        left: 0;
+        top: 0
+    }
+    #link-about {
+        left: 51%;
+        top: 0
+    }
+    li#link-mail.half {
+        left: 0;
+        top: 51%
+    }
+    #link-wechat {
+        left: 51%;
+        top: 76.5%
+    }
+    #link-github {
+        left: 0;
+        top: 76.5%
+    }
+    #link-stack-overflow {
+        left: 25.5%;
+        top: 76.5%
+    }
+    #link-more {
+        left: 76.5%;
+        top: 76.5%
+    }
 }
 
-@media ( max-width :320px) {
-	#card li {
-		line-height: 147px
-	}
-	#card li.half, #card li.quarter {
-		line-height: 70px
-	}
+@media (max-width:320px) {
+    #card li {
+        line-height: 147px
+    }
+    #card li.half,
+    #card li.quarter {
+        line-height: 70px
+    }
 }
 
 .title {
-	color: #fff;
-	-webkit-animation: jumpWhite 1.5s ease-in-out infinite alternate;
-	animation: jumpWhite 1.5s ease-in-out infinite alternate;
-	text-shadow: #452d2d 0 0 1px, #fffffb 0 0 1px, #fffffb 0 0 2px;
-	/* "FZSEJW",  */
-	font-family: "FZSEJW", "Helvetica Neue", "Microsoft Yahei",
-		"Microsoft Yahei", -apple-system, sans-serif
+    color: #fff;
+    -webkit-animation: jumpWhite 1.5s ease-in-out infinite alternate;
+    animation: jumpWhite 1.5s ease-in-out infinite alternate;
+    text-shadow: #452d2d 0 0 1px, #fffffb 0 0 1px, #fffffb 0 0 2px;
+    /* "FZSEJW",  */
+    font-family: "Twinkle", "FZSEJW", "Helvetica Neue", "Microsoft Yahei", "Microsoft Yahei", -apple-system, sans-serif
 }
 
-@
--webkit-keyframes jumpWhite {from { text-shadow:001px#fff, 002px#fff, 003px#fff,
-	005px#333, 008px#333, 009px#333, 0010px#333, 0015px#333
-	
+@-webkit-keyframes jumpWhite {
+    from {
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 5px #333, 0 0 8px #333, 0 0 9px #333, 0 0 10px #333, 0 0 15px #333
+    }
+    to {
+        text-shadow: 0 0 .5px #fff, 0 0 1px #fff, 0 0 1.5px #fff, 0 0 2px #333, 0 0 4px #333, 0 0 5px #333, 0 0 6px #333, 0 0 8px #333
+    }
 }
 
-to {
-	text-shadow: 0 0 .5px #fff, 0 0 1px #fff, 0 0 1.5px #fff, 0 0 2px #333,
-		0 0 4px #333, 0 0 5px #333, 0 0 6px #333, 0 0 8px #333
+@keyframes jumpWhite {
+    from {
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 5px #333, 0 0 8px #333, 0 0 9px #333, 0 0 10px #333, 0 0 15px #333
+    }
+    to {
+        text-shadow: 0 0 .5px #fff, 0 0 1px #fff, 0 0 1.5px #fff, 0 0 2px #333, 0 0 4px #333, 0 0 5px #333, 0 0 6px #333, 0 0 8px #333
+    }
 }
 
-}
-@
-keyframes jumpWhite {from { text-shadow:001px#fff, 002px#fff, 003px#fff,
-	005px#333, 008px#333, 009px#333, 0010px#333, 0015px#333
-	
-}
-
-to {
-	text-shadow: 0 0 .5px #fff, 0 0 1px #fff, 0 0 1.5px #fff, 0 0 2px #333,
-		0 0 4px #333, 0 0 5px #333, 0 0 6px #333, 0 0 8px #333
-}
-
-}
 ::-moz-selection {
-	background: #6aafe6;
-	color: #f6f6f6;
-	text-shadow: #bbbaba 0 0 1px, #fffffb 0 0 1px, #fffffb 0 0 2px
+    background: #6aafe6;
+    color: #f6f6f6;
+    text-shadow: #bbbaba 0 0 1px, #fffffb 0 0 1px, #fffffb 0 0 2px
 }
 
 ::selection {
-	background: #6aafe6;
-	color: #f6f6f6;
-	text-shadow: #bbbaba 0 0 1px, #fffffb 0 0 1px, #fffffb 0 0 2px
+    background: #6aafe6;
+    color: #f6f6f6;
+    text-shadow: #bbbaba 0 0 1px, #fffffb 0 0 1px, #fffffb 0 0 2px
 }
 
 .coding {
-	left: 50%;
-	-webkit-transform: translateX(-50%);
-	transform: translateX(-50%);
-	position: fixed;
-	bottom: 0;
-	opacity: 0;
-	text-shadow: #a09c9b 0 0 1px;
-	margin-bottom: 200px;
-	-webkit-transition: all .3s ease-in-out;
-	transition: all .3s ease-in-out;
-	font-family: "FZSEJW", "Helvetica Neue", "Microsoft Yahei",
-		-apple-system, sans-serif
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    position: fixed;
+    bottom: 0;
+    opacity: 0;
+    text-shadow: #a09c9b 0 0 1px;
+    margin-bottom: 200px;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    font-family: "Twinkle", "FZSEJW", "Helvetica Neue", "Microsoft Yahei", -apple-system, sans-serif
 }
 
 .coding.jump {
-	-webkit-animation: jump .8s .8s forwards
-		cubic-bezier(.58, .13, .94, .64);
-	animation: jump .8s .8s forwards cubic-bezier(.58, .13, .94, .64)
+    -webkit-animation: jump .8s .8s forwards cubic-bezier(.58, .13, .94, .64);
+    animation: jump .8s .8s forwards cubic-bezier(.58, .13, .94, .64)
 }
 
-@
--webkit-keyframes jump { 100%, 40%, 95% {
-	opacity: 1;
-	margin-bottom: 2px
+@-webkit-keyframes jump {
+    100%,
+    40%,
+    95% {
+        opacity: 1;
+        margin-bottom: 2px
+    }
+    50% {
+        opacity: .7;
+        margin-bottom: 30px
+    }
+    70% {
+        opacity: .8;
+        margin-bottom: 2px
+    }
+    80% {
+        opacity: 1;
+        margin-bottom: 15px
+    }
+    90% {
+        opacity: .9;
+        margin-bottom: 8px
+    }
+    97% {
+        opacity: 1;
+        margin-bottom: 4px
+    }
+    98% {
+        opacity: .9;
+        margin-bottom: 2px
+    }
+    99% {
+        opacity: 1;
+        margin-bottom: 3px
+    }
 }
 
-50%
-{
-opacity
-:
- 
-.7
-;
-
-        
-margin-bottom
-:
- 
-30
-px
-
-    
-}
-70%
-{
-opacity
-:
- 
-.8
-;
-
-        
-margin-bottom
-:
- 
-2
-px
-
-    
-}
-80%
-{
-opacity
-:
- 
-1;
-margin-bottom
-:
- 
-15
-px
-
-    
-}
-90%
-{
-opacity
-:
- 
-.9
-;
-
-        
-margin-bottom
-:
- 
-8
-px
-
-    
-}
-97%
-{
-opacity
-:
- 
-1;
-margin-bottom
-:
- 
-4
-px
-
-    
-}
-98%
-{
-opacity
-:
- 
-.9
-;
-
-        
-margin-bottom
-:
- 
-2
-px
-
-    
-}
-99%
-{
-opacity
-:
- 
-1;
-margin-bottom
-:
- 
-3
-px
-
-    
-}
-}
-@
-keyframes jump { 100%, 40%, 95% {
-	opacity: 1;
-	margin-bottom: 2px
+@keyframes jump {
+    100%,
+    40%,
+    95% {
+        opacity: 1;
+        margin-bottom: 2px
+    }
+    50% {
+        opacity: .7;
+        margin-bottom: 30px
+    }
+    70% {
+        opacity: .8;
+        margin-bottom: 2px
+    }
+    80% {
+        opacity: 1;
+        margin-bottom: 15px
+    }
+    90% {
+        opacity: .9;
+        margin-bottom: 8px
+    }
+    97% {
+        opacity: 1;
+        margin-bottom: 4px
+    }
+    98% {
+        opacity: .9;
+        margin-bottom: 2px
+    }
+    99% {
+        opacity: 1;
+        margin-bottom: 3px
+    }
 }
 
-50%
-{
-opacity
-:
- 
-.7
-;
-
-        
-margin-bottom
-:
- 
-30
-px
-
-    
-}
-70%
-{
-opacity
-:
- 
-.8
-;
-
-        
-margin-bottom
-:
- 
-2
-px
-
-    
-}
-80%
-{
-opacity
-:
- 
-1;
-margin-bottom
-:
- 
-15
-px
-
-    
-}
-90%
-{
-opacity
-:
- 
-.9
-;
-
-        
-margin-bottom
-:
- 
-8
-px
-
-    
-}
-97%
-{
-opacity
-:
- 
-1;
-margin-bottom
-:
- 
-4
-px
-
-    
-}
-98%
-{
-opacity
-:
- 
-.9
-;
-
-        
-margin-bottom
-:
- 
-2
-px
-
-    
-}
-99%
-{
-opacity
-:
- 
-1;
-margin-bottom
-:
- 
-3
-px
-
-    
-}
-}
 #target {
-	color: #ddd;
-	font-size: 14px;
-	position: relative;
-	white-space: normal
+    color: #ddd;
+    font-size: 14px;
+    position: relative;
+    white-space: normal
 }
 
 #target:after {
-	position: absolute;
-	bottom: -.0625rem;
-	left: 100%;
-	width: 0;
-	border-bottom: .0625rem solid #ddd;
-	-webkit-transition: width 350ms, left 350ms;
-	transition: width 350ms, left 350ms
+    position: absolute;
+    bottom: -.0625rem;
+    left: 100%;
+    width: 0;
+    border-bottom: .0625rem solid #ddd;
+    -webkit-transition: width 350ms, left 350ms;
+    transition: width 350ms, left 350ms
 }
 
 #target:hover:after {
-	left: 0;
-	width: 100%;
-	outline: 0;
-	text-decoration: underline;
-	-webkit-transition: width 350ms;
-	transition: width 350ms
+    left: 0;
+    width: 100%;
+    outline: 0;
+    text-decoration: underline;
+    -webkit-transition: width 350ms;
+    transition: width 350ms
 }
 
 .coding:hover {
-	-webkit-transform: translateX(-50%) translateY(-5px);
-	transform: translateX(-50%) translateY(-5px);
-	text-shadow: #cecaca 0 0 3px
+    -webkit-transform: translateX(-50%) translateY(-5px);
+    transform: translateX(-50%) translateY(-5px);
+    text-shadow: #cecaca 0 0 3px
 }
 
 @media screen and (max-width:760px) {
-	.coding {
-		display: none
-	}
-	.title {
-		display: none
-	}
+    .coding {
+        display: none
+    }
 }

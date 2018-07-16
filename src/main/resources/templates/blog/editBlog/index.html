@@ -6,7 +6,7 @@
     
     
     
-    <title>归档 | Aimee | Welcome</title>
+    <title>Aimee | Welcome</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
@@ -42,10 +42,11 @@
     <meta name="description" content="Aimee">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aimee">
-<meta property="og:url" content="http://zhangxiaoran.cn/archives/index.html">
+<meta property="og:url" content="http://zhangxiaoran.cn/editBlog/index.html">
 <meta property="og:site_name" content="Aimee">
 <meta property="og:description" content="Aimee">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-02T07:41:59.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Aimee">
 <meta name="twitter:description" content="Aimee">
@@ -224,7 +225,7 @@
             <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            归档
+            
         </div>
         
             <div class="search-wrap" id="search-wrap">
@@ -248,7 +249,7 @@
             </a>
     </div>
 </header>
-<header class="content-header archives-header">
+<header class="content-header post-header">
 
 
     <div class="aimee_container fade-scale">
@@ -258,119 +259,160 @@
             </h1>
             <h5 class="subtitle">
                 
-                                <h1 class="archivestitle">
-                                    路漫漫其修远兮
-                                </h1>
-                                
+                                            <h1 id="pagetitle" class="archivestitle"></h1>
+                                            <script>
+                                                if (location.href.indexOf('about') != -1) {
+                                                    pagetitle.textContent = '冉萌';
+                                                } else if (location.href.indexOf('tags') != -1 || location.href.indexOf('categories') != -1) {
+                                                    var a = location.href.substring(location.href.length - 5, location.href.length - 1);
+                                                    if (a === 'tags') {
+                                                        pagetitle.textContent = '不积小流无以成江海';
+                                                    } else if (a === 'ries') {
+                                                        pagetitle.textContent = '不积跬步无以至千里';
+                                                    }
+                                                }
+                                            </script>
+                                            
             </h5>
         </div>
     </div>
 
 </header>
-<div class="aimee_container body-wrap aimee-fade">
-    
 
+<div class="aimee_container body-wrap">
     
+    <article id="edit-blog-" class="post-article article-type-edit-blog aimee-fade" itemprop="blogPost">
+    
+        <div class="post-card">
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary article-group">文章分类</button>
+                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <span class="sr-only">文章分类</span>
+                </button>
+                <div class="dropdown-menu" style="z-index: 10002;">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Separated1</a>
+                        <a class="dropdown-item" href="#">Action2</a>
+                        <a class="dropdown-item" href="#">Separated 3</a>
+                        <a class="dropdown-item" href="#">Action4</a>
+                        <a class="dropdown-item" href="#">Separated 5</a>
+                        <a class="dropdown-item" href="#">Action6</a>
+                        <a class="dropdown-item" href="#">Separated 7</a>
+                        <a class="dropdown-item" href="#">Action8</a>
+                        <a class="dropdown-item" href="#">Separated 9</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for=""></label>
+                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="请输入标题">
+                <small id="helpId" class="form-text text-muted fade"></small>
+            </div>
+            <div class="post-content" id="post-content" itemprop="postContent">
+                <div class="form-group" id="myText">
+                </div>
+            </div>
+
+            <!-- <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新：<time datetime="2018-06-02T07:41:59.379Z" itemprop="dateUpdated">2018-06-02 15:41:59</time>
+</span>
+
+
+        
+        原文链接：<a href="/editBlog/" target="_blank" rel="external">http://zhangxiaoran.cn/editBlog/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://zhangxiaoran.cn'">
+            <img src="/img/avatar.jpg" alt="Aimee">
+            <a>Aimee</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+ -->
+
+            <div class="post-footer">
+                <!-- 
+
             
-            <h3 class="archive-separator">
-                <i class="icon icon-lg icon-folder-o"></i>&nbsp;&nbsp;
-                2018
-            </h3>
-            <div class="waterfall">
+<div class="page-share-wrap">
     
 
-        <article class="archive-article" onclick="location.href='/posts/16107/'">
-    <div class="archive-article-date">
-      
-      <time class="my-post-time">
-        <i class="icon icon-lg icon-file-text-o"></i>
-        &nbsp;
-          05-28
-      </time>
-    </div>
-    <div class="archive-article-inner">
-      
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhangxiaoran.cn/editBlog/&title=Aimee&pic=http://zhangxiaoran.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhangxiaoran.cn/editBlog/&title=Aimee&source=Aimee" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhangxiaoran.cn/editBlog/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Aimee&url=http://zhangxiaoran.cn/editBlog/&via=http://zhangxiaoran.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhangxiaoran.cn/editBlog/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
 
 
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/16107/">Hello World</a>
-    </h3>
-    <h5 class="post-title" itemprop="name">
-      <a href="/posts/16107/">My first application</a>
-    </h5>
-  
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+ -->
+
+                <button type="button" class="btn btn-primary float-right" style="margin-left: 10px; margin-bottom: 10px">保存</button>
+                <button type="button" class="btn btn-secondary float-right" style="margin-left: 10px; margin-bottom: 10px">取消</button>
+
+            </div>
+        </div>
+        <script>
+            window.onload = wangEd;
+            function wangEd() {
+                var E = window.wangEditor;
+                var editor = new E('#myText');
+                editor.create();
+            }
+        </script>
+        
 
 
-
-      
-    </div>
-  </article>
+            
+    
 
     
 
-        <article class="archive-article" onclick="location.href='/posts/17050/'">
-    <div class="archive-article-date">
-      
-      <time class="my-post-time">
-        <i class="icon icon-lg icon-file-text-o"></i>
-        &nbsp;
-          05-25
-      </time>
-    </div>
-    <div class="archive-article-inner">
-      
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/17050/">alicia</a>
-    </h3>
-    <h5 class="post-title" itemprop="name">
-      <a href="/posts/17050/">aimee</a>
-    </h5>
-  
-
-
-
-      
-    </div>
-  </article>
-
     
 
-        <article class="archive-article" onclick="location.href='/posts/17051/'">
-    <div class="archive-article-date">
-      
-      <time class="my-post-time">
-        <i class="icon icon-lg icon-file-text-o"></i>
-        &nbsp;
-          05-25
-      </time>
-    </div>
-    <div class="archive-article-inner">
-      
 
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/17051/">第一篇博客</a>
-    </h3>
-    <h5 class="post-title" itemprop="name">
-      <a href="/posts/17051/">看看效果吧先</a>
-    </h5>
-  
-
-
-
-      
-    </div>
-  </article>
-
-    
-    </div>
-
-    
+    </article>
+    <script src="/js/wangEditor.min.js?v=3.0" type="text/JavaScript"></script>
 </div>
 
         <footer class="footer">

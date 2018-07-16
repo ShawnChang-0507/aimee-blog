@@ -264,7 +264,7 @@
             el.parentNode.parentNode.classList.toggle("expand");
         },
         page: (function () {
-            const $elements = $$(".fade, .fade-scale");
+            const $elements = $$(".aimee-fade, .fade-scale");
             let visible = false;
             return {
                 loaded: function () {
