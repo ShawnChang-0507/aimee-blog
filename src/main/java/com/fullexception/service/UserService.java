@@ -9,5 +9,9 @@ public interface UserService {
 	List<User> getAllUser();
 
 	User getUserById(int i);
+	/*
+	 * 用户注册
+	 */
+	Boolean insertUser(User user);
 
 }

@@ -9,7 +9,7 @@ import com.fullexception.entity.User;
 import com.fullexception.mapper.UserMapper;
 import com.fullexception.service.UserService;
 
-@Service("UserService")
+@Service("userService")
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
@@ -26,6 +26,12 @@ public class UserServiceImpl implements UserService {
 	public User getUserById(int i) {
 		User user = userMapper.selectByPrimaryKey(i);
 		return user;
+	}
+
+	@Override
+	public Boolean insertUser(User user) {
+		int result = userMapper.insert(user);
+		return result == 0 ? false : true;
 	}
 
 }

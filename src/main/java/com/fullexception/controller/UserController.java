@@ -6,11 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fullexception.entity.User;
 import com.fullexception.service.UserService;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 	@Autowired
 	private UserService userService;
@@ -26,5 +29,11 @@ public class UserController {
 	@GetMapping(value = "/blog")
 	public String showBlog(ModelMap model) {
 		return "blog/index";
+	}
+	
+	@PostMapping("/register")
+	public Boolean addUser(User user){
+		Boolean result = userService.insertUser(user);
+		return result;
 	}
 }
