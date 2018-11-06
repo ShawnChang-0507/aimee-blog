@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.BlogLevelMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.BlogLevel" >
+    <id column="blog_level_id" property="blogLevelId" jdbcType="INTEGER" />
+    <result column="level_group_id" property="levelGroupId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="integral" property="integral" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    blog_level_id, level_group_id, name, integral
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from blog_level
+    where blog_level_id = #{blogLevelId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from blog_level
+    where blog_level_id = #{blogLevelId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.BlogLevel" >
+    insert into blog_level (blog_level_id, level_group_id, name, 
+      integral)
+    values (#{blogLevelId,jdbcType=INTEGER}, #{levelGroupId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{integral,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.BlogLevel" >
+    insert into blog_level
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="blogLevelId != null" >
+        blog_level_id,
+      </if>
+      <if test="levelGroupId != null" >
+        level_group_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="integral != null" >
+        integral,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="blogLevelId != null" >
+        #{blogLevelId,jdbcType=INTEGER},
+      </if>
+      <if test="levelGroupId != null" >
+        #{levelGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null" >
+        #{integral,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.BlogLevel" >
+    update blog_level
+    <set >
+      <if test="levelGroupId != null" >
+        level_group_id = #{levelGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null" >
+        integral = #{integral,jdbcType=CHAR},
+      </if>
+    </set>
+    where blog_level_id = #{blogLevelId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.BlogLevel" >
+    update blog_level
+    set level_group_id = #{levelGroupId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      integral = #{integral,jdbcType=CHAR}
+    where blog_level_id = #{blogLevelId,jdbcType=INTEGER}
+  </update>
+</mapper>

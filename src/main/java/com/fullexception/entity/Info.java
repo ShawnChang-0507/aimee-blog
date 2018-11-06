@@ -5,7 +5,9 @@ import java.util.Date;
 public class Info {
     private Integer infoId;
 
-    private Integer userId;
+    private Integer visitorId;
+
+    private Integer addressId;
 
     private String realName;
 
@@ -13,15 +15,17 @@ public class Info {
 
     private Date birthday;
 
-    private String address;
-
-    private String mail;
+    private String email;
 
     private String qq;
 
-    private String wechatUrl;
+    private String wecharPay;
 
-    private String introduce;
+    private String wecharFriend;
+
+    private String aliPay;
+
+    private String aliFriend;
 
     private String telphone;
 
@@ -33,12 +37,20 @@ public class Info {
         this.infoId = infoId;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getVisitorId() {
+        return visitorId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setVisitorId(Integer visitorId) {
+        this.visitorId = visitorId;
+    }
+
+    public Integer getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Integer addressId) {
+        this.addressId = addressId;
     }
 
     public String getRealName() {
@@ -65,20 +77,12 @@ public class Info {
         this.birthday = birthday;
     }
 
-    public String getAddress() {
-        return address;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail == null ? null : mail.trim();
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
     }
 
     public String getQq() {
@@ -89,20 +93,36 @@ public class Info {
         this.qq = qq == null ? null : qq.trim();
     }
 
-    public String getWechatUrl() {
-        return wechatUrl;
+    public String getWecharPay() {
+        return wecharPay;
     }
 
-    public void setWechatUrl(String wechatUrl) {
-        this.wechatUrl = wechatUrl == null ? null : wechatUrl.trim();
+    public void setWecharPay(String wecharPay) {
+        this.wecharPay = wecharPay == null ? null : wecharPay.trim();
     }
 
-    public String getIntroduce() {
-        return introduce;
+    public String getWecharFriend() {
+        return wecharFriend;
     }
 
-    public void setIntroduce(String introduce) {
-        this.introduce = introduce == null ? null : introduce.trim();
+    public void setWecharFriend(String wecharFriend) {
+        this.wecharFriend = wecharFriend == null ? null : wecharFriend.trim();
+    }
+
+    public String getAliPay() {
+        return aliPay;
+    }
+
+    public void setAliPay(String aliPay) {
+        this.aliPay = aliPay == null ? null : aliPay.trim();
+    }
+
+    public String getAliFriend() {
+        return aliFriend;
+    }
+
+    public void setAliFriend(String aliFriend) {
+        this.aliFriend = aliFriend == null ? null : aliFriend.trim();
     }
 
     public String getTelphone() {

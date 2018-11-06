@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fullexception.mapper.AttentionMapper">
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.Attention">
+    <id column="attention_id" jdbcType="INTEGER" property="attentionId" />
+    <result column="owner_visitor_id" jdbcType="INTEGER" property="ownerVisitorId" />
+    <result column="attention_visiton_id" jdbcType="INTEGER" property="attentionVisitonId" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    attention_id, owner_visitor_id, attention_visiton_id, create_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from attention
+    where attention_id = #{attentionId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from attention
+    where attention_id = #{attentionId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.Attention">
+    insert into attention (attention_id, owner_visitor_id, attention_visiton_id, 
+      create_date)
+    values (#{attentionId,jdbcType=INTEGER}, #{ownerVisitorId,jdbcType=INTEGER}, #{attentionVisitonId,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.Attention">
+    insert into attention
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="attentionId != null">
+        attention_id,
+      </if>
+      <if test="ownerVisitorId != null">
+        owner_visitor_id,
+      </if>
+      <if test="attentionVisitonId != null">
+        attention_visiton_id,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="attentionId != null">
+        #{attentionId,jdbcType=INTEGER},
+      </if>
+      <if test="ownerVisitorId != null">
+        #{ownerVisitorId,jdbcType=INTEGER},
+      </if>
+      <if test="attentionVisitonId != null">
+        #{attentionVisitonId,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Attention">
+    update attention
+    <set>
+      <if test="ownerVisitorId != null">
+        owner_visitor_id = #{ownerVisitorId,jdbcType=INTEGER},
+      </if>
+      <if test="attentionVisitonId != null">
+        attention_visiton_id = #{attentionVisitonId,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where attention_id = #{attentionId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Attention">
+    update attention
+    set owner_visitor_id = #{ownerVisitorId,jdbcType=INTEGER},
+      attention_visiton_id = #{attentionVisitonId,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=TIMESTAMP}
+    where attention_id = #{attentionId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.Attention">
+    <id column="attention_id" jdbcType="INTEGER" property="attentionId" />
+    <result column="host_id" jdbcType="INTEGER" property="hostId" />
+    <result column="host_attention_id" jdbcType="INTEGER" property="hostAttentionId" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    attention_id, host_id, host_attention_id, create_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from attention
+    where attention_id = #{attentionId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from attention
+    where attention_id = #{attentionId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.Attention">
+    insert into attention (attention_id, host_id, host_attention_id, 
+      create_date)
+    values (#{attentionId,jdbcType=INTEGER}, #{hostId,jdbcType=INTEGER}, #{hostAttentionId,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.Attention">
+    insert into attention
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="attentionId != null">
+        attention_id,
+      </if>
+      <if test="hostId != null">
+        host_id,
+      </if>
+      <if test="hostAttentionId != null">
+        host_attention_id,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="attentionId != null">
+        #{attentionId,jdbcType=INTEGER},
+      </if>
+      <if test="hostId != null">
+        #{hostId,jdbcType=INTEGER},
+      </if>
+      <if test="hostAttentionId != null">
+        #{hostAttentionId,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Attention">
+    update attention
+    <set>
+      <if test="hostId != null">
+        host_id = #{hostId,jdbcType=INTEGER},
+      </if>
+      <if test="hostAttentionId != null">
+        host_attention_id = #{hostAttentionId,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+    </set>
+    where attention_id = #{attentionId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Attention">
+    update attention
+    set host_id = #{hostId,jdbcType=INTEGER},
+      host_attention_id = #{hostAttentionId,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=DATE}
+    where attention_id = #{attentionId,jdbcType=INTEGER}
+  </update>
+</mapper>

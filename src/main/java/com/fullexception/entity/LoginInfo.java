@@ -5,13 +5,11 @@ import java.util.Date;
 public class LoginInfo {
     private Integer loginInfoId;
 
-    private Integer levelId;
+    private Integer visitorId;
 
-    private Integer userId;
+    private Date loginTime;
 
-    private Double loginTime;
-
-    private Date lastLoginTime;
+    private String ip;
 
     public Integer getLoginInfoId() {
         return loginInfoId;
@@ -21,35 +19,27 @@ public class LoginInfo {
         this.loginInfoId = loginInfoId;
     }
 
-    public Integer getLevelId() {
-        return levelId;
+    public Integer getVisitorId() {
+        return visitorId;
     }
 
-    public void setLevelId(Integer levelId) {
-        this.levelId = levelId;
+    public void setVisitorId(Integer visitorId) {
+        this.visitorId = visitorId;
     }
 
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public Double getLoginTime() {
+    public Date getLoginTime() {
         return loginTime;
     }
 
-    public void setLoginTime(Double loginTime) {
+    public void setLoginTime(Date loginTime) {
         this.loginTime = loginTime;
     }
 
-    public Date getLastLoginTime() {
-        return lastLoginTime;
+    public String getIp() {
+        return ip;
     }
 
-    public void setLastLoginTime(Date lastLoginTime) {
-        this.lastLoginTime = lastLoginTime;
+    public void setIp(String ip) {
+        this.ip = ip == null ? null : ip.trim();
     }
 }

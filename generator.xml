@@ -13,7 +13,7 @@
 		<!-- oracle数据库 -->
 		<!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@localhost:1521:orcl" userId="msa" password="msa">-->
 		<!-- mysql数据库 -->
-		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/alicia" userId="root" password="pythoner"> 
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/aimee_blog" userId="root" password="pythoner"> 
 		</jdbcConnection>
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
@@ -32,31 +32,27 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
-		<table tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="action" domainObjectName="Action" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="address" domainObjectName="Address" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 		<table tableName="article" domainObjectName="Article" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="article_comment" domainObjectName="ArticleComment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 		<table tableName="article_group" domainObjectName="ArticleGroup" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="article_img" domainObjectName="ArticleImg" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="article_public" domainObjectName="ArticlePublic" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="article_state" domainObjectName="ArticleState" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="assist" domainObjectName="Assist" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 		<table tableName="attention" domainObjectName="Attention" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="baby_img" domainObjectName="BabyImg" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="baby_info" domainObjectName="BabyInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="friend" domainObjectName="Friend" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="friend_group" domainObjectName="FriendGroup" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="head_img" domainObjectName="HeadImg" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="blog_level" domainObjectName="BlogLevel" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="discuss" domainObjectName="Discuss" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 		<table tableName="info" domainObjectName="Info" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="level" domainObjectName="Level" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="integral" domainObjectName="Integral" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="level_group" domainObjectName="LevelGroup" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 		<table tableName="login_info" domainObjectName="LoginInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="photo_album" domainObjectName="PhotoAlbum" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="photo_album_group" domainObjectName="PhotoAlbumGroup" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="say" domainObjectName="Say" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="say_comment" domainObjectName="SayComment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="say_img" domainObjectName="SayImg" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="read_log" domainObjectName="ReadLog" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="read_state" domainObjectName="ReadState" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="role" domainObjectName="Role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="role_action" domainObjectName="RoleAction" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 		<table tableName="source" domainObjectName="Source" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="star" domainObjectName="Star" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-		<table tableName="user_exception" domainObjectName="UserException" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="web_statistics" domainObjectName="WebStatistics" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="chatting_record" domainObjectName="ChattingRecord" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="article_assist" domainObjectName="ArticleAssist" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="say_assist" domainObjectName="SayAssist" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="visitor" domainObjectName="Visitor" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="visitor_role" domainObjectName="VisitorRole" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="visitor_state" domainObjectName="VisitorState" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 	</context>
 </generatorConfiguration>

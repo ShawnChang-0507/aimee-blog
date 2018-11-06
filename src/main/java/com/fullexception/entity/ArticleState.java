@@ -1,16 +1,16 @@
 package com.fullexception.entity;
 
-public class Source {
-    private Integer sourceId;
+public class ArticleState {
+    private Integer articleStateId;
 
     private String name;
 
-    public Integer getSourceId() {
-        return sourceId;
+    public Integer getArticleStateId() {
+        return articleStateId;
     }
 
-    public void setSourceId(Integer sourceId) {
-        this.sourceId = sourceId;
+    public void setArticleStateId(Integer articleStateId) {
+        this.articleStateId = articleStateId;
     }
 
     public String getName() {

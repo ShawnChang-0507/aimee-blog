@@ -5,8 +5,10 @@ import java.util.Date;
 public class ArticleGroup {
     private Integer articleGroupId;
 
-    private String articleGroupName;
-    
+    private Integer visitorId;
+
+    private String name;
+
     private Date createDate;
 
     public Integer getArticleGroupId() {
@@ -17,19 +19,27 @@ public class ArticleGroup {
         this.articleGroupId = articleGroupId;
     }
 
-    public String getArticleGroupName() {
-        return articleGroupName;
+    public Integer getVisitorId() {
+        return visitorId;
     }
 
-    public void setArticleGroupName(String articleGroupName) {
-        this.articleGroupName = articleGroupName == null ? null : articleGroupName.trim();
+    public void setVisitorId(Integer visitorId) {
+        this.visitorId = visitorId;
     }
 
-	public Date getCreateDate() {
-		return createDate;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 }

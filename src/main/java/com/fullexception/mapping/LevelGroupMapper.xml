@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.LevelGroupMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.LevelGroup" >
+    <id column="level_group_id" property="levelGroupId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    level_group_id, name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from level_group
+    where level_group_id = #{levelGroupId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from level_group
+    where level_group_id = #{levelGroupId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.LevelGroup" >
+    insert into level_group (level_group_id, name)
+    values (#{levelGroupId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.LevelGroup" >
+    insert into level_group
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="levelGroupId != null" >
+        level_group_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="levelGroupId != null" >
+        #{levelGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.LevelGroup" >
+    update level_group
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where level_group_id = #{levelGroupId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.LevelGroup" >
+    update level_group
+    set name = #{name,jdbcType=VARCHAR}
+    where level_group_id = #{levelGroupId,jdbcType=INTEGER}
+  </update>
+</mapper>

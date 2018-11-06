@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.IntegralMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.Integral" >
+    <id column="integral_id" property="integralId" jdbcType="INTEGER" />
+    <result column="visitor_id" property="visitorId" jdbcType="INTEGER" />
+    <result column="level_group_id" property="levelGroupId" jdbcType="INTEGER" />
+    <result column="value" property="value" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    integral_id, visitor_id, level_group_id, value
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from integral
+    where integral_id = #{integralId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from integral
+    where integral_id = #{integralId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.Integral" >
+    insert into integral (integral_id, visitor_id, level_group_id, 
+      value)
+    values (#{integralId,jdbcType=INTEGER}, #{visitorId,jdbcType=INTEGER}, #{levelGroupId,jdbcType=INTEGER}, 
+      #{value,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.Integral" >
+    insert into integral
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="integralId != null" >
+        integral_id,
+      </if>
+      <if test="visitorId != null" >
+        visitor_id,
+      </if>
+      <if test="levelGroupId != null" >
+        level_group_id,
+      </if>
+      <if test="value != null" >
+        value,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="integralId != null" >
+        #{integralId,jdbcType=INTEGER},
+      </if>
+      <if test="visitorId != null" >
+        #{visitorId,jdbcType=INTEGER},
+      </if>
+      <if test="levelGroupId != null" >
+        #{levelGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="value != null" >
+        #{value,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Integral" >
+    update integral
+    <set >
+      <if test="visitorId != null" >
+        visitor_id = #{visitorId,jdbcType=INTEGER},
+      </if>
+      <if test="levelGroupId != null" >
+        level_group_id = #{levelGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="value != null" >
+        value = #{value,jdbcType=INTEGER},
+      </if>
+    </set>
+    where integral_id = #{integralId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Integral" >
+    update integral
+    set visitor_id = #{visitorId,jdbcType=INTEGER},
+      level_group_id = #{levelGroupId,jdbcType=INTEGER},
+      value = #{value,jdbcType=INTEGER}
+    where integral_id = #{integralId,jdbcType=INTEGER}
+  </update>
+</mapper>

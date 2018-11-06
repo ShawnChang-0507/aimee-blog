@@ -1,16 +1,16 @@
 package com.fullexception.entity;
 
-public class Source {
-    private Integer sourceId;
+public class LevelGroup {
+    private Integer levelGroupId;
 
     private String name;
 
-    public Integer getSourceId() {
-        return sourceId;
+    public Integer getLevelGroupId() {
+        return levelGroupId;
     }
 
-    public void setSourceId(Integer sourceId) {
-        this.sourceId = sourceId;
+    public void setLevelGroupId(Integer levelGroupId) {
+        this.levelGroupId = levelGroupId;
     }
 
     public String getName() {

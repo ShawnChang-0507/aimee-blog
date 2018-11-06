@@ -5,37 +5,23 @@ import java.util.Date;
 public class Article {
     private Integer articleId;
 
-    private Integer hostId;
+    private Integer articleStateId;
+
+    private Integer articlePublicId;
+
+    private Integer authorId;
 
     private Integer sourceId;
 
     private Integer articleGroupId;
 
-    private Integer parentArticleId;
-
     private String articleTitle;
-    
-    private String articleIntroduce;
-
-    private String articleContent;
 
     private Date createDate;
 
-    private String weather;
+    private String articleContent;
 
-    private Integer articleState;
-
-    private Integer publicOrPrivate;
-
-    public String getArticleIntroduce() {
-		return articleIntroduce;
-	}
-
-	public void setArticleIntroduce(String articleIntroduce) {
-		this.articleIntroduce = articleIntroduce;
-	}
-
-	public Integer getArticleId() {
+    public Integer getArticleId() {
         return articleId;
     }
 
@@ -43,12 +29,28 @@ public class Article {
         this.articleId = articleId;
     }
 
-    public Integer getHostId() {
-        return hostId;
+    public Integer getArticleStateId() {
+        return articleStateId;
     }
 
-    public void setHostId(Integer hostId) {
-        this.hostId = hostId;
+    public void setArticleStateId(Integer articleStateId) {
+        this.articleStateId = articleStateId;
+    }
+
+    public Integer getArticlePublicId() {
+        return articlePublicId;
+    }
+
+    public void setArticlePublicId(Integer articlePublicId) {
+        this.articlePublicId = articlePublicId;
+    }
+
+    public Integer getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(Integer authorId) {
+        this.authorId = authorId;
     }
 
     public Integer getSourceId() {
@@ -67,28 +69,12 @@ public class Article {
         this.articleGroupId = articleGroupId;
     }
 
-    public Integer getParentArticleId() {
-        return parentArticleId;
-    }
-
-    public void setParentArticleId(Integer parentArticleId) {
-        this.parentArticleId = parentArticleId;
-    }
-
     public String getArticleTitle() {
         return articleTitle;
     }
 
     public void setArticleTitle(String articleTitle) {
         this.articleTitle = articleTitle == null ? null : articleTitle.trim();
-    }
-
-    public String getArticleContent() {
-        return articleContent;
-    }
-
-    public void setArticleContent(String articleContent) {
-        this.articleContent = articleContent == null ? null : articleContent.trim();
     }
 
     public Date getCreateDate() {
@@ -99,27 +85,11 @@ public class Article {
         this.createDate = createDate;
     }
 
-    public String getWeather() {
-        return weather;
+    public String getArticleContent() {
+        return articleContent;
     }
 
-    public void setWeather(String weather) {
-        this.weather = weather == null ? null : weather.trim();
-    }
-
-    public Integer getArticleState() {
-        return articleState;
-    }
-
-    public void setArticleState(Integer articleState) {
-        this.articleState = articleState;
-    }
-
-    public Integer getPublicOrPrivate() {
-        return publicOrPrivate;
-    }
-
-    public void setPublicOrPrivate(Integer publicOrPrivate) {
-        this.publicOrPrivate = publicOrPrivate;
+    public void setArticleContent(String articleContent) {
+        this.articleContent = articleContent == null ? null : articleContent.trim();
     }
 }

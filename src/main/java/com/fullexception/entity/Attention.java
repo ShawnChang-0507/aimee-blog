@@ -5,9 +5,9 @@ import java.util.Date;
 public class Attention {
     private Integer attentionId;
 
-    private Integer hostId;
+    private Integer ownerVisitorId;
 
-    private Integer hostAttentionId;
+    private Integer attentionVisitonId;
 
     private Date createDate;
 
@@ -19,20 +19,20 @@ public class Attention {
         this.attentionId = attentionId;
     }
 
-    public Integer getHostId() {
-        return hostId;
+    public Integer getOwnerVisitorId() {
+        return ownerVisitorId;
     }
 
-    public void setHostId(Integer hostId) {
-        this.hostId = hostId;
+    public void setOwnerVisitorId(Integer ownerVisitorId) {
+        this.ownerVisitorId = ownerVisitorId;
     }
 
-    public Integer getHostAttentionId() {
-        return hostAttentionId;
+    public Integer getAttentionVisitonId() {
+        return attentionVisitonId;
     }
 
-    public void setHostAttentionId(Integer hostAttentionId) {
-        this.hostAttentionId = hostAttentionId;
+    public void setAttentionVisitonId(Integer attentionVisitonId) {
+        this.attentionVisitonId = attentionVisitonId;
     }
 
     public Date getCreateDate() {
