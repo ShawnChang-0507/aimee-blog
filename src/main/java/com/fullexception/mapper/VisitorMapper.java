@@ -14,6 +14,4 @@ public interface VisitorMapper {
     int updateByPrimaryKeySelective(Visitor record);
 
     int updateByPrimaryKey(Visitor record);
-    
-    Visitor login(String name, String password);
 }

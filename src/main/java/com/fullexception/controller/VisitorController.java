@@ -18,16 +18,23 @@ import com.fullexception.entity.Visitor;
 import com.fullexception.service.VisitorService;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/visitor")
 public class VisitorController extends AuthorizingRealm{
 	@Autowired
 	private VisitorService visitorService;
 
+	@GetMapping(value = "")
+	public String touristVisitor(ModelMap model){
+		Visitor touristVisitor = visitorService.tourist();
+		model.addAttribute("tourist", touristVisitor);
+		return "/index";
+	}
+	
 	@GetMapping(value = "/index")
 	public String showIndex(HttpSession session) {
-		Visitor visitor = visitorService.login("aimeeblog", "ranmeng1");
+		/*Visitor visitor = visitorService.login("aimeeblog", "ranmeng1");
 		if (visitor != null)
-			session.setAttribute("visitor", visitor);
+			session.setAttribute("visitor", visitor);*/
 		return "index";
 	}
 

@@ -280,7 +280,7 @@ create table visitor
    visitor_state_id     int,
    login_name           varchar(20),
    login_password       varchar(20),
-   nick_name            varchar(10),
+   nick_name            varchar(20),
    create_date          datetime,
    manifesto            varchar(300),
    introduction         varchar(300),

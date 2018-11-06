@@ -126,6 +126,4 @@
       introduction = #{introduction,jdbcType=VARCHAR}
     where visitor_id = #{visitorId,jdbcType=INTEGER}
   </update>
-  
-  <select id="login" ></select>
 </mapper>

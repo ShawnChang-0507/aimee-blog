@@ -1,148 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fullexception.mapper.ArticleGroupMapper">
-  <resultMap id="BaseResultMap" type="com.fullexception.entity.ArticleGroup">
-    <id column="article_group_id" jdbcType="INTEGER" property="articleGroupId" />
-    <result column="visitor_id" jdbcType="INTEGER" property="visitorId" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.ArticleGroupMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.ArticleGroup" >
+    <id column="article_group_id" property="articleGroupId" jdbcType="INTEGER" />
+    <result column="visitor_id" property="visitorId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     article_group_id, visitor_id, name, create_date
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from article_group
     where article_group_id = #{articleGroupId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from article_group
     where article_group_id = #{articleGroupId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.fullexception.entity.ArticleGroup">
+  <insert id="insert" parameterType="com.fullexception.entity.ArticleGroup" >
     insert into article_group (article_group_id, visitor_id, name, 
       create_date)
     values (#{articleGroupId,jdbcType=INTEGER}, #{visitorId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.fullexception.entity.ArticleGroup">
+  <insert id="insertSelective" parameterType="com.fullexception.entity.ArticleGroup" >
     insert into article_group
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="articleGroupId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="articleGroupId != null" >
         article_group_id,
       </if>
-      <if test="visitorId != null">
+      <if test="visitorId != null" >
         visitor_id,
       </if>
-      <if test="name != null">
+      <if test="name != null" >
         name,
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         create_date,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="articleGroupId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="articleGroupId != null" >
         #{articleGroupId,jdbcType=INTEGER},
       </if>
-      <if test="visitorId != null">
+      <if test="visitorId != null" >
         #{visitorId,jdbcType=INTEGER},
       </if>
-      <if test="name != null">
+      <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.ArticleGroup">
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.ArticleGroup" >
     update article_group
-    <set>
-      <if test="visitorId != null">
+    <set >
+      <if test="visitorId != null" >
         visitor_id = #{visitorId,jdbcType=INTEGER},
       </if>
-      <if test="name != null">
+      <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         create_date = #{createDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where article_group_id = #{articleGroupId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.ArticleGroup">
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.ArticleGroup" >
     update article_group
     set visitor_id = #{visitorId,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR},
-      create_date = #{createDate,jdbcType=TIMESTAMP}
-    where article_group_id = #{articleGroupId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="com.fullexception.entity.ArticleGroup">
-    <id column="article_group_id" jdbcType="INTEGER" property="articleGroupId" />
-    <result column="article_group_name" jdbcType="VARCHAR" property="articleGroupName" />
-    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    article_group_id, article_group_name, create_date
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from article_group
-    where article_group_id = #{articleGroupId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from article_group
-    where article_group_id = #{articleGroupId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.fullexception.entity.ArticleGroup">
-    insert into article_group (article_group_id, article_group_name, 
-      create_date)
-    values (#{articleGroupId,jdbcType=INTEGER}, #{articleGroupName,jdbcType=VARCHAR}, 
-      #{createDate,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="com.fullexception.entity.ArticleGroup">
-    insert into article_group
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="articleGroupId != null">
-        article_group_id,
-      </if>
-      <if test="articleGroupName != null">
-        article_group_name,
-      </if>
-      <if test="createDate != null">
-        create_date,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="articleGroupId != null">
-        #{articleGroupId,jdbcType=INTEGER},
-      </if>
-      <if test="articleGroupName != null">
-        #{articleGroupName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.ArticleGroup">
-    update article_group
-    <set>
-      <if test="articleGroupName != null">
-        article_group_name = #{articleGroupName,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        create_date = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where article_group_id = #{articleGroupId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.ArticleGroup">
-    update article_group
-    set article_group_name = #{articleGroupName,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP}
     where article_group_id = #{articleGroupId,jdbcType=INTEGER}
   </update>

@@ -1,27 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fullexception.mapper.ArticleMapper">
-  <resultMap id="BaseResultMap" type="com.fullexception.entity.Article">
-    <id column="article_id" jdbcType="INTEGER" property="articleId" />
-    <result column="article_state_id" jdbcType="INTEGER" property="articleStateId" />
-    <result column="article_public_id" jdbcType="INTEGER" property="articlePublicId" />
-    <result column="author_id" jdbcType="INTEGER" property="authorId" />
-    <result column="source_id" jdbcType="INTEGER" property="sourceId" />
-    <result column="article_group_id" jdbcType="INTEGER" property="articleGroupId" />
-    <result column="article_title" jdbcType="VARCHAR" property="articleTitle" />
-    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.ArticleMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.Article" >
+    <id column="article_id" property="articleId" jdbcType="INTEGER" />
+    <result column="article_state_id" property="articleStateId" jdbcType="INTEGER" />
+    <result column="article_public_id" property="articlePublicId" jdbcType="INTEGER" />
+    <result column="author_id" property="authorId" jdbcType="INTEGER" />
+    <result column="source_id" property="sourceId" jdbcType="INTEGER" />
+    <result column="article_group_id" property="articleGroupId" jdbcType="INTEGER" />
+    <result column="article_title" property="articleTitle" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.fullexception.entity.Article">
-    <result column="article_content" jdbcType="LONGVARCHAR" property="articleContent" />
+  <resultMap id="ResultMapWithBLOBs" type="com.fullexception.entity.Article" extends="BaseResultMap" >
+    <result column="article_content" property="articleContent" jdbcType="LONGVARCHAR" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     article_id, article_state_id, article_public_id, author_id, source_id, article_group_id, 
     article_title, create_date
   </sql>
-  <sql id="Blob_Column_List">
+  <sql id="Blob_Column_List" >
     article_content
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     ,
@@ -29,11 +29,11 @@
     from article
     where article_id = #{articleId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from article
     where article_id = #{articleId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.fullexception.entity.Article">
+  <insert id="insert" parameterType="com.fullexception.entity.Article" >
     insert into article (article_id, article_state_id, article_public_id, 
       author_id, source_id, article_group_id, 
       article_title, create_date, article_content
@@ -43,98 +43,98 @@
       #{articleTitle,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{articleContent,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.fullexception.entity.Article">
+  <insert id="insertSelective" parameterType="com.fullexception.entity.Article" >
     insert into article
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="articleId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="articleId != null" >
         article_id,
       </if>
-      <if test="articleStateId != null">
+      <if test="articleStateId != null" >
         article_state_id,
       </if>
-      <if test="articlePublicId != null">
+      <if test="articlePublicId != null" >
         article_public_id,
       </if>
-      <if test="authorId != null">
+      <if test="authorId != null" >
         author_id,
       </if>
-      <if test="sourceId != null">
+      <if test="sourceId != null" >
         source_id,
       </if>
-      <if test="articleGroupId != null">
+      <if test="articleGroupId != null" >
         article_group_id,
       </if>
-      <if test="articleTitle != null">
+      <if test="articleTitle != null" >
         article_title,
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         create_date,
       </if>
-      <if test="articleContent != null">
+      <if test="articleContent != null" >
         article_content,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="articleId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="articleId != null" >
         #{articleId,jdbcType=INTEGER},
       </if>
-      <if test="articleStateId != null">
+      <if test="articleStateId != null" >
         #{articleStateId,jdbcType=INTEGER},
       </if>
-      <if test="articlePublicId != null">
+      <if test="articlePublicId != null" >
         #{articlePublicId,jdbcType=INTEGER},
       </if>
-      <if test="authorId != null">
+      <if test="authorId != null" >
         #{authorId,jdbcType=INTEGER},
       </if>
-      <if test="sourceId != null">
+      <if test="sourceId != null" >
         #{sourceId,jdbcType=INTEGER},
       </if>
-      <if test="articleGroupId != null">
+      <if test="articleGroupId != null" >
         #{articleGroupId,jdbcType=INTEGER},
       </if>
-      <if test="articleTitle != null">
+      <if test="articleTitle != null" >
         #{articleTitle,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="articleContent != null">
+      <if test="articleContent != null" >
         #{articleContent,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Article">
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Article" >
     update article
-    <set>
-      <if test="articleStateId != null">
+    <set >
+      <if test="articleStateId != null" >
         article_state_id = #{articleStateId,jdbcType=INTEGER},
       </if>
-      <if test="articlePublicId != null">
+      <if test="articlePublicId != null" >
         article_public_id = #{articlePublicId,jdbcType=INTEGER},
       </if>
-      <if test="authorId != null">
+      <if test="authorId != null" >
         author_id = #{authorId,jdbcType=INTEGER},
       </if>
-      <if test="sourceId != null">
+      <if test="sourceId != null" >
         source_id = #{sourceId,jdbcType=INTEGER},
       </if>
-      <if test="articleGroupId != null">
+      <if test="articleGroupId != null" >
         article_group_id = #{articleGroupId,jdbcType=INTEGER},
       </if>
-      <if test="articleTitle != null">
+      <if test="articleTitle != null" >
         article_title = #{articleTitle,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         create_date = #{createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="articleContent != null">
+      <if test="articleContent != null" >
         article_content = #{articleContent,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where article_id = #{articleId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.fullexception.entity.Article">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.fullexception.entity.Article" >
     update article
     set article_state_id = #{articleStateId,jdbcType=INTEGER},
       article_public_id = #{articlePublicId,jdbcType=INTEGER},
@@ -146,7 +146,7 @@
       article_content = #{articleContent,jdbcType=LONGVARCHAR}
     where article_id = #{articleId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Article">
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Article" >
     update article
     set article_state_id = #{articleStateId,jdbcType=INTEGER},
       article_public_id = #{articlePublicId,jdbcType=INTEGER},
@@ -155,179 +155,6 @@
       article_group_id = #{articleGroupId,jdbcType=INTEGER},
       article_title = #{articleTitle,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP}
-    where article_id = #{articleId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="com.fullexception.entity.Article">
-    <id column="article_id" jdbcType="INTEGER" property="articleId" />
-    <result column="host_id" jdbcType="INTEGER" property="hostId" />
-    <result column="source_id" jdbcType="INTEGER" property="sourceId" />
-    <result column="article_group_id" jdbcType="INTEGER" property="articleGroupId" />
-    <result column="parent_article_id" jdbcType="INTEGER" property="parentArticleId" />
-    <result column="article_title" jdbcType="VARCHAR" property="articleTitle" />
-    <result column="article_introduce" jdbcType="VARCHAR" property="articleIntroduce" />
-    <result column="article_content" jdbcType="VARCHAR" property="articleContent" />
-    <result column="create_date" jdbcType="DATE" property="createDate" />
-    <result column="weather" jdbcType="VARCHAR" property="weather" />
-    <result column="article_state" jdbcType="INTEGER" property="articleState" />
-    <result column="public_or_private" jdbcType="INTEGER" property="publicOrPrivate" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    article_id, host_id, source_id, article_group_id, parent_article_id, article_title, 
-    article_introduce, article_content, create_date, weather, article_state, public_or_private
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from article
-    where article_id = #{articleId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from article
-    where article_id = #{articleId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.fullexception.entity.Article">
-    insert into article (article_id, host_id, source_id, 
-      article_group_id, parent_article_id, article_title, 
-      article_introduce, article_content, create_date, 
-      weather, article_state, public_or_private
-      )
-    values (#{articleId,jdbcType=INTEGER}, #{hostId,jdbcType=INTEGER}, #{sourceId,jdbcType=INTEGER}, 
-      #{articleGroupId,jdbcType=INTEGER}, #{parentArticleId,jdbcType=INTEGER}, #{articleTitle,jdbcType=VARCHAR}, 
-      #{articleIntroduce,jdbcType=VARCHAR}, #{articleContent,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
-      #{weather,jdbcType=VARCHAR}, #{articleState,jdbcType=INTEGER}, #{publicOrPrivate,jdbcType=INTEGER}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.fullexception.entity.Article">
-    insert into article
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="articleId != null">
-        article_id,
-      </if>
-      <if test="hostId != null">
-        host_id,
-      </if>
-      <if test="sourceId != null">
-        source_id,
-      </if>
-      <if test="articleGroupId != null">
-        article_group_id,
-      </if>
-      <if test="parentArticleId != null">
-        parent_article_id,
-      </if>
-      <if test="articleTitle != null">
-        article_title,
-      </if>
-      <if test="articleIntroduce != null">
-        article_introduce,
-      </if>
-      <if test="articleContent != null">
-        article_content,
-      </if>
-      <if test="createDate != null">
-        create_date,
-      </if>
-      <if test="weather != null">
-        weather,
-      </if>
-      <if test="articleState != null">
-        article_state,
-      </if>
-      <if test="publicOrPrivate != null">
-        public_or_private,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="articleId != null">
-        #{articleId,jdbcType=INTEGER},
-      </if>
-      <if test="hostId != null">
-        #{hostId,jdbcType=INTEGER},
-      </if>
-      <if test="sourceId != null">
-        #{sourceId,jdbcType=INTEGER},
-      </if>
-      <if test="articleGroupId != null">
-        #{articleGroupId,jdbcType=INTEGER},
-      </if>
-      <if test="parentArticleId != null">
-        #{parentArticleId,jdbcType=INTEGER},
-      </if>
-      <if test="articleTitle != null">
-        #{articleTitle,jdbcType=VARCHAR},
-      </if>
-      <if test="articleIntroduce != null">
-        #{articleIntroduce,jdbcType=VARCHAR},
-      </if>
-      <if test="articleContent != null">
-        #{articleContent,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        #{createDate,jdbcType=DATE},
-      </if>
-      <if test="weather != null">
-        #{weather,jdbcType=VARCHAR},
-      </if>
-      <if test="articleState != null">
-        #{articleState,jdbcType=INTEGER},
-      </if>
-      <if test="publicOrPrivate != null">
-        #{publicOrPrivate,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Article">
-    update article
-    <set>
-      <if test="hostId != null">
-        host_id = #{hostId,jdbcType=INTEGER},
-      </if>
-      <if test="sourceId != null">
-        source_id = #{sourceId,jdbcType=INTEGER},
-      </if>
-      <if test="articleGroupId != null">
-        article_group_id = #{articleGroupId,jdbcType=INTEGER},
-      </if>
-      <if test="parentArticleId != null">
-        parent_article_id = #{parentArticleId,jdbcType=INTEGER},
-      </if>
-      <if test="articleTitle != null">
-        article_title = #{articleTitle,jdbcType=VARCHAR},
-      </if>
-      <if test="articleIntroduce != null">
-        article_introduce = #{articleIntroduce,jdbcType=VARCHAR},
-      </if>
-      <if test="articleContent != null">
-        article_content = #{articleContent,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null">
-        create_date = #{createDate,jdbcType=DATE},
-      </if>
-      <if test="weather != null">
-        weather = #{weather,jdbcType=VARCHAR},
-      </if>
-      <if test="articleState != null">
-        article_state = #{articleState,jdbcType=INTEGER},
-      </if>
-      <if test="publicOrPrivate != null">
-        public_or_private = #{publicOrPrivate,jdbcType=INTEGER},
-      </if>
-    </set>
-    where article_id = #{articleId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Article">
-    update article
-    set host_id = #{hostId,jdbcType=INTEGER},
-      source_id = #{sourceId,jdbcType=INTEGER},
-      article_group_id = #{articleGroupId,jdbcType=INTEGER},
-      parent_article_id = #{parentArticleId,jdbcType=INTEGER},
-      article_title = #{articleTitle,jdbcType=VARCHAR},
-      article_introduce = #{articleIntroduce,jdbcType=VARCHAR},
-      article_content = #{articleContent,jdbcType=VARCHAR},
-      create_date = #{createDate,jdbcType=DATE},
-      weather = #{weather,jdbcType=VARCHAR},
-      article_state = #{articleState,jdbcType=INTEGER},
-      public_or_private = #{publicOrPrivate,jdbcType=INTEGER}
     where article_id = #{articleId,jdbcType=INTEGER}
   </update>
 </mapper>

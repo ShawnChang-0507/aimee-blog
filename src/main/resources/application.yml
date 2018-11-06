@@ -15,7 +15,7 @@ spring:
     mode: HTML5
     
 mybatis:
-  mapper-locations: classpath*:mapping/*.xml
+  mapper-locations: classpath*:com/fullexception/mapping/*.xml
   type-aliases-package: com.fullexception.entity
   
 # 打印sql  

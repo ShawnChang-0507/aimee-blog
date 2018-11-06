@@ -1,112 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fullexception.mapper.SourceMapper">
-  <resultMap id="BaseResultMap" type="com.fullexception.entity.Source">
-    <id column="source_id" jdbcType="INTEGER" property="sourceId" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.SourceMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.Source" >
+    <id column="source_id" property="sourceId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     source_id, name
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from source
     where source_id = #{sourceId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from source
     where source_id = #{sourceId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.fullexception.entity.Source">
+  <insert id="insert" parameterType="com.fullexception.entity.Source" >
     insert into source (source_id, name)
     values (#{sourceId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.fullexception.entity.Source">
+  <insert id="insertSelective" parameterType="com.fullexception.entity.Source" >
     insert into source
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sourceId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sourceId != null" >
         source_id,
       </if>
-      <if test="name != null">
+      <if test="name != null" >
         name,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sourceId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sourceId != null" >
         #{sourceId,jdbcType=INTEGER},
       </if>
-      <if test="name != null">
+      <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Source">
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Source" >
     update source
-    <set>
-      <if test="name != null">
+    <set >
+      <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
     </set>
     where source_id = #{sourceId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Source">
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Source" >
     update source
     set name = #{name,jdbcType=VARCHAR}
-    where source_id = #{sourceId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="com.fullexception.entity.Source">
-    <id column="source_id" jdbcType="INTEGER" property="sourceId" />
-    <result column="source_name" jdbcType="VARCHAR" property="sourceName" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    source_id, source_name
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from source
-    where source_id = #{sourceId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from source
-    where source_id = #{sourceId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.fullexception.entity.Source">
-    insert into source (source_id, source_name)
-    values (#{sourceId,jdbcType=INTEGER}, #{sourceName,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.fullexception.entity.Source">
-    insert into source
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sourceId != null">
-        source_id,
-      </if>
-      <if test="sourceName != null">
-        source_name,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sourceId != null">
-        #{sourceId,jdbcType=INTEGER},
-      </if>
-      <if test="sourceName != null">
-        #{sourceName,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Source">
-    update source
-    <set>
-      <if test="sourceName != null">
-        source_name = #{sourceName,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where source_id = #{sourceId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Source">
-    update source
-    set source_name = #{sourceName,jdbcType=VARCHAR}
     where source_id = #{sourceId,jdbcType=INTEGER}
   </update>
 </mapper>
