@@ -1,6 +1,10 @@
 package com.fullexception.controller;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -33,6 +37,9 @@ public class VisitorController extends AuthorizingRealm{
 	@Autowired
 	private ArticleService articleService;
 	
+	/**
+	 * 默认访问博客
+	 */
 	private Visitor visitor;
 	
 	@GetMapping(value = "/index")
@@ -62,7 +69,6 @@ public class VisitorController extends AuthorizingRealm{
 		model.addAttribute("articles", articles);
 		return "/blog/index";
 	}
-
 
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection arg0) {
