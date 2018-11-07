@@ -68,7 +68,7 @@ create table address
 /*==============================================================*/
 create table article
 (
-   article_id           int not null,
+   article_id           int not null auto_increment,
    article_state_id     int,
    article_public_id    int,
    author_id            int,

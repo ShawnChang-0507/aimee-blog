@@ -8,5 +8,5 @@ public interface VisitorService {
 	 * 游客自动获取我的博客信息
 	 * @return
 	 */
-	public Visitor tourist();
+	public Visitor tourist(String ip);
 }

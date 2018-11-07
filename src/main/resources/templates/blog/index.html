@@ -263,46 +263,33 @@
 
 		<div class="aimee_container fade-scale">
 			<div id="myheader">
-				<h1 class="title">Aimee</h1>
-				<h5 class="subtitle">记录冉萌生活中的点点滴滴</h5>
+				<h1 class="title" th:text="${tourist.nickName }">Aimee</h1>
+				<h5 class="subtitle" th:text="${tourist.manifesto }">记录冉萌生活中的点点滴滴</h5>
 			</div>
 		</div>
 
 	</header>
 	<div class="aimee_container body-wrap">
-		<ul class="post-list">
+		<ul class="post-list" th:each="article : ${articles }">
 
 			<li class="post-list-item aimee-fade">
 				<article id="post-hello-world"
 					class="article-card article-type-post" itemprop="blogPost">
 
-
-
-
-
 					<h3 class="post-title" itemprop="name">
-						<a href="/posts/16107/">Hello World</a>
+						<a href="/posts/16107/" th:text="${article.articleTitle}">Hello World</a>
 					</h3>
 					<h5 class="post-title" itemprop="name">
-						<a href="/posts/16107/">My first application</a>
+						<a href="/posts/16107/" th:text="${article.secondTitle}">My first application</a>
 					</h5>
-
-
-
-
 
 					<div class="post-meta">
 						<time class="post-time" title="2018-05-28 17:33:39"
-							datetime="2018-05-28T09:33:39.288Z" itemprop="datePublished">2018-05-28</time>
+							datetime="2018-05-28T09:33:39.288Z" itemprop="datePublished" th:text="${article.createDate}">2018-05-28</time>
 
 					</div>
 
 					<div class="post-content" id="post-content" itemprop="postContent">
-
-
-						Welcome to Hexo! This is your very first post. Check documentation
-						for more info. If you get any problems when using Hexo, you can
-						find the answer in troubleshooting or you...
 
 						<div>
 							<a href="/posts/16107/" class="post-more waves-button"> 阅读全文
@@ -314,7 +301,7 @@
 
 			</li>
 
-			<li class="post-list-item aimee-fade">
+			<!-- <li class="post-list-item aimee-fade">
 				<article id="post-alicia-1" class="article-card article-type-post"
 					itemprop="blogPost">
 
@@ -394,7 +381,7 @@
 
 				</article>
 
-			</li>
+			</li> -->
 
 		</ul>
 

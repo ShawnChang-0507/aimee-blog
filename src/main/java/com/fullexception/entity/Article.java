@@ -19,6 +19,8 @@ public class Article {
 
     private Date createDate;
 
+    private String secondTitle;
+
     private String articleContent;
 
     public Integer getArticleId() {
@@ -83,6 +85,14 @@ public class Article {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public String getSecondTitle() {
+        return secondTitle;
+    }
+
+    public void setSecondTitle(String secondTitle) {
+        this.secondTitle = secondTitle == null ? null : secondTitle.trim();
     }
 
     public String getArticleContent() {
