@@ -20,4 +20,16 @@ public interface LoginInfoMapper {
     int updateByPrimaryKey(LoginInfo record);
 
 	void visitorLogin(String ip);
+
+	/**
+	 * 计算当日访问人数（每个ip只记一次）
+	 * @return
+	 */
+	int countTheNumberOfVisitorsToday();
+
+	/**
+	 * 计算网站访问总人数（每日重复登录ip只记一次）
+	 * @return
+	 */
+	int countTheTotalNumberOfVisitors();
 }

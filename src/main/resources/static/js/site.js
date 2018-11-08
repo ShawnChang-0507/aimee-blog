@@ -13,7 +13,7 @@ function setLightColor() {
 }
 function preLoad() {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "iframe",
-        t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "//tomotoes.com/blog",
+        t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "//zhangxiaoran.cn/blog",
         n = document.createElement(e);
     return n.style.display = "none", n.src = t, document.body.appendChild(n), preLoad
 }
@@ -68,11 +68,11 @@ function messenger(e) {
             }
             if ($(e).html(o), !0 === a) {
                 if (15 == ++countC)
-                    return preLoad.call()("img", "//tomotoes.com/images/live2d/" + Number(localStorage.getItem("model")) + ".png"), typetitle(), void (countCall = 3); if (!(countC < 15)) return; setTimeout(t.animateFadeBuffer, 50)
+                    return preLoad.call()("img", "//zhangxiaoran.cn/images/live2d/" + Number(localStorage.getItem("model")) + ".png"), typetitle(), void (countCall = 3); if (!(countC < 15)) return; setTimeout(t.animateFadeBuffer, 50)
             } else {
                 if (countCall > 2)
                     return;
-                2 == ++countCall ? (preLoad.call()("img", "//tomotoes.com/images/live2d/" + Number(localStorage.getItem("model")) + ".png"), typetitle()) : t.cycleText()
+                2 == ++countCall ? (preLoad.call()("img", "//zhangxiaoran.cn/images/live2d/" + Number(localStorage.getItem("model")) + ".png"), typetitle()) : t.cycleText()
             }
         },
         t.cycleText = function () {
