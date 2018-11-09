@@ -1,5 +1,7 @@
 package com.fullexception.service;
 
+import java.util.Map;
+
 import com.fullexception.entity.Visitor;
 
 public interface VisitorService {
@@ -16,4 +18,11 @@ public interface VisitorService {
 	 * @return
 	 */
 	public Visitor getVisitorById(Integer authorId);
+
+	/**
+	 * 注册时检测用户名重复
+	 * @param loginName
+	 * @return
+	 */
+	public Map<String, String> checkLoginName(String loginName);
 }

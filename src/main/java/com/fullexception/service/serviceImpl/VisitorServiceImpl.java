@@ -1,6 +1,8 @@
 package com.fullexception.service.serviceImpl;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +41,24 @@ public class VisitorServiceImpl implements VisitorService {
 		try{
 			Visitor visitor = visitorMapper.selectByPrimaryKey(visitorId);
 			return visitor;
+		}catch(Exception e){
+			throw e;
+		}
+	}
+
+	@Override
+	public Map<String, String> checkLoginName(String loginName) {
+		try{
+			Visitor visitor = visitorMapper.getVisitorByLoginName(loginName);
+			Map<String, String> map = new HashMap<String, String>();
+			if (visitor != null){
+				map.put("message", "用户名已占用！");
+				map.put("result", "false");
+			}else{
+				map.put("message", "用户名可用！");
+				map.put("result", "true");
+			}
+			return map;
 		}catch(Exception e){
 			throw e;
 		}

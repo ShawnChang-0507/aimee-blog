@@ -14,4 +14,11 @@ public interface VisitorMapper {
     int updateByPrimaryKeySelective(Visitor record);
 
     int updateByPrimaryKey(Visitor record);
+
+    /**
+     * 通过登录名得到用户
+     * @param loginName
+     * @return
+     */
+	Visitor getVisitorByLoginName(String loginName);
 }
