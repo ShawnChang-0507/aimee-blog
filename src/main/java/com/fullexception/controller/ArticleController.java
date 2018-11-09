@@ -38,4 +38,9 @@ public class ArticleController {
 		model.addAttribute("author", visitor);
 		return "/blog/posts/index";
 	}
+	
+	/*@GetMapping("")
+	public String editBlog(){
+		
+	}*/
 }

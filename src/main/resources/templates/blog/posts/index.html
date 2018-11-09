@@ -314,11 +314,11 @@
 			class="post-article article-type-post aimee-fade" itemprop="blogPost">
 
 			<div class="post-card">
-				<h1 class="post-card-title">第一篇博客</h1>
+				<h1 class="post-card-title" th:text="${article.articleTitle}">第一篇博客</h1>
 				<div class="post-meta">
 					<i class="icon icon-lg icon-calendar-o"></i> 发表于
 					<time class="post-time" title="2018-05-25 15:49:06"
-						datetime="2018-05-25T07:49:06.000Z" itemprop="datePublished">2018-05-25</time>
+						datetime="2018-05-25T07:49:06.000Z" itemprop="datePublished" th:text="${#dates.format(article.createDate, 'yyyy-MM-dd')}">2018-05-25</time>
 
 					<br id="mybreak" />
 
@@ -336,9 +336,11 @@
 				</div>
 				<div class="post-count-custom">
 					<i class="icon icon-lg icon-comment-o"></i> 阅读本文可能花费您&nbsp;<span
-						class="post-count">1</span>&nbsp;分钟
+						class="post-count" th:text="${article.spendTime }"></span>&nbsp;分钟
 				</div>
-				<div class="post-content" id="post-content" itemprop="postContent">
+				
+				
+				<div class="post-content" id="post-content" itemprop="postContent" th:text="${article.articleContent}">
 					<h2 id="Quick-Start">
 						<a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick
 						Start
@@ -425,6 +427,10 @@
 					</p>
 
 				</div>
+				
+				
+				
+				
 
 				<blockquote class="post-copyright">
 					<div class="content">

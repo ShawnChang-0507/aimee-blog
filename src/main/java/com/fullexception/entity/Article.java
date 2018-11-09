@@ -17,6 +17,8 @@ public class Article {
 
     private String articleTitle;
 
+    private Integer spendTime;
+
     private Date createDate;
 
     private String secondTitle;
@@ -77,6 +79,14 @@ public class Article {
 
     public void setArticleTitle(String articleTitle) {
         this.articleTitle = articleTitle == null ? null : articleTitle.trim();
+    }
+
+    public Integer getSpendTime() {
+        return spendTime;
+    }
+
+    public void setSpendTime(Integer spendTime) {
+        this.spendTime = spendTime;
     }
 
     public Date getCreateDate() {

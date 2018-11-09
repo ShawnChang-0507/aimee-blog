@@ -21,7 +21,7 @@ public interface ArticleMapper {
     int updateByPrimaryKey(Article record);
 
     /**
-     * 得到文章列表 有分页
+     * 得到作者所有文章，并分页
      * @param map
      * @return
      */
