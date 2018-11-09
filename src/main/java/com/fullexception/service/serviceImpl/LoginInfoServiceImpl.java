@@ -17,11 +17,11 @@ public class LoginInfoServiceImpl implements LoginInfoService {
 
 	@Override
 	public Map<String, Integer> countTheNumberOfVisitors() {
-		int todayVisitorNumber = loginInfoMapper.countTheNumberOfVisitorsToday();
-		int totalVisitorNumber = loginInfoMapper.countTheTotalNumberOfVisitors();
+		int totalVisitorNumber = loginInfoMapper.countTheNumberOfVisitors();
+		int totalVisitNumber = loginInfoMapper.countTheNumberOfVisits();
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("totayVisitorNumber", todayVisitorNumber);
 		map.put("totalVisitorNumber", totalVisitorNumber);
+		map.put("totalVisitNumber", totalVisitNumber);
 		return map;
 	}
 

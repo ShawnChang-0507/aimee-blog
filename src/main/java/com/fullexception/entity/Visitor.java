@@ -17,6 +17,8 @@ public class Visitor {
 
     private String manifesto;
 
+    private String headUrl;
+
     private String introduction;
 
     public Integer getVisitorId() {
@@ -73,6 +75,14 @@ public class Visitor {
 
     public void setManifesto(String manifesto) {
         this.manifesto = manifesto == null ? null : manifesto.trim();
+    }
+
+    public String getHeadUrl() {
+        return headUrl;
+    }
+
+    public void setHeadUrl(String headUrl) {
+        this.headUrl = headUrl == null ? null : headUrl.trim();
     }
 
     public String getIntroduction() {

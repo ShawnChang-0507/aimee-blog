@@ -17,11 +17,11 @@
 		from login_info
 		where login_info_id = #{loginInfoId,jdbcType=INTEGER}
 	</select>
-	<select id="countTheNumberOfVisitorsToday" resultType="java.lang.Integer">
-		SELECT COUNT(loginInfo.ip) FROM (SELECT ip FROM login_info WHERE day(login_time)=day(now()) GROUP BY ip) AS loginInfo 
+	<select id="countTheNumberOfVisitors" resultType="java.lang.Integer">
+		SELECT COUNT(loginInfo.ip) FROM (SELECT ip FROM login_info GROUP BY ip) AS loginInfo 
 	</select>
-	<select id="countTheTotalNumberOfVisitors" resultType="java.lang.Integer">
-		SELECT count(a.ip) FROM (SELECT ip FROM `login_info` GROUP BY ip, DAY(login_time)) as a
+	<select id="countTheNumberOfVisits" resultType="java.lang.Integer">
+		SELECT count(*) FROM  `login_info`
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 		delete from

@@ -15,4 +15,18 @@ public interface ArticleService {
 	 * @return
 	 */
 	public List<Article> showArticleByAuthorId(int authorId, int currentPage);
+	
+	/**
+	 * 根据id获取文章
+	 * @param articleId
+	 * @return
+	 */
+	public Article getArticleById(int articleId, int visitorId);
+	
+	/**
+	 * 添加文章阅读记录
+	 * @param articleId
+	 * @return
+	 */
+	public int writeReadLog(int articleId, int visitorId);
 }

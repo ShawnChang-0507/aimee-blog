@@ -1,5 +1,6 @@
 package com.fullexception.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -38,23 +39,34 @@ public class VisitorController extends AuthorizingRealm {
 	
 	@Autowired
 	private LoginInfoService loginInfoService;
+	
+	/**
+	 * 登录信息
+	 */
+	private Map<String, Integer> loginInfo = new HashMap<String, Integer>();
 
 	/**
 	 * 默认访问博客
 	 */
 	private Visitor visitor;
-
-	/*
-	 * @GetMapping(value = "/index") public String showIndex(HttpSession
-	 * session) { Visitor visitor = visitorService.login("aimeeblog",
-	 * "ranmeng1"); if (visitor != null) session.setAttribute("visitor",
-	 * visitor); return "index"; }
+	
+	/**
+	 * 维护登陆信息
+	 * @param ip
 	 */
+	private void putLoginInfo(String ip){
+		if (loginInfo.containsKey(ip)){
+			loginInfo.put(ip, loginInfo.get(ip) + 1);
+		}else{
+			loginInfo.put(ip, 1);
+		}
+	}
 
 	@GetMapping("/")
 	public String touristVisitor(HttpServletRequest request, ModelMap model) {
 		String ip = AimeeHelper.getIpAddr(request);
 		visitor = visitorService.tourist(ip);
+		putLoginInfo(ip);
 		model.addAttribute("tourist", visitor);
 		return "/index";
 	}
@@ -70,8 +82,10 @@ public class VisitorController extends AuthorizingRealm {
 		
 		model.addAttribute("tourist", visitor);
 		model.addAttribute("articles", articles);
-		model.addAttribute("todayVisitorNumber", map.get("todayVisitorNumber"));
-		model.addAttribute("totalVisitorNumber", map.get("totalVisitorNumber"));
+		int totalVisitorNumber = map.get("totalVisitorNumber");
+		int totalVisitNumber = map.get("totalVisitNumber");
+		model.addAttribute("totalVisitorNumber", totalVisitorNumber);
+		model.addAttribute("totalVisitNumber", totalVisitNumber);
 		
 		return "/blog/index";
 	}

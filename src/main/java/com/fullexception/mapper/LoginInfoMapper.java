@@ -22,14 +22,14 @@ public interface LoginInfoMapper {
 	void visitorLogin(String ip);
 
 	/**
-	 * 计算当日访问人数（每个ip只记一次）
+	 * 计算访问宗人次
 	 * @return
 	 */
-	int countTheNumberOfVisitorsToday();
+	int countTheNumberOfVisitors();
 
 	/**
-	 * 计算网站访问总人数（每日重复登录ip只记一次）
+	 * 计算访问总次数
 	 * @return
 	 */
-	int countTheTotalNumberOfVisitors();
+	int countTheNumberOfVisits();
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta http-equiv="Content-Language" content="zh-cn">
 <meta charset="utf-8">
@@ -277,22 +277,25 @@
 					class="article-card article-type-post" itemprop="blogPost">
 
 					<h3 class="post-title" itemprop="name">
-						<a href="/posts/16107/" th:text="${article.articleTitle}">Hello World</a>
+						<a th:href="@{'/article/showArticle?arId=' + ${article.articleId}}" th:text="${article.articleTitle}">Hello
+							World</a>
 					</h3>
 					<h5 class="post-title" itemprop="name">
-						<a href="/posts/16107/" th:text="${article.secondTitle}">My first application</a>
+						<a th:href="@{'/article/showArticle?arId=' + ${article.articleId}}" th:text="${article.secondTitle}">My
+							first application</a>
 					</h5>
 
 					<div class="post-meta">
 						<time class="post-time" title="2018-05-28 17:33:39"
-							datetime="2018-05-28T09:33:39.288Z" itemprop="datePublished" th:text="${article.createDate}">2018-05-28</time>
+							datetime="2018-05-28T09:33:39.288Z" itemprop="datePublished"
+							th:text="${article.createDate}">2018-05-28</time>
 
 					</div>
 
 					<div class="post-content" id="post-content" itemprop="postContent">
 
 						<div>
-							<a href="/posts/16107/" class="post-more waves-button"> 阅读全文
+							<a th:href="@{'/article/showArticle?arId=' + ${article.articleId}}" class="post-more waves-button"> 阅读全文
 								» </a>
 						</div>
 					</div>
@@ -394,17 +397,19 @@
 			<span class="power"> <i class="icon icon-lg icon-copyright"></i>
 				2018 <i class="icon icon-lg icon-heart"></i> <a
 				href="http://zhangxiaoran.cn">zhangxiaoran.cn</a> <br /> Power by <a
-				href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+				href="http://tomotoes.com/" target="_blank" rel="external nofollow">tomotoes</a>&nbsp;·&nbsp;
 				Theme
 			</span> <br /> <span id="RunTime" style="color: #a7a7a2;"></span> <br /> <span>
 
-				<i class="icon icon-lg icon-user"> <span
+				<i class="icon icon-lg icon-user"
+				th:text="${totalVisitorNumber }+'人'"> <span
 					id="busuanzi_container_site_uv" style='display: none'> 总访问量：<span
-						id="busuanzi_value_site_uv" th:text="#{todayVisitorNumber }"></span>
+						id="busuanzi_value_site_uv"></span>
 				</span>人
-			</i> · <i class="icon icon-lg icon-eye"> <span
+			</i> · <i class="icon icon-lg icon-eye"
+				th:text="${totalVisitNumber }+'次'"> <span
 					id="busuanzi_container_site_pv" style='display: none'> 访问次数：<span
-						id="busuanzi_value_site_pv" th:text="#{totalVisitorNumber }"></span>
+						id="busuanzi_value_site_pv"></span>
 				</span>次
 			</i>
 

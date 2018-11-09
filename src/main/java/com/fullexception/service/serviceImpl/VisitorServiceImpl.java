@@ -34,4 +34,14 @@ public class VisitorServiceImpl implements VisitorService {
 		}
 	}
 
+	@Override
+	public Visitor getVisitorById(Integer visitorId) {
+		try{
+			Visitor visitor = visitorMapper.selectByPrimaryKey(visitorId);
+			return visitor;
+		}catch(Exception e){
+			throw e;
+		}
+	}
+
 }

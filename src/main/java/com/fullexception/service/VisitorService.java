@@ -9,4 +9,11 @@ public interface VisitorService {
 	 * @return
 	 */
 	public Visitor tourist(String ip);
+
+	/**
+	 * 通过id得到用户
+	 * @param authorId
+	 * @return
+	 */
+	public Visitor getVisitorById(Integer authorId);
 }

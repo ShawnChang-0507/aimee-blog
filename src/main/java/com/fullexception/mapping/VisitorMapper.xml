@@ -9,11 +9,12 @@
     <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
     <result column="manifesto" property="manifesto" jdbcType="VARCHAR" />
+    <result column="head_url" property="headUrl" jdbcType="VARCHAR" />
     <result column="introduction" property="introduction" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     visitor_id, visitor_state_id, login_name, login_password, nick_name, create_date, 
-    manifesto, introduction
+    manifesto, head_url, introduction
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -28,10 +29,12 @@
   <insert id="insert" parameterType="com.fullexception.entity.Visitor" >
     insert into visitor (visitor_id, visitor_state_id, login_name, 
       login_password, nick_name, create_date, 
-      manifesto, introduction)
+      manifesto, head_url, introduction
+      )
     values (#{visitorId,jdbcType=INTEGER}, #{visitorStateId,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR}, 
       #{loginPassword,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
-      #{manifesto,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR})
+      #{manifesto,jdbcType=VARCHAR}, #{headUrl,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.fullexception.entity.Visitor" >
     insert into visitor
@@ -56,6 +59,9 @@
       </if>
       <if test="manifesto != null" >
         manifesto,
+      </if>
+      <if test="headUrl != null" >
+        head_url,
       </if>
       <if test="introduction != null" >
         introduction,
@@ -83,6 +89,9 @@
       <if test="manifesto != null" >
         #{manifesto,jdbcType=VARCHAR},
       </if>
+      <if test="headUrl != null" >
+        #{headUrl,jdbcType=VARCHAR},
+      </if>
       <if test="introduction != null" >
         #{introduction,jdbcType=VARCHAR},
       </if>
@@ -109,6 +118,9 @@
       <if test="manifesto != null" >
         manifesto = #{manifesto,jdbcType=VARCHAR},
       </if>
+      <if test="headUrl != null" >
+        head_url = #{headUrl,jdbcType=VARCHAR},
+      </if>
       <if test="introduction != null" >
         introduction = #{introduction,jdbcType=VARCHAR},
       </if>
@@ -123,6 +135,7 @@
       nick_name = #{nickName,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       manifesto = #{manifesto,jdbcType=VARCHAR},
+      head_url = #{headUrl,jdbcType=VARCHAR},
       introduction = #{introduction,jdbcType=VARCHAR}
     where visitor_id = #{visitorId,jdbcType=INTEGER}
   </update>
