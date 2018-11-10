@@ -77,6 +77,12 @@ public class VisitorController extends AuthorizingRealm {
 			visitor = visitorService.tourist(ip);
 			putLoginInfo(ip);
 		}else{
+			//创建时间为空，说明cookie有值，session没值，需要重新登录，计次
+			if (visitor.getCreateDate() == null ){
+				visitor = visitorService.login(visitor.getLoginName(), visitor.getLoginPassword());
+				HttpSession session = request.getSession();
+				session.setAttribute("myVisitor", visitor);
+			}
 			LoginInfo loginInfo = new LoginInfo();
 			loginInfo.setIp(ip);
 			loginInfo.setVisitorId(visitor.getVisitorId());

@@ -59,6 +59,7 @@ public class VisitorServiceImpl implements VisitorService {
 				record.setLoginName(loginName);
 				record.setLoginPassword(loginPassword);
 				record.setNickName(nickName);
+				record.setHeadUrl("../images/default.jpg");
 				record.setCreateDate(new Date());
 				visitorMapper.insertSelective(record);
 				map.put("mes", "您现在已经是“人见人爱花见花开车间车爆胎”的冉萌村的超级无敌炫酷VIP啦！(福利：坐着就可以参观整个冉萌村，酒水瓜子免费~)(#^.^#)");
