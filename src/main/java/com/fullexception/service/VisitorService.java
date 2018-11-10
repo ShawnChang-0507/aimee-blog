@@ -2,6 +2,7 @@ package com.fullexception.service;
 
 import java.util.Map;
 
+import com.fullexception.entity.LoginInfo;
 import com.fullexception.entity.Visitor;
 
 public interface VisitorService {
@@ -24,5 +25,19 @@ public interface VisitorService {
 	 * @param loginName
 	 * @return
 	 */
-	public Map<String, String> checkLoginName(String loginName);
+	public Map<String, String> register(String loginName, String loginPassword, String nickName);
+
+	/**
+	 * 用户登录
+	 * @param loginName
+	 * @param loginPassword
+	 * @return
+	 */
+	public Visitor login(String loginName, String loginPassword);
+
+	/**
+	 * 添加访问记录
+	 * @param visitor
+	 */
+	public void appendLoginInfo(LoginInfo loginInfo);
 }

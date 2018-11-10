@@ -30,6 +30,14 @@
   	where login_name = #{loginName, jdbcType=VARCHAR} 
   </select>
   
+  <select id="getVisitorByNameAndPass" resultMap="BaseResultMap" parameterType="map">
+  	select
+  	<include refid="Base_Column_List"/>
+  	from visitor
+  	where login_name = #{loginName, jdbcType=VARCHAR}
+  	AND login_password = #{loginPassword, jdbcType=VARCHAR}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from visitor
     where visitor_id = #{visitorId,jdbcType=INTEGER}

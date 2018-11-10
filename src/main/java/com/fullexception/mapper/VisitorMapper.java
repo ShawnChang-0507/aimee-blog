@@ -1,5 +1,7 @@
 package com.fullexception.mapper;
 
+import java.util.Map;
+
 import com.fullexception.entity.Visitor;
 
 public interface VisitorMapper {
@@ -21,4 +23,12 @@ public interface VisitorMapper {
      * @return
      */
 	Visitor getVisitorByLoginName(String loginName);
+
+	/**
+	 * 用户名和密码得到用户
+	 * @param loginName
+	 * @param loginPassword
+	 * @return
+	 */
+	Visitor getVisitorByNameAndPass(Map<String, String> map);
 }

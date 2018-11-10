@@ -47,18 +47,46 @@ public class VisitorServiceImpl implements VisitorService {
 	}
 
 	@Override
-	public Map<String, String> checkLoginName(String loginName) {
+	public Map<String, String> register(String loginName, String loginPassword, String nickName) {
 		try{
 			Visitor visitor = visitorMapper.getVisitorByLoginName(loginName);
 			Map<String, String> map = new HashMap<String, String>();
 			if (visitor != null){
-				map.put("message", "用户名已占用！");
-				map.put("result", "false");
+				map.put("mes", "咦？萌妹在村里记事簿上发现相同的用户名！被人抢先了！再想个更帅的名字！o(╥﹏╥)o");
+				map.put("res", "false");
 			}else{
-				map.put("message", "用户名可用！");
-				map.put("result", "true");
+				Visitor record = new Visitor();
+				record.setLoginName(loginName);
+				record.setLoginPassword(loginPassword);
+				record.setNickName(nickName);
+				record.setCreateDate(new Date());
+				visitorMapper.insertSelective(record);
+				map.put("mes", "您现在已经是“人见人爱花见花开车间车爆胎”的冉萌村的超级无敌炫酷VIP啦！(福利：坐着就可以参观整个冉萌村，酒水瓜子免费~)(#^.^#)");
+				map.put("res", "true");
 			}
 			return map;
+		}catch(Exception e){
+			throw e;
+		}
+	}
+
+	@Override
+	public Visitor login(String loginName, String loginPassword) {
+		try{
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("loginName", loginName);
+			map.put("loginPassword", loginPassword);
+			Visitor visitor = visitorMapper.getVisitorByNameAndPass(map);
+			return visitor;
+		}catch(Exception e){
+			throw e;
+		}
+	}
+
+	@Override
+	public void appendLoginInfo(LoginInfo loginInfo) {
+		try{
+			loginInfoMapper.insertSelective(loginInfo);
 		}catch(Exception e){
 			throw e;
 		}
