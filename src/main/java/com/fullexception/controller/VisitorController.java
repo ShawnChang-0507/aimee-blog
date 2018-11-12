@@ -1,6 +1,5 @@
 package com.fullexception.controller;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fullexception.entity.Article;
-import com.fullexception.entity.LoginInfo;
 import com.fullexception.entity.Visitor;
 import com.fullexception.service.ArticleService;
 import com.fullexception.service.LoginInfoService;
@@ -47,48 +45,13 @@ public class VisitorController extends AuthorizingRealm {
 	private LoginInfoService loginInfoService;
 
 	/**
-	 * 登录信息
-	 */
-	private Map<String, Integer> loginInfo = new HashMap<String, Integer>();
-
-	/**
 	 * 默认访问博客
 	 */
 	private Visitor visitor;
 
-	/**
-	 * 维护登陆信息
-	 * 
-	 * @param ip
-	 */
-	private void putLoginInfo(String ip) {
-		if (loginInfo.containsKey(ip)) {
-			loginInfo.put(ip, loginInfo.get(ip) + 1);
-		} else {
-			loginInfo.put(ip, 1);
-		}
-	}
-
 	@GetMapping("/")
 	public String touristVisitor(HttpServletRequest request, ModelMap model) {
-		visitor = AimeeHelper.checkLogin(request);
-		String ip = AimeeHelper.getIpAddr(request);
-		if (visitor == null) {
-			visitor = visitorService.tourist(ip);
-			putLoginInfo(ip);
-		}else{
-			//创建时间为空，说明cookie有值，session没值，需要重新登录，计次
-			if (visitor.getCreateDate() == null ){
-				visitor = visitorService.login(visitor.getLoginName(), visitor.getLoginPassword());
-				HttpSession session = request.getSession();
-				session.setAttribute("myVisitor", visitor);
-			}
-			LoginInfo loginInfo = new LoginInfo();
-			loginInfo.setIp(ip);
-			loginInfo.setVisitorId(visitor.getVisitorId());
-			loginInfo.setLoginTime(new Date());
-			visitorService.appendLoginInfo(loginInfo);
-		}
+		visitor = AimeeHelper.loginSystem(request, model, visitorService);
 		model.addAttribute("tourist", visitor);
 		return "/index";
 	}

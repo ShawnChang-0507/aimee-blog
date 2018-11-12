@@ -3,6 +3,9 @@ package util;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.SecureRandom;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -12,9 +15,32 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.ui.ModelMap;
+
+import com.fullexception.entity.LoginInfo;
 import com.fullexception.entity.Visitor;
+import com.fullexception.service.VisitorService;
 
 public class AimeeHelper {
+
+	/**
+	 * 登录信息
+	 */
+	private static Map<String, Integer> loginInfo = new HashMap<String, Integer>();
+
+	/**
+	 * 维护登陆信息
+	 * 
+	 * @param ip
+	 */
+	private static void putLoginInfo(String ip) {
+		if (loginInfo.containsKey(ip)) {
+			loginInfo.put(ip, loginInfo.get(ip) + 1);
+		} else {
+			loginInfo.put(ip, 1);
+		}
+	}
+	
 	/**
 	 * 获取访问者ip
 	 * 
@@ -156,6 +182,39 @@ public class AimeeHelper {
 				visitor.setLoginName(loginInfo[1]);
 				visitor.setLoginPassword(loginInfo[2]);
 			}
+		}
+		return visitor;
+	}
+	
+	/**
+	 * 判断登录及初始化session
+	 */
+	public static Visitor loginSystem(HttpServletRequest request, ModelMap model, VisitorService visitorService){
+		Visitor visitor = AimeeHelper.checkLogin(request);
+		String ip = AimeeHelper.getIpAddr(request);
+		//
+		if (visitor == null) {
+			visitor = visitorService.tourist(ip);
+			putLoginInfo(ip);
+		} else {
+			// 创建时间为空，说明cookie有值，session没值，需要重新登录，计次
+			if (visitor.getCreateDate() == null) {
+				String ln = visitor.getLoginName();
+				String lp = visitor.getLoginPassword();
+				visitor = visitorService.login(ln, lp);
+				// cookie中记载的账号或密码错误，无法找到访问者信息，访问我的博客
+				if (visitor == null) {
+					visitor = visitorService.tourist(ip);
+				} else {
+					HttpSession session = request.getSession();
+					session.setAttribute("myVisitor", visitor);
+				}
+			}
+			LoginInfo loginInfo = new LoginInfo();
+			loginInfo.setIp(ip);
+			loginInfo.setVisitorId(visitor.getVisitorId());
+			loginInfo.setLoginTime(new Date());
+			visitorService.appendLoginInfo(loginInfo);
 		}
 		return visitor;
 	}
