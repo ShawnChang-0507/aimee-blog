@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta http-equiv="Content-Language" content="zh-cn">
 <meta charset="utf-8">
@@ -83,10 +83,10 @@
 			<div class="brand-wrap">
 				<div class="brand">
 					<a href="/" class="avatar waves-effect waves-circle waves-light">
-						<img src="/img/avatar.jpg" alt="avatar">
+						<img th:src="${tourist.headUrl}" alt="avatar">
 					</a>
 					<hgroup class="introduce">
-						<h5 class="nickname" id="name">Aimee</h5>
+						<h5 class="nickname" id="name" th:text="${tourist.nickName}">Aimee</h5>
 
 						<div id="yiyanaimee" class="aimee">&nbsp;</div>
 
@@ -107,9 +107,8 @@
 					</a></li>
 
 					<li class="waves-block waves-effect"><a
-						href="/blog/categories"> <i
-							class="icon icon-lg icon-th-list"></i> <span>分 类</span><i
-							class="icon icon-lg icon-caret-left"></i>
+						href="/blog/categories"> <i class="icon icon-lg icon-th-list"></i>
+							<span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
 					</a></li>
 
 					<li class="waves-block waves-effect"><a href="/blog/tags">
@@ -139,7 +138,6 @@
 							href="https://weibo.com/u/378090670" target="_blank" title="微博">
 							<i class="icon icon-lg icon-weibo weibo"></i>
 						</a>
-
 
 					</div>
 
@@ -232,6 +230,30 @@
 			</div>
 		</div>
 	</div>
+	<!-- 提示框 -->
+	<div class="modal fade" id="aimeeSaid" tabindex="-1" role="dialog"
+		aria-labelledby="loginTitleId" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="registerTitleId">冉萌村儿通告：</h4>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="" id="aimeeSaidContent">说点啥？</label>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary"
+						data-dismiss="modal">嗯呢</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<header class="top-header" id="header">
 		<div class="flex-row">
 			<a href="javascript:;"
@@ -252,11 +274,13 @@
 			</div>
 
 			<a href="blog/editBlog" target="_blank"
-				class="header-icon waves-effect waves-circle waves-light" id="Rss">
-				<i class="icon icon-lg icon-book"></i>
+				class="header-icon waves-effect waves-circle waves-light" id="Rss"
+				th:if="${session.myVisitor} != null"> <i
+				class="icon icon-lg icon-book"></i>
 			</a> <a href="#" target="_blank"
 				class="header-icon waves-effect waves-circle waves-light" id="Rss1"
-				data-toggle="modal" data-target="#loginId"> <i
+				data-toggle="modal" data-target="#loginId"
+				th:if="${session.myVisitor} == null"> <i
 				class="icon icon-lg icon-user"></i>
 			</a> <a href="#" target="_blank"
 				class="header-icon waves-effect waves-circle waves-light" id="Rss2"
@@ -310,7 +334,9 @@
 						<span class="sr-only">文章分类</span>
 					</button>
 					<div class="dropdown-menu" style="z-index: 10002;">
-						<a class="dropdown-item" href="#">Action</a> <a
+						<a class="dropdown-item" href="#" th:each="group : ${groups}"
+							th:value="${group.articleGroupId }" th:text="${group.name}">Action</a>
+						<!-- <a
 							class="dropdown-item" href="#">Separated1</a> <a
 							class="dropdown-item" href="#">Action2</a> <a
 							class="dropdown-item" href="#">Separated 3</a> <a
@@ -319,13 +345,19 @@
 							class="dropdown-item" href="#">Action6</a> <a
 							class="dropdown-item" href="#">Separated 7</a> <a
 							class="dropdown-item" href="#">Action8</a> <a
-							class="dropdown-item" href="#">Separated 9</a>
+							class="dropdown-item" href="#">Separated 9</a> -->
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item"><input type="text" class="form-control" name="" id="addGroupInput" aria-describedby="helpId" placeholder="添加分组……"></a>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for=""></label> <input type="text" class="form-control"
-						name="" id="" aria-describedby="helpId" placeholder="请输入标题">
-					<small id="helpId" class="form-text text-muted fade"></small>
+						name="" id="articleTitle" aria-describedby="helpId"
+						placeholder="请输入标题"> <small id="helpId"
+						class="form-text text-muted fade"></small> <label for=""></label>
+					<input type="text" class="form-control" name="" id="secondTitle"
+						aria-describedby="helpId" placeholder="请输入简介"> <small
+						id="helpId" class="form-text text-muted fade"></small>
 				</div>
 				<div class="post-content" id="post-content" itemprop="postContent">
 					<div class="form-group" id="myText"></div>
@@ -455,7 +487,8 @@
 			</i>
 
 
-			</span> <br /> <span class="license"><a target="_blank" rel="license"
+			</span> <br /> <span class="license"><a target="_blank"
+				rel="license"
 				href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循
 					知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
 		</div>
@@ -482,9 +515,11 @@
 	<!-- jquery -->
 	<!-- <script src="/js/jquery.min.js?v=3.0"></script> -->
 
-	<script src="/js/jquery.min.js?v=3.0" type="text/JavaScript"></script>
-	<script src="/js/popper.min.js?v=3.0" type="text/JavaScript"></script>
-	<script src="/js/bootstrap.min.js?v=3.0" type="text/JavaScript"></script>
+	<script src="../../js/jquery.min.js?v=3.0" type="text/JavaScript"></script>
+	<script src="../../js/popper.min.js?v=3.0" type="text/JavaScript"></script>
+	<script src="../../js/bootstrap.min.js?v=3.0" type="text/JavaScript"></script>
+	<script src="../../js/account/account.js" type="text/JavaScript"></script>
+	<script src="../../js/account/md5.js" type="text/JavaScript"></script>
 
 	<script>
 		$(function() {
@@ -604,8 +639,8 @@
 
 	<!-- 不蒜子 -->
 
-	<script async
-		src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	<!-- <script async
+		src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
 
 
 </body>

@@ -16,6 +16,12 @@
     from article_group
     where article_group_id = #{articleGroupId,jdbcType=INTEGER}
   </select>
+  <select id="getAllArticleGroupByVisitorId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  	select
+  	<include refid="Base_Column_List"/>
+  	from article_group
+  	where visitor_id=#{visitorId, jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from article_group
     where article_group_id = #{articleGroupId,jdbcType=INTEGER}

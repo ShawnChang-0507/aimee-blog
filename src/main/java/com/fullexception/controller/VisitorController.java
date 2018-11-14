@@ -51,8 +51,12 @@ public class VisitorController extends AuthorizingRealm {
 
 	@GetMapping("/")
 	public String touristVisitor(HttpServletRequest request, ModelMap model) {
-		visitor = AimeeHelper.loginSystem(request, model, visitorService);
-		model.addAttribute("tourist", visitor);
+		Map<String, Object> map = AimeeHelper.loginSystem(request, model, visitorService);
+		visitor = (Visitor)map.get("visitor");
+		//判断 登录是否记录 登录次数，如果false，那么手动添加登录次数
+		if (!(Boolean)map.get("loginInfoOrNot")){
+			AimeeHelper.appendLoginInfo(AimeeHelper.getIpAddr(request), visitor, visitorService);
+		}
 		return "/index";
 	}
 

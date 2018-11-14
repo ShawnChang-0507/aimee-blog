@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fullexception.entity.Article;
+import com.fullexception.entity.ArticleGroup;
 import com.fullexception.entity.ReadLog;
+import com.fullexception.mapper.ArticleGroupMapper;
 import com.fullexception.mapper.ArticleMapper;
 import com.fullexception.mapper.ReadLogMapper;
 import com.fullexception.service.ArticleService;
@@ -22,6 +24,9 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Autowired
 	private ReadLogMapper readLogMapper;
+	
+	@Autowired
+	private ArticleGroupMapper articleGroupMapper;
 
 	@Override
 	public List<Article> showArticleByAuthorId(int authorId, int currentPage) {
@@ -49,6 +54,12 @@ public class ArticleServiceImpl implements ArticleService {
 		}
 		int result = readLogMapper.insertSelective(rl);
 		return result;
+	}
+
+	@Override
+	public List<ArticleGroup> getAllArticleGroupByVisitorId(int visitorId) {
+		List<ArticleGroup> groups = articleGroupMapper.getAllArticleGroupByVisitorId(visitorId);
+		return groups;
 	}
 
 }

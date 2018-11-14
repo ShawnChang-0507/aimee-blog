@@ -3,6 +3,7 @@ package com.fullexception.service;
 import java.util.List;
 
 import com.fullexception.entity.Article;
+import com.fullexception.entity.ArticleGroup;
 
 public interface ArticleService {
 
@@ -29,4 +30,11 @@ public interface ArticleService {
 	 * @return
 	 */
 	public int writeReadLog(int articleId, int visitorId);
+
+	/**
+	 * 根据id得到visitor的所有articleGroup
+	 * @param visitorId
+	 * @return
+	 */
+	public List<ArticleGroup> getAllArticleGroupByVisitorId(int visitorId);
 }
