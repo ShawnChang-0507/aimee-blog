@@ -1,6 +1,7 @@
 package com.fullexception.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.fullexception.entity.Article;
 import com.fullexception.entity.ArticleGroup;
@@ -37,4 +38,12 @@ public interface ArticleService {
 	 * @return
 	 */
 	public List<ArticleGroup> getAllArticleGroupByVisitorId(int visitorId);
+
+	/**
+	 * 添加文章分组并返回新list
+	 * @param groupName
+	 * @param visitorId
+	 * @return
+	 */
+	public Map<String, Object> addArticleGroupAndReturn(String groupName, int visitorId);
 }

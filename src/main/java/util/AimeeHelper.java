@@ -192,18 +192,17 @@ public class AimeeHelper {
 
 	/**
 	 * 判断登录及初始化session
+	 * 
 	 * @param request
 	 * @param model
 	 * @param visitorService
-	 * @return loginInfoOrNot 是否进行进村登记
-	 * 		   loginOrNot	       是否登录
-	 * 		   visitor		       访问者或者默认访问用户
+	 * @return loginInfoOrNot 是否进行进村登记 loginOrNot 是否登录 visitor 访问者或者默认访问用户
 	 */
 	public static Map<String, Object> loginSystem(HttpServletRequest request, ModelMap model,
 			VisitorService visitorService) {
 		Visitor visitor = AimeeHelper.checkLogin(request);
 		String ip = AimeeHelper.getIpAddr(request);
-		Boolean loginInfoOrNot = false;		//是否记录登录信息
+		Boolean loginInfoOrNot = false; // 是否记录登录信息
 		Boolean loginOrNot = true;
 		// session和cookies中都没有登录信息
 		if (visitor == null) {
@@ -219,7 +218,7 @@ public class AimeeHelper {
 				// cookie中记载的账号或密码错误，无法找到访问者信息，访问我的博客
 				if (visitor == null) {
 					visitor = visitorService.tourist(ip);
-				} else {	
+				} else {
 					HttpSession session = request.getSession();
 					session.setAttribute("myVisitor", visitor);
 					appendLoginInfo(ip, visitor, visitorService);
@@ -227,21 +226,23 @@ public class AimeeHelper {
 				}
 			}
 		}
-		model.addAttribute("tourist", visitor);
+		if (model != null)
+			model.addAttribute("tourist", visitor);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("loginInfoOrNot", loginInfoOrNot);
 		map.put("loginOrNot", loginOrNot);
 		map.put("visitor", visitor);
 		return map;
 	}
-	
+
 	/**
 	 * 添加登录记录
+	 * 
 	 * @param ip
 	 * @param visitor
 	 * @param visitorService
 	 */
-	public static void appendLoginInfo(String ip, Visitor visitor, VisitorService visitorService){
+	public static void appendLoginInfo(String ip, Visitor visitor, VisitorService visitorService) {
 		LoginInfo loginInfo = new LoginInfo();
 		loginInfo.setIp(ip);
 		loginInfo.setVisitorId(visitor.getVisitorId());

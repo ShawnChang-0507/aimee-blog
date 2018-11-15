@@ -24,7 +24,7 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Autowired
 	private ReadLogMapper readLogMapper;
-	
+
 	@Autowired
 	private ArticleGroupMapper articleGroupMapper;
 
@@ -60,6 +60,31 @@ public class ArticleServiceImpl implements ArticleService {
 	public List<ArticleGroup> getAllArticleGroupByVisitorId(int visitorId) {
 		List<ArticleGroup> groups = articleGroupMapper.getAllArticleGroupByVisitorId(visitorId);
 		return groups;
+	}
+
+	@Override
+	public Map<String, Object> addArticleGroupAndReturn(String groupName, int visitorId) {
+		try {
+			ArticleGroup ag = new ArticleGroup();
+			ag.setVisitorId(visitorId);
+			ag.setName(groupName);
+			ag.setCreateDate(new Date());
+			int insertResult = articleGroupMapper.insertSelective(ag);
+			Map<String, Object> map = new HashMap<String, Object>();
+			if (insertResult == 0) {
+				map.put("res", "false");
+				map.put("mes", "该分组已经存在啦！");
+			} else {
+				List<ArticleGroup> list = articleGroupMapper.getAllArticleGroupByVisitorId(visitorId);
+				map.put("res", "false");
+				map.put("mes", "成功啦！");
+				map.put("functionName", "updateGroupMenu");
+				map.put("functionValue", list);
+			}
+			return map;
+		} catch (Exception e) {
+			throw e;
+		}
 	}
 
 }

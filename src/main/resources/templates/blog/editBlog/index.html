@@ -61,8 +61,9 @@
 <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
 <link rel="stylesheet" type="text/css"
 	href="/css/bootstrap.min.css?v=3.0">
-<link rel="stylesheet" type="text/css"
-	href="/css/wangEditor.min.css?v=3.0">
+<!-- <link rel="stylesheet" type="text/css"
+	href="/css/wangEditor.min.css?v=3.0"> -->
+<link rel="stylesheet" href="../css/editormd.min.css" />
 <script>
 	window.lazyScripts = []
 </script>
@@ -248,8 +249,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary"
-						data-dismiss="modal">嗯呢</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">嗯呢</button>
 				</div>
 			</div>
 		</div>
@@ -327,27 +327,20 @@
 
 			<div class="post-card">
 				<div class="btn-group">
-					<button type="button" class="btn btn-secondary article-group">文章分类</button>
+					<button type="button" class="btn btn-secondary article-group">选择分类</button>
 					<button type="button"
 						class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="sr-only">文章分类</span>
+						<span class="sr-only">选择分类</span>
 					</button>
 					<div class="dropdown-menu" style="z-index: 10002;">
-						<a class="dropdown-item" href="#" th:each="group : ${groups}"
-							th:value="${group.articleGroupId }" th:text="${group.name}">Action</a>
-						<!-- <a
-							class="dropdown-item" href="#">Separated1</a> <a
-							class="dropdown-item" href="#">Action2</a> <a
-							class="dropdown-item" href="#">Separated 3</a> <a
-							class="dropdown-item" href="#">Action4</a> <a
-							class="dropdown-item" href="#">Separated 5</a> <a
-							class="dropdown-item" href="#">Action6</a> <a
-							class="dropdown-item" href="#">Separated 7</a> <a
-							class="dropdown-item" href="#">Action8</a> <a
-							class="dropdown-item" href="#">Separated 9</a> -->
+						<a class="dropdown-item" th:each="group : ${groups}"
+							th:my-value="${group.articleGroupId }" th:text="${group.name}"
+							th:value="${group.name}">Action</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item"><input type="text" class="form-control" name="" id="addGroupInput" aria-describedby="helpId" placeholder="添加分组……"></a>
+						<a class="dropdown-item" href="#"><input type="text"
+							class="form-control" name="" id="addGroupInput"
+							aria-describedby="helpId" placeholder="添加分组……"></a>
 					</div>
 				</div>
 				<div class="form-group">
@@ -360,7 +353,7 @@
 						id="helpId" class="form-text text-muted fade"></small>
 				</div>
 				<div class="post-content" id="post-content" itemprop="postContent">
-					<div class="form-group" id="myText"></div>
+					<div class="form-group" id="test-editormd"></div>
 				</div>
 
 				<!-- <blockquote class="post-copyright">
@@ -444,14 +437,14 @@
 
 				</div>
 			</div>
-			<script>
+			<!-- <script>
 				window.onload = wangEd;
 				function wangEd() {
 					var E = window.wangEditor;
 					var editor = new E('#myText');
 					editor.create();
 				}
-			</script>
+			</script> -->
 
 
 
@@ -464,7 +457,7 @@
 
 
 		</article>
-		<script src="/js/wangEditor.min.js?v=3.0" type="text/JavaScript"></script>
+		<!-- <script src="/js/wangEditor.min.js?v=3.0" type="text/JavaScript"></script> -->
 	</div>
 
 	<footer class="footer">
@@ -520,6 +513,29 @@
 	<script src="../../js/bootstrap.min.js?v=3.0" type="text/JavaScript"></script>
 	<script src="../../js/account/account.js" type="text/JavaScript"></script>
 	<script src="../../js/account/md5.js" type="text/JavaScript"></script>
+	<script src="../../js/editormd.min.js" type="text/JavaScript"></script>
+	<script type="text/javascript">
+		var testEditor;
+
+		$(function() {
+			testEditor = editormd("test-editormd", {
+				width : "90%",
+				height : 640,
+				syncScrolling : "single",
+				path : "../lib/"
+			});
+
+			/*
+			// or
+			testEditor = editormd({
+			    id      : "test-editormd",
+			    width   : "90%",
+			    height  : 640,
+			    path    : "../lib/"
+			});
+			 */
+		});
+	</script>
 
 	<script>
 		$(function() {

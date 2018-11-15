@@ -42,4 +42,9 @@ public class ArticleGroup {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
+
+	@Override
+	public String toString() {
+		return "ArticleGroup [articleGroupId=" + articleGroupId + ", visitorId=" + visitorId + ", name=" + name + "]";
+	}
 }

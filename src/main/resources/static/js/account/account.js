@@ -10,7 +10,7 @@ $(function(){
 			return
 		}
 		pass = enPs(pass)
-		checkByAjax("/login", {'loginName':name, 'loginPassword':pass}, true, null)
+		checkByAjax("/login", {'loginName':name, 'loginPassword':pass}, true)
 	});
 
 	/**
@@ -34,29 +34,51 @@ $(function(){
 			return
 		}
 		pass = enPs(pass)
-		checkByAjax("/register", {'loginName':name, 'loginPassword':pass, 'nickName':nick}, true, null)
+		checkByAjax("/register", {'loginName':name, 'loginPassword':pass, 'nickName':nick}, true)
 	});
 	
 	$("#addGroupInput").keyup(function(event){
-		  if(event.keyCode ==13){
-			  var groupName = $(this).val()
-			  checkByAjax("/blog/addArticleGroup", {'groupName': groupName}, true, 'showMsg')
+	  if(event.keyCode ==13){
+		  var groupName = $(this).val()
+		  if (isEmpty(groupName)){
+			  showMsg("萌妹没看到要创建的分组(个_个)")
+			  return
 		  }
-		});
+		  checkByAjax("/blog/addArticleGroup", {'groupName': groupName}, true)
+	  }
+	});
+	
+	$(document).on('click', ".dropdown-item", function(){
+		var selectedValue = $(this).attr("value");
+		if(isEmpty(selectedValue)){
+			selectedValue = '选择分类'
+		}
+		$(".article-group").text(selectedValue)
+		$(".article-group").attr('my-value', $(this).attr('my-value'))
+	})
 })
 
 function enPs(pass){
 	return hex_md5(str_md5(b64_md5(pass)))
 }
 
+function isEmpty(str){
+	if (str == null || str == undefined || str == ""){
+		return true
+	}else{
+		return false
+	}
+}
+
 /**
  * 登录或注册
+ * 
  * @param functionLocation
  * @param dataSource
  * @param async
  * @returns
  */
-function checkByAjax(functionLocation, dataSource, async, functionName){
+function checkByAjax(functionLocation, dataSource, async){
 	$.ajax({
 		url: functionLocation,
 		type: "POST",
@@ -64,7 +86,7 @@ function checkByAjax(functionLocation, dataSource, async, functionName){
 		async: async,
 		dataType: "JSON",
 		success: function(data){
-			if (functionName == null){
+			if (data.functionName == null){
 				showMsg(data.mes)
 				if (data.res == 'true'){
 					window.location.href=window.location.href
@@ -72,8 +94,8 @@ function checkByAjax(functionLocation, dataSource, async, functionName){
 				}
 			}
 			else{
-				if (eval(functionName) == "function"){
-					eval(functionName + "(" + data.reres + ")")
+				if (typeof(eval(data.functionName)) == "function"){
+					eval(data.functionName + "('" + JSON.stringify(data) + "')")
 				}
 			}
 		}
@@ -84,4 +106,19 @@ function checkByAjax(functionLocation, dataSource, async, functionName){
 function showMsg(message){
 	$("#aimeeSaidContent").text(message)
 	$("#aimeeSaid").modal("show")
+}
+
+
+function updateGroupMenu(data){
+	groups = JSON.parse(data).functionValue
+	var menu = $(".dropdown-menu")
+	menu.children().remove()
+	for(var group in groups){
+		var a = '<a class="dropdown-item" my-value="' + groups[group].articleGroupId + '" value="' + groups[group].name + '">' + groups[group].name + '</a>'
+		menu.append(a)
+	}
+	var line = $('<div class="dropdown-divider"></div>')
+	var appendGroup = $('<a class="dropdown-item"><input type="text" class="form-control" name="" id="addGroupInput" aria-describedby="helpId" placeholder="添加分组……"></a>')
+	menu.append(line)
+	menu.append(appendGroup)
 }

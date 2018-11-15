@@ -1,6 +1,5 @@
 package com.fullexception.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -63,9 +62,12 @@ public class ArticleController {
 	
 	@ResponseBody
 	@PostMapping("/addArticleGroup")
-	public Map<String, String> addArticleGroup(String groupName, HttpServletRequest request, ModelMap model){
-		Map<String, String> map = new HashMap<String, String>();
-		
+	public Map<String, Object> addArticleGroup(String groupName, HttpServletRequest request){
+		Map<String, Object> map = AimeeHelper.loginSystem(request, null, visitorService);
+		if ((Boolean) map.get("loginOrNot")){
+			int visitorId = ((Visitor)request.getSession().getAttribute("myVisitor")).getVisitorId();
+			map = articleService.addArticleGroupAndReturn(groupName, visitorId);
+		}
 		return map;
 	}
 }
