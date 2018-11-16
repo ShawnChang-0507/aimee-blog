@@ -87,4 +87,13 @@ public class ArticleServiceImpl implements ArticleService {
 		}
 	}
 
+	@Override
+	public int writeArticle(Article article) {
+		try{
+			return articleMapper.insertSelective(article);
+		}catch(Exception e){
+			throw e;
+		}
+	}
+
 }

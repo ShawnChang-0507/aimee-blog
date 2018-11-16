@@ -1,5 +1,7 @@
 package com.fullexception.controller;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -69,5 +71,40 @@ public class ArticleController {
 			map = articleService.addArticleGroupAndReturn(groupName, visitorId);
 		}
 		return map;
+	}
+	
+	@ResponseBody
+	@PostMapping("/writeBlog")
+	public Map<String, Object> writeBlog(int groupId, String title, String secondTitle, String articleContent, HttpServletRequest request, ModelMap model){
+		Map<String, Object> map = AimeeHelper.loginSystem(request, null, visitorService);
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		if (!(Boolean)map.get("loginOrNot")){
+			resultMap.put("mes", "尊敬的贵宾，请先进行进村登记，然后才能写文章哦~");
+			resultMap.put("res", "false");
+			return resultMap;
+		}
+		int chineseSize = AimeeHelper.getChineseSize(articleContent);
+		int readMinutes = chineseSize / 400 + 1;
+		Article a = new Article();
+		a.setArticleGroupId(groupId);
+		a.setAuthorId(((Visitor)map.get("visitor")).getVisitorId());
+		a.setArticleTitle(title);
+		a.setSecondTitle(secondTitle);
+		a.setArticleContent(articleContent);
+		a.setSpendTime(readMinutes);
+		a.setCreateDate(new Date());
+		
+		int result = articleService.writeArticle(a);
+		if (result == 0){
+			resultMap.put("mes", "萌妹在护送文章到萌村儿出版社的路上把文章弄丢了o(╥﹏╥)o");
+			resultMap.put("res", "false");
+		}
+		else{
+			resultMap.put("mes", "尊敬的贵宾~您的文章写得极好~出版社已经出版，已经可以在博客上浏览啦(*^▽^*");
+			resultMap.put("functionName", "toBlogPage");
+			resultMap.put("functionValue", "what a fuck");
+		}
+		
+		return resultMap;
 	}
 }

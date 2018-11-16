@@ -6,6 +6,8 @@ import java.security.SecureRandom;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -248,5 +250,25 @@ public class AimeeHelper {
 		loginInfo.setVisitorId(visitor.getVisitorId());
 		loginInfo.setLoginTime(new Date());
 		visitorService.appendLoginInfo(loginInfo);
+	}
+	
+	
+	/**
+	 * 获取内容中-汉字个数
+	 * @param content - 内容
+	 * @return int
+	 */
+	public static int getChineseSize(String content) {
+		int count = 0;//汉字数量
+		String regEx = "[\\u4e00-\\u9fa5]";
+		Pattern p = Pattern.compile(regEx);
+		Matcher m = p.matcher(content);
+		int len = m.groupCount();
+		while (m.find()) {
+			for (int i = 0; i <= len; i++) {  
+		    	 count = count + 1;  
+		     }  
+		}
+		return count;
 	}
 }

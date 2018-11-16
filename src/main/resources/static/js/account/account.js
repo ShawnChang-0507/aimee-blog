@@ -55,6 +55,27 @@ $(function(){
 		}
 		$(".article-group").text(selectedValue)
 		$(".article-group").attr('my-value', $(this).attr('my-value'))
+	});
+	
+	$(".commite-blog").click(function(){
+		var groupId = $(".article-group").attr("my-value")
+		var title = $("#articleTitle").val()
+		var secondTitle = $("#secondTitle").val()
+		var articleContent = $(".article-content").val()
+		if (isEmpty(groupId)){
+			showMsg("选择文章分组")
+			return
+		}else if(isEmpty(title)){
+			showMsg("填写标题")
+			return
+		}else if(isEmpty(secondTitle)){
+			showMsg("填写简介")
+			return
+		}else if(isEmpty(articleContent)){
+			showMsg("没写内容→_→")
+			return
+		}
+		checkByAjax("/blog/writeBlog", {'groupId': groupId, 'title': title, 'secondTitle': secondTitle, 'articleContent': articleContent}, true)
 	})
 })
 
@@ -121,4 +142,10 @@ function updateGroupMenu(data){
 	var appendGroup = $('<a class="dropdown-item"><input type="text" class="form-control" name="" id="addGroupInput" aria-describedby="helpId" placeholder="添加分组……"></a>')
 	menu.append(line)
 	menu.append(appendGroup)
+}
+
+
+function toBlogPage(data){
+	alert(JSON.parse(data).mes)
+	window.location.href = "/blog"
 }

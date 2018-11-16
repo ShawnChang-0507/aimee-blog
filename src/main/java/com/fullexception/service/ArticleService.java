@@ -46,4 +46,11 @@ public interface ArticleService {
 	 * @return
 	 */
 	public Map<String, Object> addArticleGroupAndReturn(String groupName, int visitorId);
+
+	/**
+	 * 插入文章
+	 * @param article
+	 * @return
+	 */
+	public int writeArticle(Article article);
 }
