@@ -110,9 +110,8 @@
 					</a></li>
 
 					<li class="waves-block waves-effect"><a
-						href="/blog/categories"> <i
-							class="icon icon-lg icon-th-list"></i> <span>分 类</span><i
-							class="icon icon-lg icon-caret-left"></i>
+						href="/blog/categories"> <i class="icon icon-lg icon-th-list"></i>
+							<span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
 					</a></li>
 
 					<li class="waves-block waves-effect"><a href="/blog/tags">
@@ -253,8 +252,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary"
-						data-dismiss="modal">嗯呢</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">嗯呢</button>
 				</div>
 			</div>
 		</div>
@@ -313,7 +311,7 @@
 						class="post-toc-link" href="#Quick-Start"><span
 							class="post-toc-number">1.</span> <span class="post-toc-text">Quick
 								Start</span></a>
-					<ol class="post-toc-child">
+						<ol class="post-toc-child">
 							<li class="post-toc-item post-toc-level-3"><a
 								class="post-toc-link" href="#Create-a-new-post"><span
 									class="post-toc-number">1.1.</span> <span class="post-toc-text">Create
@@ -343,7 +341,8 @@
 				<div class="post-meta">
 					<i class="icon icon-lg icon-calendar-o"></i> 发表于
 					<time class="post-time" title="2018-05-25 15:49:06"
-						datetime="2018-05-25T07:49:06.000Z" itemprop="datePublished" th:text="${#dates.format(article.createDate, 'yyyy-MM-dd')}">2018-05-25</time>
+						datetime="2018-05-25T07:49:06.000Z" itemprop="datePublished"
+						th:text="${#dates.format(article.createDate, 'yyyy-MM-dd')}">2018-05-25</time>
 
 					<br id="mybreak" />
 
@@ -363,10 +362,13 @@
 					<i class="icon icon-lg icon-comment-o"></i> 阅读本文可能花费您&nbsp;<span
 						class="post-count" th:text="${article.spendTime }"></span>&nbsp;分钟
 				</div>
-				
-				
-				<div class="post-content" id="post-content" itemprop="postContent" th:text="${article.articleContent}">
-					<h2 id="Quick-Start">
+
+
+				<div class="post-content" id="post-content" itemprop="postContent">
+					<div id="doc-content">
+						<textarea style="display: none;" th:text="${article.articleContent}"></textarea>
+					</div>
+					<!-- <h2 id="Quick-Start">
 						<a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick
 						Start
 					</h2>
@@ -449,13 +451,13 @@
 					<p>
 						More info: <a href="https://hexo.io/docs/deployment.html"
 							target="_blank" rel="noopener">Deployment</a>
-					</p>
+					</p> -->
 
 				</div>
-				
-				
-				
-				
+
+
+
+
 
 				<blockquote class="post-copyright">
 					<div class="content">
@@ -578,7 +580,8 @@
 			</i>
 
 
-			</span> <br /> <span class="license"><a target="_blank" rel="license"
+			</span> <br /> <span class="license"><a target="_blank"
+				rel="license"
 				href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循
 					知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
 		</div>
@@ -679,16 +682,48 @@
 	<script src="../js/account/account.js" type="text/JavaScript"></script>
 	<script src="../js/account/md5.js" type="text/JavaScript"></script>
 	<script src="../js/editormd.min.js" type="text/JavaScript"></script>
+	<script src="../lib/marked.min.js" type="text/JavaScript"></script>
+	<script src="../lib/prettify.min.js" type="text/JavaScript"></script>
+	<script src="../lib/flowchart.min.js" type="text/JavaScript"></script>
+	<script src="../lib/jquery.flowchart.min.js" type="text/JavaScript"></script>
+	<script src="../lib/raphael.min.js" type="text/JavaScript"></script>
+	<script src="../lib/sequence-diagram.min.js" type="text/JavaScript"></script>
+	<script src="../lib/underscore.min.js" type="text/JavaScript"></script>
+	<script type="text/javascript">
+	var testEditor;
+    $(function () {
+        testEditor = editormd.markdownToHTML("doc-content", {//注意：这里是上面DIV的id
+            htmlDecode: "style,script,iframe",
+            taskList: true,
+            tex: true, // 默认不解析
+            flowChart: true, // 默认不解析
+            sequenceDiagram: true, // 默认不解析
+            codeFold: true,
+            tocm: true
+    });});
+		/* var testEditor;
 
-	<script>
 		$(function() {
-			$(".dropdown-item").click(function() {
-				$(".article-group").text(this.text);
-				$(".article-group").val(this.text);
-			})
-		})
-	</script>
+			testEditor = editormd("test-editormd", {
+				tocm : true,
+				width : "100%",
+				height : 640,
+				syncScrolling : "single",
+				path : "../lib/",
+				saveHTMLToTextarea : true
+			}); */
 
+			/*
+			// or
+			testEditor = editormd({
+			    id      : "test-editormd",
+			    width   : "90%",
+			    height  : 640,
+			    path    : "../lib/"
+			});
+			 */
+		/* }); */
+	</script>
 	<!-- 搜索 -->
 
 	<div class="search-panel" id="search-panel">
