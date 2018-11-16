@@ -1,10 +1,10 @@
 /* @font-face {
     font-family: "FZSEJW";
-    src: url('fonts/fz/fzsejw.ttf') format("truetype")
+    src: url('my-fonts/fz/fzsejw.ttf') format("truetype")
 } */
 @font-face {
     font-family: "Twinkle";
-    src: url('fonts/fz/Twinkle.ttf') format("truetype")
+    src: url('my-fonts/fz/Twinkle.ttf') format("truetype")
 }
 #page,
 #page a {
