@@ -8,6 +8,8 @@ public class ReadLog {
     private Integer articleId;
 
     private Integer visitorId;
+    
+    private Visitor visitor;
 
     private Date createDate;
 
@@ -42,4 +44,12 @@ public class ReadLog {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
+
+	public Visitor getVisitor() {
+		return visitor;
+	}
+
+	public void setVisitor(Visitor visitor) {
+		this.visitor = visitor;
+	}
 }

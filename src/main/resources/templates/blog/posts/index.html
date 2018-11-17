@@ -89,7 +89,7 @@
 						<img src="../images/avatar.jpg" alt="avatar">
 					</a>
 					<hgroup class="introduce">
-						<h5 class="nickname" id="name">Aimee</h5>
+						<h5 class="nickname" id="name" th:text="${author.nickName }">Aimee</h5>
 
 						<div id="yiyanaimee" class="aimee">&nbsp;</div>
 
@@ -275,13 +275,15 @@
 					id="search"> <i class="icon icon-lg icon-search"></i>
 				</a>
 			</div>
-
-			<a href="blog/editBlog" target="_blank"
-				class="header-icon waves-effect waves-circle waves-light" id="Rss">
-				<i class="icon icon-lg icon-book"></i>
+			
+			<a href="../../blog/editBlog" target="_blank"
+				class="header-icon waves-effect waves-circle waves-light" id="Rss"
+				th:if="${session.myVisitor} != null"> <i
+				class="icon icon-lg icon-book"></i>
 			</a> <a href="#" target="_blank"
 				class="header-icon waves-effect waves-circle waves-light" id="Rss1"
-				data-toggle="modal" data-target="#loginId"> <i
+				data-toggle="modal" data-target="#loginId"
+				th:if="${session.myVisitor} == null"> <i
 				class="icon icon-lg icon-user"></i>
 			</a> <a href="#" target="_blank"
 				class="header-icon waves-effect waves-circle waves-light" id="Rss2"
@@ -366,7 +368,8 @@
 
 				<div class="post-content" id="post-content" itemprop="postContent">
 					<div id="doc-content">
-						<textarea style="display: none;" th:text="${article.articleContent}"></textarea>
+						<textarea style="display: none;"
+							th:text="${article.articleContent}"></textarea>
 					</div>
 					<!-- <h2 id="Quick-Start">
 						<a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick
@@ -690,17 +693,18 @@
 	<script src="../lib/sequence-diagram.min.js" type="text/JavaScript"></script>
 	<script src="../lib/underscore.min.js" type="text/JavaScript"></script>
 	<script type="text/javascript">
-	var testEditor;
-    $(function () {
-        testEditor = editormd.markdownToHTML("doc-content", {//注意：这里是上面DIV的id
-            htmlDecode: "style,script,iframe",
-            taskList: true,
-            tex: true, // 默认不解析
-            flowChart: true, // 默认不解析
-            sequenceDiagram: true, // 默认不解析
-            codeFold: true,
-            tocm: true
-    });});
+		var testEditor;
+		$(function() {
+			testEditor = editormd.markdownToHTML("doc-content", {//注意：这里是上面DIV的id
+				htmlDecode : "style,script,iframe",
+				taskList : true,
+				tex : true, // 默认不解析
+				flowChart : true, // 默认不解析
+				sequenceDiagram : true, // 默认不解析
+				codeFold : true,
+				tocm : true
+			});
+		});
 		/* var testEditor;
 
 		$(function() {
@@ -713,15 +717,15 @@
 				saveHTMLToTextarea : true
 			}); */
 
-			/*
-			// or
-			testEditor = editormd({
-			    id      : "test-editormd",
-			    width   : "90%",
-			    height  : 640,
-			    path    : "../lib/"
-			});
-			 */
+		/*
+		// or
+		testEditor = editormd({
+		    id      : "test-editormd",
+		    width   : "90%",
+		    height  : 640,
+		    path    : "../lib/"
+		});
+		 */
 		/* }); */
 	</script>
 	<!-- 搜索 -->

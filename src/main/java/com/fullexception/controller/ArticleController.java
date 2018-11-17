@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fullexception.entity.Article;
 import com.fullexception.entity.ArticleGroup;
+import com.fullexception.entity.ReadLog;
 import com.fullexception.entity.Visitor;
 import com.fullexception.service.ArticleService;
 import com.fullexception.service.VisitorService;
@@ -44,6 +45,9 @@ public class ArticleController {
 		}
 		Article article = articleService.getArticleById(arId, visitorId);
 		Visitor visitor = visitorService.getVisitorById(article.getAuthorId());
+		List<ReadLog> readInfos = articleService.getReadLogByArticleId(arId);
+		int readCount = readInfos.size();
+		model.addAttribute("readCount", readCount);
 		model.addAttribute("article", article);
 		model.addAttribute("author", visitor);
 		return "/blog/posts/index";

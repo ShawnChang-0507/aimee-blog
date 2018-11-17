@@ -77,6 +77,11 @@ $(function(){
 		}
 		checkByAjax("/blog/writeBlog", {'groupId': groupId, 'title': title, 'secondTitle': secondTitle, 'articleContent': articleContent}, true)
 	})
+	
+	$("#quit-login").click(function(){
+		removeCookie("loginInfo")
+		checkByAjax("/quitLogin", null, true)
+	})
 })
 
 function enPs(pass){
@@ -144,6 +149,14 @@ function updateGroupMenu(data){
 	menu.append(appendGroup)
 }
 
+// 删除cookie
+function removeCookie(name){
+	var date = new Date();
+	　　date.setTime(date.getTime() - 1);
+	　　var cval = name;
+	　　if(cval != null)
+	　　document.cookie = name + "=" + cval + ";expires=" + date.toGMTString() + ";path=/";
+}
 
 function toBlogPage(data){
 	alert(JSON.parse(data).mes)

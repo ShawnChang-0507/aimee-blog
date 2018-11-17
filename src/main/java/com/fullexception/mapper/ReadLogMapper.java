@@ -1,5 +1,7 @@
 package com.fullexception.mapper;
 
+import java.util.List;
+
 import com.fullexception.entity.ReadLog;
 
 public interface ReadLogMapper {
@@ -14,4 +16,6 @@ public interface ReadLogMapper {
     int updateByPrimaryKeySelective(ReadLog record);
 
     int updateByPrimaryKey(ReadLog record);
+
+	List<ReadLog> getByArticleId(int arId);
 }

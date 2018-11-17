@@ -107,6 +107,16 @@ public class VisitorController extends AuthorizingRealm {
 		}
 		return map;
 	}
+	
+	@ResponseBody
+	@PostMapping("/quitLogin")
+	public Map<String, String> quitLogin(HttpServletRequest request){
+		AimeeHelper.quitLogin(request);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("mes", "尊贵的VIP，您已办好离村儿手续~欢迎下次光临━(*｀∀´*)ノ亻!");
+		map.put("res", "true");
+		return map;
+	}
 
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection arg0) {

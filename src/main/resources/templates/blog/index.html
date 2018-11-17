@@ -81,7 +81,7 @@
 			<div class="brand-wrap">
 				<div class="brand">
 					<a href="/" class="avatar waves-effect waves-circle waves-light">
-						<img src="../../images/avatar.jpg" alt="avatar">
+						<img th:src="${tourist.headUrl }" alt="avatar">
 					</a>
 					<hgroup class="introduce">
 						<h5 class="nickname" id="name" th:text="${tourist.nickName }">Aimee</h5>
@@ -243,8 +243,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary"
-						data-dismiss="modal">嗯呢</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">嗯呢</button>
 				</div>
 			</div>
 		</div>
@@ -268,8 +267,11 @@
 					id="search"> <i class="icon icon-lg icon-search"></i>
 				</a>
 			</div>
-
-			<a href="../../blog/editBlog" target="_blank"
+			<a target="_blank"
+				class="header-icon waves-effect waves-circle waves-light" id="quit-login"
+				th:if="${session.myVisitor} != null"> <i
+				class="icon icon-lg icon-remove"></i>
+			</a> <a href="../../blog/editBlog" target="_blank"
 				class="header-icon waves-effect waves-circle waves-light" id="Rss"
 				th:if="${session.myVisitor} != null"> <i
 				class="icon icon-lg icon-book"></i>
@@ -305,18 +307,18 @@
 					<h3 class="post-title" itemprop="name">
 						<a
 							th:href="@{'/article/showArticle?arId=' + ${article.articleId}}"
-							th:text="${article.articleTitle}">Hello World</a>
+							th:text="${article.articleTitle}">这是标题</a>
 					</h3>
 					<h5 class="post-title" itemprop="name">
 						<a
 							th:href="@{'/article/showArticle?arId=' + ${article.articleId}}"
-							th:text="${article.secondTitle}">My first application</a>
+							th:text="${article.secondTitle}">这是副标题</a>
 					</h5>
 
 					<div class="post-meta">
 						<time class="post-time" title="2018-05-28 17:33:39"
 							datetime="2018-05-28T09:33:39.288Z" itemprop="datePublished"
-							th:text="${article.createDate}">2018-05-28</time>
+							th:text="${article.createDate}">创建日期</time>
 
 					</div>
 

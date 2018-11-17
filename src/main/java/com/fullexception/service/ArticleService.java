@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.fullexception.entity.Article;
 import com.fullexception.entity.ArticleGroup;
+import com.fullexception.entity.ReadLog;
 
 public interface ArticleService {
 
@@ -53,4 +54,11 @@ public interface ArticleService {
 	 * @return
 	 */
 	public int writeArticle(Article article);
+
+	/**
+	 * 得到文章的阅读信息
+	 * @param arId
+	 * @return
+	 */
+	public List<ReadLog> getReadLogByArticleId(int arId);
 }

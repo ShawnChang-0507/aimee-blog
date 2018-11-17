@@ -96,4 +96,14 @@ public class ArticleServiceImpl implements ArticleService {
 		}
 	}
 
+	@Override
+	public List<ReadLog> getReadLogByArticleId(int arId) {
+		try{
+			List<ReadLog> readLogs = readLogMapper.getByArticleId(arId);
+			return readLogs;
+		}catch(Exception e){
+			throw e;
+		}
+	}
+
 }

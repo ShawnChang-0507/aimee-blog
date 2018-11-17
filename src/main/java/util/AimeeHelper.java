@@ -238,6 +238,23 @@ public class AimeeHelper {
 	}
 
 	/**
+	 * 退出登录
+	 * 
+	 * @param request
+	 */
+	public static void quitLogin(HttpServletRequest request) {
+		Cookie[] cs = request.getCookies();
+		for (Cookie c : cs) {
+			if ("loginInfo".equals(c.getName())) {
+				c.setMaxAge(0);
+			}
+		}
+		HttpSession session = request.getSession();
+		session.setMaxInactiveInterval(0);
+		session.removeAttribute("myVisitor");
+	}
+
+	/**
 	 * 添加登录记录
 	 * 
 	 * @param ip
@@ -251,23 +268,24 @@ public class AimeeHelper {
 		loginInfo.setLoginTime(new Date());
 		visitorService.appendLoginInfo(loginInfo);
 	}
-	
-	
+
 	/**
 	 * 获取内容中-汉字个数
-	 * @param content - 内容
+	 * 
+	 * @param content
+	 *            - 内容
 	 * @return int
 	 */
 	public static int getChineseSize(String content) {
-		int count = 0;//汉字数量
+		int count = 0;// 汉字数量
 		String regEx = "[\\u4e00-\\u9fa5]";
 		Pattern p = Pattern.compile(regEx);
 		Matcher m = p.matcher(content);
 		int len = m.groupCount();
 		while (m.find()) {
-			for (int i = 0; i <= len; i++) {  
-		    	 count = count + 1;  
-		     }  
+			for (int i = 0; i <= len; i++) {
+				count = count + 1;
+			}
 		}
 		return count;
 	}
