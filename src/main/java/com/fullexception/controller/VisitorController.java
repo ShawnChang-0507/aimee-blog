@@ -8,14 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.shiro.authc.AccountException;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.authz.AuthorizationInfo;
-import org.apache.shiro.realm.AuthorizingRealm;
-import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -34,7 +29,7 @@ import util.AimeeHelper;
 
 @Controller
 @RequestMapping
-public class VisitorController extends AuthorizingRealm {
+public class VisitorController {
 	@Autowired
 	private VisitorService visitorService;
 
@@ -46,30 +41,30 @@ public class VisitorController extends AuthorizingRealm {
 
 	/**
 	 * 默认访问博客
-	 */
-	private Visitor visitor;
+	 *//*
+	private Visitor visitor;*/
 
 	@GetMapping("/")
 	public String touristVisitor(HttpServletRequest request, ModelMap model) {
 		Map<String, Object> map = AimeeHelper.loginSystem(request, model, visitorService);
-		visitor = (Visitor)map.get("visitor");
+		AimeeHelper.visitor = (Visitor)map.get("visitor");
 		//判断 登录是否记录 登录次数，如果false，那么手动添加登录次数
 		if (!(Boolean)map.get("loginInfoOrNot")){
-			AimeeHelper.appendLoginInfo(AimeeHelper.getIpAddr(request), visitor, visitorService);
+			AimeeHelper.appendLoginInfo(AimeeHelper.getIpAddr(request), AimeeHelper.visitor, visitorService);
 		}
 		return "/index";
 	}
 
 	@GetMapping("/blog")
 	public String showBlog(HttpServletRequest request, ModelMap model) {
-		if (visitor == null) {
+		if (AimeeHelper.visitor == null) {
 			String ip = AimeeHelper.getIpAddr(request);
-			visitor = visitorService.tourist(ip);
+			AimeeHelper.visitor = visitorService.tourist(ip);
 		}
-		List<Article> articles = articleService.showArticleByAuthorId(visitor.getVisitorId(), 0);
+		List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.getVisitorId(), 0);
 		Map<String, Integer> map = loginInfoService.countTheNumberOfVisitors();
 
-		model.addAttribute("tourist", visitor);
+		model.addAttribute("tourist", AimeeHelper.visitor);
 		model.addAttribute("articles", articles);
 		int totalVisitorNumber = map.get("totalVisitorNumber");
 		int totalVisitNumber = map.get("totalVisitNumber");
@@ -116,23 +111,5 @@ public class VisitorController extends AuthorizingRealm {
 		map.put("mes", "尊贵的VIP，您已办好离村儿手续~欢迎下次光临━(*｀∀´*)ノ亻!");
 		map.put("res", "true");
 		return map;
-	}
-
-	@Override
-	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-		UsernamePasswordToken upToken = (UsernamePasswordToken) token;
-		String username = upToken.getUsername();
-		if (username == null) {
-			throw new AccountException("Null usernames are not allowed by this realm.");
-		} else {
-
-		}
-		return null;
 	}
 }

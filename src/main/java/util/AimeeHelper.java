@@ -25,6 +25,8 @@ import com.fullexception.service.VisitorService;
 
 public class AimeeHelper {
 
+	public static Visitor visitor;
+	
 	/**
 	 * 登录信息
 	 */

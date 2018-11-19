@@ -40,4 +40,11 @@ public interface VisitorService {
 	 * @param visitor
 	 */
 	public void appendLoginInfo(LoginInfo loginInfo);
+
+	/**
+	 * 通过用户名查找
+	 * @param userName
+	 * @return
+	 */
+	public Visitor findByUsername(String userName);
 }

@@ -93,4 +93,14 @@ public class VisitorServiceImpl implements VisitorService {
 		}
 	}
 
+	@Override
+	public Visitor findByUsername(String userName) {
+		try{
+			Visitor visitor = visitorMapper.getVisitorByLoginName(userName);
+			return visitor;
+		}catch(Exception e){
+			throw e;
+		}
+	}
+
 }
