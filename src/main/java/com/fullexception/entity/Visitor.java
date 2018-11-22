@@ -9,6 +9,8 @@ public class Visitor {
 
     private String loginName;
 
+    private String salt;
+
     private String loginPassword;
 
     private String nickName;
@@ -43,6 +45,14 @@ public class Visitor {
 
     public void setLoginName(String loginName) {
         this.loginName = loginName == null ? null : loginName.trim();
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt == null ? null : salt.trim();
     }
 
     public String getLoginPassword() {

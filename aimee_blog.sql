@@ -76,7 +76,6 @@ create table article
    article_group_id     int,
    article_title        varchar(30),
    article_content      text,
-   spend_time           int,
    create_date          datetime,
    second_title         varchar(30),
    primary key (article_id)
@@ -281,12 +280,11 @@ create table visitor
    visitor_id           int not null auto_increment,
    visitor_state_id     int,
    login_name           varchar(20),
+   login_password       varchar(20),
    salt                 varchar(100),
-   login_password       varchar(100),
    nick_name            varchar(20),
    create_date          datetime,
    manifesto            varchar(300),
-   head_url             varchar(300),
    introduction         varchar(300),
    primary key (visitor_id)
 );

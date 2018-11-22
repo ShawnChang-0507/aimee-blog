@@ -3,7 +3,6 @@ server:
     session:
       timeout: 1800
   port: 8080
-      
 spring:
   datasource:
     username: root
@@ -13,13 +12,19 @@ spring:
   thymeleaf:
     cache: false
     mode: HTML5
-    
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1
+    timeout: 0
 mybatis:
   mapper-locations: classpath*:com/fullexception/mapping/*.xml
   type-aliases-package: com.fullexception.entity
-  
-# 打印sql  
-logging:  
-  level:   
-    com.fullexception.mapper: DEBUG 
-  
+logging:
+  level:
+    com.fullexception.mapper: DEBUG

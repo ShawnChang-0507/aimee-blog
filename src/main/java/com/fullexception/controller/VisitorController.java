@@ -44,13 +44,19 @@ public class VisitorController {
 	 *//*
 	private Visitor visitor;*/
 
-	@GetMapping("/")
+	@GetMapping("/index")
 	public String touristVisitor(HttpServletRequest request, ModelMap model) {
-		Map<String, Object> map = AimeeHelper.loginSystem(request, model, visitorService);
-		AimeeHelper.visitor = (Visitor)map.get("visitor");
-		//判断 登录是否记录 登录次数，如果false，那么手动添加登录次数
-		if (!(Boolean)map.get("loginInfoOrNot")){
-			AimeeHelper.appendLoginInfo(AimeeHelper.getIpAddr(request), AimeeHelper.visitor, visitorService);
+		Subject subject = SecurityUtils.getSubject();
+		if (!subject.isAuthenticated()){
+			Map<String, Object> map = AimeeHelper.loginSystem(request, model, visitorService);
+			AimeeHelper.visitor = (Visitor)map.get("visitor");
+			//判断 登录是否记录 登录次数，如果false，那么手动添加登录次数
+			if (!(Boolean)map.get("loginInfoOrNot")){
+				AimeeHelper.appendLoginInfo(AimeeHelper.getIpAddr(request), AimeeHelper.visitor, visitorService);
+			}
+		}
+		else{
+			model.addAttribute("tourist", (Visitor)subject.getPrincipal());
 		}
 		return "/index";
 	}
@@ -100,6 +106,10 @@ public class VisitorController {
 			map.put("mes", "萌妹在村里的VIP名单里翻了八百遍，也没找到您的名字o(╥﹏╥)o");
 			map.put("res", "false");
 		}
+		UsernamePasswordToken token = new UsernamePasswordToken(loginName, loginPassword);
+		Subject subject = SecurityUtils.getSubject();
+		subject.login(token);
+		AimeeHelper.visitor = (Visitor)subject.getPrincipal();
 		return map;
 	}
 	

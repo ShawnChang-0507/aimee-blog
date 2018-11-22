@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/init")
 @MapperScan("com.fullexception.mapper")
 public class AliciaDoApplication {
+	
 	public static void main(String[] args) {
 		SpringApplication.run(AliciaDoApplication.class, args);
 	}

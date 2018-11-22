@@ -31,5 +31,4 @@ public interface VisitorMapper {
 	 * @return
 	 */
 	Visitor getVisitorByNameAndPass(Map<String, String> map);
-
 }
