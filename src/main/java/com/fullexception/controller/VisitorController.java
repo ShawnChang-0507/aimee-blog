@@ -42,22 +42,23 @@ public class VisitorController {
 	/**
 	 * 默认访问博客
 	 *//*
-	private Visitor visitor;*/
+		 * private Visitor visitor;
+		 */
 
 	@GetMapping("/index")
 	public String touristVisitor(HttpServletRequest request, ModelMap model) {
-		Subject subject = SecurityUtils.getSubject();
-		if (!subject.isAuthenticated()){
-			Map<String, Object> map = AimeeHelper.loginSystem(request, model, visitorService);
-			AimeeHelper.visitor = (Visitor)map.get("visitor");
-			//判断 登录是否记录 登录次数，如果false，那么手动添加登录次数
-			if (!(Boolean)map.get("loginInfoOrNot")){
-				AimeeHelper.appendLoginInfo(AimeeHelper.getIpAddr(request), AimeeHelper.visitor, visitorService);
-			}
+		// Subject subject = SecurityUtils.getSubject();
+		// if (!subject.isAuthenticated()){
+		Map<String, Object> map = AimeeHelper.loginSystem(request, model, visitorService);
+		AimeeHelper.visitor = (Visitor) map.get("visitor");
+		// 判断 登录是否记录 登录次数，如果false，那么手动添加登录次数
+		if (!(Boolean) map.get("loginInfoOrNot")) {
+			AimeeHelper.appendLoginInfo(AimeeHelper.getIpAddr(request), AimeeHelper.visitor, visitorService);
 		}
-		else{
-			model.addAttribute("tourist", (Visitor)subject.getPrincipal());
-		}
+		// }
+		// else{
+		// model.addAttribute("tourist", (Visitor)subject.getPrincipal());
+		// }
 		return "/index";
 	}
 
@@ -109,13 +110,13 @@ public class VisitorController {
 		UsernamePasswordToken token = new UsernamePasswordToken(loginName, loginPassword);
 		Subject subject = SecurityUtils.getSubject();
 		subject.login(token);
-		AimeeHelper.visitor = (Visitor)subject.getPrincipal();
+		AimeeHelper.visitor = (Visitor) subject.getPrincipal();
 		return map;
 	}
-	
+
 	@ResponseBody
 	@PostMapping("/quitLogin")
-	public Map<String, String> quitLogin(HttpServletRequest request){
+	public Map<String, String> quitLogin(HttpServletRequest request) {
 		AimeeHelper.quitLogin(request);
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("mes", "尊贵的VIP，您已办好离村儿手续~欢迎下次光临━(*｀∀´*)ノ亻!");
