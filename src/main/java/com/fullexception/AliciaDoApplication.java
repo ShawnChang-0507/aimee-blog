@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 
 @SpringBootApplication()
 @Controller
-@MapperScan("com.fullexception.mapper")
+@MapperScan(basePackages="com.fullexception.mapper")
 public class AliciaDoApplication extends SpringBootServletInitializer  {
 	
 	public static void main(String[] args) {
