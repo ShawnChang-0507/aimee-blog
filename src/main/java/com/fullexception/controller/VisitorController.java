@@ -107,10 +107,10 @@ public class VisitorController {
 			map.put("mes", "萌妹在村里的VIP名单里翻了八百遍，也没找到您的名字o(╥﹏╥)o");
 			map.put("res", "false");
 		}
-		UsernamePasswordToken token = new UsernamePasswordToken(loginName, loginPassword);
-		Subject subject = SecurityUtils.getSubject();
-		subject.login(token);
-		AimeeHelper.visitor = (Visitor) subject.getPrincipal();
+//		UsernamePasswordToken token = new UsernamePasswordToken(loginName, loginPassword);
+//		Subject subject = SecurityUtils.getSubject();
+//		subject.login(token);
+		AimeeHelper.visitor = myVisitor;
 		return map;
 	}
 

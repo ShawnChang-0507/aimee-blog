@@ -2,12 +2,12 @@ server:
   servlet:
     session:
       timeout: 12000
-  port: 8080
+  port: 80
 spring:
   datasource:
     username: root
-    password: pythoner
-    url: jdbc:mysql://127.0.0.1:3306/aimee_blog?useUnicode=true&characterEncoding=utf8&useSSL=true
+    password: Zhang@xiu1xiu2
+    url: jdbc:mysql://127.0.0.1:3306/aimee_blog?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.jdbc.Driver
   thymeleaf:
     cache: false
@@ -22,9 +22,11 @@ spring:
         max-active: 8
         max-wait: -1
     timeout: 0
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
 mybatis:
   mapper-locations: classpath*:com/fullexception/mapping/*.xml
   type-aliases-package: com.fullexception.entity
 logging:
   level:
-    com.fullexception.mapper: DEBUG
+    com.fullexception.mapper: ERROR
