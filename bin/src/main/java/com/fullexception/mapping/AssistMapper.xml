@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.AssistMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.Assist" >
+    <id column="assist_id" property="assistId" jdbcType="INTEGER" />
+    <result column="article_id" property="articleId" jdbcType="INTEGER" />
+    <result column="discuss_id" property="discussId" jdbcType="INTEGER" />
+    <result column="visitor_id" property="visitorId" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    assist_id, article_id, discuss_id, visitor_id, create_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from assist
+    where assist_id = #{assistId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from assist
+    where assist_id = #{assistId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.Assist" >
+    insert into assist (assist_id, article_id, discuss_id, 
+      visitor_id, create_date)
+    values (#{assistId,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER}, #{discussId,jdbcType=INTEGER}, 
+      #{visitorId,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.Assist" >
+    insert into assist
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="assistId != null" >
+        assist_id,
+      </if>
+      <if test="articleId != null" >
+        article_id,
+      </if>
+      <if test="discussId != null" >
+        discuss_id,
+      </if>
+      <if test="visitorId != null" >
+        visitor_id,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="assistId != null" >
+        #{assistId,jdbcType=INTEGER},
+      </if>
+      <if test="articleId != null" >
+        #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="discussId != null" >
+        #{discussId,jdbcType=INTEGER},
+      </if>
+      <if test="visitorId != null" >
+        #{visitorId,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Assist" >
+    update assist
+    <set >
+      <if test="articleId != null" >
+        article_id = #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="discussId != null" >
+        discuss_id = #{discussId,jdbcType=INTEGER},
+      </if>
+      <if test="visitorId != null" >
+        visitor_id = #{visitorId,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where assist_id = #{assistId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Assist" >
+    update assist
+    set article_id = #{articleId,jdbcType=INTEGER},
+      discuss_id = #{discussId,jdbcType=INTEGER},
+      visitor_id = #{visitorId,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=TIMESTAMP}
+    where assist_id = #{assistId,jdbcType=INTEGER}
+  </update>
+</mapper>

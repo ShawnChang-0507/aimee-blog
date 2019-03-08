@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.ArticleMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.Article" >
+    <id column="article_id" property="articleId" jdbcType="INTEGER" />
+    <result column="article_state_id" property="articleStateId" jdbcType="INTEGER" />
+    <result column="article_public_id" property="articlePublicId" jdbcType="INTEGER" />
+    <result column="author_id" property="authorId" jdbcType="INTEGER" />
+    <result column="source_id" property="sourceId" jdbcType="INTEGER" />
+    <result column="article_group_id" property="articleGroupId" jdbcType="INTEGER" />
+    <result column="article_title" property="articleTitle" jdbcType="VARCHAR" />
+    <result column="spend_time" property="spendTime" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="second_title" property="secondTitle" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.fullexception.entity.Article" extends="BaseResultMap" >
+    <result column="article_content" property="articleContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    article_id, article_state_id, article_public_id, author_id, source_id, article_group_id, 
+    article_title, spend_time, create_date, second_title
+  </sql>
+  <sql id="Blob_Column_List" >
+    article_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="getArticleByAuthorIdAndPage" resultMap="BaseResultMap" parameterType="map">
+  	select <include refid="Base_Column_List"/>
+  	from article 
+  	<where>
+  		author_id=#{authorId}
+  	</where>
+  	limit #{currentPage}, 5
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from article
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.Article" >
+    insert into article (article_id, article_state_id, article_public_id, 
+      author_id, source_id, article_group_id, 
+      article_title, spend_time, create_date, 
+      second_title, article_content)
+    values (#{articleId,jdbcType=INTEGER}, #{articleStateId,jdbcType=INTEGER}, #{articlePublicId,jdbcType=INTEGER}, 
+      #{authorId,jdbcType=INTEGER}, #{sourceId,jdbcType=INTEGER}, #{articleGroupId,jdbcType=INTEGER}, 
+      #{articleTitle,jdbcType=VARCHAR}, #{spendTime,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{secondTitle,jdbcType=VARCHAR}, #{articleContent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.Article" >
+    insert into article
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="articleId != null" >
+        article_id,
+      </if>
+      <if test="articleStateId != null" >
+        article_state_id,
+      </if>
+      <if test="articlePublicId != null" >
+        article_public_id,
+      </if>
+      <if test="authorId != null" >
+        author_id,
+      </if>
+      <if test="sourceId != null" >
+        source_id,
+      </if>
+      <if test="articleGroupId != null" >
+        article_group_id,
+      </if>
+      <if test="articleTitle != null" >
+        article_title,
+      </if>
+      <if test="spendTime != null" >
+        spend_time,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="secondTitle != null" >
+        second_title,
+      </if>
+      <if test="articleContent != null" >
+        article_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="articleId != null" >
+        #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="articleStateId != null" >
+        #{articleStateId,jdbcType=INTEGER},
+      </if>
+      <if test="articlePublicId != null" >
+        #{articlePublicId,jdbcType=INTEGER},
+      </if>
+      <if test="authorId != null" >
+        #{authorId,jdbcType=INTEGER},
+      </if>
+      <if test="sourceId != null" >
+        #{sourceId,jdbcType=INTEGER},
+      </if>
+      <if test="articleGroupId != null" >
+        #{articleGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="articleTitle != null" >
+        #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="spendTime != null" >
+        #{spendTime,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondTitle != null" >
+        #{secondTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="articleContent != null" >
+        #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Article" >
+    update article
+    <set >
+      <if test="articleStateId != null" >
+        article_state_id = #{articleStateId,jdbcType=INTEGER},
+      </if>
+      <if test="articlePublicId != null" >
+        article_public_id = #{articlePublicId,jdbcType=INTEGER},
+      </if>
+      <if test="authorId != null" >
+        author_id = #{authorId,jdbcType=INTEGER},
+      </if>
+      <if test="sourceId != null" >
+        source_id = #{sourceId,jdbcType=INTEGER},
+      </if>
+      <if test="articleGroupId != null" >
+        article_group_id = #{articleGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="articleTitle != null" >
+        article_title = #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="spendTime != null" >
+        spend_time = #{spendTime,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondTitle != null" >
+        second_title = #{secondTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="articleContent != null" >
+        article_content = #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.fullexception.entity.Article" >
+    update article
+    set article_state_id = #{articleStateId,jdbcType=INTEGER},
+      article_public_id = #{articlePublicId,jdbcType=INTEGER},
+      author_id = #{authorId,jdbcType=INTEGER},
+      source_id = #{sourceId,jdbcType=INTEGER},
+      article_group_id = #{articleGroupId,jdbcType=INTEGER},
+      article_title = #{articleTitle,jdbcType=VARCHAR},
+      spend_time = #{spendTime,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      second_title = #{secondTitle,jdbcType=VARCHAR},
+      article_content = #{articleContent,jdbcType=LONGVARCHAR}
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Article" >
+    update article
+    set article_state_id = #{articleStateId,jdbcType=INTEGER},
+      article_public_id = #{articlePublicId,jdbcType=INTEGER},
+      author_id = #{authorId,jdbcType=INTEGER},
+      source_id = #{sourceId,jdbcType=INTEGER},
+      article_group_id = #{articleGroupId,jdbcType=INTEGER},
+      article_title = #{articleTitle,jdbcType=VARCHAR},
+      spend_time = #{spendTime,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      second_title = #{secondTitle,jdbcType=VARCHAR}
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </update>
+</mapper>

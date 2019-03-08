@@ -38,6 +38,7 @@
   	<where>
   		author_id=#{authorId}
   	</where>
+  	order by create_date desc
   	limit #{currentPage}, 5
   </select>
   

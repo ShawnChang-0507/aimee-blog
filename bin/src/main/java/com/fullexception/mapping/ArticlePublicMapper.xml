@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.ArticlePublicMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.ArticlePublic" >
+    <id column="article_public_id" property="articlePublicId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    article_public_id, name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from article_public
+    where article_public_id = #{articlePublicId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from article_public
+    where article_public_id = #{articlePublicId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.ArticlePublic" >
+    insert into article_public (article_public_id, name)
+    values (#{articlePublicId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.ArticlePublic" >
+    insert into article_public
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="articlePublicId != null" >
+        article_public_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="articlePublicId != null" >
+        #{articlePublicId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.ArticlePublic" >
+    update article_public
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where article_public_id = #{articlePublicId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.ArticlePublic" >
+    update article_public
+    set name = #{name,jdbcType=VARCHAR}
+    where article_public_id = #{articlePublicId,jdbcType=INTEGER}
+  </update>
+</mapper>

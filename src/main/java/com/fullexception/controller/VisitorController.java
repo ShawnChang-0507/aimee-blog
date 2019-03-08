@@ -45,7 +45,7 @@ public class VisitorController {
 		 * private Visitor visitor;
 		 */
 
-	@GetMapping("/index")
+	@GetMapping("/")
 	public String touristVisitor(HttpServletRequest request, ModelMap model) {
 		// Subject subject = SecurityUtils.getSubject();
 		// if (!subject.isAuthenticated()){

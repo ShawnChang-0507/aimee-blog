@@ -1,0 +1,515 @@
+2019-03-08 23:01:36.035  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : Starting AliciaDoApplication on LAPTOP-VCCELDHN with PID 16116 (D:\repository\git\alicia_do\target\classes started by admin in D:\repository\git\alicia_do)
+2019-03-08 23:01:36.035  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : No active profile set, falling back to default profiles: default
+2019-03-08 23:01:36.038  INFO 16116 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2641a090: startup date [Fri Mar 08 23:01:36 CST 2019]; root of context hierarchy
+2019-03-08 23:01:36.332  INFO 16116 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-08 23:01:36.350  INFO 16116 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a7e6c58c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-08 23:01:36.482  INFO 16116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-03-08 23:01:36.483  INFO 16116 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-08 23:01:36.483  INFO 16116 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
+2019-03-08 23:01:36.506  INFO 16116 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-08 23:01:36.507  INFO 16116 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 469 ms
+2019-03-08 23:01:36.532  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2019-03-08 23:01:36.533  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-08 23:01:36.533  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-08 23:01:36.534  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-08 23:01:36.534  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-08 23:01:36.573  INFO 16116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2019-03-08 23:01:36.577  INFO 16116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2019-03-08 23:01:36.584  INFO 16116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:01:36.585  INFO 16116 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-08 23:01:36.604  INFO 16116 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-08 23:01:36.613  INFO 16116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:01:36.839  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2641a090: startup date [Fri Mar 08 23:01:36 CST 2019]; root of context hierarchy
+2019-03-08 23:01:36.845  WARN 16116 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-08 23:01:36.853  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/showArticle || /blog/showArticle],methods=[GET]}" onto public java.lang.String com.fullexception.controller.ArticleController.showArticle(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:01:36.854  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/editBlog || /blog/editBlog],methods=[GET]}" onto public java.lang.String com.fullexception.controller.ArticleController.editBlog(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:01:36.854  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/addArticleGroup || /blog/addArticleGroup],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.fullexception.controller.ArticleController.addArticleGroup(java.lang.String,javax.servlet.http.HttpServletRequest)
+2019-03-08 23:01:36.854  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/writeBlog || /blog/writeBlog],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.fullexception.controller.ArticleController.writeBlog(int,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:01:36.855  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/register],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.register(java.lang.String,java.lang.String,java.lang.String)
+2019-03-08 23:01:36.856  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/quitLogin],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.quitLogin(javax.servlet.http.HttpServletRequest)
+2019-03-08 23:01:36.856  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest)
+2019-03-08 23:01:36.856  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog],methods=[GET]}" onto public java.lang.String com.fullexception.controller.VisitorController.showBlog(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:01:36.856  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.fullexception.controller.VisitorController.touristVisitor(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:01:36.859  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-03-08 23:01:36.859  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-03-08 23:01:36.871  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:01:36.871  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:01:36.884  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:01:36.894  WARN 16116 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-03-08 23:01:36.904  INFO 16116 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-03-08 23:01:36.965  INFO 16116 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-03-08 23:01:37.013  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-03-08 23:01:37.013  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-03-08 23:01:37.017  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2019-03-08 23:01:37.024  INFO 16116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-03-08 23:01:37.026  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : Started AliciaDoApplication in 1.03 seconds (JVM running for 1031.253)
+2019-03-08 23:01:37.029  INFO 16116 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-03-08 23:02:06.135  INFO 16116 --- [Thread-23] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2641a090: startup date [Fri Mar 08 23:01:36 CST 2019]; root of context hierarchy
+2019-03-08 23:02:06.137  INFO 16116 --- [Thread-23] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2019-03-08 23:02:06.137  INFO 16116 --- [Thread-23] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2019-03-08 23:02:06.137  INFO 16116 --- [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:02:06.138  INFO 16116 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2019-03-08 23:02:06.143  INFO 16116 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2019-03-08 23:02:06.588  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : Starting AliciaDoApplication on LAPTOP-VCCELDHN with PID 16116 (D:\repository\git\alicia_do\target\classes started by admin in D:\repository\git\alicia_do)
+2019-03-08 23:02:06.588  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : No active profile set, falling back to default profiles: default
+2019-03-08 23:02:06.590  INFO 16116 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@39d2e930: startup date [Fri Mar 08 23:02:06 CST 2019]; root of context hierarchy
+2019-03-08 23:02:06.863  INFO 16116 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-08 23:02:06.878  INFO 16116 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a7e6c58c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-08 23:02:06.995  INFO 16116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-03-08 23:02:06.996  INFO 16116 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-08 23:02:06.996  INFO 16116 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
+2019-03-08 23:02:07.024  INFO 16116 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-08 23:02:07.025  INFO 16116 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 435 ms
+2019-03-08 23:02:07.052  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2019-03-08 23:02:07.052  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-08 23:02:07.053  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-08 23:02:07.053  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-08 23:02:07.053  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-08 23:02:07.085  INFO 16116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2019-03-08 23:02:07.089  INFO 16116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2019-03-08 23:02:07.096  INFO 16116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:02:07.096  INFO 16116 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-08 23:02:07.116  INFO 16116 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-08 23:02:07.124  INFO 16116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:02:07.332  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@39d2e930: startup date [Fri Mar 08 23:02:06 CST 2019]; root of context hierarchy
+2019-03-08 23:02:07.339  WARN 16116 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-08 23:02:07.348  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/showArticle || /blog/showArticle],methods=[GET]}" onto public java.lang.String com.fullexception.controller.ArticleController.showArticle(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:02:07.348  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/editBlog || /blog/editBlog],methods=[GET]}" onto public java.lang.String com.fullexception.controller.ArticleController.editBlog(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:02:07.349  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/addArticleGroup || /blog/addArticleGroup],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.fullexception.controller.ArticleController.addArticleGroup(java.lang.String,javax.servlet.http.HttpServletRequest)
+2019-03-08 23:02:07.349  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/writeBlog || /blog/writeBlog],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.fullexception.controller.ArticleController.writeBlog(int,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:02:07.352  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/register],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.register(java.lang.String,java.lang.String,java.lang.String)
+2019-03-08 23:02:07.352  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/quitLogin],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.quitLogin(javax.servlet.http.HttpServletRequest)
+2019-03-08 23:02:07.353  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest)
+2019-03-08 23:02:07.353  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog],methods=[GET]}" onto public java.lang.String com.fullexception.controller.VisitorController.showBlog(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:02:07.353  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.fullexception.controller.VisitorController.touristVisitor(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:02:07.355  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-03-08 23:02:07.356  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-03-08 23:02:07.368  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:02:07.368  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:02:07.384  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:02:07.394  WARN 16116 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-03-08 23:02:07.403  INFO 16116 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-03-08 23:02:07.462  INFO 16116 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-03-08 23:02:07.507  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-03-08 23:02:07.507  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-03-08 23:02:07.511  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2019-03-08 23:02:07.518  INFO 16116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-03-08 23:02:07.519  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : Started AliciaDoApplication in 0.957 seconds (JVM running for 1061.747)
+2019-03-08 23:02:07.521  INFO 16116 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-03-08 23:02:26.333  INFO 16116 --- [Thread-31] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@39d2e930: startup date [Fri Mar 08 23:02:06 CST 2019]; root of context hierarchy
+2019-03-08 23:02:26.334  INFO 16116 --- [Thread-31] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2019-03-08 23:02:26.335  INFO 16116 --- [Thread-31] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2019-03-08 23:02:26.335  INFO 16116 --- [Thread-31] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:02:26.336  INFO 16116 --- [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2019-03-08 23:02:26.341  INFO 16116 --- [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2019-03-08 23:02:26.737  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : Starting AliciaDoApplication on LAPTOP-VCCELDHN with PID 16116 (D:\repository\git\alicia_do\target\classes started by admin in D:\repository\git\alicia_do)
+2019-03-08 23:02:26.737  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : No active profile set, falling back to default profiles: default
+2019-03-08 23:02:26.739  INFO 16116 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@49cbd7cb: startup date [Fri Mar 08 23:02:26 CST 2019]; root of context hierarchy
+2019-03-08 23:02:27.007  INFO 16116 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-08 23:02:27.024  INFO 16116 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a7e6c58c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-08 23:02:27.159  INFO 16116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-03-08 23:02:27.160  INFO 16116 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-08 23:02:27.160  INFO 16116 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
+2019-03-08 23:02:27.192  INFO 16116 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-08 23:02:27.193  INFO 16116 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 454 ms
+2019-03-08 23:02:27.225  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2019-03-08 23:02:27.225  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-08 23:02:27.225  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-08 23:02:27.225  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-08 23:02:27.226  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-08 23:02:27.262  INFO 16116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2019-03-08 23:02:27.310  INFO 16116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2019-03-08 23:02:27.318  INFO 16116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:02:27.318  INFO 16116 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-08 23:02:27.336  INFO 16116 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-08 23:02:27.344  INFO 16116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:02:27.564  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@49cbd7cb: startup date [Fri Mar 08 23:02:26 CST 2019]; root of context hierarchy
+2019-03-08 23:02:27.570  WARN 16116 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-08 23:02:27.578  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/showArticle || /blog/showArticle],methods=[GET]}" onto public java.lang.String com.fullexception.controller.ArticleController.showArticle(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:02:27.578  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/editBlog || /blog/editBlog],methods=[GET]}" onto public java.lang.String com.fullexception.controller.ArticleController.editBlog(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:02:27.579  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/addArticleGroup || /blog/addArticleGroup],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.fullexception.controller.ArticleController.addArticleGroup(java.lang.String,javax.servlet.http.HttpServletRequest)
+2019-03-08 23:02:27.579  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/writeBlog || /blog/writeBlog],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.fullexception.controller.ArticleController.writeBlog(int,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:02:27.580  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/register],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.register(java.lang.String,java.lang.String,java.lang.String)
+2019-03-08 23:02:27.580  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/quitLogin],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.quitLogin(javax.servlet.http.HttpServletRequest)
+2019-03-08 23:02:27.580  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest)
+2019-03-08 23:02:27.581  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog],methods=[GET]}" onto public java.lang.String com.fullexception.controller.VisitorController.showBlog(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:02:27.581  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.fullexception.controller.VisitorController.touristVisitor(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:02:27.583  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-03-08 23:02:27.583  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-03-08 23:02:27.595  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:02:27.595  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:02:27.609  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:02:27.618  WARN 16116 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-03-08 23:02:27.628  INFO 16116 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-03-08 23:02:27.689  INFO 16116 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-03-08 23:02:27.734  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-03-08 23:02:27.734  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-03-08 23:02:27.737  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2019-03-08 23:02:27.744  INFO 16116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-03-08 23:02:27.745  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : Started AliciaDoApplication in 1.033 seconds (JVM running for 1081.973)
+2019-03-08 23:02:27.749  INFO 16116 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-03-08 23:02:34.757  INFO 16116 --- [http-nio-80-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-03-08 23:02:34.760  INFO 16116 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2019-03-08 23:02:34.765  INFO 16116 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 5 ms
+2019-03-08 23:02:34.772 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.LoginInfoMapper.insertSelective    : ==>  Preparing: insert into login_info ( login_time, ip ) values ( ?, ? ) 
+2019-03-08 23:02:34.780 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.LoginInfoMapper.insertSelective    : ==> Parameters: 2019-03-08 23:02:34.769(Timestamp), 192.168.94.1(String)
+2019-03-08 23:02:34.783 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.LoginInfoMapper.insertSelective    : <==    Updates: 1
+2019-03-08 23:02:34.783 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.VisitorMapper.selectByPrimaryKey   : ==>  Preparing: select visitor_id, visitor_state_id, login_name, login_password, nick_name, create_date, manifesto, head_url, introduction from visitor where visitor_id = ? 
+2019-03-08 23:02:34.784 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.VisitorMapper.selectByPrimaryKey   : ==> Parameters: 1(Integer)
+2019-03-08 23:02:34.793 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.VisitorMapper.selectByPrimaryKey   : <==      Total: 1
+2019-03-08 23:02:34.794 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.LoginInfoMapper.insertSelective    : ==>  Preparing: insert into login_info ( visitor_id, login_time, ip ) values ( ?, ?, ? ) 
+2019-03-08 23:02:34.794 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.LoginInfoMapper.insertSelective    : ==> Parameters: 1(Integer), 2019-03-08 23:02:34.794(Timestamp), 192.168.94.1(String)
+2019-03-08 23:02:34.796 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.LoginInfoMapper.insertSelective    : <==    Updates: 1
+2019-03-08 23:02:34.861 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.A.getArticleByAuthorIdAndPage      : ==>  Preparing: select article_id, article_state_id, article_public_id, author_id, source_id, article_group_id, article_title, spend_time, create_date, second_title from article WHERE author_id=? order by create_date desc limit ?, 5 
+2019-03-08 23:02:34.861 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.A.getArticleByAuthorIdAndPage      : ==> Parameters: 1(Integer), 0(Integer)
+2019-03-08 23:02:34.864 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.A.getArticleByAuthorIdAndPage      : <==      Total: 1
+2019-03-08 23:02:34.864 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.L.countTheNumberOfVisitors         : ==>  Preparing: SELECT COUNT(loginInfo.ip) FROM (SELECT ip FROM login_info GROUP BY ip) AS loginInfo 
+2019-03-08 23:02:34.864 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.L.countTheNumberOfVisitors         : ==> Parameters: 
+2019-03-08 23:02:34.865 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.L.countTheNumberOfVisitors         : <==      Total: 1
+2019-03-08 23:02:34.865 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.L.countTheNumberOfVisits           : ==>  Preparing: SELECT count(*) FROM `login_info` 
+2019-03-08 23:02:34.866 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.L.countTheNumberOfVisits           : ==> Parameters: 
+2019-03-08 23:02:34.866 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.L.countTheNumberOfVisits           : <==      Total: 1
+2019-03-08 23:03:45.432 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.ArticleMapper.selectByPrimaryKey   : ==>  Preparing: select article_id, article_state_id, article_public_id, author_id, source_id, article_group_id, article_title, spend_time, create_date, second_title , article_content from article where article_id = ? 
+2019-03-08 23:03:45.433 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.ArticleMapper.selectByPrimaryKey   : ==> Parameters: 1(Integer)
+2019-03-08 23:03:45.434 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.ArticleMapper.selectByPrimaryKey   : <==      Total: 1
+2019-03-08 23:03:45.435 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.ReadLogMapper.insertSelective      : ==>  Preparing: insert into read_log ( article_id, create_date ) values ( ?, ? ) 
+2019-03-08 23:03:45.436 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.ReadLogMapper.insertSelective      : ==> Parameters: 1(Integer), 2019-03-08 23:03:45.435(Timestamp)
+2019-03-08 23:03:45.447 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.ReadLogMapper.insertSelective      : <==    Updates: 1
+2019-03-08 23:03:45.448 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.VisitorMapper.selectByPrimaryKey   : ==>  Preparing: select visitor_id, visitor_state_id, login_name, login_password, nick_name, create_date, manifesto, head_url, introduction from visitor where visitor_id = ? 
+2019-03-08 23:03:45.448 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.VisitorMapper.selectByPrimaryKey   : ==> Parameters: 1(Integer)
+2019-03-08 23:03:45.449 DEBUG 16116 --- [http-nio-80-exec-2] c.f.m.VisitorMapper.selectByPrimaryKey   : <==      Total: 1
+2019-03-08 23:03:45.449 DEBUG 16116 --- [http-nio-80-exec-2] c.f.mapper.ReadLogMapper.getByArticleId  : ==>  Preparing: select read_log_id, article_id, visitor_id, create_date from read_log where article_id=? 
+2019-03-08 23:03:45.450 DEBUG 16116 --- [http-nio-80-exec-2] c.f.mapper.ReadLogMapper.getByArticleId  : ==> Parameters: 1(Integer)
+2019-03-08 23:03:45.451 DEBUG 16116 --- [http-nio-80-exec-2] c.f.mapper.ReadLogMapper.getByArticleId  : <==      Total: 9
+2019-03-08 23:05:08.225  INFO 16116 --- [Thread-39] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@49cbd7cb: startup date [Fri Mar 08 23:02:26 CST 2019]; root of context hierarchy
+2019-03-08 23:05:08.226  INFO 16116 --- [Thread-39] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2019-03-08 23:05:08.226  INFO 16116 --- [Thread-39] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2019-03-08 23:05:08.227  INFO 16116 --- [Thread-39] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:05:08.227  INFO 16116 --- [Thread-39] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2019-03-08 23:05:08.232  INFO 16116 --- [Thread-39] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2019-03-08 23:05:08.585  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : Starting AliciaDoApplication on LAPTOP-VCCELDHN with PID 16116 (D:\repository\git\alicia_do\target\classes started by admin in D:\repository\git\alicia_do)
+2019-03-08 23:05:08.585  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : No active profile set, falling back to default profiles: default
+2019-03-08 23:05:08.588  INFO 16116 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@122f6dc3: startup date [Fri Mar 08 23:05:08 CST 2019]; root of context hierarchy
+2019-03-08 23:05:08.859  INFO 16116 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-08 23:05:08.876  INFO 16116 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a7e6c58c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-08 23:05:09.003  INFO 16116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-03-08 23:05:09.014  INFO 16116 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-08 23:05:09.014  INFO 16116 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
+2019-03-08 23:05:09.039  INFO 16116 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-08 23:05:09.040  INFO 16116 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 452 ms
+2019-03-08 23:05:09.065  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2019-03-08 23:05:09.065  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-08 23:05:09.065  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-08 23:05:09.065  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-08 23:05:09.065  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-08 23:05:09.098  INFO 16116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2019-03-08 23:05:09.102  INFO 16116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2019-03-08 23:05:09.109  INFO 16116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:05:09.110  INFO 16116 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-08 23:05:09.127  INFO 16116 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-08 23:05:09.135  INFO 16116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:05:09.350  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@122f6dc3: startup date [Fri Mar 08 23:05:08 CST 2019]; root of context hierarchy
+2019-03-08 23:05:09.358  WARN 16116 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-08 23:05:09.366  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/showArticle || /blog/showArticle],methods=[GET]}" onto public java.lang.String com.fullexception.controller.ArticleController.showArticle(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:05:09.366  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/editBlog || /blog/editBlog],methods=[GET]}" onto public java.lang.String com.fullexception.controller.ArticleController.editBlog(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:05:09.366  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/addArticleGroup || /blog/addArticleGroup],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.fullexception.controller.ArticleController.addArticleGroup(java.lang.String,javax.servlet.http.HttpServletRequest)
+2019-03-08 23:05:09.366  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/writeBlog || /blog/writeBlog],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.fullexception.controller.ArticleController.writeBlog(int,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:05:09.367  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/register],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.register(java.lang.String,java.lang.String,java.lang.String)
+2019-03-08 23:05:09.367  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/quitLogin],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.quitLogin(javax.servlet.http.HttpServletRequest)
+2019-03-08 23:05:09.367  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest)
+2019-03-08 23:05:09.368  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog],methods=[GET]}" onto public java.lang.String com.fullexception.controller.VisitorController.showBlog(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:05:09.368  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.fullexception.controller.VisitorController.touristVisitor(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:05:09.370  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-03-08 23:05:09.370  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-03-08 23:05:09.380  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:05:09.380  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:05:09.393  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:05:09.401  WARN 16116 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-03-08 23:05:09.411  INFO 16116 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-03-08 23:05:09.477  INFO 16116 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-03-08 23:05:09.521  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-03-08 23:05:09.521  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-03-08 23:05:09.523  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2019-03-08 23:05:09.530  INFO 16116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-03-08 23:05:09.531  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : Started AliciaDoApplication in 0.972 seconds (JVM running for 1243.759)
+2019-03-08 23:05:09.533  INFO 16116 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-03-08 23:05:18.093  INFO 16116 --- [Thread-47] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@122f6dc3: startup date [Fri Mar 08 23:05:08 CST 2019]; root of context hierarchy
+2019-03-08 23:05:18.094  INFO 16116 --- [Thread-47] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2019-03-08 23:05:18.094  INFO 16116 --- [Thread-47] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2019-03-08 23:05:18.095  INFO 16116 --- [Thread-47] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:05:18.095  INFO 16116 --- [Thread-47] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2019-03-08 23:05:18.102  INFO 16116 --- [Thread-47] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2019-03-08 23:05:18.513 ERROR 16116 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Failed to load property source from location 'classpath:/application.yml'
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:535) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.loadForFileExtension(ConfigFileApplicationListener.java:494) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:462) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.lambda$null$4(ConfigFileApplicationListener.java:444) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at java.lang.Iterable.forEach(Unknown Source) ~[na:1.8.0_144]
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.lambda$load$5(ConfigFileApplicationListener.java:443) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at java.lang.Iterable.forEach(Unknown Source) ~[na:1.8.0_144]
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:440) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:331) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.addPropertySources(ConfigFileApplicationListener.java:213) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.postProcessEnvironment(ConfigFileApplicationListener.java:196) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.onApplicationEnvironmentPreparedEvent(ConfigFileApplicationListener.java:183) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.onApplicationEvent(ConfigFileApplicationListener.java:169) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:351) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:317) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1234) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at com.fullexception.AliciaDoApplication.main(AliciaDoApplication.java:16) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_144]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+Caused by: org.yaml.snakeyaml.scanner.ScannerException: mapping values are not allowed here
+ in 'reader', line 32, column 29:
+        com.fullexception.mapper: debug
+                                ^
+
+	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchValue(ScannerImpl.java:872) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchMoreTokens(ScannerImpl.java:360) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.scanner.ScannerImpl.checkToken(ScannerImpl.java:226) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.parser.ParserImpl$ParseBlockMappingKey.produce(ParserImpl.java:557) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.parser.ParserImpl.peekEvent(ParserImpl.java:157) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.parser.ParserImpl.checkEvent(ParserImpl.java:147) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:227) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:154) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:249) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:240) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:228) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:154) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.composer.Composer.composeDocument(Composer.java:122) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.composer.Composer.getNode(Composer.java:84) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.constructor.BaseConstructor.getData(BaseConstructor.java:123) ~[snakeyaml-1.19.jar:na]
+	at org.yaml.snakeyaml.Yaml$1.next(Yaml.java:547) ~[snakeyaml-1.19.jar:na]
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:161) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:139) ~[spring-beans-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.boot.env.OriginTrackedYamlLoader.load(OriginTrackedYamlLoader.java:72) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.env.YamlPropertySourceLoader.load(YamlPropertySourceLoader.java:50) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.loadDocuments(ConfigFileApplicationListener.java:542) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:515) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	... 28 common frames omitted
+
+2019-03-08 23:05:35.381  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : Starting AliciaDoApplication on LAPTOP-VCCELDHN with PID 16116 (D:\repository\git\alicia_do\target\classes started by admin in D:\repository\git\alicia_do)
+2019-03-08 23:05:35.382  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : No active profile set, falling back to default profiles: default
+2019-03-08 23:05:35.384  INFO 16116 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3638f5c2: startup date [Fri Mar 08 23:05:35 CST 2019]; root of context hierarchy
+2019-03-08 23:05:35.685  INFO 16116 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-08 23:05:35.700  INFO 16116 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a7e6c58c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-08 23:05:35.821  INFO 16116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-03-08 23:05:35.822  INFO 16116 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-08 23:05:35.822  INFO 16116 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
+2019-03-08 23:05:35.851  INFO 16116 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-08 23:05:35.852  INFO 16116 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 468 ms
+2019-03-08 23:05:35.879  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2019-03-08 23:05:35.879  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-08 23:05:35.879  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-08 23:05:35.880  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-08 23:05:35.880  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-08 23:05:35.913  INFO 16116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2019-03-08 23:05:35.917  INFO 16116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2019-03-08 23:05:35.924  INFO 16116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:05:35.924  INFO 16116 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-08 23:05:35.942  INFO 16116 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-08 23:05:35.950  INFO 16116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:05:36.154  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3638f5c2: startup date [Fri Mar 08 23:05:35 CST 2019]; root of context hierarchy
+2019-03-08 23:05:36.162  WARN 16116 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-08 23:05:36.170  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/showArticle || /blog/showArticle],methods=[GET]}" onto public java.lang.String com.fullexception.controller.ArticleController.showArticle(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:05:36.170  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/editBlog || /blog/editBlog],methods=[GET]}" onto public java.lang.String com.fullexception.controller.ArticleController.editBlog(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:05:36.170  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/addArticleGroup || /blog/addArticleGroup],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.fullexception.controller.ArticleController.addArticleGroup(java.lang.String,javax.servlet.http.HttpServletRequest)
+2019-03-08 23:05:36.170  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/writeBlog || /blog/writeBlog],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.fullexception.controller.ArticleController.writeBlog(int,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:05:36.171  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/register],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.register(java.lang.String,java.lang.String,java.lang.String)
+2019-03-08 23:05:36.172  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/quitLogin],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.quitLogin(javax.servlet.http.HttpServletRequest)
+2019-03-08 23:05:36.172  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest)
+2019-03-08 23:05:36.172  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog],methods=[GET]}" onto public java.lang.String com.fullexception.controller.VisitorController.showBlog(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:05:36.172  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.fullexception.controller.VisitorController.touristVisitor(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:05:36.175  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-03-08 23:05:36.175  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-03-08 23:05:36.187  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:05:36.187  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:05:36.201  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:05:36.211  WARN 16116 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-03-08 23:05:36.220  INFO 16116 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-03-08 23:05:36.281  INFO 16116 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-03-08 23:05:36.326  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-03-08 23:05:36.327  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-03-08 23:05:36.330  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2019-03-08 23:05:36.338  INFO 16116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-03-08 23:05:36.340  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : Started AliciaDoApplication in 0.985 seconds (JVM running for 1270.567)
+2019-03-08 23:05:36.343  INFO 16116 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-03-08 23:07:47.279  INFO 16116 --- [Thread-55] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3638f5c2: startup date [Fri Mar 08 23:05:35 CST 2019]; root of context hierarchy
+2019-03-08 23:07:47.280  INFO 16116 --- [Thread-55] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2019-03-08 23:07:47.281  INFO 16116 --- [Thread-55] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2019-03-08 23:07:47.281  INFO 16116 --- [Thread-55] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:07:47.282  INFO 16116 --- [Thread-55] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2019-03-08 23:07:47.288  INFO 16116 --- [Thread-55] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2019-03-08 23:07:47.694  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : Starting AliciaDoApplication on LAPTOP-VCCELDHN with PID 16116 (D:\repository\git\alicia_do\target\classes started by admin in D:\repository\git\alicia_do)
+2019-03-08 23:07:47.694  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : No active profile set, falling back to default profiles: default
+2019-03-08 23:07:47.696  INFO 16116 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@818b716: startup date [Fri Mar 08 23:07:47 CST 2019]; root of context hierarchy
+2019-03-08 23:07:47.969  INFO 16116 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-08 23:07:47.984  INFO 16116 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a7e6c58c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-08 23:07:48.107  INFO 16116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-03-08 23:07:48.108  INFO 16116 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-08 23:07:48.108  INFO 16116 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
+2019-03-08 23:07:48.133  INFO 16116 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-08 23:07:48.134  INFO 16116 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 438 ms
+2019-03-08 23:07:48.166  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2019-03-08 23:07:48.166  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-08 23:07:48.166  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-08 23:07:48.166  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-08 23:07:48.166  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-08 23:07:48.199  INFO 16116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2019-03-08 23:07:48.202  INFO 16116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2019-03-08 23:07:48.209  INFO 16116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:07:48.209  INFO 16116 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-08 23:07:48.227  INFO 16116 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-08 23:07:48.235  INFO 16116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:07:48.439  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@818b716: startup date [Fri Mar 08 23:07:47 CST 2019]; root of context hierarchy
+2019-03-08 23:07:48.446  WARN 16116 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-08 23:07:48.454  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/showArticle || /blog/showArticle],methods=[GET]}" onto public java.lang.String com.fullexception.controller.ArticleController.showArticle(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:07:48.454  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/editBlog || /blog/editBlog],methods=[GET]}" onto public java.lang.String com.fullexception.controller.ArticleController.editBlog(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:07:48.454  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/addArticleGroup || /blog/addArticleGroup],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.fullexception.controller.ArticleController.addArticleGroup(java.lang.String,javax.servlet.http.HttpServletRequest)
+2019-03-08 23:07:48.455  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/writeBlog || /blog/writeBlog],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.fullexception.controller.ArticleController.writeBlog(int,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:07:48.456  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/register],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.register(java.lang.String,java.lang.String,java.lang.String)
+2019-03-08 23:07:48.456  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/quitLogin],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.quitLogin(javax.servlet.http.HttpServletRequest)
+2019-03-08 23:07:48.456  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest)
+2019-03-08 23:07:48.456  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog],methods=[GET]}" onto public java.lang.String com.fullexception.controller.VisitorController.showBlog(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:07:48.457  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.fullexception.controller.VisitorController.touristVisitor(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:07:48.459  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-03-08 23:07:48.460  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-03-08 23:07:48.470  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:07:48.470  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:07:48.484  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:07:48.493  WARN 16116 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-03-08 23:07:48.503  INFO 16116 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-03-08 23:07:48.563  INFO 16116 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-03-08 23:07:48.609  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-03-08 23:07:48.609  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-03-08 23:07:48.612  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2019-03-08 23:07:48.619  INFO 16116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-03-08 23:07:48.619  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : Started AliciaDoApplication in 0.948 seconds (JVM running for 1402.847)
+2019-03-08 23:07:48.622  INFO 16116 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-03-08 23:07:59.445  INFO 16116 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-03-08 23:07:59.445  INFO 16116 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2019-03-08 23:07:59.448  INFO 16116 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 3 ms
+2019-03-08 23:07:59.454 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.LoginInfoMapper.insertSelective    : ==>  Preparing: insert into login_info ( login_time, ip ) values ( ?, ? ) 
+2019-03-08 23:07:59.455 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.LoginInfoMapper.insertSelective    : ==> Parameters: 2019-03-08 23:07:59.453(Timestamp), 192.168.94.1(String)
+2019-03-08 23:07:59.466 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.LoginInfoMapper.insertSelective    : <==    Updates: 1
+2019-03-08 23:07:59.467 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.VisitorMapper.selectByPrimaryKey   : ==>  Preparing: select visitor_id, visitor_state_id, login_name, login_password, nick_name, create_date, manifesto, head_url, introduction from visitor where visitor_id = ? 
+2019-03-08 23:07:59.467 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.VisitorMapper.selectByPrimaryKey   : ==> Parameters: 1(Integer)
+2019-03-08 23:07:59.472 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.VisitorMapper.selectByPrimaryKey   : <==      Total: 1
+2019-03-08 23:07:59.473 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.LoginInfoMapper.insertSelective    : ==>  Preparing: insert into login_info ( visitor_id, login_time, ip ) values ( ?, ?, ? ) 
+2019-03-08 23:07:59.474 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.LoginInfoMapper.insertSelective    : ==> Parameters: 1(Integer), 2019-03-08 23:07:59.473(Timestamp), 192.168.94.1(String)
+2019-03-08 23:07:59.475 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.LoginInfoMapper.insertSelective    : <==    Updates: 1
+2019-03-08 23:07:59.532 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.A.getArticleByAuthorIdAndPage      : ==>  Preparing: select article_id, article_state_id, article_public_id, author_id, source_id, article_group_id, article_title, spend_time, create_date, second_title from article WHERE author_id=? order by create_date desc limit ?, 5 
+2019-03-08 23:07:59.533 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.A.getArticleByAuthorIdAndPage      : ==> Parameters: 1(Integer), 0(Integer)
+2019-03-08 23:07:59.536 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.A.getArticleByAuthorIdAndPage      : <==      Total: 1
+2019-03-08 23:07:59.537 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.L.countTheNumberOfVisitors         : ==>  Preparing: SELECT COUNT(loginInfo.ip) FROM (SELECT ip FROM login_info GROUP BY ip) AS loginInfo 
+2019-03-08 23:07:59.537 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.L.countTheNumberOfVisitors         : ==> Parameters: 
+2019-03-08 23:07:59.539 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.L.countTheNumberOfVisitors         : <==      Total: 1
+2019-03-08 23:07:59.541 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.L.countTheNumberOfVisits           : ==>  Preparing: SELECT count(*) FROM `login_info` 
+2019-03-08 23:07:59.542 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.L.countTheNumberOfVisits           : ==> Parameters: 
+2019-03-08 23:07:59.542 DEBUG 16116 --- [http-nio-80-exec-9] c.f.m.L.countTheNumberOfVisits           : <==      Total: 1
+2019-03-08 23:08:38.206  INFO 16116 --- [Thread-65] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@818b716: startup date [Fri Mar 08 23:07:47 CST 2019]; root of context hierarchy
+2019-03-08 23:08:38.210  INFO 16116 --- [Thread-65] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2019-03-08 23:08:38.210  INFO 16116 --- [Thread-65] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2019-03-08 23:08:38.211  INFO 16116 --- [Thread-65] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:08:38.212  INFO 16116 --- [Thread-65] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2019-03-08 23:08:38.219  INFO 16116 --- [Thread-65] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2019-03-08 23:08:38.628  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : Starting AliciaDoApplication on LAPTOP-VCCELDHN with PID 16116 (D:\repository\git\alicia_do\target\classes started by admin in D:\repository\git\alicia_do)
+2019-03-08 23:08:38.628  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : No active profile set, falling back to default profiles: default
+2019-03-08 23:08:38.630  INFO 16116 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@47130f2c: startup date [Fri Mar 08 23:08:38 CST 2019]; root of context hierarchy
+2019-03-08 23:08:38.931  INFO 16116 --- [restartedMain] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-08 23:08:38.946  INFO 16116 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a7e6c58c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-08 23:08:39.073  INFO 16116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2019-03-08 23:08:39.074  INFO 16116 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-08 23:08:39.074  INFO 16116 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.28
+2019-03-08 23:08:39.100  INFO 16116 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-08 23:08:39.101  INFO 16116 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 471 ms
+2019-03-08 23:08:39.129  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2019-03-08 23:08:39.129  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-03-08 23:08:39.129  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-03-08 23:08:39.129  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-03-08 23:08:39.129  INFO 16116 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-03-08 23:08:39.169  INFO 16116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2019-03-08 23:08:39.175  INFO 16116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2019-03-08 23:08:39.183  INFO 16116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:08:39.183  INFO 16116 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-08 23:08:39.206  INFO 16116 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-08 23:08:39.215  INFO 16116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:08:39.438  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@47130f2c: startup date [Fri Mar 08 23:08:38 CST 2019]; root of context hierarchy
+2019-03-08 23:08:39.446  WARN 16116 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-08 23:08:39.454  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/showArticle || /blog/showArticle],methods=[GET]}" onto public java.lang.String com.fullexception.controller.ArticleController.showArticle(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:08:39.454  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/editBlog || /blog/editBlog],methods=[GET]}" onto public java.lang.String com.fullexception.controller.ArticleController.editBlog(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:08:39.454  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/addArticleGroup || /blog/addArticleGroup],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.fullexception.controller.ArticleController.addArticleGroup(java.lang.String,javax.servlet.http.HttpServletRequest)
+2019-03-08 23:08:39.454  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/writeBlog || /blog/writeBlog],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.fullexception.controller.ArticleController.writeBlog(int,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:08:39.455  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/register],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.register(java.lang.String,java.lang.String,java.lang.String)
+2019-03-08 23:08:39.455  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/quitLogin],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.quitLogin(javax.servlet.http.HttpServletRequest)
+2019-03-08 23:08:39.456  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.fullexception.controller.VisitorController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest)
+2019-03-08 23:08:39.456  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog],methods=[GET]}" onto public java.lang.String com.fullexception.controller.VisitorController.showBlog(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:08:39.456  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.fullexception.controller.VisitorController.touristVisitor(javax.servlet.http.HttpServletRequest,org.springframework.ui.ModelMap)
+2019-03-08 23:08:39.458  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-03-08 23:08:39.458  INFO 16116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-03-08 23:08:39.470  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:08:39.470  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:08:39.485  INFO 16116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-03-08 23:08:39.495  WARN 16116 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-03-08 23:08:39.507  INFO 16116 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-03-08 23:08:39.576  INFO 16116 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-03-08 23:08:39.624  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-03-08 23:08:39.625  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-03-08 23:08:39.628  INFO 16116 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2019-03-08 23:08:39.637  INFO 16116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2019-03-08 23:08:39.643  INFO 16116 --- [restartedMain] com.fullexception.AliciaDoApplication    : Started AliciaDoApplication in 1.036 seconds (JVM running for 1453.867)
+2019-03-08 23:08:39.646  INFO 16116 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-03-08 23:08:54.200  INFO 16116 --- [http-nio-80-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-03-08 23:08:54.201  INFO 16116 --- [http-nio-80-exec-5] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2019-03-08 23:08:54.205  INFO 16116 --- [http-nio-80-exec-5] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 4 ms
+2019-03-08 23:08:54.211 DEBUG 16116 --- [http-nio-80-exec-5] c.f.m.LoginInfoMapper.insertSelective    : ==>  Preparing: insert into login_info ( login_time, ip ) values ( ?, ? ) 
+2019-03-08 23:08:54.212 DEBUG 16116 --- [http-nio-80-exec-5] c.f.m.LoginInfoMapper.insertSelective    : ==> Parameters: 2019-03-08 23:08:54.209(Timestamp), 192.168.94.1(String)
+2019-03-08 23:08:54.221 DEBUG 16116 --- [http-nio-80-exec-5] c.f.m.LoginInfoMapper.insertSelective    : <==    Updates: 1
+2019-03-08 23:08:54.221 DEBUG 16116 --- [http-nio-80-exec-5] c.f.m.VisitorMapper.selectByPrimaryKey   : ==>  Preparing: select visitor_id, visitor_state_id, login_name, login_password, nick_name, create_date, manifesto, head_url, introduction from visitor where visitor_id = ? 
+2019-03-08 23:08:54.221 DEBUG 16116 --- [http-nio-80-exec-5] c.f.m.VisitorMapper.selectByPrimaryKey   : ==> Parameters: 1(Integer)
+2019-03-08 23:08:54.222 DEBUG 16116 --- [http-nio-80-exec-5] c.f.m.VisitorMapper.selectByPrimaryKey   : <==      Total: 1
+2019-03-08 23:08:54.223 DEBUG 16116 --- [http-nio-80-exec-5] c.f.m.LoginInfoMapper.insertSelective    : ==>  Preparing: insert into login_info ( visitor_id, login_time, ip ) values ( ?, ?, ? ) 
+2019-03-08 23:08:54.223 DEBUG 16116 --- [http-nio-80-exec-5] c.f.m.LoginInfoMapper.insertSelective    : ==> Parameters: 1(Integer), 2019-03-08 23:08:54.223(Timestamp), 192.168.94.1(String)
+2019-03-08 23:08:54.224 DEBUG 16116 --- [http-nio-80-exec-5] c.f.m.LoginInfoMapper.insertSelective    : <==    Updates: 1
+2019-03-08 23:08:54.269 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.A.getArticleByAuthorIdAndPage      : ==>  Preparing: select article_id, article_state_id, article_public_id, author_id, source_id, article_group_id, article_title, spend_time, create_date, second_title from article WHERE author_id=? order by create_date desc limit ?, 5 
+2019-03-08 23:08:54.270 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.A.getArticleByAuthorIdAndPage      : ==> Parameters: 1(Integer), 0(Integer)
+2019-03-08 23:08:54.272 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.A.getArticleByAuthorIdAndPage      : <==      Total: 1
+2019-03-08 23:08:54.273 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.L.countTheNumberOfVisitors         : ==>  Preparing: SELECT COUNT(loginInfo.ip) FROM (SELECT ip FROM login_info GROUP BY ip) AS loginInfo 
+2019-03-08 23:08:54.273 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.L.countTheNumberOfVisitors         : ==> Parameters: 
+2019-03-08 23:08:54.274 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.L.countTheNumberOfVisitors         : <==      Total: 1
+2019-03-08 23:08:54.275 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.L.countTheNumberOfVisits           : ==>  Preparing: SELECT count(*) FROM `login_info` 
+2019-03-08 23:08:54.275 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.L.countTheNumberOfVisits           : ==> Parameters: 
+2019-03-08 23:08:54.276 DEBUG 16116 --- [http-nio-80-exec-1] c.f.m.L.countTheNumberOfVisits           : <==      Total: 1
+2019-03-08 23:17:58.309  INFO 16116 --- [RMI TCP Connection(67)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-03-08 23:17:58.310  INFO 16116 --- [RMI TCP Connection(67)-127.0.0.1] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@47130f2c: startup date [Fri Mar 08 23:08:38 CST 2019]; root of context hierarchy
+2019-03-08 23:17:58.311  INFO 16116 --- [RMI TCP Connection(67)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2019-03-08 23:17:58.311  INFO 16116 --- [RMI TCP Connection(67)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2019-03-08 23:17:58.312  INFO 16116 --- [RMI TCP Connection(67)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-03-08 23:17:58.312  INFO 16116 --- [RMI TCP Connection(67)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2019-03-08 23:17:58.317  INFO 16116 --- [RMI TCP Connection(67)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.

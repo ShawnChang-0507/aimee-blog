@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.InfoMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.Info" >
+    <id column="info_id" property="infoId" jdbcType="INTEGER" />
+    <result column="visitor_id" property="visitorId" jdbcType="INTEGER" />
+    <result column="address_id" property="addressId" jdbcType="INTEGER" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="QQ" property="qq" jdbcType="VARCHAR" />
+    <result column="wechar_pay" property="wecharPay" jdbcType="VARCHAR" />
+    <result column="wechar_friend" property="wecharFriend" jdbcType="VARCHAR" />
+    <result column="ali_pay" property="aliPay" jdbcType="VARCHAR" />
+    <result column="ali_friend" property="aliFriend" jdbcType="VARCHAR" />
+    <result column="telphone" property="telphone" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    info_id, visitor_id, address_id, real_name, sex, birthday, email, QQ, wechar_pay, 
+    wechar_friend, ali_pay, ali_friend, telphone
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from info
+    where info_id = #{infoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from info
+    where info_id = #{infoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.Info" >
+    insert into info (info_id, visitor_id, address_id, 
+      real_name, sex, birthday, 
+      email, QQ, wechar_pay, 
+      wechar_friend, ali_pay, ali_friend, 
+      telphone)
+    values (#{infoId,jdbcType=INTEGER}, #{visitorId,jdbcType=INTEGER}, #{addressId,jdbcType=INTEGER}, 
+      #{realName,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{email,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wecharPay,jdbcType=VARCHAR}, 
+      #{wecharFriend,jdbcType=VARCHAR}, #{aliPay,jdbcType=VARCHAR}, #{aliFriend,jdbcType=VARCHAR}, 
+      #{telphone,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.Info" >
+    insert into info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="infoId != null" >
+        info_id,
+      </if>
+      <if test="visitorId != null" >
+        visitor_id,
+      </if>
+      <if test="addressId != null" >
+        address_id,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="qq != null" >
+        QQ,
+      </if>
+      <if test="wecharPay != null" >
+        wechar_pay,
+      </if>
+      <if test="wecharFriend != null" >
+        wechar_friend,
+      </if>
+      <if test="aliPay != null" >
+        ali_pay,
+      </if>
+      <if test="aliFriend != null" >
+        ali_friend,
+      </if>
+      <if test="telphone != null" >
+        telphone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="infoId != null" >
+        #{infoId,jdbcType=INTEGER},
+      </if>
+      <if test="visitorId != null" >
+        #{visitorId,jdbcType=INTEGER},
+      </if>
+      <if test="addressId != null" >
+        #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wecharPay != null" >
+        #{wecharPay,jdbcType=VARCHAR},
+      </if>
+      <if test="wecharFriend != null" >
+        #{wecharFriend,jdbcType=VARCHAR},
+      </if>
+      <if test="aliPay != null" >
+        #{aliPay,jdbcType=VARCHAR},
+      </if>
+      <if test="aliFriend != null" >
+        #{aliFriend,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null" >
+        #{telphone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Info" >
+    update info
+    <set >
+      <if test="visitorId != null" >
+        visitor_id = #{visitorId,jdbcType=INTEGER},
+      </if>
+      <if test="addressId != null" >
+        address_id = #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        QQ = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wecharPay != null" >
+        wechar_pay = #{wecharPay,jdbcType=VARCHAR},
+      </if>
+      <if test="wecharFriend != null" >
+        wechar_friend = #{wecharFriend,jdbcType=VARCHAR},
+      </if>
+      <if test="aliPay != null" >
+        ali_pay = #{aliPay,jdbcType=VARCHAR},
+      </if>
+      <if test="aliFriend != null" >
+        ali_friend = #{aliFriend,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null" >
+        telphone = #{telphone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where info_id = #{infoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Info" >
+    update info
+    set visitor_id = #{visitorId,jdbcType=INTEGER},
+      address_id = #{addressId,jdbcType=INTEGER},
+      real_name = #{realName,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      email = #{email,jdbcType=VARCHAR},
+      QQ = #{qq,jdbcType=VARCHAR},
+      wechar_pay = #{wecharPay,jdbcType=VARCHAR},
+      wechar_friend = #{wecharFriend,jdbcType=VARCHAR},
+      ali_pay = #{aliPay,jdbcType=VARCHAR},
+      ali_friend = #{aliFriend,jdbcType=VARCHAR},
+      telphone = #{telphone,jdbcType=VARCHAR}
+    where info_id = #{infoId,jdbcType=INTEGER}
+  </update>
+</mapper>

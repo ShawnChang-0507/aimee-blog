@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.VisitorMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.Visitor" >
+    <id column="visitor_id" property="visitorId" jdbcType="INTEGER" />
+    <result column="visitor_state_id" property="visitorStateId" jdbcType="INTEGER" />
+    <result column="login_name" property="loginName" jdbcType="VARCHAR" />
+    <result column="login_password" property="loginPassword" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="manifesto" property="manifesto" jdbcType="VARCHAR" />
+    <result column="head_url" property="headUrl" jdbcType="VARCHAR" />
+    <result column="introduction" property="introduction" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    visitor_id, visitor_state_id, login_name, login_password, nick_name, create_date, 
+    manifesto, head_url, introduction
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from visitor
+    where visitor_id = #{visitorId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="getVisitorByLoginName" resultMap="BaseResultMap" parameterType="String">
+  	select
+  	<include refid="Base_Column_List"/>
+  	from visitor
+  	where login_name = #{loginName, jdbcType=VARCHAR} 
+  </select>
+  
+  <select id="getVisitorByNameAndPass" resultMap="BaseResultMap" parameterType="map">
+  	select
+  	<include refid="Base_Column_List"/>
+  	from visitor
+  	where login_name = #{loginName, jdbcType=VARCHAR}
+  	AND login_password = #{loginPassword, jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from visitor
+    where visitor_id = #{visitorId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.Visitor" >
+    insert into visitor (visitor_id, visitor_state_id, login_name, 
+      login_password, nick_name, create_date, 
+      manifesto, head_url, introduction
+      )
+    values (#{visitorId,jdbcType=INTEGER}, #{visitorStateId,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR}, 
+      #{loginPassword,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{manifesto,jdbcType=VARCHAR}, #{headUrl,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.Visitor" >
+    insert into visitor
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="visitorId != null" >
+        visitor_id,
+      </if>
+      <if test="visitorStateId != null" >
+        visitor_state_id,
+      </if>
+      <if test="loginName != null" >
+        login_name,
+      </if>
+      <if test="loginPassword != null" >
+        login_password,
+      </if>
+      <if test="nickName != null" >
+        nick_name,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="manifesto != null" >
+        manifesto,
+      </if>
+      <if test="headUrl != null" >
+        head_url,
+      </if>
+      <if test="introduction != null" >
+        introduction,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="visitorId != null" >
+        #{visitorId,jdbcType=INTEGER},
+      </if>
+      <if test="visitorStateId != null" >
+        #{visitorStateId,jdbcType=INTEGER},
+      </if>
+      <if test="loginName != null" >
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPassword != null" >
+        #{loginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="manifesto != null" >
+        #{manifesto,jdbcType=VARCHAR},
+      </if>
+      <if test="headUrl != null" >
+        #{headUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null" >
+        #{introduction,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Visitor" >
+    update visitor
+    <set >
+      <if test="visitorStateId != null" >
+        visitor_state_id = #{visitorStateId,jdbcType=INTEGER},
+      </if>
+      <if test="loginName != null" >
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPassword != null" >
+        login_password = #{loginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="manifesto != null" >
+        manifesto = #{manifesto,jdbcType=VARCHAR},
+      </if>
+      <if test="headUrl != null" >
+        head_url = #{headUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null" >
+        introduction = #{introduction,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where visitor_id = #{visitorId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Visitor" >
+    update visitor
+    set visitor_state_id = #{visitorStateId,jdbcType=INTEGER},
+      login_name = #{loginName,jdbcType=VARCHAR},
+      login_password = #{loginPassword,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      manifesto = #{manifesto,jdbcType=VARCHAR},
+      head_url = #{headUrl,jdbcType=VARCHAR},
+      introduction = #{introduction,jdbcType=VARCHAR}
+    where visitor_id = #{visitorId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,32 @@
+server:
+  servlet:
+    session:
+      timeout: 12000
+  port: 80
+spring:
+  datasource:
+    username: root
+    password: Zhang@xiu1xiu2
+    url: jdbc:mysql://127.0.0.1:3306/aimee_blog?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.jdbc.Driver
+  thymeleaf:
+    cache: false
+    mode: HTML5
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1
+    timeout: 0
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+mybatis:
+  mapper-locations: classpath*:com/fullexception/mapping/*.xml
+  type-aliases-package: com.fullexception.entity
+logging:
+  level:
+    com.fullexception.mapper: ERROR
