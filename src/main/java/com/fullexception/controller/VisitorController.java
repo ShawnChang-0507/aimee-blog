@@ -65,19 +65,19 @@ public class VisitorController {
 	@GetMapping("/blog")
 	public String showBlog(HttpServletRequest request, ModelMap model) {
 		if (AimeeHelper.visitor == null) {
-			String ip = AimeeHelper.getIpAddr(request);
-			AimeeHelper.visitor = visitorService.tourist(ip);
+			AimeeHelper.visitor = visitorService.tourist();
 		}
 		List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.getVisitorId(), 0);
-		Map<String, Integer> map = loginInfoService.countTheNumberOfVisitors();
+		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.getVisitorId());
+		AimeeHelper.visitNumber = loginInfoService.countTheNumberOfVisitors();
 
 		model.addAttribute("tourist", AimeeHelper.visitor);
 		model.addAttribute("articles", articles);
-		int totalVisitorNumber = map.get("totalVisitorNumber");
-		int totalVisitNumber = map.get("totalVisitNumber");
+		int totalVisitorNumber = AimeeHelper.visitNumber.get("totalVisitorNumber");
+		int totalVisitNumber = AimeeHelper.visitNumber.get("totalVisitNumber");
 		model.addAttribute("totalVisitorNumber", totalVisitorNumber);
 		model.addAttribute("totalVisitNumber", totalVisitNumber);
-
+		model.addAttribute("articleCount", articleCount);
 		return "/blog/index";
 	}
 

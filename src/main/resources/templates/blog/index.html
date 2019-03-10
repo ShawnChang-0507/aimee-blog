@@ -44,7 +44,7 @@
 <meta name="description" content="Aimee">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aimee">
-<meta property="og:url" content="http://zhangxiaoran.cn/index.html">
+<meta property="og:url" content="http://zhangxiaoran.cn">
 <meta property="og:site_name" content="Aimee">
 <meta property="og:description" content="Aimee">
 <meta property="og:locale" content="zh-CN">
@@ -318,7 +318,7 @@
 					<div class="post-meta">
 						<time class="post-time" title="2018-05-28 17:33:39"
 							datetime="2018-05-28T09:33:39.288Z" itemprop="datePublished"
-							th:text="${article.createDate}">创建日期</time>
+							th:text="${#dates.format(article.createDate, 'yyyy年MM月dd日')">创建日期</time>
 
 					</div>
 

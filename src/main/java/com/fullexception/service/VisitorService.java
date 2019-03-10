@@ -8,10 +8,10 @@ import com.fullexception.entity.Visitor;
 public interface VisitorService {
 	
 	/**
-	 * 游客自动获取我的博客信息，记录登录ip
+	 * 游客自动获取我的博客信息
 	 * @return
 	 */
-	public Visitor tourist(String ip);
+	public Visitor tourist();
 
 	/**
 	 * 通过id得到用户

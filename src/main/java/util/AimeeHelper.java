@@ -31,7 +31,11 @@ public class AimeeHelper {
 	 * 登录信息
 	 */
 	private static Map<String, Integer> loginInfo = new HashMap<String, Integer>();
-
+	
+	/**
+	 * 访问人数
+	 */
+	public static Map<String, Integer> visitNumber = new HashMap<String, Integer>();
 	/**
 	 * 维护登陆信息
 	 * 
@@ -210,7 +214,7 @@ public class AimeeHelper {
 		Boolean loginOrNot = true;
 		// session和cookies中都没有登录信息
 		if (visitor == null) {
-			visitor = visitorService.tourist(ip);
+			visitor = visitorService.tourist();
 			putLoginInfo(ip);
 			loginOrNot = false;
 		} else {
@@ -221,7 +225,7 @@ public class AimeeHelper {
 				visitor = visitorService.login(ln, lp);
 				// cookie中记载的账号或密码错误，无法找到访问者信息，访问我的博客
 				if (visitor == null) {
-					visitor = visitorService.tourist(ip);
+					visitor = visitorService.tourist();
 				} else {
 					HttpSession session = request.getSession();
 					session.setAttribute("myVisitor", visitor);

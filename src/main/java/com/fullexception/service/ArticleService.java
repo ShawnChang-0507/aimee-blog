@@ -18,13 +18,19 @@ public interface ArticleService {
 	 * @return
 	 */
 	public List<Article> showArticleByAuthorId(int authorId, int currentPage);
+	/**
+	 * 得到作者文章总数，分页用
+	 * @param visitorId
+	 * @return
+	 */
+	public int getArticleCountByAuthorId(Integer visitorId);
 	
 	/**
 	 * 根据id获取文章
 	 * @param articleId
 	 * @return
 	 */
-	public Article getArticleById(int articleId, int visitorId);
+	public List<Article> getArticleById(int articleId, int visitorId);
 	
 	/**
 	 * 添加文章阅读记录

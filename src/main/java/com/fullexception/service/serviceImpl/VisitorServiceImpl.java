@@ -23,12 +23,8 @@ public class VisitorServiceImpl implements VisitorService {
 	public LoginInfoMapper loginInfoMapper;
 
 	@Override
-	public Visitor tourist(String ip) {
+	public Visitor tourist() {
 		try{
-			LoginInfo loginInfo = new LoginInfo();
-			loginInfo.setIp(ip);
-			loginInfo.setLoginTime(new Date());
-			loginInfoMapper.insertSelective(loginInfo);
 			Visitor visitor = visitorMapper.selectByPrimaryKey(1);
 			return visitor;
 		}catch(Exception e){

@@ -43,46 +43,70 @@ public class ArticleController {
 		if (session != null) {
 			visitorId = session.getAttribute("loginId") == null ? 0 : (int) session.getAttribute("loginId");
 		}
-		Article article = articleService.getArticleById(arId, visitorId);
+		List<Article> articles = articleService.getArticleById(arId, visitorId);
+		Article last = new Article();
+		Article next = new Article();
+		Article article = new Article();
+		for (int i = 0; i < articles.size(); i++) {
+			if (articles.get(i).getArticleId() == arId) {
+				article = articles.get(i);
+				if (i - 1 >= 0) {
+					last = articles.get(i - 1);
+				} else {
+					last = null;
+				}
+				if (i + 1 < articles.size()) {
+					next = articles.get(i + 1);
+				} else {
+					next = null;
+				}
+			}
+		}
 		Visitor visitor = visitorService.getVisitorById(article.getAuthorId());
 		List<ReadLog> readInfos = articleService.getReadLogByArticleId(arId);
 		int readCount = readInfos.size();
+		int totalVisitorNumber = AimeeHelper.visitNumber.get("totalVisitorNumber");
+		int totalVisitNumber = AimeeHelper.visitNumber.get("totalVisitNumber");
+		model.addAttribute("totalVisitorNumber", totalVisitorNumber);
+		model.addAttribute("totalVisitNumber", totalVisitNumber);
 		model.addAttribute("readCount", readCount);
 		model.addAttribute("article", article);
 		model.addAttribute("author", visitor);
+		model.addAttribute("next", next);
+		model.addAttribute("last", last);
 		return "/blog/posts/index";
 	}
 
 	@GetMapping("/editBlog")
 	public String editBlog(HttpServletRequest request, ModelMap model) {
 		Map<String, Object> map = AimeeHelper.loginSystem(request, model, visitorService);
-		if ((Boolean) map.get("loginOrNot")){
-			int visitorId = ((Visitor)request.getSession().getAttribute("myVisitor")).getVisitorId();
+		if ((Boolean) map.get("loginOrNot")) {
+			int visitorId = ((Visitor) request.getSession().getAttribute("myVisitor")).getVisitorId();
 			List<ArticleGroup> groups = articleService.getAllArticleGroupByVisitorId(visitorId);
 			model.addAttribute("groups", groups);
 			return "/blog/editBlog/index";
-		}
-		else
+		} else
 			return "/index";
 	}
-	
+
 	@ResponseBody
 	@PostMapping("/addArticleGroup")
-	public Map<String, Object> addArticleGroup(String groupName, HttpServletRequest request){
+	public Map<String, Object> addArticleGroup(String groupName, HttpServletRequest request) {
 		Map<String, Object> map = AimeeHelper.loginSystem(request, null, visitorService);
-		if ((Boolean) map.get("loginOrNot")){
-			int visitorId = ((Visitor)request.getSession().getAttribute("myVisitor")).getVisitorId();
+		if ((Boolean) map.get("loginOrNot")) {
+			int visitorId = ((Visitor) request.getSession().getAttribute("myVisitor")).getVisitorId();
 			map = articleService.addArticleGroupAndReturn(groupName, visitorId);
 		}
 		return map;
 	}
-	
+
 	@ResponseBody
 	@PostMapping("/writeBlog")
-	public Map<String, Object> writeBlog(int groupId, String title, String secondTitle, String articleContent, HttpServletRequest request, ModelMap model){
+	public Map<String, Object> writeBlog(int groupId, String title, String secondTitle, String articleContent,
+			HttpServletRequest request, ModelMap model) {
 		Map<String, Object> map = AimeeHelper.loginSystem(request, null, visitorService);
 		Map<String, Object> resultMap = new HashMap<String, Object>();
-		if (!(Boolean)map.get("loginOrNot")){
+		if (!(Boolean) map.get("loginOrNot")) {
 			resultMap.put("mes", "尊敬的贵宾，请先进行进村登记，然后才能写文章哦~");
 			resultMap.put("res", "false");
 			return resultMap;
@@ -91,24 +115,23 @@ public class ArticleController {
 		int readMinutes = chineseSize / 400 + 1;
 		Article a = new Article();
 		a.setArticleGroupId(groupId);
-		a.setAuthorId(((Visitor)map.get("visitor")).getVisitorId());
+		a.setAuthorId(((Visitor) map.get("visitor")).getVisitorId());
 		a.setArticleTitle(title);
 		a.setSecondTitle(secondTitle);
 		a.setArticleContent(articleContent);
 		a.setSpendTime(readMinutes);
 		a.setCreateDate(new Date());
-		
+
 		int result = articleService.writeArticle(a);
-		if (result == 0){
+		if (result == 0) {
 			resultMap.put("mes", "萌妹在护送文章到萌村儿出版社的路上把文章弄丢了o(╥﹏╥)o");
 			resultMap.put("res", "false");
-		}
-		else{
+		} else {
 			resultMap.put("mes", "尊敬的贵宾~您的文章写得极好~出版社已经出版，已经可以在博客上浏览啦(*^▽^*");
 			resultMap.put("functionName", "toBlogPage");
 			resultMap.put("functionValue", "what a fuck");
 		}
-		
+
 		return resultMap;
 	}
 }

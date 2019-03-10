@@ -275,7 +275,7 @@
 					id="search"> <i class="icon icon-lg icon-search"></i>
 				</a>
 			</div>
-			
+
 			<a href="../../blog/editBlog" target="_blank"
 				class="header-icon waves-effect waves-circle waves-light" id="Rss"
 				th:if="${session.myVisitor} != null"> <i
@@ -535,30 +535,20 @@
 
 				</div>
 			</div>
-
-
 			<nav class="post-nav flex-row flex-justify-between">
 
 				<div class="waves-block waves-effect prev">
-					<a href="/posts/17050/" id="post-prev" class="post-nav-link">
-						<h4 class="title">上一篇：alicia</h4>
+					<a th:href="@{'/article/showArticle?arId=' + ${last?.articleId}}" id="post-prev" class="post-nav-link" th:if="${not #lists.isEmpty(last)}">
+						<h4 class="title" th:text = "'上一篇：'+${last?.articleTitle}">上一篇：</h4>
 					</a>
 				</div>
-
-
-
+				
+				<div class="waves-block waves-effect next">
+					<a th:href="@{'/article/showArticle?arId=' + ${next?.articleId}}" id="post-next" class="post-nav-link" th:if="${not #lists.isEmpty(next)}">
+						<h4 class="title" th:text = "'下一篇：'+${next?.articleTitle}">下一篇：</h4>
+					</a>
+				</div>
 			</nav>
-
-
-
-
-
-
-
-
-
-
-
 		</article>
 
 	</div>
@@ -572,11 +562,13 @@
 				Theme
 			</span> <br /> <span id="RunTime" style="color: #a7a7a2;"></span> <br /> <span>
 
-				<i class="icon icon-lg icon-user"> <span
-					id="busuanzi_container_site_uv" style='display: none'> 访问用户：<span
+				<i class="icon icon-lg icon-user"
+				th:text="${totalVisitorNumber }+'人'"> <span
+					id="busuanzi_container_site_uv" style='display: none'> 总访问量：<span
 						id="busuanzi_value_site_uv"></span>
 				</span>人
-			</i> · <i class="icon icon-lg icon-eye"> <span
+			</i> · <i class="icon icon-lg icon-eye"
+				th:text="${totalVisitNumber }+'次'"> <span
 					id="busuanzi_container_site_pv" style='display: none'> 访问次数：<span
 						id="busuanzi_value_site_pv"></span>
 				</span>次
@@ -588,7 +580,8 @@
 				href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循
 					知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
 		</div>
-	</footer> </main>
+	</footer>
+	</main>
 
 
 	<div id="reward" class="page-modal reward-lay">

@@ -38,8 +38,14 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	public Article getArticleById(int articleId, int visitorId) {
-		Article article = articleMapper.selectByPrimaryKey(articleId);
+	public int getArticleCountByAuthorId(Integer visitorId) {
+		int articleCount = articleMapper.getArticleCountByAuthorid(visitorId);
+		return articleCount;
+	}
+
+	@Override
+	public List<Article> getArticleById(int articleId, int visitorId) {
+		List<Article> article = articleMapper.selectByPrimaryKey(articleId);
 		writeReadLog(articleId, visitorId);
 		return article;
 	}

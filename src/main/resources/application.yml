@@ -29,6 +29,6 @@ mybatis:
   type-aliases-package: com.fullexception.entity
 logging:
   level:
-    com.fullexception.mapper: debug
+    com.fullexception.mapper: error
   file: spring.log
-  path: D:\LOG
+  path: /var/log
