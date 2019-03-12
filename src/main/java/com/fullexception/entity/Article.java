@@ -1,6 +1,7 @@
 package com.fullexception.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Article {
     private Integer articleId;
@@ -24,8 +25,18 @@ public class Article {
     private String secondTitle;
 
     private String articleContent;
+    
+    private int readCount;
 
-    public Integer getArticleId() {
+	public int getReadCount() {
+		return readCount;
+	}
+
+	public void setReadCount(int readCount) {
+		this.readCount = readCount;
+	}
+
+	public Integer getArticleId() {
         return articleId;
     }
 

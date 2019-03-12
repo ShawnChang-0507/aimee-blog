@@ -6,7 +6,7 @@
 
 
 
-<title th:text="'Aimee | '${article.articleTitle}">第一篇博客 | Aimee | Welcome</title>
+<title th:text="'Aimee | ' + ${article.articleTitle}">第一篇博客 | Aimee | Welcome</title>
 <meta name="viewport"
 	content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
@@ -563,22 +563,18 @@
 			</span> <br /> <span id="RunTime" style="color: #a7a7a2;"></span> <br /> <span>
 
 				<i class="icon icon-lg icon-user"
-				th:text="${totalVisitorNumber }+'人'"> <span
+				th:text="' '+${totalVisitorNumber }+'人'"> <span
 					id="busuanzi_container_site_uv" style='display: none'> 总访问量：<span
 						id="busuanzi_value_site_uv"></span>
 				</span>人
 			</i> · <i class="icon icon-lg icon-eye"
-				th:text="${totalVisitNumber }+'次'"> <span
+				th:text="' '+${totalVisitNumber }+'次'"> <span
 					id="busuanzi_container_site_pv" style='display: none'> 访问次数：<span
 						id="busuanzi_value_site_pv"></span>
 				</span>次
 			</i>
 
-
-			</span> <br /> <span class="license"><a target="_blank"
-				rel="license"
-				href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循
-					知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+			</span> <br /> <span class="license">京ICP备19007542号</span>
 		</div>
 	</footer>
 	</main>

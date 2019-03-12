@@ -8,38 +8,9 @@
 
 
 <title>Aimee | Welcome</title>
-<!-- <meta name="viewport" content="widthbusuanzi
-    =device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> -->
-
 <meta name="theme-color" content="#77AAFF">
 
-
 <meta name="keywords" content="">
-
-
-
-
-
-<!-- Baidu Push -->
-<!-- <script>
-	(function(){
-		var bp = document.createElement('script');
-		var curProtocol = window.location.protocol.split(':')[0];
-		if (curProtocol === 'https') {
-			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-		}
-		else {
-			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-		}
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(bp, s);
-	})();
-
-	var _hmt = _hmt || [];
-</script>
-
- -->
-
 
 <meta name="description" content="Aimee">
 <meta property="og:type" content="website">
@@ -64,9 +35,6 @@
 <script>
 	window.lazyScripts = []
 </script>
-
-<!-- custom head -->
-
 
 </head>
 
@@ -318,8 +286,8 @@
 					<div class="post-meta">
 						<time class="post-time" title="2018-05-28 17:33:39"
 							datetime="2018-05-28T09:33:39.288Z" itemprop="datePublished"
-							th:text="${#dates.format(article.createDate, 'yyyy年MM月dd日')">创建日期</time>
-
+							th:text="${#dates.format(article.createDate, 'yyyy年MM月dd日  HH:mm')} + '  '">创建日期</time>
+						<i class="icon icon-lg icon-eye" th:text="' '+${article.readCount}+'人'"></i>
 					</div>
 
 					<div class="post-content" id="post-content" itemprop="postContent">
@@ -334,89 +302,6 @@
 				</article>
 
 			</li>
-
-			<!-- <li class="post-list-item aimee-fade">
-				<article id="post-alicia-1" class="article-card article-type-post"
-					itemprop="blogPost">
-
-
-
-
-
-					<h3 class="post-title" itemprop="name">
-						<a href="/posts/17050/">alicia</a>
-					</h3>
-					<h5 class="post-title" itemprop="name">
-						<a href="/posts/17050/">aimee</a>
-					</h5>
-
-
-
-
-
-					<div class="post-meta">
-						<time class="post-time" title="2018-05-25 16:04:03"
-							datetime="2018-05-25T08:04:03.000Z" itemprop="datePublished">2018-05-25</time>
-
-					</div>
-
-					<div class="post-content" id="post-content" itemprop="postContent">
-
-
-						击壤歌日出而作，日入而息。凿井而饮，耕田而食。帝力于我何有哉！
-
-						<div>
-							<a href="/posts/17050/" class="post-more waves-button"> 阅读全文
-								» </a>
-						</div>
-					</div>
-
-				</article>
-
-			</li>
-
-			<li class="post-list-item aimee-fade">
-				<article id="post-alicia" class="article-card article-type-post"
-					itemprop="blogPost">
-
-
-
-
-
-					<h3 class="post-title" itemprop="name">
-						<a href="/posts/17051/">第一篇博客</a>
-					</h3>
-					<h5 class="post-title" itemprop="name">
-						<a href="/posts/17051/">看看效果吧先</a>
-					</h5>
-
-
-
-
-
-					<div class="post-meta">
-						<time class="post-time" title="2018-05-25 15:49:06"
-							datetime="2018-05-25T07:49:06.000Z" itemprop="datePublished">2018-05-25</time>
-
-					</div>
-
-					<div class="post-content" id="post-content" itemprop="postContent">
-
-
-						Quick StartCreate a new post1$ hexo new "My New Post" More info:
-						Writing Run server1$ hexo server More info: Server Generate static
-						files1$ hexo generate More info: Generat...
-
-						<div>
-							<a href="/posts/17051/" class="post-more waves-button"> 阅读全文
-								» </a>
-						</div>
-					</div>
-
-				</article>
-
-			</li> -->
-
 		</ul>
 
 
@@ -432,23 +317,9 @@
 				Theme
 			</span> <br /> <span id="RunTime" style="color: #a7a7a2;"></span> <br /> <span>
 
-				<i class="icon icon-lg icon-user"
-				th:text="${totalVisitorNumber }+'人'"> <span
-					id="busuanzi_container_site_uv" style='display: none'> 总访问量：<span
-						id="busuanzi_value_site_uv"></span>
-				</span>人
-			</i> · <i class="icon icon-lg icon-eye"
-				th:text="${totalVisitNumber }+'次'"> <span
-					id="busuanzi_container_site_pv" style='display: none'> 访问次数：<span
-						id="busuanzi_value_site_pv"></span>
-				</span>次
-			</i>
+				<i class="icon icon-lg icon-user" th:text="' '+${totalVisitorNumber }+'人'"></i> · <i class="icon icon-lg icon-eye" th:text="' '+${totalVisitNumber }+'次'"></i>
 
-
-			</span> <br /> <span class="license"><a target="_blank"
-				rel="license"
-				href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循
-					知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+			</span> <br /> <span class="license">京ICP备19007542号</span>
 		</div>
 	</footer> </main>
 
@@ -469,9 +340,6 @@
 			REWARD : false
 		};
 	</script>
-
-	<!-- jquery -->
-	<!-- <script src="../js/jquery.min.js?v=3.0"></script> -->
 
 	<script src="../js/jquery.min.js?v=3.0" type="text/JavaScript"></script>
 	<script src="../js/popper.min.js?v=3.0" type="text/JavaScript"></script>
@@ -587,18 +455,6 @@
 					}, 0);
 		}
 	</script>
-
-
-
-
-	<!-- 公式渲染 -->
-
-
-
-	<!-- 不蒜子 -->
-
-	<!-- <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
-
 
 </body>
 </html>

@@ -82,6 +82,32 @@ $(function(){
 		removeCookie("loginInfo")
 		checkByAjax("/quitLogin", null, true)
 	})
+	
+	$(window).scroll(function(){
+		if (getScrollHeight() == getWindowHeight() + getDocumentTop()){
+			$.ajax({
+				url: /blog,
+				type: "POST",
+				data: {'': },
+				async: async,
+				dataType: "JSON",
+				success: function(data){
+					if (data.functionName == null){
+						showMsg(data.mes)
+						if (data.res == 'true'){
+							window.location.href=window.location.href
+							window.location.reload
+						}
+					}
+					else{
+						if (typeof(eval(data.functionName)) == "function"){
+							eval(data.functionName + "('" + JSON.stringify(data) + "')")
+						}
+					}
+				}
+			})
+		}
+	})
 })
 
 function enPs(pass){
@@ -162,3 +188,49 @@ function toBlogPage(data){
 	alert(JSON.parse(data).mes)
 	window.location.href = "/blog"
 }
+
+//得到文档高度
+function getDocumentTop(){
+	var scrollTop = 0;
+	var bodyScrollTop = 0;
+	var documentScrollTop = 0;
+	if(document.body){
+		bodyScrollTop = document.body.scrollTop;
+	}
+	if (document.documentElement){
+		documentScrollTop = document.documentElement.scrollTop;
+	}
+	scrollTop = bodyScrollTop > documentScrollTop  ? bodyScrollTop :  documentScrollTop;
+	return scrollTop;
+}
+
+//可是窗口高度
+function getWindowHeight(){
+	var windowHeight = 0;
+	if (document.compatMode == "CSS1Compat"){
+			windowHeight = document.documentElement.clientHeight;
+	}else{
+		windowHeight = document.body.clientHeight;
+	}
+	return windowHeight;
+}
+
+//滚动条滚动高度
+function getScrollHeight(){
+	var scrollHeight = 0;
+	var bodyScrollHeight = 0;
+	var documentScrollHeight = 0;
+	if (document.body){
+		bodyScrollHeight = document.body.scrollHeight;
+	}
+	if (document.documentElement){
+		documentScrollHeight = document.documentElement.scrollHeight;
+	}
+	scrollHeight = bodyScrollHeight > documentScrollHeight ? bodyScrollHeight :documentScrollHeight;
+	return scrollHeight;
+}
+
+var currentPage = 0;
+
+
+

@@ -13,6 +13,7 @@
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
     <result column="second_title" property="secondTitle" jdbcType="VARCHAR" />
     <result column="article_content" property="articleContent" jdbcType="VARCHAR" />
+    <result column="read_count" property="readCount" jdbcType="INTEGER"/>
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.fullexception.entity.Article" extends="BaseResultMap" >
     <result column="article_content" property="articleContent" jdbcType="LONGVARCHAR" />
@@ -37,17 +38,18 @@
   </select>
   
   <select id="getArticleByAuthorIdAndPage" resultMap="BaseResultMap" parameterType="map">
-  	select <include refid="Base_Column_List"/>
+  	select *
   	from article 
+  	left join (select article_id, count(*) read_count from read_log group by article_id) log on log.article_id=article.article_id
   	<where>
-  		author_id=#{authorId}
+  		article_state_id=1 and article_public_id=1 and author_id=#{authorId}
   	</where>
-  	order by create_date desc
+  	order by article.create_date desc
   	limit #{currentPage}, 5
   </select>
   
   <select id="getArticleCountByAuthorid" resultType="java.lang.Integer" parameterType="java.lang.Integer">
-  	select count(*) articleCount from article where author_id=#{visitorId}
+  	select count(*) articleCount from article where author_id=#{visitorId} and article_state_id=1 and article_public_id=1
   </select>
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >

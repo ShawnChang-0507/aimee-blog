@@ -114,6 +114,8 @@ public class ArticleController {
 		int chineseSize = AimeeHelper.getChineseSize(articleContent);
 		int readMinutes = chineseSize / 400 + 1;
 		Article a = new Article();
+		a.setArticleStateId(1);
+		a.setArticlePublicId(1);
 		a.setArticleGroupId(groupId);
 		a.setAuthorId(((Visitor) map.get("visitor")).getVisitorId());
 		a.setArticleTitle(title);
