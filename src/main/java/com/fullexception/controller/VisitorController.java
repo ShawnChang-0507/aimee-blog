@@ -78,25 +78,7 @@ public class VisitorController {
 		model.addAttribute("totalVisitorNumber", totalVisitorNumber);
 		model.addAttribute("totalVisitNumber", totalVisitNumber);
 		model.addAttribute("articleCount", articleCount);
-		return "/blog/index";
-	}
-
-	@PostMapping("/blog")
-	public String selectPage(int currentPage, HttpServletRequest request, ModelMap model) {
-		if (AimeeHelper.visitor == null) {
-			AimeeHelper.visitor = visitorService.tourist();
-		}
-		List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.getVisitorId(), currentPage);
-		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.getVisitorId());
-		AimeeHelper.visitNumber = loginInfoService.countTheNumberOfVisitors();
-
-		model.addAttribute("tourist", AimeeHelper.visitor);
-		model.addAttribute("articles", articles);
-		int totalVisitorNumber = AimeeHelper.visitNumber.get("totalVisitorNumber");
-		int totalVisitNumber = AimeeHelper.visitNumber.get("totalVisitNumber");
-		model.addAttribute("totalVisitorNumber", totalVisitorNumber);
-		model.addAttribute("totalVisitNumber", totalVisitNumber);
-		model.addAttribute("articleCount", articleCount);
+		model.addAttribute("currentPage", 0);
 		return "/blog/index";
 	}
 

@@ -236,8 +236,8 @@
 				</a>
 			</div>
 			<a target="_blank"
-				class="header-icon waves-effect waves-circle waves-light" id="quit-login"
-				th:if="${session.myVisitor} != null"> <i
+				class="header-icon waves-effect waves-circle waves-light"
+				id="quit-login" th:if="${session.myVisitor} != null"> <i
 				class="icon icon-lg icon-remove"></i>
 			</a> <a href="../../blog/editBlog" target="_blank"
 				class="header-icon waves-effect waves-circle waves-light" id="Rss"
@@ -287,7 +287,8 @@
 						<time class="post-time" title="2018-05-28 17:33:39"
 							datetime="2018-05-28T09:33:39.288Z" itemprop="datePublished"
 							th:text="${#dates.format(article.createDate, 'yyyy年MM月dd日  HH:mm')} + '  '">创建日期</time>
-						<i class="icon icon-lg icon-eye" th:text="' '+${article.readCount}+'人'"></i>
+						<i class="icon icon-lg icon-eye"
+							th:text="' '+${article.readCount}+'人'"></i>
 					</div>
 
 					<div class="post-content" id="post-content" itemprop="postContent">
@@ -303,9 +304,8 @@
 
 			</li>
 		</ul>
-
-
-
+		<div class="articleCount" style="display:none" th:text="${articleCount}"></div>
+		<div class="currentPage" style="display:none" th:text="${currentPage}"></div>
 	</div>
 
 	<footer class="footer">
@@ -317,7 +317,9 @@
 				Theme
 			</span> <br /> <span id="RunTime" style="color: #a7a7a2;"></span> <br /> <span>
 
-				<i class="icon icon-lg icon-user" th:text="' '+${totalVisitorNumber }+'人'"></i> · <i class="icon icon-lg icon-eye" th:text="' '+${totalVisitNumber }+'次'"></i>
+				<i class="icon icon-lg icon-user"
+				th:text="' '+${totalVisitorNumber }+'人'"></i> · <i
+				class="icon icon-lg icon-eye" th:text="' '+${totalVisitNumber }+'次'"></i>
 
 			</span> <br /> <span class="license">京ICP备19007542号</span>
 		</div>

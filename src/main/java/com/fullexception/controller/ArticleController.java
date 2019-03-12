@@ -35,6 +35,25 @@ public class ArticleController {
 	@Autowired
 	private VisitorService visitorService;
 
+	@ResponseBody
+	@PostMapping("/pullPage")
+	public Map<String, Object> selectPage(Integer currentPage, HttpServletRequest request) {
+		if (AimeeHelper.visitor == null) {
+			AimeeHelper.visitor = visitorService.tourist();
+		}
+		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.getVisitorId());
+		Map<String, Object> map = new HashMap<String, Object>();
+		if (articleCount / 5 > currentPage) {
+			currentPage++;
+			List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.getVisitorId(), currentPage * 5);
+			map.put("articles", articles);
+			map.put("res", true);
+		}else {
+			map.put("res", false);
+		}
+		return map;
+	}
+
 	@GetMapping("/showArticle")
 	public String showArticle(HttpServletRequest request, ModelMap model) {
 		int arId = Integer.parseInt(request.getParameter("arId"));
