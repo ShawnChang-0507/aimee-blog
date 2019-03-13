@@ -83,31 +83,31 @@ $(function(){
 		checkByAjax("/quitLogin", null, true)
 	})
 	
-	/*$(window).scroll(function(){
-		if (getScrollHeight() == getWindowHeight() + getDocumentTop()){
-			$.ajax({
-				url: /blog,
-				type: "POST",
-				data: {'': },
-				async: async,
-				dataType: "JSON",
-				success: function(data){
-					if (data.functionName == null){
-						showMsg(data.mes)
-						if (data.res == 'true'){
-							window.location.href=window.location.href
-							window.location.reload
-						}
-					}
-					else{
-						if (typeof(eval(data.functionName)) == "function"){
-							eval(data.functionName + "('" + JSON.stringify(data) + "')")
-						}
-					}
-				}
-			})
-		}
-	})*/
+	$(".message-button").click(function(){
+		var content = $(".message-content").val();
+		var articleId = $(".articleId").text();
+		$.ajax({
+			url: "/blog/discuss",
+			type: "POST",
+			data: {'content': content, "articleId": articleId},
+			async: true,
+			dataType: "JSON",
+			success: function(data){
+				alert(data.res);
+				window.location.href=window.location.href
+				window.location.reload
+			}
+		})
+	})
+	/*
+	 * $(window).scroll(function(){ if (getScrollHeight() == getWindowHeight() +
+	 * getDocumentTop()){ $.ajax({ url: /blog, type: "POST", data: {'': },
+	 * async: async, dataType: "JSON", success: function(data){ if
+	 * (data.functionName == null){ showMsg(data.mes) if (data.res == 'true'){
+	 * window.location.href=window.location.href window.location.reload } }
+	 * else{ if (typeof(eval(data.functionName)) == "function"){
+	 * eval(data.functionName + "('" + JSON.stringify(data) + "')") } } } }) } })
+	 */
 })
 
 function enPs(pass){
@@ -189,7 +189,7 @@ function toBlogPage(data){
 	window.location.href = "/blog"
 }
 
-//得到文档高度
+// 得到文档高度
 function getDocumentTop(){
 	var scrollTop = 0;
 	var bodyScrollTop = 0;
@@ -204,7 +204,7 @@ function getDocumentTop(){
 	return scrollTop;
 }
 
-//可是窗口高度
+// 可是窗口高度
 function getWindowHeight(){
 	var windowHeight = 0;
 	if (document.compatMode == "CSS1Compat"){
@@ -215,7 +215,7 @@ function getWindowHeight(){
 	return windowHeight;
 }
 
-//滚动条滚动高度
+// 滚动条滚动高度
 function getScrollHeight(){
 	var scrollHeight = 0;
 	var bodyScrollHeight = 0;

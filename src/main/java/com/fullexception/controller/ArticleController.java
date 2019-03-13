@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fullexception.entity.Article;
 import com.fullexception.entity.ArticleGroup;
+import com.fullexception.entity.Discuss;
 import com.fullexception.entity.ReadLog;
 import com.fullexception.entity.Visitor;
 import com.fullexception.service.ArticleService;
+import com.fullexception.service.DiscussService;
 import com.fullexception.service.VisitorService;
 
 import util.AimeeHelper;
@@ -34,6 +36,9 @@ public class ArticleController {
 
 	@Autowired
 	private VisitorService visitorService;
+	
+	@Autowired
+	private DiscussService discussService;
 
 	@ResponseBody
 	@PostMapping("/pullPage")
@@ -53,7 +58,28 @@ public class ArticleController {
 		}
 		return map;
 	}
-
+	@ResponseBody
+	@PostMapping("/discuss")
+	public Map<String, String> discuss(String content, int articleId, HttpServletRequest request) {
+		Map<String, String> map = new HashMap<String, String>();
+		try {
+			Visitor visitor = AimeeHelper.checkLogin(request);
+			Discuss discuss = new Discuss();
+			if (visitor != null) {
+				discuss.setVisitorId(visitor.getVisitorId());
+			}
+			discuss.setArticleId(articleId);
+			discuss.setDiscussCreateDate(new Date());
+			discuss.setReadStateId(1);
+			discuss.setContent(content);
+			discussService.insertDiscuss(discuss);
+			map.put("res", "您的留言已黏贴到萌村期刊底部~谢谢参与(￣▽￣)");
+			return map;
+		}catch(Exception e) {
+			map.put("res", "村里快递员把您的留言弄丢了。。。");
+			return map;
+		}
+	}
 	@GetMapping("/showArticle")
 	public String showArticle(HttpServletRequest request, ModelMap model) {
 		int arId = Integer.parseInt(request.getParameter("arId"));

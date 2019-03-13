@@ -1,5 +1,7 @@
 package com.fullexception.entity;
 
+import java.util.Date;
+
 public class Discuss {
     private Integer discussId;
 
@@ -13,9 +15,19 @@ public class Discuss {
 
     private String content;
     
+    private Date discussCreateDate;
+    
     private Visitor discusser;
 
-    public Visitor getDiscusser() {
+	public Date getDiscussCreateDate() {
+		return discussCreateDate;
+	}
+
+	public void setDiscussCreateDate(Date discussCreateDate) {
+		this.discussCreateDate = discussCreateDate;
+	}
+
+	public Visitor getDiscusser() {
 		return discusser;
 	}
 

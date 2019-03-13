@@ -340,6 +340,7 @@
 			class="post-article article-type-post aimee-fade" itemprop="blogPost">
 
 			<div class="post-card">
+				<span class="articleId" style="display: none" th:text="${article.articleId}"></span>
 				<h1 class="post-card-title" th:text="${article.articleTitle}">标题</h1>
 				<div class="post-meta">
 					<i class="icon icon-lg icon-calendar-o"></i> 发表于
@@ -464,13 +465,14 @@
 					name=textarea></textarea>
 				<button type="button" class="btn btn-light message-button">留言</button>
 				<div class="discuss-list">
-					<div th:if="${discuss.content} != null"
-					th:each="discuss : ${article?.discusses }">
+					<div class="alert-box" th:if="${discuss.content} != null" th:each="discuss, discussState : ${article?.discusses }">
 						<div class="alert alert-primary alert-head" th:if="${discuss.content} != null">
 							<img th:if="${discuss?.discusser?.headUrl} != null" th:src="'../'+${discuss?.discusser?.headUrl }" />
-							<img th:if="${discuss?.discusser?.headUrl} == null" src="../../images/default.jpg" />
+							<img th:if="${discuss?.discusser?.headUrl} == null" src="../../images/default.jpeg" />
 							<span th:if="${discuss?.discusser?.nickName} != null" th:text="${discuss?.discusser?.nickName}"></span>
 							<span th:if="${discuss?.discusser?.nickName} == null">游客</span>
+							<span th:text="' '+${discussState.index+1}+'层 '"></span>
+							<span style="float: right;" th:text="${#dates.format(discuss?.discussCreateDate, 'yyyy.MM.dd HH:mm:ss')}"></span>
 						</div>
 						<div class="alert alert-primary alert-content" th:text="${discuss?.content}"></div>
 					</div>

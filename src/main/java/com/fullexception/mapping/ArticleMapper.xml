@@ -27,6 +27,7 @@
 			<result column="read_state_id" property="readStateId"
 				jdbcType="INTEGER" />
 			<result column="content" property="content" jdbcType="VARCHAR" />
+			<result column="discuss_create_date" property="discussCreateDate" jdbcType="TIMESTAMP" />
 			<association property="discusser" javaType="com.fullexception.entity.Visitor">
 				<id column="visitor_id" property="visitorId" jdbcType="INTEGER" />
 				<result column="visitor_state_id" property="visitorStateId"
