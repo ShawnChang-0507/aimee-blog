@@ -12,8 +12,18 @@ public class Discuss {
     private Integer readStateId;
 
     private String content;
+    
+    private Visitor discusser;
 
-    public Integer getDiscussId() {
+    public Visitor getDiscusser() {
+		return discusser;
+	}
+
+	public void setDiscusser(Visitor discusser) {
+		this.discusser = discusser;
+	}
+
+	public Integer getDiscussId() {
         return discussId;
     }
 

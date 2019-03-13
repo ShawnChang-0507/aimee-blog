@@ -83,47 +83,31 @@ $(function(){
 		checkByAjax("/quitLogin", null, true)
 	})
 	
-	$(window).scroll(function(){
+	/*$(window).scroll(function(){
 		if (getScrollHeight() == getWindowHeight() + getDocumentTop()){
-			var currentPage = $(".currentPage").text();
-			
 			$.ajax({
-				url: "/blog/pullPage",
+				url: /blog,
 				type: "POST",
-				data: {"currentPage": currentPage},
-				async: true,
+				data: {'': },
+				async: async,
 				dataType: "JSON",
 				success: function(data){
-					if (data.res == true){
-						var articles = eval(data.articles);
-						var element = "";
-						for(var i=0; i<articles.length; i++){
-							element += '<li class="post-list-item aimee-fade">' +
-								'<article id="post-hello-world"	class="article-card article-type-post" itemprop="blogPost">' +
-									'<h3 class="post-title" itemprop="name">'+
-										'<a href="/article/showArticle?arId=' + articles[i].articleId + '">' + articles[i].articleTitle + '</a>' +
-									'</h3>' +
-									'<h5 class="post-title" itemprop="name">'
-										'<a href="/article/showArticle?arId=' + articles[i].articleId + '">articles[i].secondTitle</a>' +
-									'</h5>' +
-									'<div class="post-meta">' + 
-										'<time class="post-time" title="2018-05-28 17:33:39" datetime="2018-05-28T09:33:39.288Z" itemprop="datePublished">' + articles[i].createDate + '</time>' +
-										'<i class="icon icon-lg icon-eye">' + articles[i].readCount + '</i>' +
-									'</div>' +
-									'<div class="post-content" id="post-content" itemprop="postContent">' +
-										'<div>' + 
-											'<a href="/article/showArticle?arId=' + articles[i].articleId + '" class="post-more waves-button"> 阅读全文 » </a>' +
-										'</div>' + 
-									'</div>' +
-								'</article>' + 
-							'</li>';
+					if (data.functionName == null){
+						showMsg(data.mes)
+						if (data.res == 'true'){
+							window.location.href=window.location.href
+							window.location.reload
 						}
-						$(".post-list").append(element);
+					}
+					else{
+						if (typeof(eval(data.functionName)) == "function"){
+							eval(data.functionName + "('" + JSON.stringify(data) + "')")
+						}
 					}
 				}
 			})
 		}
-	})
+	})*/
 })
 
 function enPs(pass){
@@ -205,7 +189,7 @@ function toBlogPage(data){
 	window.location.href = "/blog"
 }
 
-// 得到文档高度
+//得到文档高度
 function getDocumentTop(){
 	var scrollTop = 0;
 	var bodyScrollTop = 0;
@@ -220,7 +204,7 @@ function getDocumentTop(){
 	return scrollTop;
 }
 
-// 可是窗口高度
+//可是窗口高度
 function getWindowHeight(){
 	var windowHeight = 0;
 	if (document.compatMode == "CSS1Compat"){
@@ -231,7 +215,7 @@ function getWindowHeight(){
 	return windowHeight;
 }
 
-// 滚动条滚动高度
+//滚动条滚动高度
 function getScrollHeight(){
 	var scrollHeight = 0;
 	var bodyScrollHeight = 0;

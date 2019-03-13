@@ -26,7 +26,17 @@ public class Article {
 
     private String articleContent;
     
+    private List<Discuss> discusses;
+    
     private int readCount;
+
+	public List<Discuss> getDiscusses() {
+		return discusses;
+	}
+
+	public void setDiscusses(List<Discuss> discusses) {
+		this.discusses = discusses;
+	}
 
 	public int getReadCount() {
 		return readCount;
