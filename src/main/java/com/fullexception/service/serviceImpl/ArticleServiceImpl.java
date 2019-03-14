@@ -44,17 +44,18 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	public List<Article> getArticleById(int articleId, int visitorId) {
+	public List<Article> getArticleById(int articleId, int visitorId, String readerIp) {
 		List<Article> article = articleMapper.selectByPrimaryKey(articleId);
-		writeReadLog(articleId, visitorId);
+		writeReadLog(articleId, visitorId, readerIp);
 		return article;
 	}
 
 	@Override
-	public int writeReadLog(int articleId, int visitorId) {
+	public int writeReadLog(int articleId, int visitorId, String readerIp) {
 		ReadLog rl = new ReadLog();
 		rl.setArticleId(articleId);
 		rl.setCreateDate(new Date());
+		rl.setReaderIp(readerIp);
 		if (visitorId > 0) {
 			rl.setVisitorId(visitorId);
 		}

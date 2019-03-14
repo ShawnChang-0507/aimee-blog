@@ -85,10 +85,11 @@ public class ArticleController {
 		int arId = Integer.parseInt(request.getParameter("arId"));
 		HttpSession session = request.getSession();
 		int visitorId = 0;
+		String readerIp = AimeeHelper.getIpAddr(request);
 		if (session != null) {
 			visitorId = session.getAttribute("loginId") == null ? 0 : (int) session.getAttribute("loginId");
 		}
-		List<Article> articles = articleService.getArticleById(arId, visitorId);
+		List<Article> articles = articleService.getArticleById(arId, visitorId, readerIp);
 		Article last = new Article();
 		Article next = new Article();
 		Article article = new Article();

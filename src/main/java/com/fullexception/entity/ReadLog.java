@@ -12,8 +12,18 @@ public class ReadLog {
     private Visitor visitor;
 
     private Date createDate;
+    
+    private String readerIp;
 
-    public Integer getReadLogId() {
+    public String getReaderIp() {
+		return readerIp;
+	}
+
+	public void setReaderIp(String readerIp) {
+		this.readerIp = readerIp;
+	}
+
+	public Integer getReadLogId() {
         return readLogId;
     }
 

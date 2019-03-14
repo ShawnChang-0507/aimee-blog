@@ -6,12 +6,14 @@
 		<result column="article_id" property="articleId" jdbcType="INTEGER" />
 		<result column="visitor_id" property="visitorId" jdbcType="INTEGER" />
 		<result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+		<result column="reader_ip" property="readerIp" jdbcType="VARCHAR" />
 	</resultMap>
 	<resultMap id="ModelMap" type="com.fullexception.entity.ReadLog">
 		<id column="read_log_id" property="readLogId" jdbcType="INTEGER" />
 		<result column="article_id" property="articleId" jdbcType="INTEGER" />
 		<result column="visitor_id" property="visitorId" jdbcType="INTEGER" />
 		<result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+		<result column="reader_ip" property="readerIp" jdbcType="VARCHAR" />
 		<association property="visitor" javaType="com.fullexception.entity.Visitor">
 			<id column="visitor_id" property="visitorId" jdbcType="INTEGER" />
 			<result column="visitor_state_id" property="visitorStateId"
@@ -28,7 +30,7 @@
 		</association>
 	</resultMap>
 	<sql id="Base_Column_List">
-		read_log_id, article_id, visitor_id, create_date
+		read_log_id, article_id, visitor_id, create_date, reader_ip
 	</sql>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
@@ -49,11 +51,12 @@
 		where read_log_id = #{readLogId,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.fullexception.entity.ReadLog">
-		insert into read_log (read_log_id, article_id, visitor_id,
-		create_date)
+		insert into read_log (read_log_id, article_id, visitor_id, 
+		create_date, reader_ip)
 		values (#{readLogId,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER},
 		#{visitorId,jdbcType=INTEGER},
-		#{createDate,jdbcType=TIMESTAMP})
+		#{createDate,jdbcType=TIMESTAMP},
+		#{readerIp,jdbcType=VARCHAR})
 	</insert>
 	<insert id="insertSelective" parameterType="com.fullexception.entity.ReadLog">
 		insert into read_log
@@ -70,6 +73,9 @@
 			<if test="createDate != null">
 				create_date,
 			</if>
+			<if test="readerIp != null">
+				reader_ip,
+			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="readLogId != null">
@@ -83,6 +89,9 @@
 			</if>
 			<if test="createDate != null">
 				#{createDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="readerIp != null">
+				#{readerIp,jdbcType=TIMESTAMP},
 			</if>
 		</trim>
 	</insert>
@@ -98,6 +107,9 @@
 			<if test="createDate != null">
 				create_date = #{createDate,jdbcType=TIMESTAMP},
 			</if>
+			<if test="readerIp != null">
+				reader_ip = #{readerIp,jdbcType=TIMESTAMP},
+			</if>
 		</set>
 		where read_log_id = #{readLogId,jdbcType=INTEGER}
 	</update>
@@ -106,6 +118,7 @@
 		set article_id = #{articleId,jdbcType=INTEGER},
 		visitor_id = #{visitorId,jdbcType=INTEGER},
 		create_date = #{createDate,jdbcType=TIMESTAMP}
+		reader_ip = #{readerIp,jdbcType=VARCHAR},
 		where read_log_id = #{readLogId,jdbcType=INTEGER}
 	</update>
 </mapper>

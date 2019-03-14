@@ -30,14 +30,14 @@ public interface ArticleService {
 	 * @param articleId
 	 * @return
 	 */
-	public List<Article> getArticleById(int articleId, int visitorId);
+	public List<Article> getArticleById(int articleId, int visitorId, String readerIp);
 	
 	/**
 	 * 添加文章阅读记录
 	 * @param articleId
 	 * @return
 	 */
-	public int writeReadLog(int articleId, int visitorId);
+	public int writeReadLog(int articleId, int visitorId, String readerIp);
 
 	/**
 	 * 根据id得到visitor的所有articleGroup

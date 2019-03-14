@@ -9,7 +9,7 @@ function getDayLight() {
 }
 function setLightColor() {
     $("#page").css("background-color", "rgba(85,85,85," + getDayLight() + ")"),
-        (new Date).getHours() < 17 && (title.style = "color:#666")
+        (new Date).getHours() < 17 && (title.style = "color:#666");
 }
 function preLoad() {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "iframe",

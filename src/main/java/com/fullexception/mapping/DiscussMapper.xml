@@ -63,6 +63,9 @@
 			<if test="content != null">
 				content,
 			</if>
+			<if test="discussCreateDate != null">
+				discuss_create_date,
+			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="discussId != null">
@@ -82,6 +85,9 @@
 			</if>
 			<if test="content != null">
 				#{content,jdbcType=VARCHAR},
+			</if>
+			<if test="discussCreateDate != null">
+				#{discussCreateDate,jdbcType=TIMESTAMP},
 			</if>
 		</trim>
 	</insert>
@@ -104,6 +110,9 @@
 			<if test="content != null">
 				content = #{content,jdbcType=VARCHAR},
 			</if>
+			<if test="discussCreateDate != null">
+				discuss_create_date = #{discussCreateDate,jdbcType=TIMESTAMP},
+			</if>
 		</set>
 		where discuss_id = #{discussId,jdbcType=INTEGER}
 	</update>
@@ -115,6 +124,7 @@
 		parent_discuss_id = #{parentDiscussId,jdbcType=INTEGER},
 		read_state_id = #{readStateId,jdbcType=INTEGER},
 		content = #{content,jdbcType=VARCHAR}
+		discuss_create_date = #{discussCreateDate,jdbcType=TIMESTAMP}
 		where discuss_id = #{discussId,jdbcType=INTEGER}
 	</update>
 </mapper>
