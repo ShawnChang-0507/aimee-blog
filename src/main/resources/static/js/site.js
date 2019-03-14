@@ -10,6 +10,9 @@ function getDayLight() {
 function setLightColor() {
     $("#page").css("background-color", "rgba(85,85,85," + getDayLight() + ")"),
         (new Date).getHours() < 17 && (title.style = "color:#666");
+    document.querySelector(".card-wrap").classList.add("card-wrap-move");
+    document.querySelector("#link-blog").classList.add("my-rotate");
+    document.querySelector("#link-mail").classList.add("my-rotate");
 }
 function preLoad() {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "iframe",

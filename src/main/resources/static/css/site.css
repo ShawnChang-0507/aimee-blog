@@ -244,8 +244,7 @@ li#link-wechat span {
 
 @media (min-width:801px) {
     #card, #card ul {
-        /* width: 725px */
-        width: 420px;
+        width: 725px;
     }
     #card ul {
         /* height: 200px; */
@@ -270,15 +269,25 @@ li#link-wechat span {
         top: 0
     }
     
-    #link-blog {
+    .card-wrap-move {
         position: relative;
         transition-duration: transform 4s;
-        animation: myAni 4s;
+        animation: downAni 4s;
         animation-fill-mode: forwards;
     }
 
-    @keyframes myAni{
-        from{left: 0px;} to {left: 400px;transform: rotate(360deg);};
+    @keyframes downAni{
+        from{top: -1000px;} to {top: 100px;};
+    }
+    
+    .my-rotate{
+    	position: relative;
+        transition-duration: transform 4s;
+        animation: myRotate 4s;
+        animation-fill-mode: forwards;
+    }
+    @keyframes myRotate{
+    	from{transform: rotate(0deg);} to {transform: rotate(720deg);};
     }
     
 }

@@ -93,7 +93,7 @@ $(function(){
 			async: true,
 			dataType: "JSON",
 			success: function(data){
-				alert(data.res);
+				showMsg(data.res);
 				window.location.href=window.location.href
 				window.location.reload
 			}
