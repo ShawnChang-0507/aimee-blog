@@ -243,12 +243,12 @@ li#link-wechat span {
 }
 
 @media (min-width:801px) {
-    #card,
-    #card ul {
-        width: 725px
+    #card, #card ul {
+        width: 725px;
     }
     #card ul {
-        height: 200px;
+        /* height: 200px; */
+        height: 305px;
         -webkit-transition: width ease .5s;
         transition: width ease .5s
     }
@@ -268,18 +268,28 @@ li#link-wechat span {
         left: 630px;
         top: 0
     }
-    #link-github {
-        left: 420px;
-        top: 105px
+    
+    .card-wrap-move {
+        position: relative;
+        transition-duration: transform 4s;
+        animation: downAni 4s;
+        animation-fill-mode: forwards;
     }
-    #link-stack-overflow {
-        left: 525px;
-        top: 105px
+
+    @keyframes downAni{
+        from{top: -1000px;} to {top: 100px;};
     }
-    #link-more {
-        left: 630px;
-        top: 105px
+    
+    .my-rotate{
+    	position: relative;
+        transition-duration: transform 4s;
+        animation: myRotate 4s;
+        animation-fill-mode: forwards;
     }
+    @keyframes myRotate{
+    	from{transform: rotate(0deg);} to {transform: rotate(720deg);};
+    }
+    
 }
 
 @media (max-width:550px) {

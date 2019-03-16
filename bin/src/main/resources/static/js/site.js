@@ -9,7 +9,10 @@ function getDayLight() {
 }
 function setLightColor() {
     $("#page").css("background-color", "rgba(85,85,85," + getDayLight() + ")"),
-        (new Date).getHours() < 17 && (title.style = "color:#666")
+        (new Date).getHours() < 17 && (title.style = "color:#666");
+    document.querySelector(".card-wrap").classList.add("card-wrap-move");
+    document.querySelector("#link-blog").classList.add("my-rotate");
+    document.querySelector("#link-mail").classList.add("my-rotate");
 }
 function preLoad() {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "iframe",
@@ -68,11 +71,11 @@ function messenger(e) {
             }
             if ($(e).html(o), !0 === a) {
                 if (15 == ++countC)
-                    return preLoad.call()("img", "//zhangxiaoran.cn/images/live2d/" + Number(localStorage.getItem("model")) + ".png"), typetitle(), void (countCall = 3); if (!(countC < 15)) return; setTimeout(t.animateFadeBuffer, 50)
+                    return preLoad.call()("img", "//zhangxiaoran.cn/images/" + Number(localStorage.getItem("model")) + ".png"), typetitle(), void (countCall = 3); if (!(countC < 15)) return; setTimeout(t.animateFadeBuffer, 50)
             } else {
                 if (countCall > 2)
                     return;
-                2 == ++countCall ? (preLoad.call()("img", "//zhangxiaoran.cn/images/live2d/" + Number(localStorage.getItem("model")) + ".png"), typetitle()) : t.cycleText()
+                2 == ++countCall ? (preLoad.call()("img", "//zhangxiaoran.cn/images/" + Number(localStorage.getItem("model")) + ".png"), typetitle()) : t.cycleText()
             }
         },
         t.cycleText = function () {

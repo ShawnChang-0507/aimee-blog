@@ -30,5 +30,7 @@ mybatis:
 logging:
   level:
     com.fullexception.mapper: error
+    com.fullexception.mapping: error
+    com.fullexception.controller: info
   file: spring.log
   path: /var/log

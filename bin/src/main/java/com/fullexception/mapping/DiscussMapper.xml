@@ -1,106 +1,130 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.fullexception.mapper.DiscussMapper" >
-  <resultMap id="BaseResultMap" type="com.fullexception.entity.Discuss" >
-    <id column="discuss_id" property="discussId" jdbcType="INTEGER" />
-    <result column="visitor_id" property="visitorId" jdbcType="INTEGER" />
-    <result column="article_id" property="articleId" jdbcType="INTEGER" />
-    <result column="parent_discuss_id" property="parentDiscussId" jdbcType="INTEGER" />
-    <result column="read_state_id" property="readStateId" jdbcType="INTEGER" />
-    <result column="content" property="content" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    discuss_id, visitor_id, article_id, parent_discuss_id, read_state_id, content
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from discuss
-    where discuss_id = #{discussId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from discuss
-    where discuss_id = #{discussId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.fullexception.entity.Discuss" >
-    insert into discuss (discuss_id, visitor_id, article_id, 
-      parent_discuss_id, read_state_id, content
-      )
-    values (#{discussId,jdbcType=INTEGER}, #{visitorId,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER}, 
-      #{parentDiscussId,jdbcType=INTEGER}, #{readStateId,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.fullexception.entity.Discuss" >
-    insert into discuss
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="discussId != null" >
-        discuss_id,
-      </if>
-      <if test="visitorId != null" >
-        visitor_id,
-      </if>
-      <if test="articleId != null" >
-        article_id,
-      </if>
-      <if test="parentDiscussId != null" >
-        parent_discuss_id,
-      </if>
-      <if test="readStateId != null" >
-        read_state_id,
-      </if>
-      <if test="content != null" >
-        content,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="discussId != null" >
-        #{discussId,jdbcType=INTEGER},
-      </if>
-      <if test="visitorId != null" >
-        #{visitorId,jdbcType=INTEGER},
-      </if>
-      <if test="articleId != null" >
-        #{articleId,jdbcType=INTEGER},
-      </if>
-      <if test="parentDiscussId != null" >
-        #{parentDiscussId,jdbcType=INTEGER},
-      </if>
-      <if test="readStateId != null" >
-        #{readStateId,jdbcType=INTEGER},
-      </if>
-      <if test="content != null" >
-        #{content,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Discuss" >
-    update discuss
-    <set >
-      <if test="visitorId != null" >
-        visitor_id = #{visitorId,jdbcType=INTEGER},
-      </if>
-      <if test="articleId != null" >
-        article_id = #{articleId,jdbcType=INTEGER},
-      </if>
-      <if test="parentDiscussId != null" >
-        parent_discuss_id = #{parentDiscussId,jdbcType=INTEGER},
-      </if>
-      <if test="readStateId != null" >
-        read_state_id = #{readStateId,jdbcType=INTEGER},
-      </if>
-      <if test="content != null" >
-        content = #{content,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where discuss_id = #{discussId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Discuss" >
-    update discuss
-    set visitor_id = #{visitorId,jdbcType=INTEGER},
-      article_id = #{articleId,jdbcType=INTEGER},
-      parent_discuss_id = #{parentDiscussId,jdbcType=INTEGER},
-      read_state_id = #{readStateId,jdbcType=INTEGER},
-      content = #{content,jdbcType=VARCHAR}
-    where discuss_id = #{discussId,jdbcType=INTEGER}
-  </update>
+<mapper namespace="com.fullexception.mapper.DiscussMapper">
+	<resultMap id="BaseResultMap"
+		type="com.fullexception.entity.Discuss">
+		<id column="discuss_id" property="discussId" jdbcType="INTEGER" />
+		<result column="visitor_id" property="visitorId"
+			jdbcType="INTEGER" />
+		<result column="article_id" property="articleId"
+			jdbcType="INTEGER" />
+		<result column="parent_discuss_id" property="parentDiscussId"
+			jdbcType="INTEGER" />
+		<result column="read_state_id" property="readStateId"
+			jdbcType="INTEGER" />
+		<result column="content" property="content" jdbcType="VARCHAR" />
+		<result column="discuss_create_date"
+			property="discussCreateDate" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		discuss_id, visitor_id, article_id, parent_discuss_id, read_state_id, content, discuss_create_date
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from discuss
+		where discuss_id = #{discussId,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey"
+		parameterType="java.lang.Integer">
+		delete from discuss
+		where discuss_id = #{discussId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert"
+		parameterType="com.fullexception.entity.Discuss">
+		insert into discuss (discuss_id, visitor_id, article_id,
+		parent_discuss_id, read_state_id, content, discuss_create_date
+		)
+		values (#{discussId,jdbcType=INTEGER}, #{visitorId,jdbcType=INTEGER},
+		#{articleId,jdbcType=INTEGER},
+		#{parentDiscussId,jdbcType=INTEGER}, #{readStateId,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{discussCreateDate,jdbcType=TIMESTAMP}
+		)
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.fullexception.entity.Discuss">
+		insert into discuss
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="discussId != null">
+				discuss_id,
+			</if>
+			<if test="visitorId != null">
+				visitor_id,
+			</if>
+			<if test="articleId != null">
+				article_id,
+			</if>
+			<if test="parentDiscussId != null">
+				parent_discuss_id,
+			</if>
+			<if test="readStateId != null">
+				read_state_id,
+			</if>
+			<if test="content != null">
+				content,
+			</if>
+			<if test="discussCreateDate != null">
+				discuss_create_date,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="discussId != null">
+				#{discussId,jdbcType=INTEGER},
+			</if>
+			<if test="visitorId != null">
+				#{visitorId,jdbcType=INTEGER},
+			</if>
+			<if test="articleId != null">
+				#{articleId,jdbcType=INTEGER},
+			</if>
+			<if test="parentDiscussId != null">
+				#{parentDiscussId,jdbcType=INTEGER},
+			</if>
+			<if test="readStateId != null">
+				#{readStateId,jdbcType=INTEGER},
+			</if>
+			<if test="content != null">
+				#{content,jdbcType=VARCHAR},
+			</if>
+			<if test="discussCreateDate != null">
+				#{discussCreateDate,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.fullexception.entity.Discuss">
+		update discuss
+		<set>
+			<if test="visitorId != null">
+				visitor_id = #{visitorId,jdbcType=INTEGER},
+			</if>
+			<if test="articleId != null">
+				article_id = #{articleId,jdbcType=INTEGER},
+			</if>
+			<if test="parentDiscussId != null">
+				parent_discuss_id = #{parentDiscussId,jdbcType=INTEGER},
+			</if>
+			<if test="readStateId != null">
+				read_state_id = #{readStateId,jdbcType=INTEGER},
+			</if>
+			<if test="content != null">
+				content = #{content,jdbcType=VARCHAR},
+			</if>
+			<if test="discussCreateDate != null">
+				discuss_create_date = #{discussCreateDate,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where discuss_id = #{discussId,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.fullexception.entity.Discuss">
+		update discuss
+		set visitor_id = #{visitorId,jdbcType=INTEGER},
+		article_id = #{articleId,jdbcType=INTEGER},
+		parent_discuss_id = #{parentDiscussId,jdbcType=INTEGER},
+		read_state_id = #{readStateId,jdbcType=INTEGER},
+		content = #{content,jdbcType=VARCHAR}
+		discuss_create_date = #{discussCreateDate,jdbcType=TIMESTAMP}
+		where discuss_id = #{discussId,jdbcType=INTEGER}
+	</update>
 </mapper>

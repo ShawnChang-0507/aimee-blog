@@ -6,7 +6,8 @@
 
 
 
-<title>第一篇博客 | Aimee | Welcome</title>
+<title th:text="'Aimee | ' + ${article.articleTitle}">第一篇博客 |
+	Aimee | Welcome</title>
 <meta name="viewport"
 	content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
@@ -339,23 +340,20 @@
 			class="post-article article-type-post aimee-fade" itemprop="blogPost">
 
 			<div class="post-card">
-				<h1 class="post-card-title" th:text="${article.articleTitle}">第一篇博客</h1>
+				<span class="articleId" style="display: none" th:text="${article.articleId}"></span>
+				<h1 class="post-card-title" th:text="${article.articleTitle}">标题</h1>
 				<div class="post-meta">
 					<i class="icon icon-lg icon-calendar-o"></i> 发表于
 					<time class="post-time" title="2018-05-25 15:49:06"
 						datetime="2018-05-25T07:49:06.000Z" itemprop="datePublished"
-						th:text="${#dates.format(article.createDate, 'yyyy-MM-dd')}">2018-05-25</time>
-
+						th:text="${#dates.format(article.createDate, 'yyyy-MM-dd')}">创建时间</time>
 					<br id="mybreak" />
-
 					<script>
 						mybreak.style = "display:none";
 					</script>
-
-
 					<i>·</i> <span id="busuanzi_container_page_pv" title="文章总阅读量"
 						style='display: none'> <i class="icon icon-eye icon-pr"></i><span
-						id="busuanzi_value_page_pv"></span>次浏览
+						id="busuanzi_value_page_pv"></span>浏览次数
 					</span>
 
 
@@ -371,90 +369,6 @@
 						<textarea style="display: none;"
 							th:text="${article.articleContent}"></textarea>
 					</div>
-					<!-- <h2 id="Quick-Start">
-						<a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick
-						Start
-					</h2>
-					<h3 id="Create-a-new-post">
-						<a href="#Create-a-new-post" class="headerlink"
-							title="Create a new post"></a>Create a new post
-					</h3>
-					<figure class="highlight bash">
-						<table>
-							<tr>
-								<td class="gutter"><pre>
-										<span class="line">1</span><br>
-									</pre></td>
-								<td class="code"><pre>
-										<span class="line">$ hexo new <span class="string">"My New Post"</span></span><br>
-									</pre></td>
-							</tr>
-						</table>
-					</figure>
-					<p>
-						More info: <a href="https://hexo.io/docs/writing.html"
-							target="_blank" rel="noopener">Writing</a>
-					</p>
-					<h3 id="Run-server">
-						<a href="#Run-server" class="headerlink" title="Run server"></a>Run
-						server
-					</h3>
-					<figure class="highlight bash">
-						<table>
-							<tr>
-								<td class="gutter"><pre>
-										<span class="line">1</span><br>
-									</pre></td>
-								<td class="code"><pre>
-										<span class="line">$ hexo server</span><br>
-									</pre></td>
-							</tr>
-						</table>
-					</figure>
-					<p>
-						More info: <a href="https://hexo.io/docs/server.html"
-							target="_blank" rel="noopener">Server</a>
-					</p>
-					<h3 id="Generate-static-files">
-						<a href="#Generate-static-files" class="headerlink"
-							title="Generate static files"></a>Generate static files
-					</h3>
-					<figure class="highlight bash">
-						<table>
-							<tr>
-								<td class="gutter"><pre>
-										<span class="line">1</span><br>
-									</pre></td>
-								<td class="code"><pre>
-										<span class="line">$ hexo generate</span><br>
-									</pre></td>
-							</tr>
-						</table>
-					</figure>
-					<p>
-						More info: <a href="https://hexo.io/docs/generating.html"
-							target="_blank" rel="noopener">Generating</a>
-					</p>
-					<h3 id="Deploy-to-remote-sites">
-						<a href="#Deploy-to-remote-sites" class="headerlink"
-							title="Deploy to remote sites"></a>Deploy to remote sites
-					</h3>
-					<figure class="highlight bash">
-						<table>
-							<tr>
-								<td class="gutter"><pre>
-										<span class="line">1</span><br>
-									</pre></td>
-								<td class="code"><pre>
-										<span class="line">$ hexo deploy</span><br>
-									</pre></td>
-							</tr>
-						</table>
-					</figure>
-					<p>
-						More info: <a href="https://hexo.io/docs/deployment.html"
-							target="_blank" rel="noopener">Deployment</a>
-					</p> -->
 
 				</div>
 
@@ -505,50 +419,65 @@
 									data-title="微信"> <i class="icon icon-weixin"></i>
 								</a></li>
 								<li><a class="qq share-sns" target="_blank"
-									href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhangxiaoran.cn/posts/17051/&title=《第一篇博客》 — Aimee&source=Aimee"
+									href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhangxiaoran.cn/article/showArticle?arId=' + ${last?.articleId} + '}&title=《'+ ${article.articleTitle} +'》 — Aimee&source=Aimee'"
 									data-title=" QQ"> <i class="icon icon-qq"></i>
 								</a></li>
 								<li><a class="facebook share-sns" target="_blank"
-									href="https://www.facebook.com/sharer/sharer.php?u=http://zhangxiaoran.cn/posts/17051/"
+									th:href="@{'https://www.facebook.com/sharer/sharer.php?u=http://zhangxiaoran.cn/article/showArticle?arId=' + ${last?.articleId}}"
 									data-title=" Facebook"> <i class="icon icon-facebook"></i>
 								</a></li>
 								<li><a class="twitter share-sns" target="_blank"
-									href="https://twitter.com/intent/tweet?text=《第一篇博客》 — Aimee&url=http://zhangxiaoran.cn/posts/17051/&via=http://zhangxiaoran.cn"
+									th:href="@{'https://twitter.com/intent/tweet?text=《' + ${article.articleTitle} + '》 — Aimee&url=http://zhangxiaoran.cn/article/showArticle?arId=' + ${last?.articleId}}"
 									data-title=" Twitter"> <i class="icon icon-twitter"></i>
 								</a></li>
 								<li><a class="google share-sns" target="_blank"
-									href="https://plus.google.com/share?url=http://zhangxiaoran.cn/posts/17051/"
+									th:href="@{'https://plus.google.com/share?url=http://zhangxiaoran.cn/article/showArticle?arId=' + ${last?.articleId}}"
 									data-title=" Google+"> <i class="icon icon-google-plus"></i>
 								</a></li>
 							</ul>
 						</div>
-
-
-
 						<a href="javascript:;" id="shareFab"
 							class="page-share-fab waves-effect waves-circle"> <i
 							class="icon icon-share-alt icon-lg"></i>
 						</a>
 					</div>
-
-
-
 				</div>
 			</div>
 			<nav class="post-nav flex-row flex-justify-between">
 
 				<div class="waves-block waves-effect prev">
-					<a th:href="@{'/article/showArticle?arId=' + ${last?.articleId}}" id="post-prev" class="post-nav-link" th:if="${not #lists.isEmpty(last)}">
-						<h4 class="title" th:text = "'上一篇：'+${last?.articleTitle}">上一篇：</h4>
+					<a th:href="@{'/article/showArticle?arId=' + ${last?.articleId}}"
+						id="post-prev" class="post-nav-link"
+						th:if="${not #lists.isEmpty(last)}">
+						<h4 class="title" th:text="'上一篇：'+${last?.articleTitle}">上一篇：</h4>
 					</a>
 				</div>
-				
 				<div class="waves-block waves-effect next">
-					<a th:href="@{'/article/showArticle?arId=' + ${next?.articleId}}" id="post-next" class="post-nav-link" th:if="${not #lists.isEmpty(next)}">
-						<h4 class="title" th:text = "'下一篇：'+${next?.articleTitle}">下一篇：</h4>
+					<a th:href="@{'/article/showArticle?arId=' + ${next?.articleId}}"
+						id="post-next" class="post-nav-link"
+						th:if="${not #lists.isEmpty(next)}">
+						<h4 class="title" th:text="'下一篇：'+${next?.articleTitle}">下一篇：</h4>
 					</a>
 				</div>
 			</nav>
+			<div class="post-footer">
+				<textarea class="form-control message-content" rows="3"
+					name=textarea></textarea>
+				<button type="button" class="btn btn-light message-button">留言</button>
+				<div class="discuss-list">
+					<div class="alert-box" th:if="${discuss.content} != null" th:each="discuss, discussState : ${article?.discusses }">
+						<div class="alert alert-primary alert-head" th:if="${discuss.content} != null">
+							<img th:if="${discuss?.discusser?.headUrl} != null" th:src="'../'+${discuss?.discusser?.headUrl }" />
+							<img th:if="${discuss?.discusser?.headUrl} == null" src="../../images/default.jpeg" />
+							<span th:if="${discuss?.discusser?.nickName} != null" th:text="${discuss?.discusser?.nickName}"></span>
+							<span th:if="${discuss?.discusser?.nickName} == null">游客</span>
+							<span th:text="' '+${discussState.index+1}+'层 '"></span>
+							<span style="float: right;" th:text="${#dates.format(discuss?.discussCreateDate, 'yyyy.MM.dd HH:mm:ss')}"></span>
+						</div>
+						<div class="alert alert-primary alert-content" th:text="${discuss?.content}"></div>
+					</div>
+				</div>
+			</div>
 		</article>
 
 	</div>
@@ -563,25 +492,20 @@
 			</span> <br /> <span id="RunTime" style="color: #a7a7a2;"></span> <br /> <span>
 
 				<i class="icon icon-lg icon-user"
-				th:text="${totalVisitorNumber }+'人'"> <span
+				th:text="' '+${totalVisitorNumber }+'人'"> <span
 					id="busuanzi_container_site_uv" style='display: none'> 总访问量：<span
 						id="busuanzi_value_site_uv"></span>
 				</span>人
 			</i> · <i class="icon icon-lg icon-eye"
-				th:text="${totalVisitNumber }+'次'"> <span
+				th:text="' '+${totalVisitNumber }+'次'"> <span
 					id="busuanzi_container_site_pv" style='display: none'> 访问次数：<span
 						id="busuanzi_value_site_pv"></span>
 				</span>次
 			</i>
 
-
-			</span> <br /> <span class="license"><a target="_blank"
-				rel="license"
-				href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循
-					知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+			</span> <br /> <span class="license">京ICP备19007542号</span>
 		</div>
-	</footer>
-	</main>
+	</footer> </main>
 
 
 	<div id="reward" class="page-modal reward-lay">
@@ -698,28 +622,6 @@
 				tocm : true
 			});
 		});
-		/* var testEditor;
-
-		$(function() {
-			testEditor = editormd("test-editormd", {
-				tocm : true,
-				width : "100%",
-				height : 640,
-				syncScrolling : "single",
-				path : "../lib/",
-				saveHTMLToTextarea : true
-			}); */
-
-		/*
-		// or
-		testEditor = editormd({
-		    id      : "test-editormd",
-		    width   : "90%",
-		    height  : 640,
-		    path    : "../lib/"
-		});
-		 */
-		/* }); */
 	</script>
 	<!-- 搜索 -->
 

@@ -1,4 +1,4 @@
-$(function(){
+/*$(function(){
 	$.ajax({
 		url: functionLocation,
 		type: "POST",
@@ -20,4 +20,4 @@ $(function(){
 			}
 		}
 	})
-}
+})*/
