@@ -7,9 +7,10 @@
     <result column="discuss_id" property="discussId" jdbcType="INTEGER" />
     <result column="visitor_id" property="visitorId" jdbcType="INTEGER" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    assist_id, article_id, discuss_id, visitor_id, create_date
+    assist_id, article_id, discuss_id, visitor_id, create_date, ip
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -45,6 +46,9 @@
       <if test="createDate != null" >
         create_date,
       </if>
+      <if test="ip != null" >
+        ip,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="assistId != null" >
@@ -61,6 +65,9 @@
       </if>
       <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -79,6 +86,9 @@
       <if test="createDate != null" >
         create_date = #{createDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="ip != null" >
+        ip=#{ip,jdbcType=VARCHAR},
+      </if>
     </set>
     where assist_id = #{assistId,jdbcType=INTEGER}
   </update>
@@ -87,7 +97,8 @@
     set article_id = #{articleId,jdbcType=INTEGER},
       discuss_id = #{discussId,jdbcType=INTEGER},
       visitor_id = #{visitorId,jdbcType=INTEGER},
-      create_date = #{createDate,jdbcType=TIMESTAMP}
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      ip = #{ip,jdbcType=VARCHAR}
     where assist_id = #{assistId,jdbcType=INTEGER}
   </update>
 </mapper>

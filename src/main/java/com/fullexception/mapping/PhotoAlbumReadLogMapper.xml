@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.PhotoAlbumReadLogMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.PhotoAlbumReadLog" >
+    <id column="photo_album_read_log_id" property="photoAlbumReadLogId" jdbcType="INTEGER" />
+    <result column="reader_id" property="readerId" jdbcType="INTEGER" />
+    <result column="photo_album_id" property="photoAlbumId" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    photo_album_read_log_id, reader_id, photo_album_id, create_date, ip
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from photo_album_read_log
+    where photo_album_read_log_id = #{photoAlbumReadLogId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from photo_album_read_log
+    where photo_album_read_log_id = #{photoAlbumReadLogId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.PhotoAlbumReadLog" >
+    insert into photo_album_read_log (photo_album_read_log_id, reader_id, photo_album_id, 
+      create_date, ip)
+    values (#{photoAlbumReadLogId,jdbcType=INTEGER}, #{readerId,jdbcType=INTEGER}, #{photoAlbumId,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{ip,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.PhotoAlbumReadLog" >
+    insert into photo_album_read_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="photoAlbumReadLogId != null" >
+        photo_album_read_log_id,
+      </if>
+      <if test="readerId != null" >
+        reader_id,
+      </if>
+      <if test="photoAlbumId != null" >
+        photo_album_id,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="photoAlbumReadLogId != null" >
+        #{photoAlbumReadLogId,jdbcType=INTEGER},
+      </if>
+      <if test="readerId != null" >
+        #{readerId,jdbcType=INTEGER},
+      </if>
+      <if test="photoAlbumId != null" >
+        #{photoAlbumId,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.PhotoAlbumReadLog" >
+    update photo_album_read_log
+    <set >
+      <if test="readerId != null" >
+        reader_id = #{readerId,jdbcType=INTEGER},
+      </if>
+      <if test="photoAlbumId != null" >
+        photo_album_id = #{photoAlbumId,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where photo_album_read_log_id = #{photoAlbumReadLogId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.PhotoAlbumReadLog" >
+    update photo_album_read_log
+    set reader_id = #{readerId,jdbcType=INTEGER},
+      photo_album_id = #{photoAlbumId,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      ip = #{ip,jdbcType=VARCHAR}
+    where photo_album_read_log_id = #{photoAlbumReadLogId,jdbcType=INTEGER}
+  </update>
+</mapper>

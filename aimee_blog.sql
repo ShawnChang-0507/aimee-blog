@@ -597,3 +597,113 @@ CREATE TABLE `visitor_state` (
 -- ----------------------------
 -- Records of visitor_state
 -- ----------------------------
+
+drop table if exists photo_album;
+
+
+drop table if exists photo;
+
+
+drop table if exists photo_album_read_log;
+
+
+drop table if exists photo_album_discuss;
+
+
+drop table if exists photo_discuss;
+
+/*==============================================================*/
+/* Table: photo_album                                           */
+/*==============================================================*/
+create table photo_album
+(
+   photo_album_id       int not null auto_increment,
+   owner_id             int,
+   photo_album_name     varchar(20),
+	 photo_album_abstract varchar(100),
+   create_date          datetime,
+   primary key (photo_album_id)
+);
+
+/*==============================================================*/
+/* Table: photo                                                 */
+/*==============================================================*/
+create table photo
+(
+   photo_id             int not null auto_increment,
+   photo_album_id       int,
+	 photo_name						varchar(20),
+	 photo_abstract				varchar(100),
+   photo_url            varchar(200),
+   create_date          datetime,
+   primary key (photo_id)
+);
+
+/*==============================================================*/
+/* Table: photo_album_read_log                                  */
+/*==============================================================*/
+create table photo_album_read_log
+(
+   photo_album_read_log_id int not null auto_increment,
+   reader_id            int,
+   photo_album_id       int,
+   create_date          datetime,
+   ip                   varchar(20),
+   primary key (photo_album_read_log_id)
+);
+
+/*==============================================================*/
+/* Table: photo_album_discuss                                   */
+/*==============================================================*/
+create table photo_album_discuss
+(
+   photo_album_disicuss_id int not null auto_increment,
+   photo_album_id       int,
+   discussant_id        int,
+   photo_album_discuss_content varchar(200),
+   create_date          datetime,
+   ip                   varchar(20),
+   primary key (photo_album_disicuss_id)
+);
+
+/*==============================================================*/
+/* Table: photo_discuss                                         */
+/*==============================================================*/
+create table photo_discuss
+(
+   photo_disicuss_id    int not null auto_increment,
+   photo_id             int,
+   discussant_id        int,
+   photo_discuss_content varchar(200),
+   create_date          datetime,
+   ip                   varchar(20),
+   primary key (photo_disicuss_id)
+);
+
+
+alter table photo_album_discuss add constraint FK_Reference_37 foreign key (photo_album_id)
+      references photo_album (photo_album_id);
+
+alter table photo_album_discuss add constraint FK_Reference_38 foreign key (discussant_id)
+      references visitor (visitor_id);
+
+alter table photo_album_read_log add constraint FK_Reference_33 foreign key (photo_album_id)
+      references photo_album (photo_album_id);
+
+alter table photo_album_read_log add constraint FK_Reference_34 foreign key (reader_id)
+      references visitor (visitor_id);
+
+alter table photo add constraint FK_Reference_32 foreign key (photo_album_id)
+      references photo_album (photo_album_id);
+
+alter table photo_album add constraint FK_Reference_39 foreign key (owner_id)
+      references visitor (visitor_id);
+alter table photo_discuss add constraint FK_Reference_35 foreign key (discussant_id)
+      references visitor (visitor_id);
+
+alter table photo_discuss add constraint FK_Reference_36 foreign key (photo_id)
+      references photo (photo_id);
+
+
+alter table photo_album add constraint FK_Reference_40 foreign key (photo_id)
+      references photo (photo_id);

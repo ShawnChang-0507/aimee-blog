@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.PhotoAlbumDiscussMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.PhotoAlbumDiscuss" >
+    <id column="photo_album_disicuss_id" property="photoAlbumDisicussId" jdbcType="INTEGER" />
+    <result column="photo_album_id" property="photoAlbumId" jdbcType="INTEGER" />
+    <result column="discussant_id" property="discussantId" jdbcType="INTEGER" />
+    <result column="photo_album_discuss_content" property="photoAlbumDiscussContent" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    photo_album_disicuss_id, photo_album_id, discussant_id, photo_album_discuss_content, 
+    create_date, ip
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from photo_album_discuss
+    where photo_album_disicuss_id = #{photoAlbumDisicussId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from photo_album_discuss
+    where photo_album_disicuss_id = #{photoAlbumDisicussId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.PhotoAlbumDiscuss" >
+    insert into photo_album_discuss (photo_album_disicuss_id, photo_album_id, 
+      discussant_id, photo_album_discuss_content, 
+      create_date, ip)
+    values (#{photoAlbumDisicussId,jdbcType=INTEGER}, #{photoAlbumId,jdbcType=INTEGER}, 
+      #{discussantId,jdbcType=INTEGER}, #{photoAlbumDiscussContent,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{ip,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.PhotoAlbumDiscuss" >
+    insert into photo_album_discuss
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="photoAlbumDisicussId != null" >
+        photo_album_disicuss_id,
+      </if>
+      <if test="photoAlbumId != null" >
+        photo_album_id,
+      </if>
+      <if test="discussantId != null" >
+        discussant_id,
+      </if>
+      <if test="photoAlbumDiscussContent != null" >
+        photo_album_discuss_content,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="photoAlbumDisicussId != null" >
+        #{photoAlbumDisicussId,jdbcType=INTEGER},
+      </if>
+      <if test="photoAlbumId != null" >
+        #{photoAlbumId,jdbcType=INTEGER},
+      </if>
+      <if test="discussantId != null" >
+        #{discussantId,jdbcType=INTEGER},
+      </if>
+      <if test="photoAlbumDiscussContent != null" >
+        #{photoAlbumDiscussContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.PhotoAlbumDiscuss" >
+    update photo_album_discuss
+    <set >
+      <if test="photoAlbumId != null" >
+        photo_album_id = #{photoAlbumId,jdbcType=INTEGER},
+      </if>
+      <if test="discussantId != null" >
+        discussant_id = #{discussantId,jdbcType=INTEGER},
+      </if>
+      <if test="photoAlbumDiscussContent != null" >
+        photo_album_discuss_content = #{photoAlbumDiscussContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where photo_album_disicuss_id = #{photoAlbumDisicussId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.PhotoAlbumDiscuss" >
+    update photo_album_discuss
+    set photo_album_id = #{photoAlbumId,jdbcType=INTEGER},
+      discussant_id = #{discussantId,jdbcType=INTEGER},
+      photo_album_discuss_content = #{photoAlbumDiscussContent,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      ip = #{ip,jdbcType=VARCHAR}
+    where photo_album_disicuss_id = #{photoAlbumDisicussId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -12,8 +12,18 @@ public class Assist {
     private Integer visitorId;
 
     private Date createDate;
+    
+    private String ip;
 
-    public Integer getAssistId() {
+    public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public Integer getAssistId() {
         return assistId;
     }
 

@@ -17,7 +17,17 @@ public class Discuss {
     
     private Date discussCreateDate;
     
+    private String ip;
+    
     private Visitor discusser;
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
 
 	public Date getDiscussCreateDate() {
 		return discussCreateDate;

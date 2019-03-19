@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fullexception.mapper.PhotoMapper" >
+  <resultMap id="BaseResultMap" type="com.fullexception.entity.Photo" >
+    <id column="photo_id" property="photoId" jdbcType="INTEGER" />
+    <result column="photo_album_id" property="photoAlbumId" jdbcType="INTEGER" />
+    <result column="photo_name" property="photoName" jdbcType="VARCHAR" />
+    <result column="photo_abstract" property="photoAbstract" jdbcType="VARCHAR" />
+    <result column="photo_url" property="photoUrl" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    photo_id, photo_album_id, photo_name, photo_abstract, photo_url, create_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from photo
+    where photo_id = #{photoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from photo
+    where photo_id = #{photoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fullexception.entity.Photo" >
+    insert into photo (photo_id, photo_album_id, photo_name, 
+      photo_abstract, photo_url, create_date
+      )
+    values (#{photoId,jdbcType=INTEGER}, #{photoAlbumId,jdbcType=INTEGER}, #{photoName,jdbcType=VARCHAR}, 
+      #{photoAbstract,jdbcType=VARCHAR}, #{photoUrl,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fullexception.entity.Photo" >
+    insert into photo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="photoId != null" >
+        photo_id,
+      </if>
+      <if test="photoAlbumId != null" >
+        photo_album_id,
+      </if>
+      <if test="photoName != null" >
+        photo_name,
+      </if>
+      <if test="photoAbstract != null" >
+        photo_abstract,
+      </if>
+      <if test="photoUrl != null" >
+        photo_url,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="photoId != null" >
+        #{photoId,jdbcType=INTEGER},
+      </if>
+      <if test="photoAlbumId != null" >
+        #{photoAlbumId,jdbcType=INTEGER},
+      </if>
+      <if test="photoName != null" >
+        #{photoName,jdbcType=VARCHAR},
+      </if>
+      <if test="photoAbstract != null" >
+        #{photoAbstract,jdbcType=VARCHAR},
+      </if>
+      <if test="photoUrl != null" >
+        #{photoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fullexception.entity.Photo" >
+    update photo
+    <set >
+      <if test="photoAlbumId != null" >
+        photo_album_id = #{photoAlbumId,jdbcType=INTEGER},
+      </if>
+      <if test="photoName != null" >
+        photo_name = #{photoName,jdbcType=VARCHAR},
+      </if>
+      <if test="photoAbstract != null" >
+        photo_abstract = #{photoAbstract,jdbcType=VARCHAR},
+      </if>
+      <if test="photoUrl != null" >
+        photo_url = #{photoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where photo_id = #{photoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fullexception.entity.Photo" >
+    update photo
+    set photo_album_id = #{photoAlbumId,jdbcType=INTEGER},
+      photo_name = #{photoName,jdbcType=VARCHAR},
+      photo_abstract = #{photoAbstract,jdbcType=VARCHAR},
+      photo_url = #{photoUrl,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP}
+    where photo_id = #{photoId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -2,7 +2,7 @@
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
 	<!-- 数据库驱动包位置 -->
-	<classPathEntry location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar" /> 
+	<classPathEntry location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar" /> 
 	<!-- <classPathEntry location="C:\oracle\product\10.2.0\db_1\jdbc\lib\ojdbc14.jar" />-->
 	<context id="DB2Tables" targetRuntime="MyBatis3">
 		<commentGenerator>
@@ -13,22 +13,22 @@
 		<!-- oracle数据库 -->
 		<!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@localhost:1521:orcl" userId="msa" password="msa">-->
 		<!-- mysql数据库 -->
-		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/aimee_blog" userId="root" password="pythoner"> 
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/aimee_blog" userId="root" password="Zhang@xiu1xiu2"> 
 		</jdbcConnection>
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 		<!-- 生成模型的包名和位置 -->
-		<javaModelGenerator targetPackage="com.fullexception.entity" targetProject="F:\myWorkPlaces\alicia_do\src\main\java">
+		<javaModelGenerator targetPackage="com.fullexception.entity" targetProject="C:\Users\Administrator\git\alicia_do\src\main\java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 		<!-- 生成的映射文件包名和位置 -->
-		<sqlMapGenerator targetPackage="com.fullexception.mapping" targetProject="F:\myWorkPlaces\alicia_do\src\main\java">
+		<sqlMapGenerator targetPackage="com.fullexception.mapping" targetProject="C:\Users\Administrator\git\alicia_do\src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 		<!-- 生成DAO的包名和位置 -->
-		<javaClientGenerator type="XMLMAPPER" targetPackage="com.fullexception.mapper" targetProject="F:\myWorkPlaces\alicia_do\src\main\java">
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.fullexception.mapper" targetProject="C:\Users\Administrator\git\alicia_do\src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
@@ -51,7 +51,11 @@
 		<table tableName="role_action" domainObjectName="RoleAction" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 		<table tableName="article" domainObjectName="Article" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 		<table tableName="source" domainObjectName="Source" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" /> -->
-		<table tableName="visitor" domainObjectName="Visitor" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="photo" domainObjectName="Photo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="photo_album" domainObjectName="PhotoAlbum" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="photo_album_read_log" domainObjectName="PhotoAlbumReadLog" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="photo_album_discuss" domainObjectName="PhotoAlbumDiscuss" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="photo_discuss" domainObjectName="PhotoDiscuss" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 		<!-- <table tableName="visitor_role" domainObjectName="VisitorRole" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 		<table tableName="visitor_state" domainObjectName="VisitorState" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" /> -->
 	</context>

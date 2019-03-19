@@ -15,9 +15,10 @@
 		<result column="content" property="content" jdbcType="VARCHAR" />
 		<result column="discuss_create_date"
 			property="discussCreateDate" jdbcType="TIMESTAMP" />
+		<result column="ip" property="ip" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		discuss_id, visitor_id, article_id, parent_discuss_id, read_state_id, content, discuss_create_date
+		discuss_id, visitor_id, article_id, parent_discuss_id, read_state_id, content, discuss_create_date, ip
 	</sql>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
@@ -34,11 +35,11 @@
 	<insert id="insert"
 		parameterType="com.fullexception.entity.Discuss">
 		insert into discuss (discuss_id, visitor_id, article_id,
-		parent_discuss_id, read_state_id, content, discuss_create_date
+		parent_discuss_id, read_state_id, content, discuss_create_date, ip
 		)
 		values (#{discussId,jdbcType=INTEGER}, #{visitorId,jdbcType=INTEGER},
 		#{articleId,jdbcType=INTEGER},
-		#{parentDiscussId,jdbcType=INTEGER}, #{readStateId,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{discussCreateDate,jdbcType=TIMESTAMP}
+		#{parentDiscussId,jdbcType=INTEGER}, #{readStateId,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{discussCreateDate,jdbcType=TIMESTAMP}, #{ip,jdbcType=VARCHAR}
 		)
 	</insert>
 	<insert id="insertSelective"
@@ -66,6 +67,9 @@
 			<if test="discussCreateDate != null">
 				discuss_create_date,
 			</if>
+			<if test="ip != null">
+				ip,
+			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="discussId != null">
@@ -88,6 +92,9 @@
 			</if>
 			<if test="discussCreateDate != null">
 				#{discussCreateDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="ip != null">
+				#{ip,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>
@@ -113,6 +120,9 @@
 			<if test="discussCreateDate != null">
 				discuss_create_date = #{discussCreateDate,jdbcType=TIMESTAMP},
 			</if>
+			<if test="ip != null">
+				ip = #{ip,jdbcType=VARCHAR},
+			</if>
 		</set>
 		where discuss_id = #{discussId,jdbcType=INTEGER}
 	</update>
@@ -123,8 +133,9 @@
 		article_id = #{articleId,jdbcType=INTEGER},
 		parent_discuss_id = #{parentDiscussId,jdbcType=INTEGER},
 		read_state_id = #{readStateId,jdbcType=INTEGER},
-		content = #{content,jdbcType=VARCHAR}
-		discuss_create_date = #{discussCreateDate,jdbcType=TIMESTAMP}
+		content = #{content,jdbcType=VARCHAR},
+		discuss_create_date = #{discussCreateDate,jdbcType=TIMESTAMP},
+		ip = #{ip,jdbcType=VARCHAR}
 		where discuss_id = #{discussId,jdbcType=INTEGER}
 	</update>
 </mapper>
