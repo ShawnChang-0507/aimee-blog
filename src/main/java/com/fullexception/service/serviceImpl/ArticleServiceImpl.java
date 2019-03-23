@@ -32,7 +32,7 @@ public class ArticleServiceImpl implements ArticleService {
 	public List<Article> showArticleByAuthorId(int authorId, int currentPage) {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("authorId", authorId);
-		map.put("currentPage", currentPage);
+		map.put("currentPage", (currentPage - 1) * 5);
 		List<Article> list = articleMapper.getArticleByAuthorIdAndPage(map);
 		return list;
 	}

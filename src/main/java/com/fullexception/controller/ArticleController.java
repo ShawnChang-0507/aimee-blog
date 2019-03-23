@@ -23,6 +23,7 @@ import com.fullexception.entity.ReadLog;
 import com.fullexception.entity.Visitor;
 import com.fullexception.service.ArticleService;
 import com.fullexception.service.DiscussService;
+import com.fullexception.service.LoginInfoService;
 import com.fullexception.service.VisitorService;
 
 import util.AimeeHelper;
@@ -39,6 +40,9 @@ public class ArticleController {
 	
 	@Autowired
 	private DiscussService discussService;
+
+	@Autowired
+	private LoginInfoService loginInfoService;
 
 	@ResponseBody
 	@PostMapping("/pullPage")
@@ -58,6 +62,7 @@ public class ArticleController {
 		}
 		return map;
 	}
+	
 	@ResponseBody
 	@PostMapping("/discuss")
 	public Map<String, String> discuss(String content, int articleId, HttpServletRequest request) {
@@ -80,6 +85,23 @@ public class ArticleController {
 			return map;
 		}
 	}
+	
+	@GetMapping("/showBlog")
+	public String showBlogs(int pageNum, HttpServletRequest request, ModelMap model){
+		List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.getVisitorId(), pageNum);
+		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.getVisitorId());
+		AimeeHelper.visitNumber = loginInfoService.countTheNumberOfVisitors();
+		model.addAttribute("tourist", AimeeHelper.visitor);
+		model.addAttribute("articles", articles);
+		int totalVisitorNumber = AimeeHelper.visitNumber.get("totalVisitorNumber");
+		int totalVisitNumber = AimeeHelper.visitNumber.get("totalVisitNumber");
+		model.addAttribute("totalVisitorNumber", totalVisitorNumber);
+		model.addAttribute("totalVisitNumber", totalVisitNumber);
+		model.addAttribute("articleCount", articleCount);
+		model.addAttribute("currentPage", pageNum);
+		return "/blog/index";
+	}
+	
 	@GetMapping("/showArticle")
 	public String showArticle(HttpServletRequest request, ModelMap model) {
 		int arId = Integer.parseInt(request.getParameter("arId"));
@@ -181,5 +203,10 @@ public class ArticleController {
 		}
 
 		return resultMap;
+	}
+	
+	@GetMapping("/photoAlbum")
+	public String photoAlbum(HttpServletRequest request, ModelMap model){
+		return "/blog/photoAlbum";
 	}
 }

@@ -67,7 +67,7 @@ public class VisitorController {
 		if (AimeeHelper.visitor == null) {
 			AimeeHelper.visitor = visitorService.tourist();
 		}
-		List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.getVisitorId(), 0);
+		List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.getVisitorId(), 1);
 		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.getVisitorId());
 		AimeeHelper.visitNumber = loginInfoService.countTheNumberOfVisitors();
 
@@ -78,7 +78,7 @@ public class VisitorController {
 		model.addAttribute("totalVisitorNumber", totalVisitorNumber);
 		model.addAttribute("totalVisitNumber", totalVisitNumber);
 		model.addAttribute("articleCount", articleCount);
-		model.addAttribute("currentPage", 0);
+		model.addAttribute("currentPage", 1);
 		return "/blog/index";
 	}
 

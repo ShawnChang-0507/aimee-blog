@@ -75,9 +75,10 @@
 							<span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
 					</a></li>
 
-					<li class="waves-block waves-effect"><a href="/blog/photoAlbum">
-							<i class="icon icon-lg icon-tags"></i> <span><!-- 标 签 -->相册</span><i
-							class="icon icon-lg icon-caret-left"></i>
+					<li class="waves-block waves-effect"><a
+						href="/blog/photoAlbum"> <i class="icon icon-lg icon-tags"></i>
+							<span> <!-- 标 签 -->相册
+						</span><i class="icon icon-lg icon-caret-left"></i>
 					</a></li>
 
 					<li class="waves-block waves-effect"><a href="/blog/about">
@@ -304,12 +305,25 @@
 
 			</li>
 		</ul>
-		<div class="articleCount" style="display:none" th:text="${articleCount}"></div>
-		<div class="currentPage" style="display:none" th:text="${currentPage}"></div>
+		<div class="articleCount" style="display: none"
+			th:text="${articleCount}"></div>
+		<div class="currentPage" style="display: none"
+			th:text="${currentPage}"></div>
+
 	</div>
 
 	<footer class="footer">
-		<div class="footer-content">
+		<div class="footer-content post-content">
+
+
+			<ul class="pagination">
+				<li><a href="#">«</a></li>
+				<li th:each="i:${#numbers.sequence(1, articleCount/5.0 == 0 ? articleCount/5 : articleCount/5 + 1)}"><a th:href="@{'/blog/showBlog?pageNum=' + ${i}}" th:classappend="${i == currentPage} ? 'active' : ''" th:text="${i}">1</a></li>
+				<!-- <li><a class="active" href="#">2</a></li> -->
+				<li><a href="#">»</a></li>
+			</ul>
+			<br/>
+
 			<span class="power"> <i class="icon icon-lg icon-copyright"></i>
 				2019 <i class="icon icon-lg icon-heart"></i> <a
 				href="http://zhangxiaoran.cn">zhangxiaoran.cn</a> <br /> Power by <a

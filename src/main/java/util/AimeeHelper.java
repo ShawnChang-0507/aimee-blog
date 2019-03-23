@@ -3,6 +3,7 @@ package util;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.SecureRandom;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -294,5 +295,15 @@ public class AimeeHelper {
 			}
 		}
 		return count;
+	}
+	
+	/**
+	 * 将日期按指定格式化为字符串
+	 * @param formatDate
+	 * @return
+	 */
+	public static String formatDate(Date targetDate, String formatDate){
+		SimpleDateFormat sdf = new SimpleDateFormat(formatDate);
+		return sdf.format(targetDate);
 	}
 }
