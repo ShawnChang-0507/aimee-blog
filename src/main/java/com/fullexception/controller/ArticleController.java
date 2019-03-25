@@ -47,14 +47,14 @@ public class ArticleController {
 	@ResponseBody
 	@PostMapping("/pullPage")
 	public Map<String, Object> selectPage(Integer currentPage, HttpServletRequest request) {
-		if (AimeeHelper.visitor == null) {
-			AimeeHelper.visitor = visitorService.tourist();
-		}
-		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.getVisitorId());
+		/*if (AimeeHelper.visitor == null) {
+			AimeeHelper.visitor.set(visitorService.tourist());
+		}*/
+		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.get().getVisitorId());
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (articleCount / 5 > currentPage) {
 			currentPage++;
-			List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.getVisitorId(), currentPage * 5);
+			List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.get().getVisitorId(), currentPage * 5);
 			map.put("articles", articles);
 			map.put("res", true);
 		}else {
@@ -73,6 +73,7 @@ public class ArticleController {
 			if (visitor != null) {
 				discuss.setVisitorId(visitor.getVisitorId());
 			}
+			discuss.setIp(AimeeHelper.getIpAddr(request));
 			discuss.setArticleId(articleId);
 			discuss.setDiscussCreateDate(new Date());
 			discuss.setReadStateId(1);
@@ -88,10 +89,12 @@ public class ArticleController {
 	
 	@GetMapping("/showBlog")
 	public String showBlogs(int pageNum, HttpServletRequest request, ModelMap model){
-		List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.getVisitorId(), pageNum);
-		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.getVisitorId());
+		if (pageNum < 1)
+			pageNum = 1;
+		List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.get().getVisitorId(), pageNum);
+		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.get().getVisitorId());
 		AimeeHelper.visitNumber = loginInfoService.countTheNumberOfVisitors();
-		model.addAttribute("tourist", AimeeHelper.visitor);
+		model.addAttribute("tourist", AimeeHelper.visitor.get());
 		model.addAttribute("articles", articles);
 		int totalVisitorNumber = AimeeHelper.visitNumber.get("totalVisitorNumber");
 		int totalVisitNumber = AimeeHelper.visitNumber.get("totalVisitNumber");
@@ -208,5 +211,10 @@ public class ArticleController {
 	@GetMapping("/photoAlbum")
 	public String photoAlbum(HttpServletRequest request, ModelMap model){
 		return "/blog/photoAlbum";
+	}
+	
+	@GetMapping("/categories")
+	public String categories(HttpServletRequest request, ModelMap model){
+		return "/blog/categories/index";
 	}
 }

@@ -26,7 +26,7 @@ import com.fullexception.service.VisitorService;
 
 public class AimeeHelper {
 
-	public static Visitor visitor;
+	public static ThreadLocal<Visitor> visitor = new ThreadLocal<Visitor>();
 	
 	/**
 	 * 登录信息

@@ -47,31 +47,21 @@ public class VisitorController {
 
 	@GetMapping("/")
 	public String touristVisitor(HttpServletRequest request, ModelMap model) {
-		// Subject subject = SecurityUtils.getSubject();
-		// if (!subject.isAuthenticated()){
-		Map<String, Object> map = AimeeHelper.loginSystem(request, model, visitorService);
-		AimeeHelper.visitor = (Visitor) map.get("visitor");
-		// 判断 登录是否记录 登录次数，如果false，那么手动添加登录次数
-		if (!(Boolean) map.get("loginInfoOrNot")) {
-			AimeeHelper.appendLoginInfo(AimeeHelper.getIpAddr(request), AimeeHelper.visitor, visitorService);
-		}
-		// }
-		// else{
-		// model.addAttribute("tourist", (Visitor)subject.getPrincipal());
-		// }
+		model.addAttribute("tourist", AimeeHelper.visitor.get());
 		return "/index";
 	}
 
-	@GetMapping("/blog")
+	@GetMapping("/showBlog")
 	public String showBlog(HttpServletRequest request, ModelMap model) {
-		if (AimeeHelper.visitor == null) {
-			AimeeHelper.visitor = visitorService.tourist();
-		}
-		List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.getVisitorId(), 1);
-		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.getVisitorId());
+		/*if (AimeeHelper.visitor == null) {
+			AimeeHelper.visitor.set(visitorService.tourist());
+		}*/
+		Visitor visitor = AimeeHelper.visitor.get();
+		List<Article> articles = articleService.showArticleByAuthorId(visitor.getVisitorId(), 1);
+		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.get().getVisitorId());
 		AimeeHelper.visitNumber = loginInfoService.countTheNumberOfVisitors();
 
-		model.addAttribute("tourist", AimeeHelper.visitor);
+		model.addAttribute("tourist", AimeeHelper.visitor.get());
 		model.addAttribute("articles", articles);
 		int totalVisitorNumber = AimeeHelper.visitNumber.get("totalVisitorNumber");
 		int totalVisitNumber = AimeeHelper.visitNumber.get("totalVisitNumber");
@@ -111,7 +101,7 @@ public class VisitorController {
 //		UsernamePasswordToken token = new UsernamePasswordToken(loginName, loginPassword);
 //		Subject subject = SecurityUtils.getSubject();
 //		subject.login(token);
-		AimeeHelper.visitor = myVisitor;
+		AimeeHelper.visitor.set(myVisitor);
 		return map;
 	}
 

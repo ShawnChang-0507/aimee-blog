@@ -60,7 +60,7 @@
 			<div class="scroll-wrap flex-col">
 				<ul class="nav">
 
-					<li class="waves-block waves-effect"><a href="/blog"> <i
+					<li class="waves-block waves-effect"><a href="/showBlog"> <i
 							class="icon icon-lg icon-home"></i> <span>主 页</span><i
 							class="icon icon-lg icon-caret-left"></i>
 					</a></li>
@@ -317,10 +317,10 @@
 
 
 			<ul class="pagination">
-				<li><a href="#">«</a></li>
+				<li><a th:if="${currentPage } != 1" th:href="@{'/blog/showBlog?pageNum=' + ${currentPage - 1}}">«</a></li>
 				<li th:each="i:${#numbers.sequence(1, articleCount/5.0 == 0 ? articleCount/5 : articleCount/5 + 1)}"><a th:href="@{'/blog/showBlog?pageNum=' + ${i}}" th:classappend="${i == currentPage} ? 'active' : ''" th:text="${i}">1</a></li>
 				<!-- <li><a class="active" href="#">2</a></li> -->
-				<li><a href="#">»</a></li>
+				<li><a th:if="${(articleCount / 5.0 == 0 ? articleCount / 5 : articleCount / 5 + 1) - currentPage} != 0" th:href="@{'/blog/showBlog?pageNum=' + ${currentPage + 1}}">»</a></li>
 			</ul>
 			<br/>
 

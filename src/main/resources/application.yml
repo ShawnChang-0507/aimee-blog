@@ -29,6 +29,6 @@ mybatis:
   type-aliases-package: com.fullexception.entity
 logging:
   level:
-    root: off
+    root: error
     com.fullexception.LogAspect: debug
   path: /var/log/

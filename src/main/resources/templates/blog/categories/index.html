@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta http-equiv="Content-Language" content="zh-cn">
 <meta charset="utf-8">
@@ -96,7 +96,7 @@
 			<div class="scroll-wrap flex-col">
 				<ul class="nav">
 
-					<li class="waves-block waves-effect"><a href="/blog"> <i
+					<li class="waves-block waves-effect"><a href="/showBlog"> <i
 							class="icon icon-lg icon-home"></i> <span>主 页</span><i
 							class="icon icon-lg icon-caret-left"></i>
 					</a></li>
@@ -107,9 +107,8 @@
 					</a></li>
 
 					<li class="waves-block waves-effect"><a
-						href="/blog/categories"> <i
-							class="icon icon-lg icon-th-list"></i> <span>分 类</span><i
-							class="icon icon-lg icon-caret-left"></i>
+						href="/blog/categories"> <i class="icon icon-lg icon-th-list"></i>
+							<span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
 					</a></li>
 
 					<li class="waves-block waves-effect"><a href="/blog/tags">
@@ -297,9 +296,19 @@
 	<div class="aimee_container body-wrap aimee-fade">
 
 		<h5 class="tag-tip">
-			<i class="icon icon-lg icon-th-list"></i> 目前共&nbsp;0&nbsp;大分类
+			<i class="icon icon-lg icon-th-list"></i> 目前共&nbsp;1&nbsp;大分类
 		</h5>
-		<div class="card-pool"></div>
+		<div class="card-pool">
+
+			<a class="MyTagLink" href="/blog/categories/算法/">
+				<div class="card-card">
+					<div class="card-container">
+						<span href="/blog/categories/算法/" class="card-link">算法</span> <span
+							class="card-count">(2)</span>
+					</div>
+				</div>
+			</a>
+		</div>
 
 
 	</div>
@@ -324,7 +333,8 @@
 			</i>
 
 
-			</span> <br /> <span class="license"><a target="_blank" rel="license"
+			</span> <br /> <span class="license"><a target="_blank"
+				rel="license"
 				href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循
 					知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
 		</div>

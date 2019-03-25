@@ -2,6 +2,7 @@ package com.fullexception;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,11 +13,14 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.jboss.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import com.fullexception.entity.Visitor;
+import com.fullexception.service.VisitorService;
 import com.google.gson.Gson;
 
 import util.AimeeHelper;
@@ -32,6 +36,8 @@ public class LogAspect {
 	private Logger log = Logger.getLogger(getClass());
 	private Gson gson = new Gson();
 	ThreadLocal<Long> startTime = new ThreadLocal<Long>();
+	@Autowired
+	private VisitorService visitorService;
 
 	@Pointcut("execution(public * com.fullexception.controller.*.*(..))")
 	private void controllerAspect() {
@@ -44,9 +50,20 @@ public class LogAspect {
 	@Before(value = "controllerAspect()")
 	public void controllerBefore(JoinPoint joinPoint) {
 		startTime.set(System.currentTimeMillis());
+		/*Visitor visitor = AimeeHelper.visitor.get();
+		if (visitor == null) {
+			AimeeHelper.visitor.set(visitorService.tourist());
+		}*/
+		
 		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder
 				.getRequestAttributes();
 		HttpServletRequest request = requestAttributes.getRequest();
+		Map<String, Object> map = AimeeHelper.loginSystem(request, null, visitorService);
+		AimeeHelper.visitor.set((Visitor) map.get("visitor"));
+		// 判断 登录是否记录 登录次数，如果false，那么手动添加登录次数
+		if (!(Boolean) map.get("loginInfoOrNot")) {
+			AimeeHelper.appendLoginInfo(AimeeHelper.getIpAddr(request), AimeeHelper.visitor.get(), visitorService);
+		}
 
 		// 打印请求内容
 		log.info("");
