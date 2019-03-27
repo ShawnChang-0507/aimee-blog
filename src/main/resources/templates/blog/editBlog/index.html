@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta http-equiv="Content-Language" content="zh-cn">
 <meta charset="utf-8">
@@ -8,8 +7,7 @@
 
 
 <title>Aimee | Welcome</title>
-<meta name="viewport"
-	content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
 <meta name="theme-color" content="#77AAFF">
 
@@ -44,8 +42,7 @@
 <meta name="description" content="Aimee">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aimee">
-<meta property="og:url"
-	content="http://zhangxiaoran.cn/editBlog/index.html">
+<meta property="og:url" content="http://zhangxiaoran.cn/editBlog/index.html">
 <meta property="og:site_name" content="Aimee">
 <meta property="og:description" content="Aimee">
 <meta property="og:locale" content="zh-CN">
@@ -54,16 +51,13 @@
 <meta name="twitter:title" content="Aimee">
 <meta name="twitter:description" content="Aimee">
 
-<link rel="alternate" type="application/atom+xml" title="Aimee"
-	href="/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Aimee" href="/atom.xml">
 
 <link rel="shortcut icon" href="/img/favicon.ico">
 <link id="style" rel="stylesheet" href="../css/aimee-style.css?v=3.0">
 <link id="style" rel="stylesheet" href="../css/editor-style.css?v=3.0">
-<link rel="stylesheet" type="text/css"
-	href="../css/bootstrap.min.css?v=3.0">
-<link rel="stylesheet" type="text/css"
-	href="../css/editormd.min.css?v=3.0">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css?v=3.0">
+<link rel="stylesheet" type="text/css" href="../css/editormd.min.css?v=3.0">
 <script>
 	window.lazyScripts = []
 </script>
@@ -77,9 +71,8 @@
 	<div id="loading" class="active"></div>
 	<aside id="menu">
 		<div class="inner flex-row-vertical">
-			<a href="javascript:;"
-				class="header-icon waves-effect waves-circle waves-light"
-				id="menu-off"> <i class="icon icon-lg icon-close"></i>
+			<a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+				<i class="icon icon-lg icon-close"></i>
 			</a>
 			<div class="brand-wrap">
 				<div class="brand">
@@ -88,55 +81,58 @@
 					</a>
 					<hgroup class="introduce">
 						<h5 class="nickname" id="name" th:text="${tourist.nickName}">Aimee</h5>
-
 						<div id="yiyanaimee" class="aimee">&nbsp;</div>
-
 					</hgroup>
 				</div>
 			</div>
 			<div class="scroll-wrap flex-col">
 				<ul class="nav">
 
-					<li class="waves-block waves-effect"><a href="/blog"> <i
-							class="icon icon-lg icon-home"></i> <span>主 页</span><i
-							class="icon icon-lg icon-caret-left"></i>
-					</a></li>
+					<li class="waves-block waves-effect">
+						<a href="/blog">
+							<i class="icon icon-lg icon-home"></i> <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+						</a>
+					</li>
 
-					<li class="waves-block waves-effect"><a href="/blog/archives">
-							<i class="icon icon-lg icon-archives"></i> <span>归 档</span><i
-							class="icon icon-lg icon-caret-left"></i>
-					</a></li>
+					<li class="waves-block waves-effect">
+						<a href="/blog/archives">
+							<i class="icon icon-lg icon-archives"></i> <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+						</a>
+					</li>
 
-					<li class="waves-block waves-effect"><a
-						href="/blog/categories"> <i class="icon icon-lg icon-th-list"></i>
-							<span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
-					</a></li>
+					<li class="waves-block waves-effect">
+						<a href="/blog/categories">
+							<i class="icon icon-lg icon-th-list"></i> <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+						</a>
+					</li>
 
-					<li class="waves-block waves-effect"><a href="/blog/tags">
-							<i class="icon icon-lg icon-tags"></i> <span>标 签</span><i
-							class="icon icon-lg icon-caret-left"></i>
-					</a></li>
+					<li class="waves-block waves-effect">
+						<a href="/blog/tags">
+							<i class="icon icon-lg icon-tags"></i> <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+						</a>
+					</li>
 
-					<li class="waves-block waves-effect"><a href="/blog/about">
-							<i class="icon icon-lg icon-smile-o"></i> <span>关 于</span><i
-							class="icon icon-lg icon-caret-left"></i>
-					</a></li>
+					<li class="waves-block waves-effect">
+						<a href="/blog/about">
+							<i class="icon icon-lg icon-smile-o"></i> <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+						</a>
+					</li>
 
-					<li class="waves-block waves-effect"><a href="/../"> <i
-							class="icon icon-lg icon-align-justify"></i> <span>导 航</span><i
-							class="icon icon-lg icon-caret-left"></i>
-					</a></li>
+					<li class="waves-block waves-effect">
+						<a href="/../">
+							<i class="icon icon-lg icon-align-justify"></i> <span>导 航</span><i class="icon icon-lg icon-caret-left"></i>
+						</a>
+					</li>
 
 					<div class="nav2">
 
-						<a class="nav2item" data-title="Email"
-							href="mailto:sanbowla@163.com" target="_parent" title="Email">
+						<a class="nav2item" data-title="Email" href="mailto:sanbowla@163.com" target="_parent" title="Email">
 							<i class="icon icon-lg icon-envelope-o envelope-o"></i>
-						</a> <a class="nav2item" data-title="Github"
-							href="https://github.com/ShawnChang-0507" target="_blank"
-							title="Github"> <i class="icon icon-lg icon-github github"></i>
-						</a> <a class="nav2item" data-title="微博"
-							href="https://weibo.com/u/378090670" target="_blank" title="微博">
+						</a>
+						<a class="nav2item" data-title="Github" href="https://github.com/ShawnChang-0507" target="_blank" title="Github">
+							<i class="icon icon-lg icon-github github"></i>
+						</a>
+						<a class="nav2item" data-title="微博" href="https://weibo.com/u/378090670" target="_blank" title="微博">
 							<i class="icon icon-lg icon-weibo weibo"></i>
 						</a>
 
@@ -146,100 +142,77 @@
 
 			</div>
 		</div>
-
 	</aside>
 
-
 	<main id="main"> <!-- 登录 -->
-	<div class="modal fade" id="loginId" tabindex="-1" role="dialog"
-		aria-labelledby="loginTitleId" aria-hidden="true">
+	<div class="modal fade" id="loginId" tabindex="-1" role="dialog" aria-labelledby="loginTitleId" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title" id="loginTitleId">登录账户</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label for="">账号：</label> <input type="text" class="form-control"
-							name="" id="loginLoginName" aria-describedby="helpId"
-							placeholder=""> <small id="loginLoginNameHelp"
-							class="form-text text-muted text-hide text-danger">Help
-							text</small> <label for="">密码：</label> <input type="password"
-							class="form-control" name="" id="loginLoginPassword"
-							aria-describedby="helpId" placeholder=""> <small
-							id="loginLoginPasswordHelp"
-							class="form-text text-muted text-hide text-danger"> <span
-							class="badge badge-danger passwordInfo">简单</span>
+						<label for="">账号：</label>
+						<input type="text" class="form-control" name="" id="loginLoginName" aria-describedby="helpId" placeholder="">
+						<small id="loginLoginNameHelp" class="form-text text-muted text-hide text-danger">Help text</small>
+						<label for="">密码：</label>
+						<input type="password" class="form-control" name="" id="loginLoginPassword" aria-describedby="helpId" placeholder="">
+						<small id="loginLoginPasswordHelp" class="form-text text-muted text-hide text-danger"> <span class="badge badge-danger passwordInfo">简单</span>
 						</small>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">取消</button>
-					<button type="button" class="btn btn-primary login"
-						data-dismiss="modal">登录</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary login" data-dismiss="modal">登录</button>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- register -->
-	<div class="modal fade" id="registerId" tabindex="-1" role="dialog"
-		aria-labelledby="registerTitleId" aria-hidden="true">
+	<div class="modal fade" id="registerId" tabindex="-1" role="dialog" aria-labelledby="registerTitleId" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title" id="registerTitleId">注册账户</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label for="">登录账号：</label> <input type="text"
-							class="form-control" name="" id="registerLoginName"
-							aria-describedby="helpId" placeholder=""> <small
-							id="registerLoginNameHelp"
-							class="form-text text-muted text-danger text-hide">请填写登录账号！</small>
-						<label for="">昵称：</label> <input type="text" class="form-control"
-							name="" id="registerNickName" aria-describedby="helpId"
-							placeholder=""> <small id="registerNickNameHelp"
-							class="form-text text-muted text-danger text-hide">请输入昵称</small>
-						<label for="">登录密码：</label> <input type="password"
-							class="form-control" name="" id="registerLoginPassword"
-							aria-describedby="helpId" placeholder=""> <small
-							id="registerLoginPasswordHelp"
-							class="form-text text-muted text-danger text-hide"> <span
-							class="badge badge-danger passwordInfo">请输入登录密码！</span>
-						</small> <label for="">重复密码：</label> <input type="password"
-							class="form-control" name="" id="registerLoginRePassword"
-							aria-describedby="helpId" placeholder=""> <small
-							id="registerLoginRePasswordHelp"
-							class="form-text text-muted text-danger text-hide">重复登录密码！</small>
+						<label for="">登录账号：</label>
+						<input type="text" class="form-control" name="" id="registerLoginName" aria-describedby="helpId" placeholder="">
+						<small id="registerLoginNameHelp" class="form-text text-muted text-danger text-hide">请填写登录账号！</small>
+						<label for="">昵称：</label>
+						<input type="text" class="form-control" name="" id="registerNickName" aria-describedby="helpId" placeholder="">
+						<small id="registerNickNameHelp" class="form-text text-muted text-danger text-hide">请输入昵称</small>
+						<label for="">登录密码：</label>
+						<input type="password" class="form-control" name="" id="registerLoginPassword" aria-describedby="helpId" placeholder="">
+						<small id="registerLoginPasswordHelp" class="form-text text-muted text-danger text-hide"> <span class="badge badge-danger passwordInfo">请输入登录密码！</span>
+						</small>
+						<label for="">重复密码：</label>
+						<input type="password" class="form-control" name="" id="registerLoginRePassword" aria-describedby="helpId" placeholder="">
+						<small id="registerLoginRePasswordHelp" class="form-text text-muted text-danger text-hide">重复登录密码！</small>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">取消</button>
-					<button type="button" class="btn btn-primary register"
-						data-dismiss="modal">提交</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary register" data-dismiss="modal">提交</button>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- 提示框 -->
-	<div class="modal fade" id="aimeeSaid" tabindex="-1" role="dialog"
-		aria-labelledby="loginTitleId" aria-hidden="true">
+	<div class="modal fade" id="aimeeSaid" tabindex="-1" role="dialog" aria-labelledby="loginTitleId" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title" id="registerTitleId">冉萌村儿通告：</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -256,40 +229,33 @@
 	</div>
 	<header class="top-header" id="header">
 		<div class="flex-row">
-			<a href="javascript:;"
-				class="header-icon waves-effect waves-circle waves-light on"
-				id="menu-toggle"> <i class="icon icon-lg icon-navicon"></i>
+			<a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+				<i class="icon icon-lg icon-navicon"></i>
 			</a>
 			<div class="flex-col header-title ellipsis"></div>
 
 			<div class="search-wrap" id="search-wrap">
-				<a href="javascript:;"
-					class="header-icon waves-effect waves-circle waves-light" id="back">
+				<a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
 					<i class="icon icon-lg icon-chevron-left"></i>
-				</a> <input type="text" id="key" class="search-input" autocomplete="off"
-					placeholder="输入感兴趣的关键字"> <a href="javascript:;"
-					class="header-icon waves-effect waves-circle waves-light"
-					id="search"> <i class="icon icon-lg icon-search"></i>
+				</a>
+				<input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+				<a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+					<i class="icon icon-lg icon-search"></i>
 				</a>
 			</div>
 
-			<a href="blog/editBlog" target="_blank"
-				class="header-icon waves-effect waves-circle waves-light" id="Rss"
-				th:if="${session.myVisitor} != null"> <i
-				class="icon icon-lg icon-book"></i>
-			</a> <a href="#" target="_blank"
-				class="header-icon waves-effect waves-circle waves-light" id="Rss1"
-				data-toggle="modal" data-target="#loginId"
-				th:if="${session.myVisitor} == null"> <i
-				class="icon icon-lg icon-user"></i>
-			</a> <a href="#" target="_blank"
-				class="header-icon waves-effect waves-circle waves-light" id="Rss2"
-				data-toggle="modal" data-target="#registerId"> <i
-				class="icon icon-lg icon-user-plus"></i>
+			<a href="blog/editBlog" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss" th:if="${session.myVisitor} != null">
+				<i class="icon icon-lg icon-book"></i>
+			</a>
+			<a href="#" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss1" data-toggle="modal" data-target="#loginId"
+				th:if="${session.myVisitor} == null">
+				<i class="icon icon-lg icon-user"></i>
+			</a>
+			<a href="#" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss2" data-toggle="modal" data-target="#registerId">
+				<i class="icon icon-lg icon-user-plus"></i>
 			</a>
 		</div>
 	</header> <header class="content-header post-header">
-
 
 		<div class="aimee_container fade-scale">
 			<div id="myheader">
@@ -321,41 +287,34 @@
 
 	<div class="aimee_container body-wrap">
 
-		<article id="edit-blog-"
-			class="post-article article-type-edit-blog aimee-fade"
-			itemprop="blogPost">
+		<article id="edit-blog-" class="post-article article-type-edit-blog aimee-fade" itemprop="blogPost">
 
 			<div class="post-card">
 				<div class="btn-group">
 					<button type="button" class="btn btn-secondary article-group">文章分类</button>
-					<button type="button"
-						class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">
 						<span class="sr-only">文章分类</span>
 					</button>
 					<div class="dropdown-menu" style="z-index: 10002;">
-						<a class="dropdown-item" th:each="group : ${groups}"
-							th:my-value="${group.articleGroupId }" th:text="${group.name}"
-							th:value="${group.name}">Action</a>
+						<a class="dropdown-item" th:each="group : ${groups}" th:my-value="${group.articleGroupId }" th:text="${group.name}" th:value="${group.name}">Action</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#"><input type="text"
-							class="form-control" name="" id="addGroupInput"
-							aria-describedby="helpId" placeholder="添加分组……"></a>
+						<a class="dropdown-item" href="#">
+							<input type="text" class="form-control" name="" id="addGroupInput" aria-describedby="helpId" placeholder="添加分组……">
+						</a>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for=""></label> <input type="text" class="form-control"
-						name="" id="articleTitle" aria-describedby="helpId"
-						placeholder="请输入标题"> <small id="helpId"
-						class="form-text text-muted fade"></small> <label for=""></label>
-					<input type="text" class="form-control" name="" id="secondTitle"
-						aria-describedby="helpId" placeholder="请输入简介……或者也可以说说天气呀……"> <small
-						id="helpId" class="form-text text-muted fade"></small>
+					<label for=""></label>
+					<input type="text" class="form-control" name="" id="articleTitle" aria-describedby="helpId" placeholder="请输入标题">
+					<small id="helpId" class="form-text text-muted fade"></small>
+					<label for=""></label>
+					<input type="text" class="form-control" name="" id="secondTitle" aria-describedby="helpId" placeholder="请输入简介……或者也可以说说天气呀……">
+					<small id="helpId" class="form-text text-muted fade"></small>
 				</div>
 				<div class="post-content" id="post-content" itemprop="postContent">
 					<div class="editormd" id="test-editormd">
-						<textarea class="editormd-markdown-textarea article-content"
-							name="test-editormd-markdown-doc"># 支撑起整个互联网时代的 7 款开源软件
+						<textarea class="editormd-markdown-textarea article-content" name="test-editormd-markdown-doc"># 支撑起整个互联网时代的 7 款开源软件
 
 [TOCM]
 
@@ -461,143 +420,34 @@ WebKit 是一个开源的浏览器引擎，与之相应的引擎有 Gecko（Mozi
 						<textarea class="editormd-html-textarea" name="text"></textarea>
 					</div>
 				</div>
-
-				<!-- <blockquote class="post-copyright">
-    <div class="content">
-        
-<span class="post-time">
-    最后更新：<time datetime="2018-06-02T07:41:59.379Z" itemprop="dateUpdated">2018-06-02 15:41:59</time>
-</span>
-
-
-        
-        原文链接：<a href="/editBlog/" target="_blank" rel="external">http://zhangxiaoran.cn/editBlog/</a>
-        
-    </div>
-    <footer>
-        <div onclick="location.href='http://zhangxiaoran.cn'">
-            <img src="/img/avatar.jpg" alt="Aimee">
-            <a>Aimee</a>
-        </div>
-    </footer>
-</blockquote>
-
-        
- -->
-
 				<div class="post-footer">
-					<!-- 
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhangxiaoran.cn/editBlog/&title=Aimee&pic=http://zhangxiaoran.cn/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhangxiaoran.cn/editBlog/&title=Aimee&source=Aimee" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhangxiaoran.cn/editBlog/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Aimee&url=http://zhangxiaoran.cn/editBlog/&via=http://zhangxiaoran.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhangxiaoran.cn/editBlog/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
- -->
-
-					<button type="button" class="btn btn-primary float-right commite-blog"
-						style="margin-left: 10px; margin-bottom: 10px">保存</button>
-					<button type="button" class="btn btn-secondary float-right rollback-blog"
-						style="margin-left: 10px; margin-bottom: 10px">取消</button>
-
+					<button type="button" class="btn btn-primary float-right commite-blog" style="margin-left: 10px; margin-bottom: 10px">保存</button>
+					<button type="button" class="btn btn-secondary float-right rollback-blog" style="margin-left: 10px; margin-bottom: 10px">取消</button>
 				</div>
 			</div>
-			<!-- <script>
-				window.onload = wangEd;
-				function wangEd() {
-					var E = window.wangEditor;
-					var editor = new E('#myText');
-					editor.create();
-				}
-			</script> -->
-
-
-
-
-
-
-
-
-
-
-
 		</article>
-		<!-- <script src="/js/wangEditor.min.js?v=3.0" type="text/JavaScript"></script> -->
 	</div>
 
 	<footer class="footer">
 		<div class="footer-content">
-			<span class="power"> <i class="icon icon-lg icon-copyright"></i>
-				2019 <i class="icon icon-lg icon-heart"></i> <a
-				href="http://zhangxiaoran.cn">zhangxiaoran.cn</a> <br /> Power by <a
-				href="http://tomotoes.com/" target="_blank" rel="external nofollow">tomotoes</a>&nbsp;·&nbsp;
+			<span class="power"> <i class="icon icon-lg icon-copyright"></i> 2019 <i class="icon icon-lg icon-heart"></i> <a
+					href="http://zhangxiaoran.cn">zhangxiaoran.cn</a> <br /> Power by <a href="http://tomotoes.com/" target="_blank" rel="external nofollow">tomotoes</a>&nbsp;·&nbsp;
 				Theme
-			</span> <br /> <span id="RunTime" style="color: #a7a7a2;"></span> <br /> <span>
-
-				<i class="icon icon-lg icon-user"> <span
-					id="busuanzi_container_site_uv" style='display: none'> 访问用户：<span
-						id="busuanzi_value_site_uv"></span>
+			</span> <br /> <span id="RunTime" style="color: #a7a7a2;"></span> <br /> <span> <i class="icon icon-lg icon-user"> <span
+					id="busuanzi_container_site_uv" style='display: none'> 访问用户：<span id="busuanzi_value_site_uv"></span>
 				</span>人
-			</i> · <i class="icon icon-lg icon-eye"> <span
-					id="busuanzi_container_site_pv" style='display: none'> 访问次数：<span
-						id="busuanzi_value_site_pv"></span>
+			</i> · <i class="icon icon-lg icon-eye"> <span id="busuanzi_container_site_pv" style='display: none'> 访问次数：<span id="busuanzi_value_site_pv"></span>
 				</span>次
 			</i>
-
-
-			</span> <br /> <span class="license"><a target="_blank"
-				rel="license"
-				href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循
+			</span> <br /> <span class="license"><a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循
 					知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
 		</div>
 	</footer> </main>
 
 	<div class="mask" id="mask"></div>
-	<a href="javascript:;" id="gotop"
-		class="waves-effect waves-circle waves-light"><span
-		class="icon icon-lg icon-chevron-up"></span></a>
-
+	<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light">
+		<span class="icon icon-lg icon-chevron-up"></span>
+	</a>
 
 	<!-- waves按钮特效 -->
 	<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
@@ -633,39 +483,17 @@ WebKit 是一个开源的浏览器引擎，与之相应的引擎有 Gecko（Mozi
 				path : "../lib/",
 				saveHTMLToTextarea : true
 			});
-
-			/*
-			// or
-			testEditor = editormd({
-			    id      : "test-editormd",
-			    width   : "90%",
-			    height  : 640,
-			    path    : "../lib/"
-			});
-			 */
 		});
 	</script>
-	<!-- <script>
-		$(function() {
-			$(".dropdown-item").click(function() {
-				$(".article-group").text(this.text);
-				$(".article-group").val(this.text);
-			})
-		})
-	</script> -->
-
 	<!-- 搜索 -->
-
 	<div class="search-panel" id="search-panel">
 		<ul class="search-result" id="search-result"></ul>
 	</div>
 	<template id="search-tpl">
-	<li class="item waves-block waves-effect"
-		onclick="location.href='{path}'">
+	<li class="item waves-block waves-effect" onclick="location.href='{path}'">
 		<div class="title ellipsis" title="{title}">{title}</div>
 	</li>
 	</template>
-
 
 	<!-- main博客脚本 -->
 	<script src="../js/main.min.js?v=3.0"></script>
@@ -753,19 +581,5 @@ WebKit 是一个开源的浏览器引擎，与之相应的引擎有 Gecko（Mozi
 					}, 0);
 		}
 	</script>
-
-
-
-
-	<!-- 公式渲染 -->
-
-
-
-	<!-- 不蒜子 -->
-
-	<!-- <script async
-		src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
-
-
 </body>
 </html>

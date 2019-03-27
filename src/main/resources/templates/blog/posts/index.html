@@ -6,10 +6,8 @@
 
 
 
-<title th:text="'Aimee | ' + ${article.articleTitle}">第一篇博客 |
-	Aimee | Welcome</title>
-<meta name="viewport"
-	content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title th:text="'Aimee | ' + ${article.articleTitle}">第一篇博客 | Aimee | Welcome</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
 <meta name="theme-color" content="#77AAFF">
 
@@ -45,8 +43,7 @@
 	content="Quick StartCreate a new post1$ hexo new &quot;My New Post&quot; More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第一篇博客">
-<meta property="og:url"
-	content="http://zhangxiaoran.cn/posts/17051/index.html">
+<meta property="og:url" content="http://zhangxiaoran.cn/posts/17051/index.html">
 <meta property="og:site_name" content="Aimee">
 <meta property="og:description"
 	content="Quick StartCreate a new post1$ hexo new &quot;My New Post&quot; More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$">
@@ -57,32 +54,24 @@
 <meta name="twitter:description"
 	content="Quick StartCreate a new post1$ hexo new &quot;My New Post&quot; More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$">
 
-<link rel="alternate" type="application/atom+xml" title="Aimee"
-	href="/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Aimee" href="/atom.xml">
 
 <link rel="shortcut icon" href="../images/favicon.ico">
 <link id="style" rel="stylesheet" href="../css/aimee-style.css?v=3.0">
 <link id="style" rel="stylesheet" href="../css/editor-style.css?v=3.0">
-<link rel="stylesheet" type="text/css"
-	href="../css/bootstrap.min.css?v=3.0">
-<link rel="stylesheet" type="text/css"
-	href="../css/editormd.min.css?v=3.0">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css?v=3.0">
+<link rel="stylesheet" type="text/css" href="../css/editormd.min.css?v=3.0">
 <script>
 	window.lazyScripts = []
 </script>
-
 <!-- custom head -->
-
-
 </head>
-
 <body>
 	<div id="loading" class="active"></div>
 	<aside id="menu" class="hide">
 		<div class="inner flex-row-vertical">
-			<a href="javascript:;"
-				class="header-icon waves-effect waves-circle waves-light"
-				id="menu-off"> <i class="icon icon-lg icon-close"></i>
+			<a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+				<i class="icon icon-lg icon-close"></i>
 			</a>
 			<div class="brand-wrap">
 				<div class="brand">
@@ -91,159 +80,141 @@
 					</a>
 					<hgroup class="introduce">
 						<h5 class="nickname" id="name" th:text="${author.nickName }">Aimee</h5>
-
 						<div id="yiyanaimee" class="aimee">&nbsp;</div>
-
 					</hgroup>
 				</div>
 			</div>
 			<div class="scroll-wrap flex-col">
 				<ul class="nav">
-
-					<li class="waves-block waves-effect"><a href="/blog"> <i
-							class="icon icon-lg icon-home"></i> <span>主 页</span><i
-							class="icon icon-lg icon-caret-left"></i>
-					</a></li>
-
-					<li class="waves-block waves-effect"><a href="/blog/archives">
-							<i class="icon icon-lg icon-archives"></i> <span>归 档</span><i
-							class="icon icon-lg icon-caret-left"></i>
-					</a></li>
-
-					<li class="waves-block waves-effect"><a
-						href="/blog/categories"> <i class="icon icon-lg icon-th-list"></i>
-							<span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
-					</a></li>
-
-					<li class="waves-block waves-effect"><a href="/blog/tags">
-							<i class="icon icon-lg icon-tags"></i> <span>标 签</span><i
-							class="icon icon-lg icon-caret-left"></i>
-					</a></li>
-
-					<li class="waves-block waves-effect"><a href="/blog/about">
-							<i class="icon icon-lg icon-smile-o"></i> <span>关 于</span><i
-							class="icon icon-lg icon-caret-left"></i>
-					</a></li>
-
-					<li class="waves-block waves-effect"><a href="/../"> <i
-							class="icon icon-lg icon-align-justify"></i> <span>导 航</span><i
-							class="icon icon-lg icon-caret-left"></i>
-					</a></li>
-
+					<li class="waves-block waves-effect">
+						<a href="/blog">
+							<i class="icon icon-lg icon-home"></i>
+							<span>主 页</span>
+							<i class="icon icon-lg icon-caret-left"></i>
+						</a>
+					</li>
+					<li class="waves-block waves-effect">
+						<a href="/blog/archives">
+							<i class="icon icon-lg icon-archives"></i>
+							<span>归 档</span>
+							<i class="icon icon-lg icon-caret-left"></i>
+						</a>
+					</li>
+					<li class="waves-block waves-effect">
+						<a href="/blog/categories">
+							<i class="icon icon-lg icon-th-list"></i>
+							<span>分 类</span>
+							<i class="icon icon-lg icon-caret-left"></i>
+						</a>
+					</li>
+					<li class="waves-block waves-effect">
+						<a href="/blog/tags">
+							<i class="icon icon-lg icon-tags"></i>
+							<span>标 签</span>
+							<i class="icon icon-lg icon-caret-left"></i>
+						</a>
+					</li>
+					<li class="waves-block waves-effect">
+						<a href="/blog/about">
+							<i class="icon icon-lg icon-smile-o"></i>
+							<span>关 于</span>
+							<i class="icon icon-lg icon-caret-left"></i>
+						</a>
+					</li>
+					<li class="waves-block waves-effect">
+						<a href="/../">
+							<i class="icon icon-lg icon-align-justify"></i>
+							<span>导 航</span>
+							<i class="icon icon-lg icon-caret-left"></i>
+						</a>
+					</li>
 					<div class="nav2">
-
-						<a class="nav2item" data-title="Email"
-							href="mailto:sanbowla@163.com" target="_parent" title="Email">
+						<a class="nav2item" data-title="Email" href="mailto:sanbowla@163.com" target="_parent" title="Email">
 							<i class="icon icon-lg icon-envelope-o envelope-o"></i>
-						</a> <a class="nav2item" data-title="Github"
-							href="https://github.com/ShawnChang-0507" target="_blank"
-							title="Github"> <i class="icon icon-lg icon-github github"></i>
-						</a> <a class="nav2item" data-title="微博"
-							href="https://weibo.com/u/378090670" target="_blank" title="微博">
+						</a>
+						<a class="nav2item" data-title="Github" href="https://github.com/ShawnChang-0507" target="_blank" title="Github">
+							<i class="icon icon-lg icon-github github"></i>
+						</a>
+						<a class="nav2item" data-title="微博" href="https://weibo.com/u/378090670" target="_blank" title="微博">
 							<i class="icon icon-lg icon-weibo weibo"></i>
 						</a>
-
-
 					</div>
-
 				</ul>
-
 			</div>
 		</div>
-
 	</aside>
 
-
 	<main id="main"> <!-- 登录 -->
-	<div class="modal fade" id="loginId" tabindex="-1" role="dialog"
-		aria-labelledby="loginTitleId" aria-hidden="true">
+	<div class="modal fade" id="loginId" tabindex="-1" role="dialog" aria-labelledby="loginTitleId" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title" id="loginTitleId">登录账户</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label for="">账号：</label> <input type="text" class="form-control"
-							name="" id="loginLoginName" aria-describedby="helpId"
-							placeholder=""> <small id="loginLoginNameHelp"
-							class="form-text text-muted text-hide text-danger">Help
-							text</small> <label for="">密码：</label> <input type="password"
-							class="form-control" name="" id="loginLoginPassword"
-							aria-describedby="helpId" placeholder=""> <small
-							id="loginLoginPasswordHelp"
-							class="form-text text-muted text-hide text-danger"> <span
-							class="badge badge-danger passwordInfo">简单</span>
+						<label for="">账号：</label>
+						<input type="text" class="form-control" name="" id="loginLoginName" aria-describedby="helpId" placeholder="">
+						<small id="loginLoginNameHelp" class="form-text text-muted text-hide text-danger">Help text</small>
+						<label for="">密码：</label>
+						<input type="password" class="form-control" name="" id="loginLoginPassword" aria-describedby="helpId" placeholder="">
+						<small id="loginLoginPasswordHelp" class="form-text text-muted text-hide text-danger">
+							<span class="badge badge-danger passwordInfo">简单</span>
 						</small>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">取消</button>
-					<button type="button" class="btn btn-primary login"
-						data-dismiss="modal">登录</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary login" data-dismiss="modal">登录</button>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- register -->
-	<div class="modal fade" id="registerId" tabindex="-1" role="dialog"
-		aria-labelledby="registerTitleId" aria-hidden="true">
+	<div class="modal fade" id="registerId" tabindex="-1" role="dialog" aria-labelledby="registerTitleId" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title" id="registerTitleId">注册账户</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label for="">登录账号：</label> <input type="text"
-							class="form-control" name="" id="registerLoginName"
-							aria-describedby="helpId" placeholder=""> <small
-							id="registerLoginNameHelp"
-							class="form-text text-muted text-danger text-hide">请填写登录账号！</small>
-						<label for="">昵称：</label> <input type="text" class="form-control"
-							name="" id="registerNickName" aria-describedby="helpId"
-							placeholder=""> <small id="registerNickNameHelp"
-							class="form-text text-muted text-danger text-hide">请输入昵称</small>
-						<label for="">登录密码：</label> <input type="password"
-							class="form-control" name="" id="registerLoginPassword"
-							aria-describedby="helpId" placeholder=""> <small
-							id="registerLoginPasswordHelp"
-							class="form-text text-muted text-danger text-hide"> <span
-							class="badge badge-danger passwordInfo">请输入登录密码！</span>
-						</small> <label for="">重复密码：</label> <input type="password"
-							class="form-control" name="" id="registerLoginRePassword"
-							aria-describedby="helpId" placeholder=""> <small
-							id="registerLoginRePasswordHelp"
-							class="form-text text-muted text-danger text-hide">重复登录密码！</small>
+						<label for="">登录账号：</label>
+						<input type="text" class="form-control" name="" id="registerLoginName" aria-describedby="helpId" placeholder="">
+						<small id="registerLoginNameHelp" class="form-text text-muted text-danger text-hide">请填写登录账号！</small>
+						<label for="">昵称：</label>
+						<input type="text" class="form-control" name="" id="registerNickName" aria-describedby="helpId" placeholder="">
+						<small id="registerNickNameHelp" class="form-text text-muted text-danger text-hide">请输入昵称</small>
+						<label for="">登录密码：</label>
+						<input type="password" class="form-control" name="" id="registerLoginPassword" aria-describedby="helpId" placeholder="">
+						<small id="registerLoginPasswordHelp" class="form-text text-muted text-danger text-hide">
+							<span class="badge badge-danger passwordInfo">请输入登录密码！</span>
+						</small>
+						<label for="">重复密码：</label>
+						<input type="password" class="form-control" name="" id="registerLoginRePassword" aria-describedby="helpId" placeholder="">
+						<small id="registerLoginRePasswordHelp" class="form-text text-muted text-danger text-hide">重复登录密码！</small>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">取消</button>
-					<button type="button" class="btn btn-primary register"
-						data-dismiss="modal">提交</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary register" data-dismiss="modal">提交</button>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- 提示框 -->
-	<div class="modal fade" id="aimeeSaid" tabindex="-1" role="dialog"
-		aria-labelledby="loginTitleId" aria-hidden="true">
+	<div class="modal fade" id="aimeeSaid" tabindex="-1" role="dialog" aria-labelledby="loginTitleId" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title" id="registerTitleId">冉萌村儿通告：</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -260,130 +231,122 @@
 	</div>
 	<header class="top-header" id="header">
 		<div class="flex-row">
-			<a href="javascript:;"
-				class="header-icon waves-effect waves-circle waves-light on"
-				id="menu-toggle"> <i class="icon icon-lg icon-navicon"></i>
+			<a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+				<i class="icon icon-lg icon-navicon"></i>
 			</a>
 			<div class="flex-col header-title ellipsis">第一篇博客</div>
 
 			<div class="search-wrap" id="search-wrap">
-				<a href="javascript:;"
-					class="header-icon waves-effect waves-circle waves-light" id="back">
+				<a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
 					<i class="icon icon-lg icon-chevron-left"></i>
-				</a> <input type="text" id="key" class="search-input" autocomplete="off"
-					placeholder="输入感兴趣的关键字"> <a href="javascript:;"
-					class="header-icon waves-effect waves-circle waves-light"
-					id="search"> <i class="icon icon-lg icon-search"></i>
+				</a>
+				<input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+				<a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+					<i class="icon icon-lg icon-search"></i>
 				</a>
 			</div>
 
-			<a href="../../blog/editBlog" target="_blank"
-				class="header-icon waves-effect waves-circle waves-light" id="Rss"
-				th:if="${session.myVisitor} != null"> <i
-				class="icon icon-lg icon-book"></i>
-			</a> <a href="#" target="_blank"
-				class="header-icon waves-effect waves-circle waves-light" id="Rss1"
-				data-toggle="modal" data-target="#loginId"
-				th:if="${session.myVisitor} == null"> <i
-				class="icon icon-lg icon-user"></i>
-			</a> <a href="#" target="_blank"
-				class="header-icon waves-effect waves-circle waves-light" id="Rss2"
-				data-toggle="modal" data-target="#registerId"> <i
-				class="icon icon-lg icon-user-plus"></i>
+			<a href="../../blog/editBlog" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss"
+				th:if="${session.myVisitor} != null">
+				<i class="icon icon-lg icon-book"></i>
+			</a>
+			<a href="#" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss1" data-toggle="modal" data-target="#loginId"
+				th:if="${session.myVisitor} == null">
+				<i class="icon icon-lg icon-user"></i>
+			</a>
+			<a href="#" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss2" data-toggle="modal" data-target="#registerId">
+				<i class="icon icon-lg icon-user-plus"></i>
 			</a>
 		</div>
 	</header> <header class="content-header post-header">
-
-
 		<div class="aimee_container fade-scale">
 			<div id="myheader">
 				<h1 class="title"></h1>
 				<h5 class="subtitle"></h5>
 			</div>
 		</div>
-
 	</header>
-
 	<div class="aimee_container body-wrap">
-
 		<aside class="post-widget">
 			<nav class="post-toc-wrap" id="post-toc">
 				<h4>TOC</h4>
 				<ol class="post-toc">
-					<li class="post-toc-item post-toc-level-2"><a
-						class="post-toc-link" href="#Quick-Start"><span
-							class="post-toc-number">1.</span> <span class="post-toc-text">Quick
-								Start</span></a>
+					<li class="post-toc-item post-toc-level-2">
+						<a class="post-toc-link" href="#Quick-Start">
+							<span class="post-toc-number">1.</span>
+							<span class="post-toc-text">Quick Start</span>
+						</a>
 						<ol class="post-toc-child">
-							<li class="post-toc-item post-toc-level-3"><a
-								class="post-toc-link" href="#Create-a-new-post"><span
-									class="post-toc-number">1.1.</span> <span class="post-toc-text">Create
-										a new post</span></a></li>
-							<li class="post-toc-item post-toc-level-3"><a
-								class="post-toc-link" href="#Run-server"><span
-									class="post-toc-number">1.2.</span> <span class="post-toc-text">Run
-										server</span></a></li>
-							<li class="post-toc-item post-toc-level-3"><a
-								class="post-toc-link" href="#Generate-static-files"><span
-									class="post-toc-number">1.3.</span> <span class="post-toc-text">Generate
-										static files</span></a></li>
-							<li class="post-toc-item post-toc-level-3"><a
-								class="post-toc-link" href="#Deploy-to-remote-sites"><span
-									class="post-toc-number">1.4.</span> <span class="post-toc-text">Deploy
-										to remote sites</span></a></li>
-						</ol></li>
+							<li class="post-toc-item post-toc-level-3">
+								<a class="post-toc-link" href="#Create-a-new-post">
+									<span class="post-toc-number">1.1.</span>
+									<span class="post-toc-text">Create a new post</span>
+								</a>
+							</li>
+							<li class="post-toc-item post-toc-level-3">
+								<a class="post-toc-link" href="#Run-server">
+									<span class="post-toc-number">1.2.</span>
+									<span class="post-toc-text">Run server</span>
+								</a>
+							</li>
+							<li class="post-toc-item post-toc-level-3">
+								<a class="post-toc-link" href="#Generate-static-files">
+									<span class="post-toc-number">1.3.</span>
+									<span class="post-toc-text">Generate static files</span>
+								</a>
+							</li>
+							<li class="post-toc-item post-toc-level-3">
+								<a class="post-toc-link" href="#Deploy-to-remote-sites">
+									<span class="post-toc-number">1.4.</span>
+									<span class="post-toc-text">Deploy to remote sites</span>
+								</a>
+							</li>
+						</ol>
+					</li>
 				</ol>
 			</nav>
 		</aside>
-
-		<article id="post-alicia"
-			class="post-article article-type-post aimee-fade" itemprop="blogPost">
-
+		<article id="post-alicia" class="post-article article-type-post aimee-fade" itemprop="blogPost">
 			<div class="post-card">
 				<span class="articleId" style="display: none" th:text="${article.articleId}"></span>
 				<h1 class="post-card-title" th:text="${article.articleTitle}">标题</h1>
 				<div class="post-meta">
-					<i class="icon icon-lg icon-calendar-o"></i> 发表于
-					<time class="post-time" title="2018-05-25 15:49:06"
-						datetime="2018-05-25T07:49:06.000Z" itemprop="datePublished"
+					<i class="icon icon-lg icon-calendar-o"></i>
+					发表于
+					<time class="post-time" title="2018-05-25 15:49:06" datetime="2018-05-25T07:49:06.000Z" itemprop="datePublished"
 						th:text="${#dates.format(article.createDate, 'yyyy-MM-dd')}">创建时间</time>
 					<br id="mybreak" />
 					<script>
 						mybreak.style = "display:none";
 					</script>
-					<i>·</i> <span id="busuanzi_container_page_pv" title="文章总阅读量"
-						style='display: none'> <i class="icon icon-eye icon-pr"></i><span
-						id="busuanzi_value_page_pv"></span>浏览次数
+					<i>·</i>
+					<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display: none'>
+						<i class="icon icon-eye icon-pr"></i>
+						<span id="busuanzi_value_page_pv"></span>
+						浏览次数
 					</span>
-
-
 				</div>
 				<div class="post-count-custom">
-					<i class="icon icon-lg icon-comment-o"></i> 阅读本文可能花费您&nbsp;<span
-						class="post-count" th:text="${article.spendTime }"></span>&nbsp;分钟
+					<i class="icon icon-lg icon-comment-o"></i>
+					阅读本文可能花费您&nbsp;
+					<span class="post-count" th:text="${article.spendTime }"></span>
+					&nbsp;分钟
 				</div>
-
 
 				<div class="post-content" id="post-content" itemprop="postContent">
 					<div id="doc-content">
-						<textarea style="display: none;"
-							th:text="${article.articleContent}"></textarea>
+						<textarea style="display: none;" th:text="${article.articleContent}"></textarea>
 					</div>
-
 				</div>
-
-
-
-
 
 				<blockquote class="post-copyright">
 					<div class="content">
-
-						<span class="post-time"> 最后更新：<time
-								datetime="2018-06-02T05:18:58.546Z" itemprop="dateUpdated"
-								th:text="${#dates.format(article.createDate, 'yyyy-MM-dd')}"></time>
-						</span> 原文链接：<a href="" id='articleUrl' target="_blank" rel="external"></a>
-
+						<span class="post-time">
+							最后更新：
+							<time datetime="2018-06-02T05:18:58.546Z" itemprop="dateUpdated" th:text="${#dates.format(article.createDate, 'yyyy-MM-dd')}"></time>
+						</span>
+						原文链接：
+						<a href="" id='articleUrl' target="_blank" rel="external"></a>
 					</div>
 					<footer>
 						<div onclick="location.href='http://zhangxiaoran.cn'">
@@ -396,73 +359,78 @@
 
 				<div class="page-reward">
 					<nav class="myreward">
-						<a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+						<a id="rewardBtn" href="javascript:;">
+							<span>打&nbsp;赏</span>
+							<span>装成好像很多人打赏的样子</span>
+						</a>
 					</nav>
 				</div>
 
-
-
 				<div class="post-footer">
-
-
-
 					<div class="page-share-wrap">
-
-
 						<div class="page-share" id="pageShare">
 							<ul class="reset share-icons">
-								<li><a class="weibo share-sns" target="_blank"
-									href="http://service.weibo.com/share/share.php?url=http://zhangxiaoran.cn/posts/17051/&title=《第一篇博客》 — Aimee&pic=http://zhangxiaoran.cn/img/avatar.jpg"
-									data-title="微博"> <i class="icon icon-weibo"></i>
-								</a></li>
-								<li><a class="weixin share-sns wxFab" href="javascript:;"
-									data-title="微信"> <i class="icon icon-weixin"></i>
-								</a></li>
-								<li><a class="qq share-sns" target="_blank"
-									href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhangxiaoran.cn/article/showArticle?arId=' + ${last?.articleId} + '}&title=《'+ ${article.articleTitle} +'》 — Aimee&source=Aimee'"
-									data-title=" QQ"> <i class="icon icon-qq"></i>
-								</a></li>
-								<li><a class="facebook share-sns" target="_blank"
-									th:href="@{'https://www.facebook.com/sharer/sharer.php?u=http://zhangxiaoran.cn/article/showArticle?arId=' + ${last?.articleId}}"
-									data-title=" Facebook"> <i class="icon icon-facebook"></i>
-								</a></li>
-								<li><a class="twitter share-sns" target="_blank"
-									th:href="@{'https://twitter.com/intent/tweet?text=《' + ${article.articleTitle} + '》 — Aimee&url=http://zhangxiaoran.cn/article/showArticle?arId=' + ${last?.articleId}}"
-									data-title=" Twitter"> <i class="icon icon-twitter"></i>
-								</a></li>
-								<li><a class="google share-sns" target="_blank"
-									th:href="@{'https://plus.google.com/share?url=http://zhangxiaoran.cn/article/showArticle?arId=' + ${last?.articleId}}"
-									data-title=" Google+"> <i class="icon icon-google-plus"></i>
-								</a></li>
+								<li>
+									<a class="weibo share-sns" target="_blank"
+										href="http://service.weibo.com/share/share.php?url=http://zhangxiaoran.cn/posts/17051/&title=《第一篇博客》 — Aimee&pic=http://zhangxiaoran.cn/img/avatar.jpg"
+										data-title="微博">
+										<i class="icon icon-weibo"></i>
+									</a>
+								</li>
+								<li>
+									<a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+										<i class="icon icon-weixin"></i>
+									</a>
+								</li>
+								<li>
+									<a class="qq share-sns" target="_blank"
+										href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhangxiaoran.cn/article/showArticle?arId=' + ${last?.articleId} + '}&title=《'+ ${article.articleTitle} +'》 — Aimee&source=Aimee'"
+										data-title=" QQ">
+										<i class="icon icon-qq"></i>
+									</a>
+								</li>
+								<li>
+									<a class="facebook share-sns" target="_blank"
+										th:href="@{'https://www.facebook.com/sharer/sharer.php?u=http://zhangxiaoran.cn/article/showArticle?arId=' + ${last?.articleId}}"
+										data-title=" Facebook">
+										<i class="icon icon-facebook"></i>
+									</a>
+								</li>
+								<li>
+									<a class="twitter share-sns" target="_blank"
+										th:href="@{'https://twitter.com/intent/tweet?text=《' + ${article.articleTitle} + '》 — Aimee&url=http://zhangxiaoran.cn/article/showArticle?arId=' + ${last?.articleId}}"
+										data-title=" Twitter">
+										<i class="icon icon-twitter"></i>
+									</a>
+								</li>
+								<li>
+									<a class="google share-sns" target="_blank"
+										th:href="@{'https://plus.google.com/share?url=http://zhangxiaoran.cn/article/showArticle?arId=' + ${last?.articleId}}" data-title=" Google+">
+										<i class="icon icon-google-plus"></i>
+									</a>
+								</li>
 							</ul>
 						</div>
-						<a href="javascript:;" id="shareFab"
-							class="page-share-fab waves-effect waves-circle"> <i
-							class="icon icon-share-alt icon-lg"></i>
+						<a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+							<i class="icon icon-share-alt icon-lg"></i>
 						</a>
 					</div>
 				</div>
 			</div>
 			<nav class="post-nav flex-row flex-justify-between">
-
 				<div class="waves-block waves-effect prev">
-					<a th:href="@{'/article/showArticle?arId=' + ${last?.articleId}}"
-						id="post-prev" class="post-nav-link"
-						th:if="${not #lists.isEmpty(last)}">
+					<a th:href="@{'/article/showArticle?arId=' + ${last?.articleId}}" id="post-prev" class="post-nav-link" th:if="${not #lists.isEmpty(last)}">
 						<h4 class="title" th:text="'上一篇：'+${last?.articleTitle}">上一篇：</h4>
 					</a>
 				</div>
 				<div class="waves-block waves-effect next">
-					<a th:href="@{'/article/showArticle?arId=' + ${next?.articleId}}"
-						id="post-next" class="post-nav-link"
-						th:if="${not #lists.isEmpty(next)}">
+					<a th:href="@{'/article/showArticle?arId=' + ${next?.articleId}}" id="post-next" class="post-nav-link" th:if="${not #lists.isEmpty(next)}">
 						<h4 class="title" th:text="'下一篇：'+${next?.articleTitle}">下一篇：</h4>
 					</a>
 				</div>
 			</nav>
 			<div class="post-footer">
-				<textarea class="form-control message-content" rows="3"
-					name=textarea></textarea>
+				<textarea class="form-control message-content" rows="3" name=textarea></textarea>
 				<button type="button" class="btn btn-light message-button">留言</button>
 				<div class="discuss-list">
 					<div class="alert-box" th:if="${discuss.content} != null" th:each="discuss, discussState : ${article?.discusses }">
@@ -479,107 +447,120 @@
 				</div>
 			</div>
 		</article>
-
 	</div>
-
 	<footer class="footer">
 		<div class="footer-content">
-			<span class="power"> <i class="icon icon-lg icon-copyright"></i>
-				2019 <i class="icon icon-lg icon-heart"></i> <a
-				href="http://zhangxiaoran.cn">zhangxiaoran.cn</a> <br /> Power by <a
-				href="http://tomotoes.com/" target="_blank" rel="external nofollow">tomotoes</a>&nbsp;·&nbsp;
-				Theme
-			</span> <br /> <span id="RunTime" style="color: #a7a7a2;"></span> <br /> <span>
-
-				<i class="icon icon-lg icon-user"
-				th:text="' '+${totalVisitorNumber }+'人'"> <span
-					id="busuanzi_container_site_uv" style='display: none'> 总访问量：<span
-						id="busuanzi_value_site_uv"></span>
-				</span>人
-			</i> · <i class="icon icon-lg icon-eye"
-				th:text="' '+${totalVisitNumber }+'次'"> <span
-					id="busuanzi_container_site_pv" style='display: none'> 访问次数：<span
-						id="busuanzi_value_site_pv"></span>
-				</span>次
-			</i>
-
-			</span> <br /> <span class="license">京ICP备19007542号</span>
+			<span class="power">
+				<i class="icon icon-lg icon-copyright"></i>
+				2019
+				<i class="icon icon-lg icon-heart"></i>
+				<a href="http://zhangxiaoran.cn">zhangxiaoran.cn</a>
+				<br /> Power by
+				<a href="http://tomotoes.com/" target="_blank" rel="external nofollow">tomotoes</a>
+				&nbsp;·&nbsp; Theme
+			</span>
+			<br />
+			<span id="RunTime" style="color: #a7a7a2;"></span>
+			<br />
+			<span>
+				<i class="icon icon-lg icon-user" th:text="' '+${totalVisitorNumber }+'人'">
+					<span id="busuanzi_container_site_uv" style='display: none'>
+						总访问量：
+						<span id="busuanzi_value_site_uv"></span>
+					</span>
+					人
+				</i>
+				·
+				<i class="icon icon-lg icon-eye" th:text="' '+${totalVisitNumber }+'次'">
+					<span id="busuanzi_container_site_pv" style='display: none'>
+						访问次数：
+						<span id="busuanzi_value_site_pv"></span>
+					</span>
+					次
+				</i>
+			</span>
+			<br />
+			<span class="license">京ICP备19007542号</span>
 		</div>
 	</footer> </main>
-
-
 	<div id="reward" class="page-modal reward-lay">
-		<a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+		<a class="close" href="javascript:;">
+			<i class="icon icon-close"></i>
+		</a>
 		<h3 class="reward-title">
-			<i class="icon icon-quote-left"></i> <span>感谢您的鼓励支持！</span> <i
-				class="icon icon-quote-right"></i>
+			<i class="icon icon-quote-left"></i>
+			<span>感谢您的鼓励支持！</span>
+			<i class="icon icon-quote-right"></i>
 		</h3>
 		<div class="reward-content">
-
 			<div class="reward-code">
 				<img id="rewardCode" data-img="../images/dog.png" alt="打赏二维码">
 			</div>
 
-			<label class="reward-toggle"> <input id="rewardToggle"
-				type="checkbox" class="reward-toggle-check"
-				data-wechat="../images/wechatPay.png"
-				data-alipay="../images/alipay.png">
+			<label class="reward-toggle">
+				<input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="../images/wechatPay.png" data-alipay="../images/alipay.png">
 				<div class="reward-toggle-ctrol">
 					<span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
 					<span class="reward-toggle-item alipayPay">支付宝</span>
 				</div>
-			</label> <i class="icon icon-caret-up"></i>
+			</label>
+			<i class="icon icon-caret-up"></i>
 		</div>
 	</div>
-
-
-
 	<div class="mask" id="mask"></div>
-	<a href="javascript:;" id="gotop"
-		class="waves-effect waves-circle waves-light"><span
-		class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
+	<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light">
+		<span class="icon icon-lg icon-chevron-up"></span>
+	</a>
 	<div class="global-share" id="globalShare">
 		<ul class="reset share-icons">
-			<li><a class="weibo share-sns" target="_blank"
-				href="http://service.weibo.com/share/share.php?url=http://zhangxiaoran.cn/posts/17051/&title=《第一篇博客》 — Aimee&pic=http://zhangxiaoran.cn/img/avatar.jpg"
-				data-title="微博"> <i class="icon icon-weibo"></i>
-			</a></li>
-			<li><a class="weixin share-sns wxFab" href="javascript:;"
-				data-title="微信"> <i class="icon icon-weixin"></i>
-			</a></li>
-			<li><a class="qq share-sns" target="_blank"
-				href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhangxiaoran.cn/posts/17051/&title=《第一篇博客》 — Aimee&source=Aimee"
-				data-title=" QQ"> <i class="icon icon-qq"></i>
-			</a></li>
-			<li><a class="facebook share-sns" target="_blank"
-				href="https://www.facebook.com/sharer/sharer.php?u=http://zhangxiaoran.cn/posts/17051/"
-				data-title=" Facebook"> <i class="icon icon-facebook"></i>
-			</a></li>
-			<li><a class="twitter share-sns" target="_blank"
-				href="https://twitter.com/intent/tweet?text=《第一篇博客》 — Aimee&url=http://zhangxiaoran.cn/posts/17051/&via=http://zhangxiaoran.cn"
-				data-title=" Twitter"> <i class="icon icon-twitter"></i>
-			</a></li>
-			<li><a class="google share-sns" target="_blank"
-				href="https://plus.google.com/share?url=http://zhangxiaoran.cn/posts/17051/"
-				data-title=" Google+"> <i class="icon icon-google-plus"></i>
-			</a></li>
+			<li>
+				<a class="weibo share-sns" target="_blank"
+					href="http://service.weibo.com/share/share.php?url=http://zhangxiaoran.cn/posts/17051/&title=《第一篇博客》 — Aimee&pic=http://zhangxiaoran.cn/img/avatar.jpg"
+					data-title="微博">
+					<i class="icon icon-weibo"></i>
+				</a>
+			</li>
+			<li>
+				<a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+					<i class="icon icon-weixin"></i>
+				</a>
+			</li>
+			<li>
+				<a class="qq share-sns" target="_blank"
+					href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhangxiaoran.cn/posts/17051/&title=《第一篇博客》 — Aimee&source=Aimee"
+					data-title=" QQ">
+					<i class="icon icon-qq"></i>
+				</a>
+			</li>
+			<li>
+				<a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhangxiaoran.cn/posts/17051/"
+					data-title=" Facebook">
+					<i class="icon icon-facebook"></i>
+				</a>
+			</li>
+			<li>
+				<a class="twitter share-sns" target="_blank"
+					href="https://twitter.com/intent/tweet?text=《第一篇博客》 — Aimee&url=http://zhangxiaoran.cn/posts/17051/&via=http://zhangxiaoran.cn"
+					data-title=" Twitter">
+					<i class="icon icon-twitter"></i>
+				</a>
+			</li>
+			<li>
+				<a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhangxiaoran.cn/posts/17051/" data-title=" Google+">
+					<i class="icon icon-google-plus"></i>
+				</a>
+			</li>
 		</ul>
 	</div>
-
-
 	<div class="page-modal wx-share" id="wxShare">
-		<a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+		<a class="close" href="javascript:;">
+			<i class="icon icon-close"></i>
+		</a>
 		<p class="wechatshare">扫一扫，分享到微信</p>
 		<img
 			src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3awW6DMBAE0Pz/T6dSb1UEzNjYQdXzCVWUPDiMvLt+veL1/l3JPffeObhwcXGnue/T9cn9vD76+ZnnHL4SLi7uRu55eF08Ig6s5PrChouL+zBuEjp5FOLi4v4P7tEm5nzD1AYcLi7uc7hJDLXBlJRGC2s1XFzcCW7bMF1xvbC/i4uLW3LHyph2xJJvhi5+HRcXdwv3/EFJkszE4lijBBcXdzW3japzYlu61B8FFxd3I3em+lhdIP35Cy4u7mO47VGtG1hHwxtcXNwt3LwESg5ltlulfNwSTYZxcXEXc2dapW2xNFY44eLiruPmhyyTzcrYcY2i/YqLi7uF2w45xkYg+fYl/3C4uLjruC0reWjxbeLXw8XF3c/NByRtI3V+Y4SLi7ufWw8whgJo7HNE8x9cXNwF3KQlmow92nvygQ0uLu63uGNR1ZZGYwsXF/db3Hy1o9Y2/gYnP7i4uLdy20CZL4Hygxp5yxUXF3cFNw+dPBDHDmFEg1tcXNyN3PxIZRI9bSAW/4WLi/swbrtjGovIi6IIFxf3wdyxgmfm6AYuLu5+bjsibcuYL7RFcHFxtzdM2xfLf7JtyuDi4t7K/QG7IXadQzM0rAAAAABJRU5ErkJggg=="
 			alt="微信分享二维码">
 	</div>
-
-
-
 
 	<!-- waves按钮特效 -->
 	<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
@@ -595,7 +576,6 @@
 
 	<!-- jquery -->
 	<!-- <script src="../js/jquery.min.js?v=3.0"></script> -->
-
 	<script src="../js/jquery.min.js?v=3.0" type="text/JavaScript"></script>
 	<script src="../js/popper.min.js?v=3.0" type="text/JavaScript"></script>
 	<script src="../js/bootstrap.min.js?v=3.0" type="text/JavaScript"></script>
@@ -629,12 +609,10 @@
 		<ul class="search-result" id="search-result"></ul>
 	</div>
 	<template id="search-tpl">
-	<li class="item waves-block waves-effect"
-		onclick="location.href='{path}'">
+	<li class="item waves-block waves-effect" onclick="location.href='{path}'">
 		<div class="title ellipsis" title="{title}">{title}</div>
 	</li>
 	</template>
-
 
 	<!-- main博客脚本 -->
 	<script src="../js/main.min.js?v=3.0"></script>
@@ -692,7 +670,6 @@
 				};
 
 			});
-
 		}
 
 		/* 名字跳动 */
@@ -725,18 +702,5 @@
 					}, 0);
 		}
 	</script>
-
-
-
-
-	<!-- 公式渲染 -->
-
-
-
-	<!-- 不蒜子 -->
-
-	<!-- <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
-
-
 </body>
 </html>
