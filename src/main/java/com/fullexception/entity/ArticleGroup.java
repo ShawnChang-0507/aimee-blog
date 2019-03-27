@@ -10,8 +10,18 @@ public class ArticleGroup {
     private String name;
 
     private Date createDate;
+    
+    private int articleCount;
 
-    public Integer getArticleGroupId() {
+    public int getArticleCount() {
+		return articleCount;
+	}
+
+	public void setArticleCount(int articleCount) {
+		this.articleCount = articleCount;
+	}
+
+	public Integer getArticleGroupId() {
         return articleGroupId;
     }
 

@@ -83,13 +83,11 @@
 			<div class="brand-wrap">
 				<div class="brand">
 					<a href="/" class="avatar waves-effect waves-circle waves-light">
-						<img src="/img/avatar.jpg" alt="avatar">
+						<img th:src="${tourist.headUrl }" alt="avatar">
 					</a>
 					<hgroup class="introduce">
-						<h5 class="nickname" id="name">Aimee</h5>
-
+						<h5 class="nickname" id="name" th:text="${tourist.nickName }">Aimee</h5>
 						<div id="yiyanaimee" class="aimee">&nbsp;</div>
-
 					</hgroup>
 				</div>
 			</div>
@@ -111,9 +109,10 @@
 							<span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
 					</a></li>
 
-					<li class="waves-block waves-effect"><a href="/blog/tags">
-							<i class="icon icon-lg icon-tags"></i> <span>标 签</span><i
-							class="icon icon-lg icon-caret-left"></i>
+					<li class="waves-block waves-effect"><a
+						href="/blog/photoAlbum"> <i class="icon icon-lg icon-tags"></i>
+							<span> <!-- 标 签 -->相册
+						</span><i class="icon icon-lg icon-caret-left"></i>
 					</a></li>
 
 					<li class="waves-block waves-effect"><a href="/blog/about">
@@ -127,7 +126,6 @@
 					</a></li>
 
 					<div class="nav2">
-
 						<a class="nav2item" data-title="Email"
 							href="mailto:sanbowla@163.com" target="_parent" title="Email">
 							<i class="icon icon-lg icon-envelope-o envelope-o"></i>
@@ -300,11 +298,11 @@
 		</h5>
 		<div class="card-pool">
 
-			<a class="MyTagLink" href="/blog/categories/算法/">
+			<a class="MyTagLink" th:each="articleGroup : ${articleGroups}">
 				<div class="card-card">
 					<div class="card-container">
-						<span href="/blog/categories/算法/" class="card-link">算法</span> <span
-							class="card-count">(2)</span>
+						<span href="/blog/categories/算法/" class="card-link" th:text="${articleGroup.name }"></span> <span
+							class="card-count" th:text="'(' + ${articleGroup.articleCount} + ')'"></span>
 					</div>
 				</div>
 			</a>

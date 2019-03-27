@@ -198,6 +198,28 @@ public class AimeeHelper {
 		}
 		return visitor;
 	}
+	
+	/**
+	 * 游客访问时，将我的博客信息放入tourist中
+	 * @param request
+	 * @param visitor
+	 */
+	public static void touristVisitor(HttpServletRequest request, Visitor visitor){
+		HttpSession session = request.getSession();
+		session.setMaxInactiveInterval(20 * 60);
+		session.setAttribute("tourist", visitor);
+	}
+	
+	/**
+	 * 判断游客是否已经得到我的博客信息
+	 * @param request
+	 * @return
+	 */
+	public static Visitor checkTourist(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		Visitor visitor = session.getAttribute("tourist") == null ? null : (Visitor)session.getAttribute("tourist");
+		return visitor;
+	}
 
 	/**
 	 * 判断登录及初始化session
@@ -209,14 +231,21 @@ public class AimeeHelper {
 	 */
 	public static Map<String, Object> loginSystem(HttpServletRequest request, ModelMap model,
 			VisitorService visitorService) {
+		//session中tourist为访客，myVisitor为登录信息
 		Visitor visitor = AimeeHelper.checkLogin(request);
 		String ip = AimeeHelper.getIpAddr(request);
 		Boolean loginInfoOrNot = false; // 是否记录登录信息
 		Boolean loginOrNot = true;
 		// session和cookies中都没有登录信息
 		if (visitor == null) {
-			visitor = visitorService.tourist();
-			putLoginInfo(ip);
+			visitor = checkTourist(request);
+			if (visitor == null){
+				visitor = visitorService.tourist();
+				touristVisitor(request, visitor);
+				putLoginInfo(ip);
+			}else{
+				loginInfoOrNot = true;
+			}
 			loginOrNot = false;
 		} else {
 			// 创建时间为空，说明cookie有值，session没值，需要重新登录，计次

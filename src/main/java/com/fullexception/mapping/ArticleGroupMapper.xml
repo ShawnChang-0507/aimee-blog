@@ -6,6 +6,7 @@
     <result column="visitor_id" property="visitorId" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="article_count" property="articleCount" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     article_group_id, visitor_id, name, create_date
@@ -18,8 +19,9 @@
   </select>
   <select id="getAllArticleGroupByVisitorId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
   	select
-  	<include refid="Base_Column_List"/>
+  	*
   	from article_group
+  	left join (select article_group_id, count(*) article_count from article group by article_group_id) a on a.article_group_id=article_group.article_group_id 
   	where visitor_id=#{visitorId, jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >

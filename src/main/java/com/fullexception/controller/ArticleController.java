@@ -215,6 +215,10 @@ public class ArticleController {
 	
 	@GetMapping("/categories")
 	public String categories(HttpServletRequest request, ModelMap model){
+		int visitorId = AimeeHelper.visitor.get().getVisitorId();
+		List<ArticleGroup> articleGroups = articleService.getAllArticleGroupByVisitorId(visitorId);
+		model.addAttribute("articleGroups", articleGroups);
+		model.addAttribute("tourist", AimeeHelper.visitor.get());
 		return "/blog/categories/index";
 	}
 }

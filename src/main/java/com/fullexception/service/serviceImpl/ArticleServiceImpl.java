@@ -112,5 +112,4 @@ public class ArticleServiceImpl implements ArticleService {
 			throw e;
 		}
 	}
-
 }
