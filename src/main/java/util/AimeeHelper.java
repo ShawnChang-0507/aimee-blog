@@ -3,6 +3,7 @@ package util;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.SecureRandom;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -27,16 +28,17 @@ import com.fullexception.service.VisitorService;
 public class AimeeHelper {
 
 	public static ThreadLocal<Visitor> visitor = new ThreadLocal<Visitor>();
-	
+
 	/**
 	 * 登录信息
 	 */
 	private static Map<String, Integer> loginInfo = new HashMap<String, Integer>();
-	
+
 	/**
 	 * 访问人数
 	 */
 	public static Map<String, Integer> visitNumber = new HashMap<String, Integer>();
+
 	/**
 	 * 维护登陆信息
 	 * 
@@ -154,6 +156,12 @@ public class AimeeHelper {
 		return decryptedData;
 	}
 
+	/**
+	 * 登录信息放入Cookie中 存入格式：visitorId#loginName#loginPassword
+	 * 
+	 * @param visitor
+	 * @return
+	 */
 	public static Cookie putCookie(Visitor visitor) {
 		String loginInfo = String.format("%s#%s#%s", visitor.getVisitorId(), visitor.getLoginName(),
 				visitor.getLoginPassword());
@@ -163,6 +171,12 @@ public class AimeeHelper {
 		return c;
 	}
 
+	/**
+	 * 取出Cookie 取出文件格式：visitorId#loginName#loginPassword
+	 * 
+	 * @param cs
+	 * @return
+	 */
 	public static String[] getCookie(Cookie[] cs) {
 		if (cs == null)
 			return null;
@@ -198,26 +212,28 @@ public class AimeeHelper {
 		}
 		return visitor;
 	}
-	
+
 	/**
 	 * 游客访问时，将我的博客信息放入tourist中
+	 * 
 	 * @param request
 	 * @param visitor
 	 */
-	public static void touristVisitor(HttpServletRequest request, Visitor visitor){
+	public static void touristVisitor(HttpServletRequest request, Visitor visitor) {
 		HttpSession session = request.getSession();
 		session.setMaxInactiveInterval(20 * 60);
 		session.setAttribute("tourist", visitor);
 	}
-	
+
 	/**
 	 * 判断游客是否已经得到我的博客信息
+	 * 
 	 * @param request
 	 * @return
 	 */
-	public static Visitor checkTourist(HttpServletRequest request){
+	public static Visitor checkTourist(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		Visitor visitor = session.getAttribute("tourist") == null ? null : (Visitor)session.getAttribute("tourist");
+		Visitor visitor = session.getAttribute("tourist") == null ? null : (Visitor) session.getAttribute("tourist");
 		return visitor;
 	}
 
@@ -231,7 +247,7 @@ public class AimeeHelper {
 	 */
 	public static Map<String, Object> loginSystem(HttpServletRequest request, ModelMap model,
 			VisitorService visitorService) {
-		//session中tourist为访客，myVisitor为登录信息
+		// session中tourist为访客，myVisitor为登录信息
 		Visitor visitor = AimeeHelper.checkLogin(request);
 		String ip = AimeeHelper.getIpAddr(request);
 		Boolean loginInfoOrNot = false; // 是否记录登录信息
@@ -239,11 +255,11 @@ public class AimeeHelper {
 		// session和cookies中都没有登录信息
 		if (visitor == null) {
 			visitor = checkTourist(request);
-			if (visitor == null){
+			if (visitor == null) {
 				visitor = visitorService.tourist();
 				touristVisitor(request, visitor);
 				putLoginInfo(ip);
-			}else{
+			} else {
 				loginInfoOrNot = true;
 			}
 			loginOrNot = false;
@@ -306,10 +322,9 @@ public class AimeeHelper {
 	}
 
 	/**
-	 * 获取内容中-汉字个数
+	 * 获取内容中-汉字个数（博客编写中分析阅读时间使用）
 	 * 
 	 * @param content
-	 *            - 内容
 	 * @return int
 	 */
 	public static int getChineseSize(String content) {
@@ -325,14 +340,42 @@ public class AimeeHelper {
 		}
 		return count;
 	}
-	
+
 	/**
 	 * 将日期按指定格式化为字符串
+	 * 
 	 * @param formatDate
 	 * @return
 	 */
-	public static String formatDate(Date targetDate, String formatDate){
+	public static String formatDate(Date targetDate, String formatDate) {
 		SimpleDateFormat sdf = new SimpleDateFormat(formatDate);
 		return sdf.format(targetDate);
+	}
+
+	/**
+	 * 将字符串转换成日期类型
+	 * 
+	 * @param targetDate
+	 * @param formatDate
+	 * @return
+	 * @throws ParseException
+	 */
+	public static Date dateFromString(String targetDate, String formatDate) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat(formatDate);
+		return sdf.parse(targetDate);
+	}
+	
+	/**
+	 * 判断字符串是否为数字
+	 * @param str
+	 * @return
+	 */
+	public static Boolean isNumeric(String str){
+		for(int i = 0; i < str.length(); i++){
+			if (!Character.isDigit(str.charAt(i))){
+				return false;
+			}
+		}
+		return true;
 	}
 }

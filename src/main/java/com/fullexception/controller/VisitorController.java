@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fullexception.entity.Article;
+import com.fullexception.entity.ArticleGroup;
 import com.fullexception.entity.Visitor;
 import com.fullexception.service.ArticleService;
 import com.fullexception.service.LoginInfoService;
@@ -30,6 +31,7 @@ import util.AimeeHelper;
 @Controller
 @RequestMapping
 public class VisitorController {
+	
 	@Autowired
 	private VisitorService visitorService;
 
@@ -40,38 +42,48 @@ public class VisitorController {
 	private LoginInfoService loginInfoService;
 
 	/**
-	 * 默认访问博客
-	 *//*
-		 * private Visitor visitor;
-		 */
-
+	 * 博客入口
+	 * @param request
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/")
 	public String touristVisitor(HttpServletRequest request, ModelMap model) {
 		model.addAttribute("tourist", AimeeHelper.visitor.get());
 		return "/index";
 	}
 
+	/**
+	 * 主页跳转到博客主界面， 默认显示第一页
+	 * @param request
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/showBlog")
 	public String showBlog(HttpServletRequest request, ModelMap model) {
-		/*if (AimeeHelper.visitor == null) {
-			AimeeHelper.visitor.set(visitorService.tourist());
-		}*/
 		Visitor visitor = AimeeHelper.visitor.get();
-		List<Article> articles = articleService.showArticleByAuthorId(visitor.getVisitorId(), 1);
-		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.get().getVisitorId());
+		List<Article> articles = articleService.showArticleByAuthorId(visitor.getVisitorId(), 1, null);
+		int articleCount = articleService.getArticleCountByAuthorId(visitor.getVisitorId(), null);
 		AimeeHelper.visitNumber = loginInfoService.countTheNumberOfVisitors();
-
-		model.addAttribute("tourist", AimeeHelper.visitor.get());
-		model.addAttribute("articles", articles);
 		int totalVisitorNumber = AimeeHelper.visitNumber.get("totalVisitorNumber");
 		int totalVisitNumber = AimeeHelper.visitNumber.get("totalVisitNumber");
+		model.addAttribute("tourist", AimeeHelper.visitor.get());
+		model.addAttribute("articles", articles);
 		model.addAttribute("totalVisitorNumber", totalVisitorNumber);
 		model.addAttribute("totalVisitNumber", totalVisitNumber);
 		model.addAttribute("articleCount", articleCount);
 		model.addAttribute("currentPage", 1);
+		model.addAttribute("groupId", null);
 		return "/blog/index";
 	}
 
+	/**
+	 * 注册账号
+	 * @param loginName
+	 * @param loginPassword
+	 * @param nickName
+	 * @return
+	 */
 	@ResponseBody
 	@PostMapping("/register")
 	public Map<String, String> register(String loginName, String loginPassword, String nickName) {
@@ -80,6 +92,14 @@ public class VisitorController {
 		return map;
 	}
 
+	/**
+	 * 登录博客
+	 * @param loginName
+	 * @param loginPassword
+	 * @param response
+	 * @param request
+	 * @return
+	 */
 	@ResponseBody
 	@PostMapping("/login")
 	public Map<String, String> login(String loginName, String loginPassword, HttpServletResponse response,
@@ -98,13 +118,15 @@ public class VisitorController {
 			map.put("mes", "萌妹在村里的VIP名单里翻了八百遍，也没找到您的名字o(╥﹏╥)o");
 			map.put("res", "false");
 		}
-//		UsernamePasswordToken token = new UsernamePasswordToken(loginName, loginPassword);
-//		Subject subject = SecurityUtils.getSubject();
-//		subject.login(token);
 		AimeeHelper.visitor.set(myVisitor);
 		return map;
 	}
 
+	/**
+	 * 退出登录
+	 * @param request
+	 * @return
+	 */
 	@ResponseBody
 	@PostMapping("/quitLogin")
 	public Map<String, String> quitLogin(HttpServletRequest request) {

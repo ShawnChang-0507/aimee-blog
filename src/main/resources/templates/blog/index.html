@@ -57,38 +57,52 @@
 
 					<li class="waves-block waves-effect">
 						<a href="/showBlog">
-							<i class="icon icon-lg icon-home"></i> <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+							<i class="icon icon-lg icon-home"></i>
+							<span>主 页</span>
+							<i class="icon icon-lg icon-caret-left"></i>
 						</a>
 					</li>
 
 					<li class="waves-block waves-effect">
 						<a href="/blog/archives">
-							<i class="icon icon-lg icon-archives"></i> <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+							<i class="icon icon-lg icon-archives"></i>
+							<span>归 档</span>
+							<i class="icon icon-lg icon-caret-left"></i>
 						</a>
 					</li>
 
 					<li class="waves-block waves-effect">
 						<a href="/blog/categories">
-							<i class="icon icon-lg icon-th-list"></i> <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+							<i class="icon icon-lg icon-th-list"></i>
+							<span>分 类</span>
+							<i class="icon icon-lg icon-caret-left"></i>
 						</a>
 					</li>
 
 					<li class="waves-block waves-effect">
 						<a href="/blog/photoAlbum">
-							<i class="icon icon-lg icon-tags"></i> <span> <!-- 标 签 -->相册
-							</span><i class="icon icon-lg icon-caret-left"></i>
+							<i class="icon icon-lg icon-tags"></i>
+							<span>
+								<!-- 标 签 -->
+								相册
+							</span>
+							<i class="icon icon-lg icon-caret-left"></i>
 						</a>
 					</li>
 
 					<li class="waves-block waves-effect">
 						<a href="/blog/about">
-							<i class="icon icon-lg icon-smile-o"></i> <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+							<i class="icon icon-lg icon-smile-o"></i>
+							<span>关 于</span>
+							<i class="icon icon-lg icon-caret-left"></i>
 						</a>
 					</li>
 
 					<li class="waves-block waves-effect">
 						<a href="/../">
-							<i class="icon icon-lg icon-align-justify"></i> <span>导 航</span><i class="icon icon-lg icon-caret-left"></i>
+							<i class="icon icon-lg icon-align-justify"></i>
+							<span>导 航</span>
+							<i class="icon icon-lg icon-caret-left"></i>
 						</a>
 					</li>
 
@@ -131,7 +145,8 @@
 						<small id="loginLoginNameHelp" class="form-text text-muted text-hide text-danger">Help text</small>
 						<label for="">密码：</label>
 						<input type="password" class="form-control" name="" id="loginLoginPassword" aria-describedby="helpId" placeholder="">
-						<small id="loginLoginPasswordHelp" class="form-text text-muted text-hide text-danger"> <span class="badge badge-danger passwordInfo">简单</span>
+						<small id="loginLoginPasswordHelp" class="form-text text-muted text-hide text-danger">
+							<span class="badge badge-danger passwordInfo">简单</span>
 						</small>
 					</div>
 				</div>
@@ -162,7 +177,8 @@
 						<small id="registerNickNameHelp" class="form-text text-muted text-danger text-hide">请输入昵称</small>
 						<label for="">登录密码：</label>
 						<input type="password" class="form-control" name="" id="registerLoginPassword" aria-describedby="helpId" placeholder="">
-						<small id="registerLoginPasswordHelp" class="form-text text-muted text-danger text-hide"> <span class="badge badge-danger passwordInfo">请输入登录密码！</span>
+						<small id="registerLoginPasswordHelp" class="form-text text-muted text-danger text-hide">
+							<span class="badge badge-danger passwordInfo">请输入登录密码！</span>
 						</small>
 						<label for="">重复密码：</label>
 						<input type="password" class="form-control" name="" id="registerLoginRePassword" aria-describedby="helpId" placeholder="">
@@ -229,49 +245,40 @@
 			</a>
 		</div>
 	</header> <header class="content-header index-header">
-
-
 		<div class="aimee_container fade-scale">
 			<div id="myheader">
 				<h1 class="title" th:text="${tourist.nickName }">Aimee</h1>
 				<h5 class="subtitle" th:text="${tourist.manifesto }">记录冉萌生活中的点点滴滴</h5>
 			</div>
 		</div>
-
 	</header>
 	<div class="aimee_container body-wrap">
 		<ul class="post-list" th:each="article : ${articles }">
-
 			<li class="post-list-item aimee-fade">
 				<article id="post-hello-world" class="article-card article-type-post" itemprop="blogPost">
-
 					<h3 class="post-title" itemprop="name">
 						<a th:href="@{'/article/showArticle?arId=' + ${article.articleId}}" th:text="${article.articleTitle}">这是标题</a>
 					</h3>
 					<h5 class="post-title" itemprop="name">
 						<a th:href="@{'/article/showArticle?arId=' + ${article.articleId}}" th:text="${article.secondTitle}">这是副标题</a>
 					</h5>
-
 					<div class="post-meta">
 						<time class="post-time" title="2018-05-28 17:33:39" datetime="2018-05-28T09:33:39.288Z" itemprop="datePublished"
 							th:text="${#dates.format(article.createDate, 'yyyy年MM月dd日  HH:mm')} + '  '">创建日期</time>
 						<i class="icon icon-lg icon-eye" th:text="' '+${article.readCount}+'人'"></i>
 					</div>
-
 					<div class="post-content" id="post-content" itemprop="postContent">
 
 						<div>
 							<a th:href="@{'/article/showArticle?arId=' + ${article.articleId}}" class="post-more waves-button"> 阅读全文 » </a>
 						</div>
 					</div>
-
 				</article>
-
 			</li>
 		</ul>
 		<div class="articleCount" style="display: none" th:text="${articleCount}"></div>
 		<div class="currentPage" style="display: none" th:text="${currentPage}"></div>
-
+		<div class="groupId" style="display: none" th:text="${groupId}"></div>
 	</div>
 
 	<footer class="footer">
@@ -280,24 +287,38 @@
 
 			<ul class="pagination">
 				<li>
-					<a th:if="${currentPage } != 1" th:href="@{'/blog/showBlog?pageNum=' + ${currentPage - 1}}">«</a>
+					<a th:if="${currentPage } != 1" th:href="@{'/blog/showBlog?pageNum=' + ${currentPage - 1} + '&groupId=' + ${groupId}}">«</a>
 				</li>
 				<li th:each="i:${#numbers.sequence(1, articleCount/5.0 == 0 ? articleCount/5 : articleCount/5 + 1)}">
-					<a th:href="@{'/blog/showBlog?pageNum=' + ${i}}" th:classappend="${i == currentPage} ? 'active' : ''" th:text="${i}">1</a>
+					<a th:href="@{'/blog/showBlog?pageNum=' + ${i} + '&groupId=' + ${groupId}}" th:classappend="${i == currentPage} ? 'active' : ''" th:text="${i}">1</a>
 				</li>
 				<!-- <li><a class="active" href="#">2</a></li> -->
 				<li>
 					<a th:if="${(articleCount / 5.0 == 0 ? articleCount / 5 : articleCount / 5 + 1) - currentPage} != 0"
-						th:href="@{'/blog/showBlog?pageNum=' + ${currentPage + 1}}">»</a>
+						th:href="@{'/blog/showBlog?pageNum=' + ${currentPage + 1} + '&groupId=' + ${groupId}}">»</a>
 				</li>
 			</ul>
-			<br /> <span class="power"> <i class="icon icon-lg icon-copyright"></i> 2019 <i class="icon icon-lg icon-heart"></i> <a
-					href="http://zhangxiaoran.cn">zhangxiaoran.cn</a> <br /> Power by <a href="http://tomotoes.com/" target="_blank" rel="external nofollow">tomotoes</a>&nbsp;·&nbsp;
-				Theme
-			</span> <br /> <span id="RunTime" style="color: #a7a7a2;"></span> <br /> <span> <i class="icon icon-lg icon-user"
-				th:text="' '+${totalVisitorNumber }+'人'"></i> · <i class="icon icon-lg icon-eye" th:text="' '+${totalVisitNumber }+'次'"></i>
+			<br />
+			<span class="power">
+				<i class="icon icon-lg icon-copyright"></i>
+				2019
+				<i class="icon icon-lg icon-heart"></i>
+				<a href="http://zhangxiaoran.cn">zhangxiaoran.cn</a>
+				<br /> Power by
+				<a href="http://tomotoes.com/" target="_blank" rel="external nofollow">tomotoes</a>
+				&nbsp;·&nbsp; Theme
+			</span>
+			<br />
+			<span id="RunTime" style="color: #a7a7a2;"></span>
+			<br />
+			<span>
+				<i class="icon icon-lg icon-user" th:text="' '+${totalVisitorNumber }+'人'"></i>
+				·
+				<i class="icon icon-lg icon-eye" th:text="' '+${totalVisitNumber }+'次'"></i>
 
-			</span> <br /> <span class="license">京ICP备19007542号</span>
+			</span>
+			<br />
+			<span class="license">京ICP备19007542号</span>
 		</div>
 	</footer> </main>
 

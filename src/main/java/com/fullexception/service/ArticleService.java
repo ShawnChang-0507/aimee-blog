@@ -17,13 +17,13 @@ public interface ArticleService {
 	 *            当前页，分页用
 	 * @return
 	 */
-	public List<Article> showArticleByAuthorId(int authorId, int currentPage);
+	public List<Article> showArticleByAuthorId(int authorId, int currentPage, String groupId);
 	/**
 	 * 得到作者文章总数，分页用
 	 * @param visitorId
 	 * @return
 	 */
-	public int getArticleCountByAuthorId(Integer visitorId);
+	public int getArticleCountByAuthorId(Integer visitorId, String groupId);
 	
 	/**
 	 * 根据id获取文章

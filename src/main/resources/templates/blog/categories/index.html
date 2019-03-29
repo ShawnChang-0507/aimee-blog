@@ -234,15 +234,14 @@
 				</h5>
 			</div>
 		</div>
-
 	</header>
 	<div class="aimee_container body-wrap aimee-fade">
 		<h5 class="tag-tip">
 			<i class="icon icon-lg icon-th-list"></i>
-			目前共&nbsp;1&nbsp;大分类
+			<span th:text="'目前共&nbsp;' + ${#lists.size(articleGroups)} + '&nbsp;大分类'"></span>
 		</h5>
 		<div class="card-pool">
-			<a class="MyTagLink" th:each="articleGroup : ${articleGroups}">
+			<a th:href="@{'/blog/showBlog?pageNum=1&groupId=' + ${articleGroup.articleGroupId}}" class="MyTagLink" th:each="articleGroup : ${articleGroups}">
 				<div class="card-card">
 					<div class="card-container">
 						<span href="/blog/categories/算法/" class="card-link" th:text="${articleGroup.name }"></span>

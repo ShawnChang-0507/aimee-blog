@@ -29,17 +29,21 @@ public class ArticleServiceImpl implements ArticleService {
 	private ArticleGroupMapper articleGroupMapper;
 
 	@Override
-	public List<Article> showArticleByAuthorId(int authorId, int currentPage) {
+	public List<Article> showArticleByAuthorId(int authorId, int currentPage, String groupId) {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("authorId", authorId);
 		map.put("currentPage", (currentPage - 1) * 5);
+		map.put("groupId", groupId == null ? -1 : Integer.parseInt(groupId));
 		List<Article> list = articleMapper.getArticleByAuthorIdAndPage(map);
 		return list;
 	}
 
 	@Override
-	public int getArticleCountByAuthorId(Integer visitorId) {
-		int articleCount = articleMapper.getArticleCountByAuthorid(visitorId);
+	public int getArticleCountByAuthorId(Integer visitorId, String groupId) {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("visitorId", visitorId);
+		map.put("groupId", groupId == null ? -1 : Integer.parseInt(groupId));
+		int articleCount = articleMapper.getArticleCountByAuthorid(map);
 		return articleCount;
 	}
 

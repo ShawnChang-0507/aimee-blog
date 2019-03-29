@@ -96,15 +96,22 @@
 			article_state_id=1 and article_public_id=1 and
 			author_id=#{authorId}
 		</where>
+		
+		<if test="groupId != -1">
+			and article_group_id=#{groupId}
+		</if>
 		order by article.create_date desc
 		limit #{currentPage}, 5
 	</select>
 
 	<select id="getArticleCountByAuthorid" resultType="java.lang.Integer"
-		parameterType="java.lang.Integer">
+		parameterType="map">
 		select count(*) articleCount from article where
 		author_id=#{visitorId} and
 		article_state_id=1 and article_public_id=1
+		<if test="groupId != -1">
+			and article_group_id=#{groupId}
+		</if>
 	</select>
 
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">

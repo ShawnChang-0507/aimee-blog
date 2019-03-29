@@ -32,5 +32,5 @@ public interface ArticleMapper {
 	 * @param visitorId
 	 * @return
 	 */
-	int getArticleCountByAuthorid(Integer visitorId);
+	int getArticleCountByAuthorid(Map<String, Integer> map);
 }
