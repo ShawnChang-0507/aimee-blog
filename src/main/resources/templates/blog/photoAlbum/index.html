@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta http-equiv="Content-Language" content="zh-cn">
 <meta charset="utf-8">
 <title>Aimee | 相册</title>
-<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="viewport"
+	content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <meta name="theme-color" content="#77AAFF">
 <meta name="keywords" content="">
 <meta name="description" content="Aimee">
@@ -18,12 +20,15 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tags">
 <meta name="twitter:description" content="Aimee">
-<link rel="alternate" type="application/atom+xml" title="Aimee" href="/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Aimee"
+	href="/atom.xml">
 <link rel="shortcut icon" href="../../images/favicon.ico">
 <link id="style" rel="stylesheet" href="/css/aimee-style.css?v=3.0">
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css?v=3.0">
-<link rel="stylesheet" type="text/css" href="/css/wangEditor.min.css?v=3.0">
-<link href="https://cdn.bootcss.com/bootstrap-fileinput/4.5.2/css/fileinput.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css"
+	href="/css/bootstrap.min.css?v=3.0">
+<link rel="stylesheet" type="text/css"
+	href="/css/wangEditor.min.css?v=3.0">
+<link rel="stylesheet" type="text/css" href="/css/photo-album.css">
 <script>
 	window.lazyScripts = []
 </script>
@@ -31,70 +36,59 @@
 </head>
 <body>
 	<div id="loading" class="active"></div>
-	<aside id="menu" class="hide">
+	<aside id="menu">
 		<div class="inner flex-row-vertical">
-			<a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-				<i class="icon icon-lg icon-close"></i>
+			<a href="javascript:;"
+				class="header-icon waves-effect waves-circle waves-light"
+				id="menu-off"> <i class="icon icon-lg icon-close"></i>
 			</a>
 			<div class="brand-wrap">
 				<div class="brand">
 					<a href="/" class="avatar waves-effect waves-circle waves-light">
-						<img src="/img/avatar.jpg" alt="avatar">
+						<img th:src="${tourist.headUrl }" alt="avatar">
 					</a>
 					<hgroup class="introduce">
-						<h5 class="nickname" id="name">Aimee</h5>
+						<h5 class="nickname" id="name" th:text="${tourist.nickName }">Aimee</h5>
 						<div id="yiyanaimee" class="aimee">&nbsp;</div>
 					</hgroup>
 				</div>
 			</div>
 			<div class="scroll-wrap flex-col">
 				<ul class="nav">
-
-					<li class="waves-block waves-effect">
-						<a href="/blog">
-							<i class="icon icon-lg icon-home"></i> <span>主 页</span> <i class="icon icon-lg icon-caret-left"></i>
-						</a>
-					</li>
-
-					<li class="waves-block waves-effect">
-						<a href="/blog/archives">
-							<i class="icon icon-lg icon-archives"></i> <span>归 档</span> <i class="icon icon-lg icon-caret-left"></i>
-						</a>
-					</li>
-
-					<li class="waves-block waves-effect">
-						<a href="/blog/categories">
-							<i class="icon icon-lg icon-th-list"></i> <span>分 类</span> <i class="icon icon-lg icon-caret-left"></i>
-						</a>
-					</li>
-
-					<li class="waves-block waves-effect">
-						<a href="/blog/photoAlbum">
-							<i class="icon icon-lg icon-tags"></i> <span> <!-- 标 签 --> 相册
-							</span> <i class="icon icon-lg icon-caret-left"></i>
-						</a>
-					</li>
-
-					<li class="waves-block waves-effect">
-						<a href="/blog/about">
-							<i class="icon icon-lg icon-smile-o"></i> <span>关 于</span> <i class="icon icon-lg icon-caret-left"></i>
-						</a>
-					</li>
-
-					<li class="waves-block waves-effect">
-						<a href="/../">
-							<i class="icon icon-lg icon-align-justify"></i> <span>导 航</span> <i class="icon icon-lg icon-caret-left"></i>
-						</a>
-					</li>
-
+					<li class="waves-block waves-effect"><a href="/showBlog">
+							<i class="icon icon-lg icon-home"></i> <span>主 页</span> <i
+							class="icon icon-lg icon-caret-left"></i>
+					</a></li>
+					<li class="waves-block waves-effect"><a href="/blog/archives">
+							<i class="icon icon-lg icon-archives"></i> <span>归 档</span> <i
+							class="icon icon-lg icon-caret-left"></i>
+					</a></li>
+					<li class="waves-block waves-effect"><a
+						href="/blog/categories"> <i class="icon icon-lg icon-th-list"></i>
+							<span>分 类</span> <i class="icon icon-lg icon-caret-left"></i>
+					</a></li>
+					<li class="waves-block waves-effect"><a
+						href="/blog/photoAlbum"> <i class="icon icon-lg icon-tags"></i>
+							<span> <!-- 标 签 --> 相册
+						</span> <i class="icon icon-lg icon-caret-left"></i>
+					</a></li>
+					<li class="waves-block waves-effect"><a href="/blog/about">
+							<i class="icon icon-lg icon-smile-o"></i> <span>关 于</span> <i
+							class="icon icon-lg icon-caret-left"></i>
+					</a></li>
+					<li class="waves-block waves-effect"><a href="/../"> <i
+							class="icon icon-lg icon-align-justify"></i> <span>导 航</span> <i
+							class="icon icon-lg icon-caret-left"></i>
+					</a></li>
 					<div class="nav2">
-						<a class="nav2item" data-title="Email" href="mailto:sanbowla@163.com" target="_parent" title="Email">
+						<a class="nav2item" data-title="Email"
+							href="mailto:sanbowla@163.com" target="_parent" title="Email">
 							<i class="icon icon-lg icon-envelope-o envelope-o"></i>
-						</a>
-						<a class="nav2item" data-title="Github" href="https://github.com/ShawnChang-0507" target="_blank" title="Github">
-							<i class="icon icon-lg icon-github github"></i>
-						</a>
-						<a class="nav2item" data-title="微博" href="https://weibo.com/u/378090670" target="_blank" title="微博">
+						</a> <a class="nav2item" data-title="Github"
+							href="https://github.com/ShawnChang-0507" target="_blank"
+							title="Github"> <i class="icon icon-lg icon-github github"></i>
+						</a> <a class="nav2item" data-title="微博"
+							href="https://weibo.com/u/378090670" target="_blank" title="微博">
 							<i class="icon icon-lg icon-weibo weibo"></i>
 						</a>
 					</div>
@@ -104,63 +98,82 @@
 	</aside>
 
 	<main id="main"> <!-- 登录 -->
-	<div class="modal fade" id="loginId" tabindex="-1" role="dialog" aria-labelledby="loginTitleId" aria-hidden="true">
+	<div class="modal fade" id="loginId" tabindex="-1" role="dialog"
+		aria-labelledby="loginTitleId" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title" id="loginTitleId">登录账户</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label for="">账号：</label>
-						<input type="text" class="form-control" name="" id="loginLoginName" aria-describedby="helpId" placeholder="">
-						<small id="loginLoginNameHelp" class="form-text text-muted text-hide text-danger">Help text</small>
-						<label for="">密码：</label>
-						<input type="password" class="form-control" name="" id="loginLoginPassword" aria-describedby="helpId" placeholder="">
-						<small id="loginLoginPasswordHelp" class="form-text text-muted text-hide text-danger"> <span class="badge badge-danger passwordInfo">简单</span>
+						<label for="">账号：</label> <input type="text" class="form-control"
+							name="" id="loginLoginName" aria-describedby="helpId"
+							placeholder=""> <small id="loginLoginNameHelp"
+							class="form-text text-muted text-hide text-danger">Help
+							text</small> <label for="">密码：</label> <input type="password"
+							class="form-control" name="" id="loginLoginPassword"
+							aria-describedby="helpId" placeholder=""> <small
+							id="loginLoginPasswordHelp"
+							class="form-text text-muted text-hide text-danger"> <span
+							class="badge badge-danger passwordInfo">简单</span>
 						</small>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-					<button type="button" class="btn btn-primary login" data-dismiss="modal">登录</button>
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary login"
+						data-dismiss="modal">登录</button>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- register -->
-	<div class="modal fade" id="registerId" tabindex="-1" role="dialog" aria-labelledby="registerTitleId" aria-hidden="true">
+	<div class="modal fade" id="registerId" tabindex="-1" role="dialog"
+		aria-labelledby="registerTitleId" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title" id="registerTitleId">注册账户</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label for="">登录账号：</label>
-						<input type="text" class="form-control" name="" id="registerLoginName" aria-describedby="helpId" placeholder="">
-						<small id="registerLoginNameHelp" class="form-text text-muted text-danger text-hide">请填写登录账号！</small>
-						<label for="">昵称：</label>
-						<input type="text" class="form-control" name="" id="registerNickName" aria-describedby="helpId" placeholder="">
-						<small id="registerNickNameHelp" class="form-text text-muted text-danger text-hide">请输入昵称</small>
-						<label for="">登录密码：</label>
-						<input type="password" class="form-control" name="" id="registerLoginPassword" aria-describedby="helpId" placeholder="">
-						<small id="registerLoginPasswordHelp" class="form-text text-muted text-danger text-hide"> <span class="badge badge-danger passwordInfo">请输入登录密码！</span>
-						</small>
-						<label for="">重复密码：</label>
-						<input type="password" class="form-control" name="" id="registerLoginRePassword" aria-describedby="helpId" placeholder="">
-						<small id="registerLoginRePasswordHelp" class="form-text text-muted text-danger text-hide">重复登录密码！</small>
+						<label for="">登录账号：</label> <input type="text"
+							class="form-control" name="" id="registerLoginName"
+							aria-describedby="helpId" placeholder=""> <small
+							id="registerLoginNameHelp"
+							class="form-text text-muted text-danger text-hide">请填写登录账号！</small>
+						<label for="">昵称：</label> <input type="text" class="form-control"
+							name="" id="registerNickName" aria-describedby="helpId"
+							placeholder=""> <small id="registerNickNameHelp"
+							class="form-text text-muted text-danger text-hide">请输入昵称</small>
+						<label for="">登录密码：</label> <input type="password"
+							class="form-control" name="" id="registerLoginPassword"
+							aria-describedby="helpId" placeholder=""> <small
+							id="registerLoginPasswordHelp"
+							class="form-text text-muted text-danger text-hide"> <span
+							class="badge badge-danger passwordInfo">请输入登录密码！</span>
+						</small> <label for="">重复密码：</label> <input type="password"
+							class="form-control" name="" id="registerLoginRePassword"
+							aria-describedby="helpId" placeholder=""> <small
+							id="registerLoginRePasswordHelp"
+							class="form-text text-muted text-danger text-hide">重复登录密码！</small>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-					<button type="button" class="btn btn-primary register" data-dismiss="modal">提交</button>
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary register"
+						data-dismiss="modal">提交</button>
 				</div>
 			</div>
 		</div>
@@ -168,29 +181,34 @@
 
 	<header class="top-header" id="header">
 		<div class="flex-row">
-			<a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-				<i class="icon icon-lg icon-navicon"></i>
+			<a href="javascript:;"
+				class="header-icon waves-effect waves-circle waves-light on"
+				id="menu-toggle"> <i class="icon icon-lg icon-navicon"></i>
 			</a>
 			<div class="flex-col header-title ellipsis">相册</div>
 
 			<div class="search-wrap" id="search-wrap">
-				<a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+				<a href="javascript:;"
+					class="header-icon waves-effect waves-circle waves-light" id="back">
 					<i class="icon icon-lg icon-chevron-left"></i>
-				</a>
-				<input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-				<a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-					<i class="icon icon-lg icon-search"></i>
+				</a> <input type="text" id="key" class="search-input" autocomplete="off"
+					placeholder="输入感兴趣的关键字"> <a href="javascript:;"
+					class="header-icon waves-effect waves-circle waves-light"
+					id="search"> <i class="icon icon-lg icon-search"></i>
 				</a>
 			</div>
 
-			<a href="blog/editBlog" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+			<a href="blog/editBlog" target="_blank"
+				class="header-icon waves-effect waves-circle waves-light" id="Rss">
 				<i class="icon icon-lg icon-book"></i>
-			</a>
-			<a href="#" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss1" data-toggle="modal" data-target="#loginId">
-				<i class="icon icon-lg icon-user"></i>
-			</a>
-			<a href="#" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss2" data-toggle="modal" data-target="#registerId">
-				<i class="icon icon-lg icon-user-plus"></i>
+			</a> <a href="#" target="_blank"
+				class="header-icon waves-effect waves-circle waves-light" id="Rss1"
+				data-toggle="modal" data-target="#loginId"> <i
+				class="icon icon-lg icon-user"></i>
+			</a> <a href="#" target="_blank"
+				class="header-icon waves-effect waves-circle waves-light" id="Rss2"
+				data-toggle="modal" data-target="#registerId"> <i
+				class="icon icon-lg icon-user-plus"></i>
 			</a>
 		</div>
 	</header> <header class="content-header page-header">
@@ -221,98 +239,70 @@
 
 	<div class="aimee_container body-wrap">
 		<article class="page-article aimee-fade" itemprop="blogPage">
-			<!-- <div class="card page-about-me flex-row">
-				<a href="/" class="avatar waves-effect waves-circle waves-light">
-					<img src="/img/avatar.jpg">
-				</a>
-				<div class="content flex-col">
-					<p>
-						<strong>Aimee</strong>
-					</p>
-					<p>
-						<em>Welcome</em>
-					</p>
-					<p>业精于勤荒于嬉，行成于思毁于随</p>
-				</div>
-			</div> -->
-
-			<div id="exampleModalPopovers" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalPopoversLabel" style="display: none;"
-				aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalPopoversLabel">上传图片</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
+			<div class="card page-about-me flex-row">
+				<div class="albumBox">
+					<a href="/">
+						<div class="photoAlbum">
+							<img src="/images/avatar.jpg"></img>
 						</div>
-						<div class="modal-body">
-							<h6 class="image-name"></h6>
-							<p>
-								<input id="f_upload" name="up-img" type="file" class="file" language="zh" multiple="true" />
-							</p>
+						<div class="photoAlbumTitle">
+							<small>标题</small> <br /> <small>简介</small>
 						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-						</div>
-					</div>
+					</a>
 				</div>
 			</div>
 
-			<button type="button" class="btn btn-primary up-load-image" data-toggle="modal" data-target="#exampleModalPopovers">上传图片</button>
 			<div class="page-reward">
 				<nav class="myreward">
-					<a id="rewardBtn" href="javascript:;">
-						<span>打&nbsp;赏</span> <span>装成好像很多人打赏的样子</span>
+					<a id="rewardBtn" href="javascript:;"> <span>打&nbsp;赏</span> <span>装成好像很多人打赏的样子</span>
 					</a>
 				</nav>
 			</div>
 		</article>
-
-		<div id="reward" class="page-modal reward-lay">
-			<a class="close" href="javascript:;">
-				<i class="icon icon-close"></i>
-			</a>
-			<h3 class="reward-title">
-				<i class="icon icon-quote-left"></i> <span>感谢您的鼓励支持！</span> <i class="icon icon-quote-right"></i>
-			</h3>
-			<div class="reward-content">
-
-				<div class="reward-code">
-					<img id="rewardCode" data-img="../../images/dog.png" alt="打赏二维码">
-				</div>
-				<label class="reward-toggle">
-					<input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="../../images/wechatPay.png"
-						data-alipay="../../images/alipay.png">
-					<div class="reward-toggle-ctrol">
-						<span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span> <span class="reward-toggle-item alipayPay">支付宝</span>
-					</div>
-				</label>
-				<i class="icon icon-caret-up"></i>
-			</div>
-		</div>
 	</div>
 	<footer class="footer">
 		<div class="footer-content">
-			<span class="power"> <i class="icon icon-lg icon-copyright"></i> 2019 <i class="icon icon-lg icon-heart"></i> <a
-					href="http://zhangxiaoran.cn">zhangxiaoran.cn</a> <br /> Power by <a href="http://tomotoes.com/" target="_blank" rel="external nofollow">tomotoes</a>
+			<span class="power"> <i class="icon icon-lg icon-copyright"></i>
+				2019 <i class="icon icon-lg icon-heart"></i> <a
+				href="http://zhangxiaoran.cn">zhangxiaoran.cn</a> <br /> Power by <a
+				href="http://tomotoes.com/" target="_blank" rel="external nofollow">tomotoes</a>
 				&nbsp;·&nbsp; Theme
-			</span> <br /> <span id="RunTime" style="color: #a7a7a2;"></span> <br /> <span> <i class="icon icon-lg icon-user"> <span
-					id="busuanzi_container_site_uv" style='display: none'> 访问用户： <span id="busuanzi_value_site_uv"></span>
-				</span> 人
-			</i> · <i class="icon icon-lg icon-eye"> <span id="busuanzi_container_site_pv" style='display: none'> 访问次数： <span
-						id="busuanzi_value_site_pv"></span>
-				</span> 次
-			</i>
-			</span> <br /> <span class="license"> <a target="_blank" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">博客内容遵循
-					知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a>
-			</span>
+			</span> <br /> <span id="RunTime" style="color: #a7a7a2;"></span> <br /> <span>
+				<i class="icon icon-lg icon-user"
+				th:text="' '+${totalVisitorNumber }+'人'"></i> · <i
+				class="icon icon-lg icon-eye" th:text="' '+${totalVisitNumber }+'次'"></i>
+
+			</span> <br /> <span class="license">京ICP备19007542号</span>
 		</div>
 	</footer> </main>
+	<div id="reward" class="page-modal reward-lay">
+		<a class="close" href="javascript:;"> <i class="icon icon-close"></i>
+		</a>
+		<h3 class="reward-title">
+			<i class="icon icon-quote-left"></i> <span>感谢您的鼓励支持！</span> <i
+				class="icon icon-quote-right"></i>
+		</h3>
+		<div class="reward-content">
+			<div class="reward-code">
+				<img id="rewardCode" data-img="../images/dog.png" alt="打赏二维码">
+			</div>
+
+			<label class="reward-toggle"> <input id="rewardToggle"
+				type="checkbox" class="reward-toggle-check"
+				data-wechat="../images/wechatPay.png"
+				data-alipay="../images/alipay.png">
+				<div class="reward-toggle-ctrol">
+					<span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+					<span class="reward-toggle-item alipayPay">支付宝</span>
+				</div>
+			</label> <i class="icon icon-caret-up"></i>
+		</div>
+	</div>
 
 	<div class="mask" id="mask"></div>
-	<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light">
-		<span class="icon icon-lg icon-chevron-up"></span>
+	<a href="javascript:;" id="gotop"
+		class="waves-effect waves-circle waves-light"> <span
+		class="icon icon-lg icon-chevron-up"></span>
 	</a>
 	<!-- waves按钮特效 -->
 	<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
@@ -331,8 +321,6 @@
 	<script src="/js/jquery.min.js?v=3.0" type="text/JavaScript"></script>
 	<script src="/js/popper.min.js?v=3.0" type="text/JavaScript"></script>
 	<script src="/js/bootstrap.min.js?v=3.0" type="text/JavaScript"></script>
-	<script src="https://cdn.bootcss.com/bootstrap-fileinput/4.5.2/js/fileinput.min.js"></script>
-	<script src="https://cdn.bootcss.com/bootstrap-fileinput/4.5.2/js/locales/zh.js"></script>
 	<script>
 		$(function() {
 			$(".dropdown-item").click(function() {
@@ -347,7 +335,8 @@
 		<ul class="search-result" id="search-result"></ul>
 	</div>
 	<template id="search-tpl">
-	<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+	<li class="item waves-block waves-effect"
+		onclick="location.href='{path}'">
 		<div class="title ellipsis" title="{title}">{title}</div>
 	</li>
 	</template>

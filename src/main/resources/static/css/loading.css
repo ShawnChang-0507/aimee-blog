@@ -13,7 +13,7 @@ html {
     --color-menu-item: #000;
     --color-menu-item-hover: #ff963b;
     --color-menu-item-hover-alt: #8544da;
-    --color-content: rgba(253, 0, 253, 0.4);
+    --color-content: rgba(0, 0, 0, 0.4);
     --color-content-fixed: #ddd;
     --font-alt: 200 6vw/1 "FZSEJW", "Helvetica Neue", "Microsoft Yahei", "Microsoft Yahei", -apple-system, sans-serif;
     --color-next: #5f5f5f;

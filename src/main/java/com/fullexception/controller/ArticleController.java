@@ -37,7 +37,7 @@ public class ArticleController {
 
 	@Autowired
 	private VisitorService visitorService;
-	
+
 	@Autowired
 	private DiscussService discussService;
 
@@ -46,6 +46,7 @@ public class ArticleController {
 
 	/**
 	 * 下拉分页，（被抛弃）
+	 * 
 	 * @param currentPage
 	 * @param request
 	 * @return
@@ -53,24 +54,27 @@ public class ArticleController {
 	@ResponseBody
 	@PostMapping("/pullPage")
 	public Map<String, Object> selectPage(Integer currentPage, HttpServletRequest request) {
-		/*if (AimeeHelper.visitor == null) {
-			AimeeHelper.visitor.set(visitorService.tourist());
-		}*/
+		/*
+		 * if (AimeeHelper.visitor == null) {
+		 * AimeeHelper.visitor.set(visitorService.tourist()); }
+		 */
 		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.get().getVisitorId(), null);
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (articleCount / 5 > currentPage) {
 			currentPage++;
-			List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.get().getVisitorId(), currentPage * 5, null);
+			List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.get().getVisitorId(),
+					currentPage * 5, null);
 			map.put("articles", articles);
 			map.put("res", true);
-		}else {
+		} else {
 			map.put("res", false);
 		}
 		return map;
 	}
-	
+
 	/**
 	 * 评论
+	 * 
 	 * @param content
 	 * @param articleId
 	 * @param request
@@ -94,28 +98,30 @@ public class ArticleController {
 			discussService.insertDiscuss(discuss);
 			map.put("res", "您的留言已黏贴到萌村期刊底部~谢谢参与(￣▽￣)");
 			return map;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			map.put("res", "村里快递员把您的留言弄丢了。。。");
 			return map;
 		}
 	}
-	
+
 	/**
 	 * 分页显示博客列表
+	 * 
 	 * @param pageNum
 	 * @param request
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/showBlog")
-	public String showBlogs(int pageNum, String groupId, HttpServletRequest request, ModelMap model){
+	public String showBlogs(int pageNum, String groupId, HttpServletRequest request, ModelMap model) {
 		if (pageNum < 1)
 			pageNum = 1;
 		if (!AimeeHelper.isNumeric(groupId))
 			groupId = null;
-		List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.get().getVisitorId(), pageNum, groupId);
-		//由于上面articles分页了，所以每次只能取出五篇文章，不具备文章数量参考
-		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.get().getVisitorId(), groupId); 
+		List<Article> articles = articleService.showArticleByAuthorId(AimeeHelper.visitor.get().getVisitorId(), pageNum,
+				groupId);
+		// 由于上面articles分页了，所以每次只能取出五篇文章，不具备文章数量参考
+		int articleCount = articleService.getArticleCountByAuthorId(AimeeHelper.visitor.get().getVisitorId(), groupId);
 		AimeeHelper.visitNumber = loginInfoService.countTheNumberOfVisitors();
 		int totalVisitorNumber = AimeeHelper.visitNumber.get("totalVisitorNumber");
 		int totalVisitNumber = AimeeHelper.visitNumber.get("totalVisitNumber");
@@ -128,9 +134,10 @@ public class ArticleController {
 		model.addAttribute("groupId", groupId);
 		return "/blog/index";
 	}
-	
+
 	/**
 	 * 查看文章，加载上一篇和下一篇
+	 * 
 	 * @param request
 	 * @param model
 	 * @return
@@ -180,6 +187,7 @@ public class ArticleController {
 
 	/**
 	 * 编写博客文章
+	 * 
 	 * @param request
 	 * @param model
 	 * @return
@@ -198,6 +206,7 @@ public class ArticleController {
 
 	/**
 	 * 添加文章分组
+	 * 
 	 * @param groupName
 	 * @param request
 	 * @return
@@ -215,6 +224,7 @@ public class ArticleController {
 
 	/**
 	 * 保存博客文章
+	 * 
 	 * @param groupId
 	 * @param title
 	 * @param secondTitle
@@ -258,26 +268,34 @@ public class ArticleController {
 
 		return resultMap;
 	}
-	
+
 	/**
 	 * 展示相册界面
+	 * 
 	 * @param request
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/photoAlbum")
-	public String photoAlbum(HttpServletRequest request, ModelMap model){
+	public String photoAlbum(HttpServletRequest request, ModelMap model) {
+		AimeeHelper.visitNumber = loginInfoService.countTheNumberOfVisitors();
+		int totalVisitorNumber = AimeeHelper.visitNumber.get("totalVisitorNumber");
+		int totalVisitNumber = AimeeHelper.visitNumber.get("totalVisitNumber");
+		model.addAttribute("tourist", AimeeHelper.visitor.get());
+		model.addAttribute("totalVisitorNumber", totalVisitorNumber);
+		model.addAttribute("totalVisitNumber", totalVisitNumber);
 		return "/blog/photoAlbum/index";
 	}
-	
+
 	/**
 	 * 显示所有博客分类
+	 * 
 	 * @param request
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/categories")
-	public String categories(HttpServletRequest request, ModelMap model){
+	public String categories(HttpServletRequest request, ModelMap model) {
 		int visitorId = AimeeHelper.visitor.get().getVisitorId();
 		List<ArticleGroup> articleGroups = articleService.getAllArticleGroupByVisitorId(visitorId);
 		model.addAttribute("articleGroups", articleGroups);
