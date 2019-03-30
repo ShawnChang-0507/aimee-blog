@@ -1,10 +1,77 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <meta charset="UTF-8">
-<title>紧急页面</title>
+<title>当前位置：火星</title>
+<style>
+html, body {
+	/* background-color: rgb(240,240,240); */
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	text-align: center;
+	background-color: rgb(240, 240, 240);
+}
+
+.model, .model>a {
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+}
+
+.model img {
+	width: 100%;
+	height: 100%;
+}
+
+img{
+	border-radius: 50%;
+	box-shadow: 0px 0px 5px 1px #888888;
+	position: relative;
+	animation: downAni 10s infinite;
+	animation-fill-mode: forwards;
+	animation-timing-function:linear;
+}
+
+a{
+	text-decoration: none;
+    color: inherit;
+    color: rgb(50, 50, 50);
+}
+
+.model {
+	top: 10%;
+	position: relative;
+	text-align: center;
+}
+
+@keyframes downAni {
+	from{transform: rotate(0deg);} to {transform: rotate(360deg);};
+}
+
+.span{
+	top: 40px;
+	position: relative;
+	animation: shakeAni 8s infinite;
+	animation-fill-mode: forwards;
+	animation-timing-function:linear;
+}
+
+@keyframes shakeAni {
+	0% {transform: rotate(0deg);} 
+	25% {transform: rotate(15deg);}
+	50% {transform: rotate(0deg);} 
+	75% {transform: rotate(-15deg);}
+	100% {transform: rotate(0deg);} 
+}
+</style>
 </head>
 <body>
-	<h1>服务器错误！</h1>
+	<div class="model">
+		<a href="../">
+			<img src="../images/default.jpeg"></img>
+			<div class="span">当前道路正在抢修,点我~</div>
+		</a>
+	</div>
 </body>
 </html>
